@@ -18,4 +18,12 @@ if($idtipi==9 || $idtipi==10){
     </select>
 </p>
 <?php
+    } else {
+?>
+<p>
+    <select id="subfinales">
+        <option value="0"></option>    
+    </select>
+</p>
+<?php
     }

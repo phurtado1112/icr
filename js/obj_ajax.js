@@ -50,7 +50,7 @@ xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 xmlhttp.send('ajxcliente='+cliente+'&ajxfinales='+finales+'&ajxobservacion='+observacion+'&ajxuser='+usuario+'&ajxsubfinal='+sub_finales+'&ajxagendar='+agendar);
 }
 
-//////////////ENVIO DE VARIABLES PARA GUARDAR INFORMACION CLIENTE CONTACTADOS/////////////////////
+//////////////ENVIO DE VARIABLES PARA GUARDAR INFORMACION CLIENTE AGENDADOS PREVIAMENTE/////////
 function load(cliente,finales,observacion,usuario,sub_finales,agendar)
 {
 var xmlhttp;

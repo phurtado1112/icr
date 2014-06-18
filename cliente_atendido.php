@@ -13,6 +13,11 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
 while ($filacontactos = bd_obtener_fila($lista_contactos)){
     $contactos[] = $filacontactos;
 }
+
+$consulta_campania = "SELECT * FROM campanias where idcampania=" . $_SESSION['idcampania'];
+$lista_campanias = bd_ejecutar_sql($consulta_campania);
+$filacamp = bd_obtener_fila($lista_campanias);
+$var_camp_nombre = $filacamp['campania'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,49 +29,7 @@ while ($filacontactos = bd_obtener_fila($lista_contactos)){
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <body>
-        <?php include ("menu.php"); ?>
-        <!--        <div class="navbar navbar-inverse navbar-fixed-top">
-                    <div class="navbar-inner">
-                        <div class="container-fluid">
-                            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="brand" href="#"><?php //echo $nombre_camp;   ?></a>
-                            <div class="nav-collapse collapse">
-                                <p class="navbar-text pull-right">
-                                    <a href="desconectar_usuario.php" class="navbar-link">Salir</a>
-                                </p>
-                                <ul class="nav">
-                                    <li><a href="main.php">Home</a></li>
-                                    <li><a href="main.php">Nuevo Contacto</a></li>
-                                    <li><a href="search.php">Busqueda</a></li>
-                                    <li class="active"><a href="clientehoy.php">Atendidos</a></li>
-                                </ul>
-                            </div>/.nav-collapse 
-                            <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
-                            <select id="idopcion">
-                                <option value="0">ALL</option>
-                                <option value="6">Full Name</option> 	
-                                <option value="3">Current Employer Title</option>
-                                <option value="4">Current Employer</option>        
-                                <option value="5">Email</option>            
-                            </select>
-                            <button type="button" class="btn" onClick="porclick()">Buscar</button>
-                        </div>
-        
-                    </div>
-                </div>-->
-
-        <!--</div>/span-->
-        <!--</div>/row-->
-<!--
-        <hr>
-
-        <footer>
-
-        </footer>-->
+        <?php include 'menu1.php'; ?>
         <div id="container" align="center">   
             <h1 style="alignment-adjust: central">Clientes Atendidos</h1>       
             <div id="resul_search">

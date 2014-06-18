@@ -8,22 +8,17 @@ if (!$_SESSION) {
 	</script>';
 }
 
-//echo $_SESSION['idcampania'];
-
 $consulta_campa = "SELECT * FROM campanias where idcampania='" . $_SESSION['idcampania'] . "' ";
 $lista_campa = bd_ejecutar_sql($consulta_campa);
 $filacamp = bd_obtener_fila($lista_campa);
 $var_camp_nombre = $filacamp['campania'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>INCAE | CRM</title>
-        <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta name="description" content="">
-                <meta name="author" content="">-->
-
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -33,34 +28,7 @@ $var_camp_nombre = $filacamp['campania'];
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
-<!--        <div class="navbar navbar-inverse navbar-fixed-top" id="divmenu">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" href="#"><?php echo $var_camp_nombre; ?> <?php //echo date('d - M - Y')        ?> </a>
-                    <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">
-                            <a href="salir.php" class="navbar-link">Salir</a>
-                        </p>
-                        <ul class="nav">
-                            <li><a href="cambio_estado.php">Estado</a></li>
-                            <li class="active"><a href="nuevo_cliente.php">Nuevo Contacto</a></li>
-                            <li ><a href="contactos.php">Busqueda</a></li>
-                            <li><a href="cliente_atendido.php">Atendidos</a></li>
-                                                        <li><a href="#" class="big-link" data-reveal-id="myModal" data-animation="fade">Estados</a></li>
-                            <li>		
-                                <div align="center"></div>
-                            </li>
-                        </ul>
-                    </div>/.nav-collapse 
-                </div>       
-            </div>
-        </div>-->
-        <?php include ("menu.php"); ?>
+        <?php include ("menu1.php"); ?>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span3" id="sidebar">
@@ -83,6 +51,11 @@ $var_camp_nombre = $filacamp['campania'];
                         <input type="text" name="TelTrabajo" id="telTrabajo" placeholder="Teléfono Oficina">
                         <input type="text" name="Cargo" id="cargo" placeholder="Cargo">
                         <input type="text" name="Empresa" id="empresa" placeholder="Empresa">
+                        <select name="finales" id="finales" >
+                            <option value="0">Prioridad Baja</option>
+                            <option value="1">Prioridad Media</option>
+                            <option value="2">Prioridad Alta</option>
+                        </select>
                         <div>
                             <div align="center">
                                 <input type="button" class="btn btn-success" value="Guardar" onclick="Enviar()">
@@ -100,7 +73,7 @@ $var_camp_nombre = $filacamp['campania'];
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/obj_ajax.js"></script>
-        <script type="text/javascript" src="js/jquery.reveal.js"></script>
+        <script src="js/jquery.reveal.js"></script>
 
         <script type="text/javascript">
             //VALIDACION PARA FORMULARIO DE NUEVO CONTACTO
@@ -116,11 +89,6 @@ $var_camp_nombre = $filacamp['campania'];
                     }
                 }
             }
-        </script>   
-        <!-- Libreria de venta emergente -->
-
-<!--		<script type="text/javascript" src="popup/jquery-1.4.4.min.js"></script> -->
-        <!--<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>--> 
-<!--        <script type="text/javascript" src="js/cronos.js"></script>                -->
+        </script>
     </body>
 </html>

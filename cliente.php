@@ -71,7 +71,7 @@ $var_camp_nombre = $filacamp['campania'];
                         </p>
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
-                            <li class="active"><a href="contactos.php">Busqueda</a></li>
+                            <li class="active"><a href="contactos.php">Contactos</a></li>
                             <li><a href="cliente_atendido.php">Atendidos</a></li>
                         </ul>
                     </div>
@@ -187,11 +187,7 @@ $var_camp_nombre = $filacamp['campania'];
                         finales = document.getElementById('finales').value;
                         observacion = document.getElementById('OBSERVACION').value;
                         usuario = document.getElementById('idusuario').value;
-                    if (!isnull(document.getElementById('subfinales').value)){
                         sub_finales = document.getElementById('subfinales').value;
-                    } else {
-                        sub_finales=0;
-                    }
                         agendar = document.getElementById('datepicker').value;
                         load(cliente, finales, observacion, usuario, sub_finales, agendar);
                     }

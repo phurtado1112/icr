@@ -15,21 +15,14 @@ $fecha = filter_input(INPUT_POST, 'ajxsagendar');
 $idtipificacion = filter_input(INPUT_POST, 'jaxfinales');
 $idsubtipificacion = filter_input(INPUT_POST, 'ajxsubfinal');
 $idusuario = filter_input(INPUT_POST, 'ajxuser');
-echo $idcliente;
-echo '<br>';
-echo $idtipificacion;
-echo '<br>';
-echo $fecha;
-echo '<br>';
-echo $idsubtipificacion;
-echo '<br>';
+
 error_reporting(0);
 
 if (isset($idcliente)) {
     echo '<script language = javascript>
 			alert("llego")"
 			</script>';
-
+    
     if ($idtipificacion == '5') {
         $inserta_agenda = "INSERT INTO agenda (idcliente,fecha,observacion)
 			VALUES(
@@ -39,7 +32,7 @@ if (isset($idcliente)) {
 			)";
         bd_ejecutar_sql($inserta_agenda);
     } else {
-        $actualiza_cliente = "update clientes set idestado='1' where idcliente=" . $idcliente;
+        $actualiza_cliente = "update clientes set idestado=1 where idcliente=" . $idcliente;
         bd_ejecutar_sql($actualiza_cliente);
     }
 
@@ -67,6 +60,6 @@ if (isset($idcliente)) {
 		<title>Registro Guardado...</title> 
 	</head>
 <body>
-<center><h3>Registro Guardado...<a href="contactos.php">Nuevo</a></h3></center>
+<center><h3>Registro Guardado...<a href="contactos.php">Contactos</a></h3></center>
 </body>
 </html>

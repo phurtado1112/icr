@@ -6,9 +6,6 @@ $idtipi = filter_input(INPUT_POST, 'q');
 $consulta_tipif = "select * from subtipificacion where idtipificacion=" . $idtipi;
 $lista_tipif = bd_ejecutar_sql($consulta_tipif);
 ?>
-<?php
-if($idtipi==9 || $idtipi==10){
-?>
 <p>
     <select id="subfinales">
         <option value="0">-----</option>    
@@ -17,13 +14,4 @@ if($idtipi==9 || $idtipi==10){
         <?php } ?>
     </select>
 </p>
-<?php
-    } else {
-?>
-<p>
-    <select id="subfinales">
-        <option value="0"></option>    
-    </select>
-</p>
-<?php
-    }
+   

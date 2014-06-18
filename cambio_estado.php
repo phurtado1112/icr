@@ -26,7 +26,7 @@ $lista_estados = bd_ejecutar_sql($consulta_estados);
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
-        <?php include ("menu.php"); ?>
+        <?php include ("menu1.php"); ?>
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span3" id="sidebar">

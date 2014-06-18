@@ -17,23 +17,22 @@ error_reporting(0);
 if (isset($opcion)) {
     switch ($opcion) {
         case 0:
-//            echo "estoy en cero";
             $busqueda = "SELECT * FROM clientes WHERE idcampania='" . $idcampania . "' ORDER BY clientes.prioridad";
             break;
-        case 6:
+        case 2:
             $busqueda = "SELECT * FROM clientes WHERE nombre LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' ORDER BY clientes.prioridad";
-
+            break;
         case 3:
-            $busqueda = "SELECT * FROM clientes WHERE puesto LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes WHERE cargo LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' ORDER BY clientes.prioridad";
             break;
         case 4:
             $busqueda = "SELECT * FROM clientes WHERE empresa LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' ORDER BY clientes.prioridad";
             break;
         case 5:
-            $busqueda = "SELECT * FROM clientes WHERE email LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' ORDER BY clientes.prioridade";
+            $busqueda = "SELECT * FROM clientes WHERE email LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' ORDER BY clientes.prioridad";
             break;
     }
-
+    
     $lista_contactos_campania = bd_ejecutar_sql($busqueda);
     while ($fila = bd_obtener_fila($lista_contactos_campania)) {
         $contactos[] = $fila;
@@ -58,7 +57,7 @@ if (isset($opcion)) {
                 <tr>
                     <th>Nombre</th>					
                     <th>Correo</th>                    
-                    <th>Puesto</th>
+                    <th>Cargo</th>
                     <th>Empresa</th>
                     <th>Acción</th>                                                            
                 </tr>
@@ -67,7 +66,7 @@ if (isset($opcion)) {
                     $ids = $c['idcliente'];
                     if ($c['idestado'] == '0') {
                         switch ($c['prioridad']) {
-                            case '3':
+                            case '2':
                                 echo"
                                     <tr>
                                     <td><font color='#094AB2'><strong>" . ($c['nombre']) . "</td>
@@ -77,7 +76,7 @@ if (isset($opcion)) {
                                     <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
                                     </tr";
                                 break;
-                            case '2':
+                            case '1':
                                 echo"
                                     <tr>
                                     <td><font color='#008A00'><strong>" . ($c['nombre']) . "</td>

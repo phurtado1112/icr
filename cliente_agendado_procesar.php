@@ -56,7 +56,7 @@ if (isset($cte)) {
         <title>Registro Guardado...</title>
 </head>
 <body>
-        <center><h3>Registro Guardado...<a href="contactos.php">Nuevo</a></h3></center>
+        <center><h3>Registro Guardado...<a href="contactos.php">Contactos</a></h3></center>
 </body>
 </html>
 

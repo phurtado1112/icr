@@ -43,7 +43,7 @@ while ($filanoat = bd_obtener_fila($lista_noatendidos)) {
     $var_no_atendido = $filanoat['conteo'];
 }
 
-$consulta_camp = "SELECT * FROM campanias where idcampania=" . $_SESSION['usuariolog'];
+$consulta_camp = "SELECT * FROM campanias where idcampania=" . $_SESSION['idcampania'];
 $lista_campania = bd_ejecutar_sql($consulta_camp);
 while ($filacam = bd_obtener_fila($lista_campania)) {
     $var_camp_nombre = $filacam['campania'];
@@ -72,7 +72,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                 <fieldset>
                     <legend>Clientes atendidos: <?php echo $var_atendido ?> de <?php echo $var_no_atendido ?></legend>             
                     <div style="display:none">
-                        <input type="text" id="idusuario" size="1" value="<?php echo $_SESSION['iduser'] ?>"/>
+                        <input type="text" id="idusuario" size="1" value="<?php echo $_SESSION['idusuario'] ?>"/>
                         <input type="text" name="idcliente" id="idcliente" size="1" value="<?php echo $idcliente ?>"  />                
                     </div>
                     <table width="1200">
@@ -177,7 +177,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                         usuario = document.getElementById('idusuario').value;
                         sub_finales = document.getElementById('subfinales').value;
                         agendar = document.getElementById('datepicker').value;
-                        load(cliente, finales, observacion, usuario, sub_finales, agendar);
+                        load_agendados(cliente, finales, observacion, usuario, sub_finales, agendar);
                     }
                 }
             }

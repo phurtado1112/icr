@@ -56,8 +56,7 @@ if (isset($idcliente)) {
 ?>
 <html>
 	<head>
-<!--    <META HTTP-EQUIV="Refresh" CONTENT="1; URL=cliente.php">-->
-		<title>Registro Guardado...</title> 
+            <title>Registro Guardado...</title> 
 	</head>
 <body>
 <center><h3>Registro Guardado...<a href="contactos.php">Contactos</a></h3></center>

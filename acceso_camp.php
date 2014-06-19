@@ -1,9 +1,6 @@
 <?php
 //Proceso de conexión con la base de datos
 include_once './funciones.general.php';
-include_once './firephpcore/FirePHP.class.php';
-
-$mifirePHP = FirePHP::getInstance(true);
 
 //Inicio de variables de sesión
 if (!isset($_SESSION)) {
@@ -44,5 +41,3 @@ if ($campania == '0') { //opcion1: Si el usuario NO existe o los datos son INCOR
     
     header("Location: progres.html");
 }
-
-//$mifirePHP->log($_SESSION['idregcon'], "ID conexión en acceso_camp"); 

@@ -20,7 +20,7 @@ $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>INCAE | CRM</title>
@@ -75,26 +75,8 @@ $var_camp_nombre = $filacamp['campania'];
                 </table>
             </div>
         </div>
-        <!--</div>-->
-        <!--/.fluid-container-->
-
-        <!-- Le javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
         <script src="js/jquery.js"></script>
-<!--                    <script src="bootstrap/js/bootstrap-transition.js"></script>;
-        <script src="bootstrap/js/bootstrap-alert.js"></script>;
-        <script src="bootstrap/js/bootstrap-modal.js"></script>;
-        <script src="bootstrap/js/bootstrap-dropdown.js"></script>;
-        <script src="bootstrap/js/bootstrap-scrollspy.js"></script>;
-        <script src="bootstrap/js/bootstrap-tab.js"></script>;
-        <script src="bootstrap/js/bootstrap-tooltip.js"></script>;
-        <script src="bootstrap/js/bootstrap-popover.js"></script>;
-        <script src="bootstrap/js/bootstrap-button.js"></script>;
-        <script src="bootstrap/js/bootstrap-collapse.js"></script>;
-        <script src="bootstrap/js/bootstrap-carousel.js"></script>;
-        <script src="bootstrap/js/bootstrap-typeahead.js"></script>;
-        -->                    <script src="js/obj_ajax.js"></script>
+        <script src="js/obj_ajax.js"></script>
         <script>
             function porclick()
             {

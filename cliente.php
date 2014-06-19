@@ -199,7 +199,6 @@ $var_camp_nombre = $filacamp['campania'];
         <script src="js/jquery-ui.js"></script>
         <script>
             $(function() {
-                //$("#datepicker").datepicker();
                 $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
             });
         </script>

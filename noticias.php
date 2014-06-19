@@ -15,7 +15,7 @@ while ($filanews = bd_obtener_fila($lista_noticias)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
         <title>INCAE | CRM</title>
@@ -55,7 +55,7 @@ while ($filanews = bd_obtener_fila($lista_noticias)) {
                     }
                 }
                 ?>
-            </table>    
-
+            </table> 
+        </div>
     </body>
 </html>

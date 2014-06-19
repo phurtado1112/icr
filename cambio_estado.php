@@ -12,7 +12,7 @@ if (!$_SESSION) {
 $consulta_estados = "SELECT * FROM estados";
 $lista_estados = bd_ejecutar_sql($consulta_estados);
 ?>   
-<html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">        
         <title>INCAE | CRM</title>
@@ -22,7 +22,6 @@ $lista_estados = bd_ejecutar_sql($consulta_estados);
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/estilos.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
-        <!--<link href="css/reveal.css" rel="stylesheet">-->
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
@@ -71,7 +70,6 @@ $lista_estados = bd_ejecutar_sql($consulta_estados);
         <script src="js/bootstrap.min.js"></script>
         <script src="js/obj_ajax.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-        <!--<script type="text/javascript" src="js/jquery.reveal.js"></script>-->
         <script type="text/javascript" src="js/cronos.js"></script>  
     </body>
 </html>

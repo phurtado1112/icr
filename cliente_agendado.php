@@ -50,7 +50,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>INCAE</title>

@@ -11,7 +11,7 @@ $lista_campanias = bd_ejecutar_sql($consultaCamp);
 <html lang="es">
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="robots" content="noindex, nofollow">
+        <!--<meta name="robots" content="noindex, nofollow">-->
         <title>INCAE | Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">

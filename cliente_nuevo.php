@@ -15,7 +15,7 @@ $var_camp_nombre = $filacamp['campania'];
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <title>INCAE | CRM</title>
@@ -78,7 +78,6 @@ $var_camp_nombre = $filacamp['campania'];
         <script type="text/javascript">
             //VALIDACION PARA FORMULARIO DE NUEVO CONTACTO
             function Enviar() {
-                //alert('Estoy en Enviar()');
                 if (document.getElementById('nombreCompleto').value === '') {
                     alert('Datos Incompletos');
                 } else {

@@ -24,10 +24,6 @@ $var_camp_nombre = $filacamp['campania'];
     <head>
         <meta charset="utf-8">
         <title>INCAE | CRM</title>
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">-->
-
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css" /> 
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -90,19 +86,18 @@ $var_camp_nombre = $filacamp['campania'];
         <script>
             function porclick()
             {
-                var_numero = document.getElementById('cadena').value
-                var_opcion = document.getElementById('idopcion').value
-                searchdata(var_numero, var_opcion)
+                var_numero = document.getElementById('cadena').value;
+                var_opcion = document.getElementById('idopcion').value;
+                searchdata(var_numero, var_opcion);
 
             }
             function getsearch(evt)
             {
-
-                var keyPressed = (evt.which) ? evt.which : event.keyCode
+                var keyPressed = (evt.which) ? evt.which : event.keyCode;
                 if (keyPressed === 13) {
 
-                    var_numero = document.getElementById('cadena').value
-                    var_opcion = document.getElementById('idopcion').value
+                    var_numero = document.getElementById('cadena').value;
+                    var_opcion = document.getElementById('idopcion').value;
                     searchdata(var_numero, var_opcion);
                 }
             }

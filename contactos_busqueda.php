@@ -40,7 +40,7 @@ if (isset($opcion)) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <title>Registro Guardado...</title>	 
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />       

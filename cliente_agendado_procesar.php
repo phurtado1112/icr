@@ -7,8 +7,7 @@ if (!$_SESSION) {
 	self.location = "index.html"
 	</script>';
 }
-//error_reporting(0);
-//include "conexion.php";
+
 $cte = filter_input(INPUT_POST, 'ajxcliente');
 $usua = filter_input(INPUT_POST, 'ajxuser');
 $fin = filter_input(INPUT_POST, 'ajxfinales');

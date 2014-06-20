@@ -13,6 +13,16 @@ $lista_campanias = bd_ejecutar_sql($consulta_campania);
 $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
 ?>
+<!--<head>
+        <meta charset="utf-8">
+        <title>INCAE | CRM</title>
+        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css" /> 
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet">        
+        <link href="css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    </head>-->
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">

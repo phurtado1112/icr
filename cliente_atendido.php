@@ -24,14 +24,39 @@ $var_camp_nombre = $filacamp['campania'];
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>INCAE | CRM</title>
+        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/estilos.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <body>
-        <?php include 'menu1.php'; ?>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#"><?php echo $var_camp_nombre; ?></a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            <a href="salir.php" class="navbar-link">Salir</a>
+                        </p>
+                        <ul class="nav">
+                            <li><a href="noticias.php">Noticias</a></li>
+                            <li><a href="cambio_estado.php">Estado</a></li>
+                            <li><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
+                            <li><a href="contactos.php">Contactos</a></li>
+                            <li class="active"><a href="cliente_atendido.php">Atendidos</a></li>                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="container" align="center">   
-            <h1 style="alignment-adjust: central">Clientes Atendidos</h1>       
+            <h1 style="alignment-adjust: central">Contactos Atendidos</h1>       
             <div id="resul_search">
                 <table class="table">
 
@@ -74,6 +99,9 @@ $var_camp_nombre = $filacamp['campania'];
                     ?>
                 </table>
             </div>
+        </div>
+        <div class="ac">
+            <?php include ("pie.php"); ?>
         </div>
         <script src="js/jquery.js"></script>
         <script src="js/obj_ajax.js"></script>

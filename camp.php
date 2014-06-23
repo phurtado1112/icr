@@ -8,7 +8,7 @@ $consultaCamp = "SELECT Idcamp,campania FROM asignar_view WHERE concluida='n' an
 $lista_campanias = bd_ejecutar_sql($consultaCamp);
 ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <!--<meta name="robots" content="noindex, nofollow">-->

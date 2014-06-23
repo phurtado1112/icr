@@ -17,7 +17,7 @@ $lista_campa = bd_ejecutar_sql($consulta_campa);
 $filacamp = bd_obtener_fila($lista_campa);
 $var_camp_nombre = $filacamp['campania'];
 ?>   
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8">        
         <title>INCAE | CRM</title>

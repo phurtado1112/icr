@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>Admin CRM INCAE</title>
-
+        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
         <link href="css/estilos.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -67,6 +68,7 @@
         </div>
 
         <script src="js/jquery-1.7.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <!--<script src="js/jquery-ui-1.8.21.custom.min.js"></script>-->
         <script src="js/bootstrap-transition.js"></script>
         <script src="js/bootstrap-alert.js"></script>

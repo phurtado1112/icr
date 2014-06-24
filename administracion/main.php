@@ -1,5 +1,6 @@
 <?php
-session_start();
+include_once './funciones.general.php';
+//session_start();
 if (!$_SESSION) {
     echo '<script language = javascript>
 	alert("usuario no autenticado")
@@ -7,64 +8,38 @@ if (!$_SESSION) {
 	</script>';
 }
 
-////CONECCION PARA EL GRAFICO///////////////////////
-if (!@mysql_connect("localhost", "root", "1a2b3c")) {
-    print 'Se produjo un error en la connecion a la bd';
-} else {
-    if (!mysql_select_db("incae")) {
-        print 'no existe la base de datos';
-    }
+$consulta_estado_campanias = "select * from estado_campania_view";
+$lista_camp = bd_ejecutar_sql($consulta_estado_campanias);
+while ($fila_camp = bd_obtener_fila($lista_camp)) {
+    $camp[] = $fila_camp;
 }
+//function graficar($titulo, $porcent, $idcampania) {
+function graficar($titulo, $idcampania) {
+    $consulta_ctes_ctos = " select * from clientes_contactados_view WHERE idcampania =" . $idcampania;
+    $lista_ctes_ctos = bd_ejecutar_sql($consulta_ctes_ctos);
+    $fila_ctes_ctos = bd_obtener_fila($lista_ctes_ctos);
 
-$query = "SELECT pais, nombres, ROUND( (
-SUM( if( clientes.status = '1', 1, 0 ) ) ) *100 / COUNT( * ) , 1
-) AS PROCENT
-FROM clientes
-INNER JOIN usuarios ON clientes.pais = usuarios.usuario
-GROUP BY pais
-ORDER BY `PROCENT` DESC
-limit 10";
-//	$query="SELECT pais,nombres FROM clientes INNER JOIN usuarios ON clientes.pais=usuarios.usuario group by pais";	
-$resultado = mysql_query($query);
-while ($fila = mysql_fetch_array($resultado)) {
-    $camp[] = $fila;
-}
-
-function graficar($titulo, $porcent, $pais) {
-    if (!@mysql_connect("localhost", "root", "1a2b3c")) {
-        print 'Se produjo un error en la connecion a la bd';
-    } else {
-        if (!mysql_select_db("incae")) {
-            print 'no existe la base de datos';
-        }
-    }
-
-
-    $query = "SELECT ROUND ((SUM(if(status ='1' , 1 , 0 )))*100 /COUNT(*), 1 )as PROCENT FROM `clientes` WHERE pais ='" . $pais . "'
-";
-    $resultado = mysql_query($query);
-    $fila = mysql_fetch_array($resultado);
-
-    echo"<div class='span3'>
-    	<div class='chart' data-percent='" . $fila['PROCENT'] . "'>" . $fila['PROCENT'] . "%</div>
+    echo "
+        <div class='span3'>
+            <div class='chart' data-percent='" . $fila_ctes_ctos['PROCENT'] . "'>" . $fila_ctes_ctos['PROCENT'] . "%</div>
 		<div class='chart-bottom-heading'><span class='label label-info'>" . $titulo . "</span>
-	</div>
-    </div>";
+                </div>
+            </div>
+        </div>
+        ";
 }
 ?>
 <!DOCTYPE html>
-<html class="no-js">
+<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Admin Home Page</title>
+        <title>Admin Inicio</title>
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="Admin/vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-        <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">        
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
-
     <body>
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
@@ -73,32 +48,28 @@ function graficar($titulo, $porcent, $pais) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="main.php">Admin Panel</a>
+                    <a class="brand" href="main.php">Panel de Administración</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $_SESSION['nameuser'] ?><i class="caret"></i>
-
-                                </a>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $_SESSION['nombre_usuario'] ?><i class="caret"></i></a>
                                 <ul class="dropdown-menu">
                                     <li>
                                         <a tabindex="-1" href="#">Perfil</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a tabindex="-1" href="desconectar_usuario.php">Salir</a>
+                                        <a tabindex="-1" href="salir.php">Salir</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="active">
-                                <a href="main.php">Home</a>
+                                <a href="main.php">Inicio</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Contenido <b class="caret"></b>
-
-                                </a>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Contenido <b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
                                         <a href="news.php">Noticia</a>
@@ -112,7 +83,7 @@ function graficar($titulo, $porcent, $pais) {
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Consultas <b class="caret"></b>
 
                                 </a>
-                                <ul class="dropdown-menu" id="menu1">
+                                <ul class="dropdown-menu" id="menu2">
                                     <li>
                                         <a href="camp.php">Campaña</a>
                                     </li>
@@ -122,7 +93,6 @@ function graficar($titulo, $porcent, $pais) {
                                     <li>
                                         <a href="report_estados.php">Por estados</a>
                                     </li>
-
                                     <li>
                                         <a href="report_user.php">Usuarios</a>
                                     </li>                                    
@@ -132,27 +102,14 @@ function graficar($titulo, $porcent, $pais) {
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes <b class="caret"></b>
 
                                 </a>
-                                <ul class="dropdown-menu" id="menu1">
+                                <ul class="dropdown-menu" id="menu3">
                                     <li>
-                                        <a href="gestionxprograma.php">Gestion por Programa</a>
+                                        <a href="gestionxprograma.php">Gestión por Programa</a>
                                     </li>
-<!--                                    <li>
-                                        <a href="estados.php">Conectados</a>
-                                    </li>
-                                    <li>
-                                        <a href="report_estados.php">Por estados</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="report_user.php">Usuarios</a>
-                                    </li>                                    -->
                                 </ul>
                             </li>
                         </ul>
-                        </li>
-                        </ul>
                     </div>
-                    <!--/.nav-collapse -->
                 </div>
             </div>
         </div>
@@ -161,7 +118,7 @@ function graficar($titulo, $porcent, $pais) {
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                         <li class="active">
-                            <a href="main.php">Home</a>
+                            <a href="main.php">Inicio</a>
                         </li>
                         <li>
                             <a href="camp.php">Compaña</a>
@@ -174,42 +131,31 @@ function graficar($titulo, $porcent, $pais) {
                         </li>
                     </ul>
                 </div>
-
-                <!--/span-->
-
-                <!--/span-->
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <!-- block -->
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Statistics</div>
+                                    <div class="muted pull-left">Estadisticas</div>
                                 </div>
                                 <div class="block-content collapse in" align="center">
-
                                     <table >
                                         <tr>
-                                            <?php
-                                            foreach ($camp as $c) {
-
-
-                                                graficar(utf8_encode($c['nombres']), '25', $c['pais']);
-                                            }
-                                            ?>
+                                            <td>
+                                                <?php
+                                                    foreach ($camp as $c) {
+                                                        graficar($c['campania'], '25', $c['idcampania']);
+                                                    }
+                                                ?>
+                                            </td>
                                         </tr>
                                     </table>
-
-
-
-
                                 </div>
                             </div>
-                            <!-- /block -->
                         </div>
                         <div class="row-fluid">
                             <div class="span6">
-                                <!-- block -->
                                 <div class="block">
                                     <div class="navbar navbar-inner block-header">
                                         <div class="muted pull-left">Usuarios conectados</div>
@@ -219,10 +165,8 @@ function graficar($titulo, $porcent, $pais) {
                                         <?php include 'useronline.php' ?>	
                                     </div>
                                 </div>
-                                <!-- /block -->
                             </div>
                             <div class="span6">
-                                <!-- block -->
                                 <div class="block">
                                     <div class="navbar navbar-inner block-header">
                                         <div class="muted pull-left">Tipificaciones</div>
@@ -232,27 +176,23 @@ function graficar($titulo, $porcent, $pais) {
                                         <?php include 'finales_encaliente.php' ?>
                                     </div>
                                 </div>
-                                <!-- /block -->
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <hr>
-
             </div>
-            <!--/.fluid-container-->
-            <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
-            <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-            <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-            <script src="Admin/assets/scripts.js"></script>
-            <script>
-                $(function() {
-                    // Easy pie charts
-                    $('.chart').easyPieChart({animate: 1000});
-                });
-            </script>
+        </div>
+        <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
+        <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
+        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script src="Admin/assets/scripts.js"></script>
+        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script>
+            $(function() {
+                // Easy pie charts
+                $('.chart').easyPieChart({animate: 1000});
+            });
+        </script>
     </body>
-
 </html>

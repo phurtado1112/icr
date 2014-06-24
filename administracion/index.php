@@ -66,7 +66,9 @@
         <div class="ac">
             <?php include ("pie.php"); ?>
         </div>
-
+        <script src="../js/jquery-2.1.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/application.js"></script>
         <script src="js/jquery-1.7.2.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!--<script src="js/jquery-ui-1.8.21.custom.min.js"></script>-->

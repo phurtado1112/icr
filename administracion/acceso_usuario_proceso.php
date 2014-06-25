@@ -28,9 +28,6 @@ else //opcion2: Usuario logueado correctamente
 {
 	//Definimos las variables de sesión y redirigimos a la p�gina de usuario
 	$_SESSION['nombre_usuario'] = $fila['nombre'];
-        
-        echo $_SESSION['nombre'];
-        
 	$_SESSION['idusuario'] = $fila['idusuario'];
 
 	$consulta_sesion = "INSERT INTO session (session_id,idusuario,usuario)

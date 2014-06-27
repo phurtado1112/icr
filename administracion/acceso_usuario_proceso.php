@@ -37,6 +37,20 @@ else //opcion2: Usuario logueado correctamente
 			'".$usuario."'
 			)";			
         bd_ejecutar_sql($consulta_sesion);
-//mysql_query($insert);
+        
+        $insert_regcon = "INSERT INTO registroconexion (idusuario,idcampania,fechainicio,horainicio)
+			VALUES(
+			" . $_SESSION['idusuario'] . ",
+                        ". 1 .",    
+			'" . date("Y-m-d") . "',
+			'" . date("H:i:s") . "'
+			)";
+        bd_ejecutar_sql($insert_regcon);
+        
+        $consulta_regcon = "SELECT MAX(idregcon) AS id FROM registroconexion";
+    $lista_regcon = bd_ejecutar_sql($consulta_regcon);
+    $filaregcon = bd_obtener_fila($lista_regcon);
+    $_SESSION['idregcon'] = $filaregcon['id'];  
+
 	header("Location: main.php");
 }

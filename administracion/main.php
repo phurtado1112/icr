@@ -55,10 +55,6 @@ function graficar($titulo, $idcampania) {
                                 <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $_SESSION['nombre_usuario'] ?><i class="caret"></i></a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a tabindex="-1" href="#">Perfil</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
                                         <a tabindex="-1" href="salir.php">Salir</a>
                                     </li>
                                 </ul>
@@ -72,7 +68,7 @@ function graficar($titulo, $idcampania) {
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Contenido <b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
-                                        <a href="news.php">Noticia</a>
+                                        <a href="noticias.php">Noticia</a>
                                     </li>
                                     <li>
                                         <a href="new_usuaro.php">Nuevo Agente</a>
@@ -80,28 +76,24 @@ function graficar($titulo, $idcampania) {
                                 </ul>
                             </li>                            
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Consultas <b class="caret"></b>
-
-                                </a>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Consultas <b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="menu2">
                                     <li>
-                                        <a href="camp.php">Campaña</a>
+                                        <a href="campania.php">Campaña</a>
                                     </li>
                                     <li>
                                         <a href="estados.php">Conectados</a>
                                     </li>
                                     <li>
-                                        <a href="report_estados.php">Por estados</a>
+                                        <a href="reporte_estados.php">Por estados</a>
                                     </li>
                                     <li>
-                                        <a href="report_user.php">Usuarios</a>
+                                        <a href="reporte_usuarios.php">Usuarios</a>
                                     </li>                                    
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes <b class="caret"></b>
-
-                                </a>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes <b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="menu3">
                                     <li>
                                         <a href="gestionxprograma.php">Gestión por Programa</a>
@@ -121,20 +113,19 @@ function graficar($titulo, $idcampania) {
                             <a href="main.php">Inicio</a>
                         </li>
                         <li>
-                            <a href="camp.php">Compaña</a>
+                            <a href="campania.php">Compaña</a>
                         </li>
                         <li >
                             <a href="estados.php">Conectados</a>
                         </li>
                         <li>
-                            <a href="report_user.php">Usuarios</a>
+                            <a href="reporte_usuarios.php">Usuarios</a>
                         </li>
                     </ul>
                 </div>
                 <div class="span9" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
-                            <!-- block -->
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left">Estadisticas</div>
@@ -161,7 +152,6 @@ function graficar($titulo, $idcampania) {
                                         <div class="muted pull-left">Usuarios conectados</div>
                                     </div>
                                     <div class="block-content collapse in">
-
                                         <?php include 'useronline.php' ?>	
                                     </div>
                                 </div>

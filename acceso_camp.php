@@ -32,7 +32,6 @@ if ($campania == '0') { //opcion1: Si el usuario NO existe o los datos son INCOR
 			'" . date("H:i:s") . "'
 			)";
     bd_ejecutar_sql($insert_regcon);
-//    echo '$insert_regcon';
 
     $consulta_regcon = "SELECT MAX(idregcon) AS id FROM registroconexion";
     $lista_regcon = bd_ejecutar_sql($consulta_regcon);

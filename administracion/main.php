@@ -1,4 +1,4 @@
-<?php
+<?php //
 include_once './funciones.general.php';
 //session_start();
 if (!$_SESSION) {
@@ -34,6 +34,8 @@ function graficar($titulo, $idcampania) {
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Admin Inicio</title>
+        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="Admin/vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
@@ -41,89 +43,14 @@ function graficar($titulo, $idcampania) {
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="main.php">Panel de Administración</a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right">
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i><?php echo $_SESSION['nombre_usuario'] ?><i class="caret"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="salir.php">Salir</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="main.php">Inicio</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Contenido <b class="caret"></b></a>
-                                <ul class="dropdown-menu" id="menu1">
-                                    <li>
-                                        <a href="noticias.php">Noticia</a>
-                                    </li>
-                                    <li>
-                                        <a href="new_usuaro.php">Nuevo Agente</a>
-                                    </li>                                    
-                                </ul>
-                            </li>                            
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Consultas <b class="caret"></b></a>
-                                <ul class="dropdown-menu" id="menu2">
-                                    <li>
-                                        <a href="campania.php">Campaña</a>
-                                    </li>
-                                    <li>
-                                        <a href="estados.php">Conectados</a>
-                                    </li>
-                                    <li>
-                                        <a href="reporte_estados.php">Por estados</a>
-                                    </li>
-                                    <li>
-                                        <a href="reporte_usuarios.php">Usuarios</a>
-                                    </li>                                    
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes <b class="caret"></b></a>
-                                <ul class="dropdown-menu" id="menu3">
-                                    <li>
-                                        <a href="gestionxprograma.php">Gestión por Programa</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <?php 
+            include './menu_superior.php';
+            ?>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span3" id="sidebar">
-                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                        <li class="active">
-                            <a href="main.php">Inicio</a>
-                        </li>
-                        <li>
-                            <a href="campania.php">Compaña</a>
-                        </li>
-                        <li >
-                            <a href="estados.php">Conectados</a>
-                        </li>
-                        <li>
-                            <a href="reporte_usuarios.php">Usuarios</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="span9" id="content">
+                <div class="span12" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
@@ -172,6 +99,12 @@ function graficar($titulo, $idcampania) {
                 </div>
                 <hr>
             </div>
+        </div>
+        <hr>
+        <div>
+            <?php 
+            include './pie.php';
+            ?>
         </div>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>

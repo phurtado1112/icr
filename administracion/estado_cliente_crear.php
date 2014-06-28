@@ -72,8 +72,9 @@ if (!$_SESSION) {
             function validar() {
                 if (document.getElementById('estado').value === '') {
                     alert('FALTA EL ESTADO');
-                }
+                } else {
                     document.formnnews.submit();
+                }
             }
         </script>
     </body>

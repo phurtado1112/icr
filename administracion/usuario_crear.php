@@ -7,23 +7,12 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
-
-$idnoticia = filter_input(INPUT_GET, 'idnoticias');
-
-$consulta_noticia = "SELECT * FROM noticias WHERE idnoticias='" . $idnoticia . "' ";
-$lista_noticia = bd_ejecutar_sql($consulta_noticia);
-$noticia = bd_obtener_fila($lista_noticia);
-
-$id = $noticia['idnoticias'];
-$titulo = $noticia['titulo'];
-$contenido = $noticia['contenido'];
 ?>
 <!DOCTYPE html>
 <html>
-
     <head>
-        <meta charset="utf-8" />
-        <title>Editar Noticia </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Nuevo Usuario</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -33,12 +22,12 @@ $contenido = $noticia['contenido'];
     </head>
     <body>
         <div>
-            <?php
+            <?php 
             include './menu_superior.php';
             ?>
         </div>
         <div class="container-fluid">
-            <div class="row-fluid">
+            <div class="row-fluid">                
                 <div class="span12" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
@@ -47,26 +36,40 @@ $contenido = $noticia['contenido'];
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-
-                                    <form class="form-horizontal" action="noticia_editar_procesar.php" name="formnnews" method="POST">
-                                        <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idnoticias" size="1"></div>
+                                    <form class="form-horizontal" action="usuario_crear_procesar.php" name="formnnews" method="post">
                                         <fieldset>
-                                            <legend >Editar Noticia</legend>
+                                            <legend >Ingresar Nuevo Usuario</legend>
                                             <div class="control-group">
-                                                <label class="control-label">Titulo</label>
+                                                <label class="control-label">Nombre</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="titulo" name="titulo" value="<?php echo $titulo; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="nombre" name="nombre">
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label" >Contenido</label>
+                                                <label class="control-label">Usuario</label>
                                                 <div class="controls">
-                                                    <textarea class="cleditor" id="idcontenido" rows="3" name="contenido" style="width: 456px; height: 111px;"><?php echo $contenido; ?> </textarea>
+                                                    <input class="text" id="usuario" name="usuario" >
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Contraseña</label>
+                                                <div class="controls">
+                                                    <input type="password" id="contrasenia">
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Tipo Usuario</label>
+                                                <div class="controls">
+                                                    <select>
+                                                        <option value="0">Seminarios</option>
+                                                        <option value="1">Maestría</option>
+                                                        <option value="2">Administración</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href='noticias_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href='usuario_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -74,17 +77,18 @@ $contenido = $noticia['contenido'];
                             </div>
                         </div>
                     </div>
-                </div>                 
+                </div>
             </div>
         </div>
         <div class="ac">
-            <?php
+            <?php 
             include './pie.php';
             ?>
         </div>
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
+        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {

@@ -39,7 +39,7 @@
                                         <a href="noticias_lista.php">Noticias</a>
                                     </li>
                                     <li>
-                                        <a href="usuarios_lista.php">Usuarios</a>
+                                        <a href="usuario_lista.php">Usuarios</a>
                                     </li>
                                     <li>
                                         <a href="tipificacion_lista.php">Tipificación de Respuestas</a>

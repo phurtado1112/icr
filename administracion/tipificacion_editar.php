@@ -8,15 +8,14 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$idnoticia = filter_input(INPUT_GET, 'idnoticias');
+$idtipificacion = filter_input(INPUT_GET, 'idtipificacion');
 
-$consulta_noticia = "SELECT * FROM noticias WHERE idnoticias='" . $idnoticia . "' ";
-$lista_noticia = bd_ejecutar_sql($consulta_noticia);
-$noticia = bd_obtener_fila($lista_noticia);
+$consulta_tipificacion = "SELECT * FROM tipificacion WHERE idtipificacion='" . $idtipificacion . "' ";
+$lista_tipificacion = bd_ejecutar_sql($consulta_tipificacion);
+$tipificacion = bd_obtener_fila($lista_tipificacion);
 
-$id = $noticia['idnoticias'];
-$titulo = $noticia['titulo'];
-$contenido = $noticia['contenido'];
+$id = $tipificacion['idtipificacion'];
+$tipificaci = $tipificacion['tipificacion'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,25 +47,19 @@ $contenido = $noticia['contenido'];
                                 </div>
                                 <div class="block-content collapse in">
 
-                                    <form class="form-horizontal" action="noticia_editar_procesar.php" name="formnnews" method="POST">
-                                        <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idnoticias" size="1"></div>
+                                    <form class="form-horizontal" action="tipificacion_editar_procesar.php" name="formnnews" method="POST">
+                                        <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idtipificacion" size="1"></div>
                                         <fieldset>
-                                            <legend >Editar Noticia</legend>
+                                            <legend >Editar Tipificación</legend>
                                             <div class="control-group">
-                                                <label class="control-label">Titulo</label>
+                                                <label class="control-label">Tipificación</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="titulo" name="titulo" value="<?php echo $titulo; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="tipificacion" name="tipificacion" value="<?php echo $tipificaci; ?>"  >
                                                 </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label" >Contenido</label>
-                                                <div class="controls">
-                                                    <textarea class="cleditor" id="idcontenido" rows="3" name="contenido" style="width: 456px; height: 111px;"><?php echo $contenido; ?> </textarea>
-                                                </div>
-                                            </div>
+                                            </div>                                            
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href='noticias_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href='tipificacion_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -88,12 +81,9 @@ $contenido = $noticia['contenido'];
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
-                if (document.getElementById('titulo').value === '') {
-                    alert('FALTA EL TITULO');
+                if (document.getElementById('tipificacion').value === '') {
+                    alert('FALTA EL TIPIFICACIÓN');
                 } else {
-                    if (document.getElementById('idcontenido').value === '') {
-                        alert('FALTA EL CONTENIDO');
-                    }
                     document.formnnews.submit();
                 }
             }

@@ -23,19 +23,22 @@
                 </div>
 
                 <div class="row-fluid">
-                    <div class="well span5 center login-box">
+                    <div class="well span4 center login-box">
                         <div class="alert alert-info">
                             Ingrese su usuario y contraseña.
                         </div>
                         <form class="form-horizontal" action="acceso_usuario_proceso.php" method="post">
                             <fieldset>
                                 <div class="input-prepend" title="Usuario" data-rel="tooltip">
-                                    <span class="add-on"><i class="icon-user"></i></span><input autofocus class="input-large span10" name="usuario" id="Usuario" type="text"  />
+                                    <label class="control-label">Usuario</label>
+                                    <span class="add-on"><i class="icon-user"></i></span>
+                                    <input autofocus class="input-large span6" name="usuario" id="Usuario" type="text"  />
                                 </div>
-                                <div class="clearfix"></div>
-
+                                <div class="clearfix"></div>                                
                                 <div class="input-prepend" title="Contraseña" data-rel="tooltip">
-                                    <span class="add-on"><i class="icon-lock"></i></span><input class="input-large span10" name="pass" id="Contrasena" type="password"  />
+                                    <label class="control-label">Contraseña</label>
+                                    <span class="add-on"><i class="icon-lock"></i></span>
+                                    <input class="input-large span6" name="pass" id="Contrasena" type="password"  />
                                 </div>
                                 <div class="clearfix"></div>
 

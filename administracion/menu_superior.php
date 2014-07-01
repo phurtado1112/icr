@@ -25,7 +25,7 @@
                                         <a href="campania_lista.php">Campañas</a>
                                     </li>
                                     <li>
-                                        <a href="agente_campania.php">Asignación Agente - Campaña</a>
+                                        <a href="asignacion_lista.php">Asignación Agente - Campaña</a>
                                     </li>
                                     <li>
                                         <a href="carga_contactos_campania.php">Carga de Contactos por Campaña</a>

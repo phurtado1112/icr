@@ -8,22 +8,21 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_noticias = "SELECT * FROM noticias_view";
-    $lista_noticias = bd_ejecutar_sql($consulta_noticias);
-    while ($fila_noticia = bd_obtener_fila($lista_noticias)) {
-        $noticias[] = $fila_noticia;
+$consulta_asignacion = "SELECT * FROM asignacion_view";
+    $lista_asignacion = bd_ejecutar_sql($consulta_asignacion);
+    while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
+        $asignacion[] = $fila_asignacion;
     }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Noticias</title>
+        <title>Asignación</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="Admin/vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -42,30 +41,32 @@ $consulta_noticias = "SELECT * FROM noticias_view";
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
-                                    <a href="noticia_crear.php" class="btn btn-small btn-success">Nueva Noticia</a>
+                                    <a href="asignacion_crear.php" class="btn btn-small btn-success">Nueva Asignación</a>
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
                                         <?php
-                                        if (!isset($noticias)) {
+                                        if (!isset($asignacion)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';
                                         } else {
                                             ?>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Titulo</th>
-                                                <th>Fecha Creado</th>
-                                                <th>Acción</th>       
+                                                <th>Usuario</th>
+                                                <th>Campaña Asignada</th>
+                                                <th>Fecha Asignación</th>
+                                                <th>Acción</th>
                                             </tr>
                                             <?php
-                                            foreach ($noticias as $n) {
-                                                $ids = $n['idnoticias'];
+                                            foreach ($asignacion as $a) {
+                                                $ids = $a['idasignar'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $n['idnoticias'] . "</td>
-                                                    <td>" . $n['titulo'] . "</td>
-                                                    <td>" . $n['fechacreado'] . "</td>
-                                                    <td>" . '<a href="noticia_editar.php?idnoticias=' . $ids . '">Editar</a> ---  <a href="noticia_eliminar.php?idnoticias=' . $ids . '">Eliminar</a>' . "</td>
+                                                    <td>" . $a['idasignar'] . "</td>
+                                                    <td>" . $a['nombre'] . "</td>
+                                                    <td>" . $a['campania'] . "</td>
+                                                    <td>" . $a['fecha'] . "</td>
+                                                    <td>" . '<a href="asignacion_editar.php?idasignar=' . $ids . '">Editar</a> ---  <a href="asignacion_eliminar.php?idasignar=' . $ids . '">Eliminar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }
@@ -85,13 +86,6 @@ $consulta_noticias = "SELECT * FROM noticias_view";
         </div>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="Admin/assets/scripts.js"></script>
-        <script>
-            $(function() {
-                // Easy pie charts
-                $('.chart').easyPieChart({animate: 1000});
-            });
-        </script>
     </body>
 </html>

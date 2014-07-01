@@ -7,12 +7,25 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
+
+$idusuario = filter_input(INPUT_GET, 'idusuario');
+
+$consulta_usuario = "SELECT * FROM usuarios WHERE idusuario='" . $idusuario . "' ";
+$lista_usuario = bd_ejecutar_sql($consulta_usuario);
+$usuario = bd_obtener_fila($lista_usuario);
+
+$id = $usuario['idusuario'];
+$nombre = $usuario['nombre'];
+$usua = $usuario['usuario'];
+$contrasenia = $usuario['contrasena'];
+$tipo = $usuario['tipo'];
 ?>
 <!DOCTYPE html>
 <html>
+
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Nuevo Usuario</title>
+        <meta charset="utf-8" />
+        <title>Editar Usuario</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -27,7 +40,7 @@ if (!$_SESSION) {
             ?>
         </div>
         <div class="container-fluid">
-            <div class="row-fluid">                
+            <div class="row-fluid">
                 <div class="span12" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
@@ -36,29 +49,31 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="usuario_crear_procesar.php" name="formusuario" method="post">
+
+                                    <form class="form-horizontal" action="usuario_editar_procesar.php" name="formusuario" method="POST">
+                                        <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idusuario" size="1"></div>
                                         <fieldset>
-                                            <legend >Ingresar Nuevo Usuario</legend>
+                                            <legend >Editar Usuario</legend>
                                             <div class="control-group">
                                                 <label class="control-label">Nombre</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="nombre" name="nombre">
+                                                    <input type="text" class="span6 typeahead" id="nombre" name="nombre" value="<?php echo $nombre; ?>"  >
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label">Usuario</label>
+                                                <label class="control-label" >Usuario</label>
                                                 <div class="controls">
-                                                    <input type="text" class="" id="usuario" name="usuario" >
+                                                    <input type="text" class="span6 typeahead" id="usuario" name="usuario" value="<?php echo $usua; ?>"  >
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label">Contraseña</label>
+                                                <label class="control-label" >Contraseña</label>
                                                 <div class="controls">
-                                                    <input type="text" id="contrasenia" name="contrasenia">
+                                                    <input type="text" class="span6 typeahead" id="contrasenia" name="contrasenia" value="<?php echo $contrasenia; ?>"  >
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label">Tipo Usuario</label>
+                                                <label class="control-label">Tipo</label>
                                                 <div class="controls">
                                                     <select id="tipo" name="tipo">
                                                         <option value="0">Seminarios</option>
@@ -69,7 +84,7 @@ if (!$_SESSION) {
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href = 'usuario_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href='usuario_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -77,7 +92,7 @@ if (!$_SESSION) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>                 
             </div>
         </div>
         <div class="ac">
@@ -88,7 +103,6 @@ if (!$_SESSION) {
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {

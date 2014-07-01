@@ -9,12 +9,13 @@ if (!$_SESSION) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Nuevo Usuario</title>
+        <title>Nueva Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/jquery-ui.css" rel="stylesheet">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
@@ -22,7 +23,7 @@ if (!$_SESSION) {
     </head>
     <body>
         <div>
-            <?php
+            <?php 
             include './menu_superior.php';
             ?>
         </div>
@@ -36,40 +37,39 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="usuario_crear_procesar.php" name="formusuario" method="post">
+                                    <form class="form-horizontal" action="campania_crear_procesar.php" name="formcampania" method="post">
                                         <fieldset>
-                                            <legend >Ingresar Nuevo Usuario</legend>
+                                            <legend >Ingresar Nueva Campaña</legend>
                                             <div class="control-group">
-                                                <label class="control-label">Nombre</label>
+                                                <label class="control-label">Campaña</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="nombre" name="nombre">
+                                                    <input type="text" class="span6 typeahead" id="campania" name="campania"   >
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label">Usuario</label>
+                                                <label class="control-label">Terminada</label>
                                                 <div class="controls">
-                                                    <input type="text" class="" id="usuario" name="usuario" >
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Contraseña</label>
-                                                <div class="controls">
-                                                    <input type="text" id="contrasenia" name="contrasenia">
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Tipo Usuario</label>
-                                                <div class="controls">
-                                                    <select id="tipo" name="tipo">
-                                                        <option value="0">Seminarios</option>
-                                                        <option value="1">Maestría</option>
-                                                        <option value="2">Administración</option>
+                                                    <select id="terminada" name="terminada">
+                                                        <option value="n">No</option>
+                                                        <option value="s">Si</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Fecha Inicio</label>
+                                                <div class="controls">
+                                                    <input type="text" id="datepicker" name="fechainicio" value="0000-00-00" />
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Fecha Final</label>
+                                                <div class="controls">
+                                                    <input type="text" id="datepicker1" name="fechafin" value="0000-00-00" />
                                                 </div>
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href = 'usuario_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href='campania_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -81,31 +81,30 @@ if (!$_SESSION) {
             </div>
         </div>
         <div class="ac">
-            <?php
+            <?php 
             include './pie.php';
             ?>
         </div>
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/cronos.js"></script>
+        <script src="js/jquery-ui.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
-                if (document.getElementById('nombre').value === '') {
-                    alert('FALTA NOMBRE');
+                if (document.getElementById('campania').value === '') {
+                    alert('FALTA CAMPAÑA');
                 } else {
-                    if (document.getElementById('usuario').value === '') {
-                        alert('FALTA USUARIO');
-                    } else {
-                        if (document.getElementById('contrasenia').value === '') {
-                            alert('FALTA CONTRASEÑA');
-                        } else {
-                            document.formusuario.submit();
-                        }
-                    }
+                    document.formcampania.submit();
                 }
             }
+        </script>
+        <script>
+            $(function() {
+                $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+                $("#datepicker1").datepicker({ dateFormat: "yy-mm-dd" });
+            });
         </script>
     </body>
 </html>

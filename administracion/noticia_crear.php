@@ -1,5 +1,5 @@
 <?php
-include_once './funciones.general.php';	
+include_once './funciones.general.php';
 if (!$_SESSION) {
     echo '<script language = javascript>
 	alert("usuario no autenticado")
@@ -17,11 +17,12 @@ if (!$_SESSION) {
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
+        <link href="css/jquery.cleditor.css" rel="stylesheet">
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
         <div>
-            <?php 
+            <?php
             include './menu_superior.php';
             ?>
         </div>
@@ -52,7 +53,7 @@ if (!$_SESSION) {
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href='noticias_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href = 'noticias_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -64,14 +65,13 @@ if (!$_SESSION) {
             </div>
         </div>
         <div class="ac">
-            <?php 
+            <?php
             include './pie.php';
             ?>
         </div>
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
@@ -80,8 +80,9 @@ if (!$_SESSION) {
                 } else {
                     if (document.getElementById('idcontenido').value === '') {
                         alert('FALTA EL CONTENIDO');
+                    } else {
+                        document.formnnews.submit();
                     }
-                    document.formnnews.submit();
                 }
             }
         </script>

@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_usuarios = "SELECT * FROM usuarios";
+$consulta_usuarios = "SELECT * FROM usuarios_view";
     $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
     while ($fila_usuario = bd_obtener_fila($lista_usuarios)) {
         $usuarios[] = $fila_usuario;

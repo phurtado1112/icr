@@ -22,7 +22,7 @@
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Procesos<b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
-                                        <a href="campanias_lista.php">Campañas</a>
+                                        <a href="campania_lista.php">Campañas</a>
                                     </li>
                                     <li>
                                         <a href="agente_campania.php">Asignación Agente - Campaña</a>

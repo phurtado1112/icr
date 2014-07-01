@@ -5,10 +5,10 @@
         <title>Admin CRM INCAE</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
-        <link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
-        <link href="css/estilos.css" rel="stylesheet">
-        <link href="css/bootstrap-responsive.css" rel="stylesheet">
-        <link href="css/charisma-app.css" rel="stylesheet">
+        <link href="css/bootstrap-cerulean.min.css" rel="stylesheet" type="text/css">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+        <link href="css/charisma-app.css" rel="stylesheet" type="text/css">
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
 

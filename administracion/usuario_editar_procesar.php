@@ -12,20 +12,16 @@ $nombre = filter_input(INPUT_POST, 'nombre');
 $usuario = filter_input(INPUT_POST, 'usuario');
 $contrasenia = filter_input(INPUT_POST, 'contrasenia');
 $tipo = filter_input(INPUT_POST, 'tipo');
+$id = filter_input(INPUT_POST, 'idusuario');
 
 error_reporting(0);
 
-if (isset($nombre) && isset($usuario) && isset($contrasenia)) {    
+if (isset($nombre) && isset($usuario) && isset($contrasenia)) {
 
-    $inserta_usuario = "INSERT INTO usuarios (nombre,usuario,contrasena,tipo)
-			VALUES(
-			'" . $nombre . "',
-			'" . $usuario . "',
-			'" . $contrasenia . "',
-                        '" . $tipo . "'
-			)";
-    bd_ejecutar_sql($inserta_usuario);
+    $actualiza_usuario = "UPDATE  usuarios set nombre='" . $nombre. "', usuario='" . $usuario . "', contrasena='" . $contrasenia . "', tipo='" . $tipo . "' where idusuario='" . $id . "'";
+    bd_ejecutar_sql($actualiza_usuario);
     
     header("Location: usuario_lista.php");
 }
+
 

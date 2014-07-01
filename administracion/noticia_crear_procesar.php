@@ -19,7 +19,7 @@ if (isset($titulo) && isset($contenido)) {
 			VALUES(
 			'" . $titulo . "',
 			'" . $contenido . "',
-			'" . date("m/d/Y") . "'
+			'" . date("Y-m-d") . "'
 			)";
     bd_ejecutar_sql($inserta_noticia);
     

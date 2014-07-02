@@ -9,10 +9,10 @@ if (!$_SESSION) {
 }
 
 $consulta_asignacion = "SELECT * FROM asignacion_view";
-    $lista_asignacion = bd_ejecutar_sql($consulta_asignacion);
-    while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
-        $asignacion[] = $fila_asignacion;
-    }
+$lista_asignacion = bd_ejecutar_sql($consulta_asignacion);
+while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
+    $asignacion[] = $fila_asignacion;
+}
 ?>
 <!DOCTYPE html>
 <html>

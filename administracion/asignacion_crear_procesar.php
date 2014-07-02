@@ -8,24 +8,18 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$campania = filter_input(INPUT_POST, 'campania');
-$terminada = filter_input(INPUT_POST, 'terminada');
-$fechainicio = filter_input(INPUT_POST, 'fechainicio');
-$fechafin = filter_input(INPUT_POST, 'fechafin');
+$idusuario= filter_input(INPUT_POST, 'idusuario');
+$idcampania = filter_input(INPUT_POST, 'idcampania');
 
 error_reporting(0);
 
-if (isset($campania)) {    
+$inserta_asignacion = "INSERT INTO asignar (idusuario,idcampania,fecha)
+                    VALUES(
+                    '" . $idusuario . "',
+                    '" . $idcampania . "',
+                    '" . date('Y-m-d') . "'
+                    )";
+bd_ejecutar_sql($inserta_asignacion);
 
-    $inserta_camapania = "INSERT INTO campanias (campania,terminada,fechainicio,fechafin)
-			VALUES(
-			'" . $campania . "',
-			'" . $terminada . "',
-			'" . $fechainicio . "',
-                        '" . $fechafin . "'
-			)";
-    bd_ejecutar_sql($inserta_camapania);
-    
-    header("Location: campania_lista.php");
-}
+header("Location: asignacion_lista.php");
 

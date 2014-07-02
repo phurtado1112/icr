@@ -7,12 +7,18 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
+
+$consulta_campania = "SELECT * FROM campanias";
+$lista_campania = bd_ejecutar_sql($consulta_campania);
+
+$consulta_usuario = "SELECT * FROM usuarios";
+$lista_usuario = bd_ejecutar_sql($consulta_usuario);
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Nueva Campaña</title>
+        <title>Nueva Asignación</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/jquery-ui.css" rel="stylesheet">
@@ -37,39 +43,40 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="campania_crear_procesar.php" name="formasignacion" method="post">
+                                    <form class="form-horizontal" action="asignacion_crear_procesar.php" name="formasignacion" method="post">
                                         <fieldset>
-                                            <legend >Ingresar Nueva Campaña</legend>
+                                            <legend>Ingresar Nueva Asignación Agente - Campaña</legend>
                                             <div class="control-group">
-                                                <label class="control-label">Campaña</label>
+                                                <label class="control-label">Agente</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="campania" name="campania"   >
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Terminada</label>
-                                                <div class="controls">
-                                                    <select id="terminada" name="terminada">
-                                                        <option value="n">No</option>
-                                                        <option value="s">Si</option>
+                                                    <select id="idusuario" name="idusuario">
+                                                        <?php
+                                                            while ($fila_usuario = bd_obtener_fila($lista_usuario)) {
+                                                        ?>
+                                                            <option value="<?php echo $fila_usuario['idusuario'];?>"><?php echo $fila_usuario['nombre'];?></option>
+                                                        <?php 
+                                                            }
+                                                        ?>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label">Fecha Inicio</label>
+                                                <label class="control-label">Campaña</label>
                                                 <div class="controls">
-                                                    <input type="text" id="datepicker" name="fechainicio" value="0000-00-00" />
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Fecha Final</label>
-                                                <div class="controls">
-                                                    <input type="text" id="datepicker1" name="fechafin" value="0000-00-00" />
+                                                    <select id="idcampania" name="idcampania">
+                                                        <?php
+                                                            while ($fila_campania = bd_obtener_fila($lista_campania)) {
+                                                        ?>
+                                                            <option value="<?php echo $fila_campania['idcampania'];?>"><?php echo $fila_campania['campania'];?></option>
+                                                        <?php 
+                                                            }
+                                                        ?>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href = 'campania_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href = 'asignacion_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -93,15 +100,10 @@ if (!$_SESSION) {
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
-                if (document.getElementById('campania').value === '') {
-                    alert('FALTA CAMPAÑA');
+                if (confirm("¿Está seguro de guardar?")) {
+                    document.formasignacion.submit();
                 } else {
-                    if (confirm("¿Está seguro de guardar?")) {
-                        document.formasignacion.submit();
-                    } else {
-                        document.formasignacion;
-                    }
-
+                    document.formasignacion;
                 }
             }
         </script>

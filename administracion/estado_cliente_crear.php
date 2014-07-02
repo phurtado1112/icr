@@ -36,7 +36,7 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="estado_cliente_crear_procesar.php" name="formnnews" method="post">
+                                    <form class="form-horizontal" action="estado_cliente_crear_procesar.php" name="formestadocliente" method="post">
                                         <fieldset>
                                             <legend >Ingresar Nuevo Estado de Cliente</legend>
                                             <div class="control-group">
@@ -73,7 +73,11 @@ if (!$_SESSION) {
                 if (document.getElementById('estado').value === '') {
                     alert('FALTA EL ESTADO');
                 } else {
-                    document.formnnews.submit();
+                    if (confirm("¿Está seguro de guardar?")) {
+                        document.formestadocliente.submit();
+                    } else {
+                        document.formestadocliente;
+                    }
                 }
             }
         </script>

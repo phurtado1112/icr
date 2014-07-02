@@ -55,7 +55,7 @@ function graficar($titulo, $idcampania) {
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Estadisticas</div>
+                                    <div class="muted pull-left">Avance de contacto de campañas</div>
                                 </div>
                                 <div class="block-content collapse in" align="center">
                                     <table >

@@ -36,7 +36,7 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="tipificacion_crear_procesar.php" name="formnnews" method="post">
+                                    <form class="form-horizontal" action="tipificacion_crear_procesar.php" name="formntipificacion" method="post">
                                         <fieldset>
                                             <legend >Ingresar Nueva Tipificación</legend>
                                             <div class="control-group">
@@ -73,7 +73,11 @@ if (!$_SESSION) {
                 if (document.getElementById('tipificacion').value === '') {
                     alert('FALTA EL TIPIFICACIÓN');
                 } else {
-                    document.formnnews.submit();
+                    if (confirm("¿Está seguro de guardar?")) {
+                        document.formntipificacion.submit();
+                    } else {
+                        document.formntipificacion;
+                    }
                 }
             }
         </script>

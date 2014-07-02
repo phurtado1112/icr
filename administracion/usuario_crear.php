@@ -101,7 +101,11 @@ if (!$_SESSION) {
                         if (document.getElementById('contrasenia').value === '') {
                             alert('FALTA CONTRASEÑA');
                         } else {
-                            document.formusuario.submit();
+                            if (confirm("¿Está seguro de guardar?")) {
+                                document.formusuario.submit();
+                            } else {
+                                document.formusuario;
+                            }
                         }
                     }
                 }

@@ -35,7 +35,7 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="estado_conectado_crear_procesar.php" name="formnnews" method="post">
+                                    <form class="form-horizontal" action="estado_conectado_crear_procesar.php" name="formestadocontacto" method="post">
                                         <fieldset>
                                             <legend >Ingresar Nuevo Estado de Agente</legend>
                                             <div class="control-group">
@@ -65,14 +65,17 @@ if (!$_SESSION) {
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <!--<script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>-->
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
                 if (document.getElementById('estado').value === '') {
                     alert('FALTA EL ESTADO');
                 } else {
-                    document.formnnews.submit();
+                    if (confirm("¿Está seguro de guardar?")) {
+                        document.formestadocontacto.submit();
+                    } else {
+                        document.formestadocontacto;
+                    }
                 }
             }
         </script>

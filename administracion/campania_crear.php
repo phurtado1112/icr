@@ -96,7 +96,11 @@ if (!$_SESSION) {
                 if (document.getElementById('campania').value === '') {
                     alert('FALTA CAMPAÑA');
                 } else {
-                    document.formcampania.submit();
+                    if (confirm("¿Está seguro de guardar?")) {
+                        document.formcampania.submit();
+                    } else {
+                        document.formcampania;
+                    }
                 }
             }
         </script>

@@ -81,7 +81,11 @@ if (!$_SESSION) {
                     if (document.getElementById('idcontenido').value === '') {
                         alert('FALTA EL CONTENIDO');
                     } else {
-                        document.formnnews.submit();
+                        if(confirm("¿Está seguro de guardar?")){
+                            document.formnnews.submit();
+                        } else {
+                            document.formnnews;
+                        }
                     }
                 }
             }

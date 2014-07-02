@@ -23,7 +23,7 @@ if (!$_SESSION) {
     </head>
     <body>
         <div>
-            <?php 
+            <?php
             include './menu_superior.php';
             ?>
         </div>
@@ -37,7 +37,7 @@ if (!$_SESSION) {
                                     <div class="muted pull-left" align="center"></div>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <form class="form-horizontal" action="campania_crear_procesar.php" name="formcampania" method="post">
+                                    <form class="form-horizontal" action="campania_crear_procesar.php" name="formasignacion" method="post">
                                         <fieldset>
                                             <legend >Ingresar Nueva Campaña</legend>
                                             <div class="control-group">
@@ -69,7 +69,7 @@ if (!$_SESSION) {
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href='campania_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href = 'campania_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -81,7 +81,7 @@ if (!$_SESSION) {
             </div>
         </div>
         <div class="ac">
-            <?php 
+            <?php
             include './pie.php';
             ?>
         </div>
@@ -96,14 +96,19 @@ if (!$_SESSION) {
                 if (document.getElementById('campania').value === '') {
                     alert('FALTA CAMPAÑA');
                 } else {
-                    document.formcampania.submit();
+                    if (confirm("¿Está seguro de guardar?")) {
+                        document.formasignacion.submit();
+                    } else {
+                        document.formasignacion;
+                    }
+
                 }
             }
         </script>
         <script>
             $(function() {
-                $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
-                $("#datepicker1").datepicker({ dateFormat: "yy-mm-dd" });
+                $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+                $("#datepicker1").datepicker({dateFormat: "yy-mm-dd"});
             });
         </script>
     </body>

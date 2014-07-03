@@ -28,7 +28,7 @@
                                         <a href="asignacion_lista.php">Asignación Agente - Campaña</a>
                                     </li>
                                     <li>
-                                        <a href="carga_contactos_campania.php">Carga de Contactos por Campaña</a>
+                                        <a href="importar_datos.php">Carga de Contactos por Campaña</a>
                                     </li>                                    
                                 </ul>
                             </li>                            
@@ -59,7 +59,7 @@
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes<b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="menu3">                                    
                                     <li>
-                                        <a href="rep_gestion_programa_form.php">Gestión por Campaña</a>
+                                        <a href="rep_gestion_campania_form.php">Gestión por Campaña</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>

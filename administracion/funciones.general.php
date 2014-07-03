@@ -108,39 +108,28 @@ function gen_obtener_parametro_web(&$arreglo, $nombre,  $predefinido = null )
  * para llena un combo HTML 
  * en base a una consulta a la base de datos
  */
-function gen_llenar_combo($tabla,$campo_valor,$campo_opcion,$seleccionado = null,$filtro=null)
-{
-	$sql = "SELECT $campo_valor,$campo_opcion FROM $tabla ";
-	if(!empty($filtro))
-	{
-		$sql = $sql." where ".$filtro;
-	}
+function gen_llenar_combo($tabla,$campo_valor,$campo_opcion,$seleccionado = null,$filtro=null) {
+    $sql = "SELECT $campo_valor,$campo_opcion FROM $tabla ";
+    if(!empty($filtro)) {
+            $sql = $sql." where ".$filtro;
+    }
+    $resultado = bd_ejecutar_sql($sql);
 
-	$resultado = bd_ejecutar_sql($sql);
-
-	while($fila = bd_obtener_fila($resultado))
-	{
-		if($seleccionado == $fila[0])
-		{
-			$html = sprintf(
-						"<option selected value='%s'>%s</option>",
-							gen_obtener_html($fila[0]),
-							gen_obtener_html($fila[1])
-			);
-				
-			echo $html;
-		}
-		else
-		{
-			$html = sprintf(
-						"<option value='%s'>%s</option>",
-							gen_obtener_html($fila[0]),
-							gen_obtener_html($fila[1])
-			);
-				
-			echo $html;
-		}
-	}
+    while($fila = bd_obtener_fila($resultado)) {
+        if($seleccionado == $fila[0]) {
+            $html = sprintf("<option selected value='%s'>%s</option>",
+                        gen_obtener_html($fila[0]),
+                        gen_obtener_html($fila[1])
+            );
+            echo $html;
+        } else {
+            $html = sprintf("<option value='%s'>%s</option>",
+                        gen_obtener_html($fila[0]),
+                        gen_obtener_html($fila[1])
+            );
+            echo $html;
+        }
+    }
 } // FIN función genérica gen_llenar_combo
 
 

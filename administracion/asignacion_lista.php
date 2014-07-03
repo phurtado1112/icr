@@ -44,7 +44,7 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
                                     <a href="asignacion_crear.php" class="btn btn-small btn-success">Nueva Asignación</a>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <table class="table table-striped table-hover">                            
+                                    <table class="table table-striped table-hover">
                                         <?php
                                         if (!isset($asignacion)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';

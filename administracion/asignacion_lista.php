@@ -15,16 +15,15 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8"/>
         <title>Asignación</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
@@ -84,6 +83,7 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
             include './pie.php';
             ?>
         </div>
+        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="Admin/assets/scripts.js"></script>

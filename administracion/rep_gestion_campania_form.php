@@ -13,32 +13,31 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
         <title>Reporte de Gestión por Campaña</title>
+        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="Admin/vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-        <script src="js/ajax.js"></script>
+        <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />        
     </head>
     <body>
         <div>
             <?php
-            include './menu_superior.php';
+                include './menu_superior.php';
             ?>
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span9" id="content">
+                <div class="span12 well" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Reporte por Campaña</div>
+                                    <div class="muted pull-left">Reporte de Gestión por Campaña</div>
                                 </div>
                                 <div class="block-content collapse in">
                                 </div>
@@ -46,7 +45,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                     <div class="control-group">
                                         <label class="control-label">Agente</label>
                                         <div class="controls">
-                                            <select id="idusuario" name="idusuario">
+                                            <select id="idusuario" name="idusuario" onchange="load(this.value)">
                                                 <?php 
                                                     gen_llenar_combo("usuarios","idusuario","nombre",$asignacion["idusuario"]);
                                                 ?>
@@ -55,15 +54,12 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                     </div>                                           
                                     <div class="control-group">
                                         <label class="control-label">Campaña</label>
-                                        <div class="controls">
-                                            <select id="idcampania" name="idcampania">
-                                                <?php 
-                                                    gen_llenar_combo("campanias_activas_view","idcampania","campania",$asignacion["idcampania"]);
-                                                ?>
+                                        <div class="controls" id="myDiv">
+                                            <select>
                                             </select>
                                         </div>
                                     </div>  
-                                    <div align="center">
+                                    <div class="form-actions">
                                                 <input type="submit" name="Submit" class="btn btn-primary" value="Presentar" >
                                                 <button type="reset" class="btn" onclick="location.href='rep_gestion_campania_form.php'">Cancelar</button>
                                     </div>
@@ -74,5 +70,10 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                 </div>
             </div>
         </div>
+        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
+        <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/ajax_agentes.js"></script>
+        <script src="js/ajax.js"></script>
     </body>
 </html>

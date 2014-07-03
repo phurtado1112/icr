@@ -8,31 +8,28 @@ if (!$_SESSION) {
 	</script>';
 }
 
-//$consulta_campania = "SELECT * FROM campanias WHERE terminada= 'no'";
-//$lista_campania = bd_ejecutar_sql($consulta_campania);
-//$campania = bd_obtener_fila($lista_campania);
-//
-//$campani = $campania['campania'];
+$consulta_campania = "SELECT * FROM campanias WHERE terminada= 'n'";
+$lista_campania = bd_ejecutar_sql($consulta_campania);
 ?>
 <!DOCTYPE html>
-<head lang="en">
-    <meta charset="utf-8" />
-    <title>Importar Datos</title>
-    <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="css/jquery-ui.css" rel="stylesheet">
-    <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-    <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
-    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-</head>
-<body>
-    <div>
-        <?php
+<html lang="en">
+    <head >
+        <meta charset="utf-8" />
+        <title>Importar Datos</title>
+        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
+        <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    </head>
+    <body>
+        <div>
+            <?php
             include './menu_superior.php';
-        ?>
-    </div>
-    <div class="container-fluid">
+            ?>
+        </div>
+        <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span12" id="content">
                     <div class="row-fluid">
@@ -50,8 +47,15 @@ if (!$_SESSION) {
                                                 <label class="control-label">Campaña</label>
                                                 <div class="controls">
                                                     <select id="idcampania" name="idcampania">
-                                                        <?php 
-                                                            gen_llenar_combo("campanias_activas_view","idcampania","campania");
+                                                        <?php
+//                                                        gen_llenar_combo("campanias_activas_view", "idcampania", "campania");
+                                                        ?>
+                                                        <?php
+                                                        while ($fila_campania = bd_obtener_fila($lista_campania)) {
+                                                            ?>
+                                                            <option value="<?php echo $fila_campania['idcampania']; ?>"><?php echo $fila_campania['campania']; ?></option>
+                                                            <?php
+                                                        }
                                                         ?>
                                                     </select>
                                                 </div>
@@ -70,7 +74,7 @@ if (!$_SESSION) {
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" name='enviar' value="Importar">
-                                                <button type="reset" class="btn" onclick="location.href='importar_datos.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href = 'importar_datos.php'">Cancelar</button>
                                                 <input type="hidden" value="upload" name="action" />
                                             </div>
                                         </fieldset>
@@ -82,11 +86,18 @@ if (!$_SESSION) {
                 </div>                 
             </div>
         </div>
-    
-<!--    <form name="importa" method="post" action="importar_datos_procecesar.php" enctype="multipart/form-data" >
-        <input type="file" name="excel" />
-        <input type='submit' name='enviar'  value="Importar"  />
-        <input type="hidden" value="upload" name="action" />
-    </form>-->
-</body>
+        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
+        <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
+        <script src="Admin/assets/scripts.js"></script>
+        <script>
+            function validar() {
+                if (confirm("¿Está seguro de importar los datos?")) {
+                    document.formimportar.submit();
+                } else {
+                    document.formimportar;
+                }
+            }
+        </script>
+    </body>
 </html>

@@ -41,7 +41,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                 </div>
                                 <div class="block-content collapse in">
                                 </div>
-                                <form class="form-horizontal" id="frmgestionxprograma" name="frmgestionxprograma" method="post" action="../ireport/repote_gestion_x_campana.php">
+                                <form class="form-horizontal" id="frmgestionxprograma" name="formgestioncampania" method="post" action="rep_gestion_campania_procesar.php">
                                     <div class="control-group">
                                         <label class="control-label">Agente</label>
                                         <div class="controls">
@@ -60,7 +60,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                         </div>
                                     </div>  
                                     <div class="form-actions">
-                                                <input type="submit" name="Submit" class="btn btn-primary" value="Presentar" >
+                                        <input type="submit" name="Submit" class="btn btn-primary" value="Presentar" onclick="document.formgestioncampania.target='_blank'" >
                                                 <button type="reset" class="btn" onclick="location.href='rep_gestion_campania_form.php'">Cancelar</button>
                                     </div>
                                 </form>

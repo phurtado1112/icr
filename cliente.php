@@ -140,8 +140,8 @@ $var_camp_nombre = $filacamp['campania'];
                         <tr>
                             <th>Fecha</th>
                             <th>Hora</th>                    
-                            <th>Tipificacion</th>                    
-                            <th>Observacion</th>                                        
+                            <th>Tipificación</th>                    
+                            <th>Observación</th>                                        
                         </tr>
                         <?php
                         if (!isset($contactosx)) {

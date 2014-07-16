@@ -42,7 +42,7 @@ if (!$_SESSION) {
                                             <div class="control-group">
                                                 <label class="control-label">Estado Cliente</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="estado" name="estado"   >
+                                                    <input type="text" class="span6 typeahead" id="estado" name="estado" autofocus>
                                                 </div>
                                             </div>                                            
                                             <div class="form-actions">

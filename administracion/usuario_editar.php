@@ -57,7 +57,7 @@ $tipo = $usuario['tipo'];
                                             <div class="control-group">
                                                 <label class="control-label">Nombre</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="nombre" name="nombre" value="<?php echo $nombre; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="nombre" name="nombre" value="<?php echo $nombre; ?>" autofocus>
                                                 </div>
                                             </div>
                                             <div class="control-group">

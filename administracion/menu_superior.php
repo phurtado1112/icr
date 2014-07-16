@@ -63,7 +63,7 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="rep_campania_form.php">Campañas</a>
+                                        <a href="rep_campanias_form.php">Campañas</a>
                                     </li>
                                     <li>
                                         <a href="rep_estados_contacto_form.php">Estados de Contacto</a>
@@ -80,7 +80,10 @@
                                     <li class="divider"></li>
                                     
                                     <li>
-                                        <a href="rep_conectados_form.php">Conectados</a>
+                                        <a href="rep_usuarios_conectados_form.php">Conectados</a>
+                                    </li>
+                                    <li>
+                                        <a href="prueba.php">Prueba</a>
                                     </li>
                                 </ul>
                             </li>

@@ -54,7 +54,7 @@ $estado = $estado_conectado['estadocliente'];
                                             <div class="control-group">
                                                 <label class="control-label">Estado de Cliente</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="estado" name="estado" value="<?php echo $estado; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="estado" name="estado" value="<?php echo $estado; ?>" autofocus>
                                                 </div>
                                             </div>
                                             <div class="form-actions">

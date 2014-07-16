@@ -57,7 +57,7 @@ $fechafin = $campania ['fechafin'];
                                             <div class="control-group">
                                                 <label class="control-label">Campaña</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="campania" name="campania" value="<?php echo $campani; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="campania" name="campania" value="<?php echo $campani; ?>" autofocus>
                                                 </div>
                                             </div>
                                             <div class="control-group">

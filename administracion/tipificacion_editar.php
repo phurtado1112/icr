@@ -54,7 +54,7 @@ $tipificaci = $tipificacion['tipificacion'];
                                             <div class="control-group">
                                                 <label class="control-label">Tipificación</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="tipificacion" name="tipificacion" value="<?php echo $tipificaci; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="tipificacion" name="tipificacion" value="<?php echo $tipificaci; ?>" autofocus>
                                                 </div>
                                             </div>                                            
                                             <div class="form-actions">

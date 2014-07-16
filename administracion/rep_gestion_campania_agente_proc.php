@@ -8,7 +8,7 @@ $lista_camp_acti_x_agen = bd_ejecutar_sql($consulta_campanias_activas_x_agente);
 
 ?>
 
-<select>
+<select id="idcampania" name="idcampania">
 
 <?php 
     while($fila = bd_obtener_fila($lista_camp_acti_x_agen)){ 

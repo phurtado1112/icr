@@ -55,7 +55,7 @@ $contenido = $noticia['contenido'];
                                             <div class="control-group">
                                                 <label class="control-label">Titulo</label>
                                                 <div class="controls">
-                                                    <input type="text" class="span6 typeahead" id="titulo" name="titulo" value="<?php echo $titulo; ?>"  >
+                                                    <input type="text" class="span6 typeahead" id="titulo" name="titulo" value="<?php echo $titulo; ?>" autofocus>
                                                 </div>
                                             </div>
                                             <div class="control-group">

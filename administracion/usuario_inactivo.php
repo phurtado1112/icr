@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_usuarios = "SELECT * FROM usuarios_view where activo=0";
+$consulta_usuarios = "SELECT * FROM usuarios_view where activo=1";
     $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
     while ($fila_usuario = bd_obtener_fila($lista_usuarios)) {
         $usuarios[] = $fila_usuario;
@@ -39,12 +39,6 @@ $consulta_usuarios = "SELECT * FROM usuarios_view where activo=0";
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
-                                <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left" align="center"></div>
-                                    <a href="usuario_crear.php" class="btn btn-small btn-success">Nuevo Usuario</a>
-                                     <div class="muted pull-left" align="center"></div>
-                                    <a href="usuario_inactivo.php" class="btn btn-small btn-success">Usuarios Inactivos</a>
-                                </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
                                         <?php
@@ -57,7 +51,7 @@ $consulta_usuarios = "SELECT * FROM usuarios_view where activo=0";
                                                 <th>Nombre</th>
                                                 <th>Usuario</th>
                                                 <th>Tipo</th>
-                                                <th>Acción</th>       
+                                                <th>Acción</th>
                                             </tr>
                                             <?php
                                             foreach ($usuarios as $u) {
@@ -68,12 +62,15 @@ $consulta_usuarios = "SELECT * FROM usuarios_view where activo=0";
                                                     <td>" . $u['nombre'] . "</td>
                                                     <td>" . $u['usuario'] . "</td>
                                                     <td>" . $u['tipo'] . "</td>
-                                                    <td>" . '<a href="usuario_editar.php?idusuario=' . $ids . '">Editar</a> ---  <a href="usuario_inactivar.php?idusuario=' . $ids . '">Inactivar</a>' . "</td>
+                                                    <td>" . '<a href="usuario_activar.php?idusuario=' . $ids . '">Activar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }
                                         ?>
                                     </table>
+                                    <div class="form-actions">
+                                        <button type="reset" class="btn" onclick="location.href = 'usuario_lista.php'">Cancelar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -49,7 +49,7 @@ $lista_usuario = bd_ejecutar_sql($consulta_usuario);
                                             <div class="control-group">
                                                 <label class="control-label">Agente</label>
                                                 <div class="controls">
-                                                    <select id="idusuario" name="idusuario">
+                                                    <select id="idusuario" name="idusuario" autofocus>
                                                         <?php
                                                             while ($fila_usuario = bd_obtener_fila($lista_usuario)) {
                                                         ?>

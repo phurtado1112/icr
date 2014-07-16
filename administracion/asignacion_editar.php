@@ -57,7 +57,7 @@ $campania = $asignacion['campania'];
                                             <div class="control-group">
                                                 <label class="control-label">Agente</label>
                                                 <div class="controls">
-                                                    <select id="idusuario" name="idusuario">
+                                                    <select id="idusuario" name="idusuario" autofocus>
                                                         <?php 
                                                             gen_llenar_combo("asignacion_view","idusuario","nombre",$asignacion["idusuario"]);
                                                         ?>

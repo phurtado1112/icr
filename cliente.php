@@ -92,7 +92,7 @@ $var_camp_nombre = $filacamp['campania'];
                     <table width="1200">
                         <tr bgcolor="#0044cc">
                             <td><strong>Nombre:</strong></td> 
-                            <td><strong>Telefono:</strong></td>
+                            <td><strong>Teléfono:</strong></td>
                             <td><strong>Email:</strong></td>
                             <td><strong>Celular:</strong></td>
                             <td><strong>Teléfono trabajo:</strong></td>
@@ -111,7 +111,7 @@ $var_camp_nombre = $filacamp['campania'];
                     </table>
                     <p>&nbsp;</p>                    
                     <p>
-                        Tipificacion:
+                        Tipificación:
                         <?php
                         $consulta_tipi = "select * from tipificacion";
                         $lista_tipi = bd_ejecutar_sql($consulta_tipi);
@@ -150,12 +150,12 @@ $var_camp_nombre = $filacamp['campania'];
                             echo '<h3><center>Historial de contacto</center></h3>';
                             foreach ($contactosx as $c) {
                                 echo"
-						<tr>
-						<td>" . $c['fecha'] . "</td>
-						<td>" . $c['hora'] . "</td>
-						<td>" . ($c['tipificacion']) . "</td>																														
-						<td>" . ($c['observaciones']) . "</td>																														
-						</tr>";
+                                    <tr>
+                                    <td>" . $c['fecha'] . "</td>
+                                    <td>" . $c['hora'] . "</td>
+                                    <td>" . ($c['tipificacion']) . "</td>																														
+                                    <td>" . ($c['observaciones']) . "</td>																														
+                                    </tr>";
                             }
                         }
                         ?>

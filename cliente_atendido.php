@@ -49,7 +49,19 @@ $var_camp_nombre = $filacamp['campania'];
                             <li><a href="cambio_estado.php">Estado</a></li>
                             <li><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
                             <li><a href="contactos.php">Contactos</a></li>
-                            <li class="active"><a href="cliente_atendido.php">Atendidos</a></li>                            
+                            <li class="active"><a href="cliente_atendido.php">Atendidos</a></li> 
+                            <li>		
+                                <div align="center">
+                                    <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
+                                    <select id="idopcion">
+                                        <option value="2">Nombre de contacto</option> 	
+                                        <option value="3">Puesto de trabajo</option>
+                                        <option value="4">Empresa</option>        
+                                        <option value="5">Email</option>            
+                                    </select>
+                                    <button type="button" class="btn" onClick="porclick()">Buscar</button>
+                                </div>        
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -59,13 +71,11 @@ $var_camp_nombre = $filacamp['campania'];
             <h1 style="alignment-adjust: central">Contactos Atendidos</h1>       
             <div id="resul_search">
                 <table class="table">
-
                     <?php
                     if (!isset($contactos)) {
                         echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
                     } else {
-                        ?>	
-
+                        ?>
                         <tr>
                             <th>Nombre</th>
                             <th>Cargo</th>
@@ -75,8 +85,8 @@ $var_camp_nombre = $filacamp['campania'];
                             <th>hora</th>
                             <th>fecha</th>                    
                             <th>Final</th>                    
-                            <th>Observacion</th>                    
-                            <th>Accion</th>                                                            
+                            <th>Observación</th>                    
+                            <th>Acción</th>                                                            
                         </tr>                    					
                         <?php
                         foreach ($contactos as $c) {

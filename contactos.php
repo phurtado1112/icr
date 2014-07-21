@@ -106,7 +106,7 @@ $var_camp_nombre = $filacamp['campania'];
             </div>
         </div>
         <div align="center">
-            <h1>Lista de Contatos</h1>
+            <h1>Lista de Contactos</h1>
         </div>
         <footer> </footer>
         <div align="center" id="resul_search"> </div>
@@ -124,7 +124,6 @@ $var_camp_nombre = $filacamp['campania'];
                 var_numero = document.getElementById('cadena').value;
                 var_opcion = document.getElementById('idopcion').value;
                 searchdata(var_numero, var_opcion);
-
             }
             function getsearch(evt)
             {

@@ -75,7 +75,7 @@ xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 xmlhttp.send('ajxcliente='+cliente+'&jaxfinales='+finales+'&ajxobservacion='+observacion+'&ajxuser='+usuario+'&ajxsubfinal='+sub_finales+'&ajxsagendar='+agendar);
 }
 
-//////////////////////ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE ¿¿??/////////////////
+///////////////////ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CLIENTES ATENDIDOS/////////////
 function searchdataAtendidos(cadena,opcion)
 {
 var xmlhttp;
@@ -95,7 +95,7 @@ xmlhttp.onreadystatechange=function()
     document.getElementById("resul_search").innerHTML=xmlhttp.responseText;
     }
   };
-xmlhttp.open("POST","resulta_searchAtendidos.php",true);
+xmlhttp.open("POST","cliente_atendido_busqueda.php",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 //xmlhttp.send();
 //xmlhttp.send("ajxcadena="+cadena);

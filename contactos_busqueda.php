@@ -39,69 +39,59 @@ if (isset($opcion)) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>Registro Guardado...</title>	 
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />       
-        <link href="css/bootstrap.css" rel="stylesheet">   
-    </head>
-    <body>
-    <center>
-        <table class="table table-hover">
+<center>
+    <table class="table table-hover">
+        <?php
+        if (!isset($contactos)) {
+            echo '<table><tr><th><h3><center>Sin resultado</center></h3><th><tr><table>';
+        } else {
+            ?>
+            <tr>
+                <th>Nombre</th>					
+                <th>Correo</th>                    
+                <th>Cargo</th>
+                <th>Empresa</th>
+                <th>Acción</th>                                                            
+            </tr>
             <?php
-            if (!isset($contactos)) {
-                echo '<table><tr><th><h3><center>Sin resultado</center></h3><th><tr><table>';
-            } else {
-                ?>
-                <tr>
-                    <th>Nombre</th>					
-                    <th>Correo</th>                    
-                    <th>Cargo</th>
-                    <th>Empresa</th>
-                    <th>Acción</th>                                                            
-                </tr>
-                <?php
-                foreach ($contactos as $c) {
-                    $ids = $c['idcliente'];
-                    if ($c['idestado'] == '0') {
-                        switch ($c['prioridad']) {
-                            case '2':
-                                echo"
-                                    <tr>
-                                    <td><font color='#094AB2'><strong>" . ($c['nombre']) . "</td>
-                                    <td ><font color='#094AB2'><strong>" . ($c['email']) . "</td>						
-                                    <td ><font color='#094AB2'><strong>" . ($c['cargo']) . "</td>
-                                    <td ><font color='#094AB2'><strong>" . ($c['empresa']) . "</td>
-                                    <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
-                                    </tr";
-                                break;
-                            case '1':
-                                echo"
-                                    <tr>
-                                    <td><font color='#008A00'><strong>" . ($c['nombre']) . "</td>
-                                    <td ><font color='#008A00'><strong>" . ($c['email']) . "</td>						
-                                    <td ><font color='#008A00'><strong>" . ($c['cargo']) . "</td>
-                                    <td ><font color='#008A00'><strong>" . ($c['empresa']) . "</td>
-                                    <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
-                                    </tr";
-                                break;
-                            case '0':
-                                echo"
-                                    <tr>
-                                    <td>" . ($c['nombre']) . "</td>
-                                    <td >" . ($c['email']) . "</td>						
-                                    <td >" . ($c['cargo']) . "</td>
-                                    <td >" . ($c['empresa']) . "</td>
-                                    <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
-                                    </tr";
-                                break;
-                        }
+            foreach ($contactos as $c) {
+                $ids = $c['idcliente'];
+                if ($c['idestado'] == '0') {
+                    switch ($c['prioridad']) {
+                        case '2':
+                            echo"
+                                <tr>
+                                <td><font color='#094AB2'><strong>" . ($c['nombre']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['email']) . "</td>						
+                                <td ><font color='#094AB2'><strong>" . ($c['cargo']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['empresa']) . "</td>
+                                <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr";
+                            break;
+                        case '1':
+                            echo"
+                                <tr>
+                                <td><font color='#008A00'><strong>" . ($c['nombre']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['email']) . "</td>						
+                                <td ><font color='#008A00'><strong>" . ($c['cargo']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['empresa']) . "</td>
+                                <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr";
+                            break;
+                        case '0':
+                            echo"
+                                <tr>
+                                <td>" . ($c['nombre']) . "</td>
+                                <td >" . ($c['email']) . "</td>						
+                                <td >" . ($c['cargo']) . "</td>
+                                <td >" . ($c['empresa']) . "</td>
+                                <td >" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr";
+                            break;
                     }
                 }
             }
-            ?>
-        </table>    
-    </center>
-</body>
-</html>
+        }
+        ?>
+    </table>    
+</center>

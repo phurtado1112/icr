@@ -54,6 +54,7 @@ if (isset($idcliente)) {
     }
 }
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
             <title>Registro Guardado...</title> 

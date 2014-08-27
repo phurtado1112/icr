@@ -102,7 +102,7 @@ $var_camp_nombre = $filacamp['campania'];
 				<td>" . $c['fecha'] . "</td>
 				<td>" . $c['tipificacion'] . "</td>																														
 				<td>" . $c['observaciones'] . "</td>																																				
-				<td>" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</td>						
+				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>						
 									</tr>";
                         }
                     }

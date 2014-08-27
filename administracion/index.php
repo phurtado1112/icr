@@ -5,7 +5,7 @@
         <title>Admin CRM INCAE</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap-cerulean.min.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="css/estilos.css" rel="stylesheet" type="text/css">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <link href="css/charisma-app.css" rel="stylesheet" type="text/css">

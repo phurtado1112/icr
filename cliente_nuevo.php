@@ -74,7 +74,7 @@ $var_camp_nombre = $filacamp['campania'];
                         <input type="text" name="TelTrabajo" id="telTrabajo" placeholder="Teléfono Oficina">
                         <input type="text" name="Cargo" id="cargo" placeholder="Cargo">
                         <input type="text" name="Empresa" id="empresa" placeholder="Empresa">
-                        <select name="finales" id="finales" >
+                        <select name="prioridad" id="prioridad" >
                             <option value="0">Prioridad Baja</option>
                             <option value="1">Prioridad Media</option>
                             <option value="2">Prioridad Alta</option>

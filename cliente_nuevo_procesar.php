@@ -18,7 +18,7 @@ $Post6 = filter_input(INPUT_POST, 'Cargo');
 $Post7 = filter_input(INPUT_POST, 'Empresa');
 $Post8 = 0;
 
-$consulta_agregar_cliente="insert into clientes (idcampania,nombre,telfijo,email,telmovil,teltrabajo,cargo,empresa,idestado) "
+$consulta_agregar_cliente="insert into clientes (idcampania,nombre,telfijo,email,telmovil,teltrabajo,cargo,empresa,prioridad) "
         . "values(".$camp.",'".$Post1."','".$Post2."','".$Post3."','".$Post4."','".$Post5."','".$Post6."','".$Post7."',".$Post8.")";
 
 error_reporting(0);

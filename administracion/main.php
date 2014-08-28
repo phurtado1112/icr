@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select * from estado_campania_view";
+$consulta_estado_campanias = "select * from estado_campania_view where terminada='n'";
 $lista_camp = bd_ejecutar_sql($consulta_estado_campanias);
 while ($fila_camp = bd_obtener_fila($lista_camp)) {
     $camp[] = $fila_camp;

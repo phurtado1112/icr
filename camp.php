@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-$consultaCamp = "SELECT Idcamp,campania FROM asignar_view WHERE concluida='n' and ID='" . $_SESSION['idusuario'] . "'";
+$consultaCamp = "SELECT Idcamp,campania FROM asignar_view WHERE terminada='n' and ID='" . $_SESSION['idusuario'] . "'";
 $lista_campanias = bd_ejecutar_sql($consultaCamp);
 ?>
 <!DOCTYPE html>

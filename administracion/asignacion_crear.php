@@ -8,10 +8,10 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campania = "SELECT * FROM campanias";
+$consulta_campania = "SELECT * FROM campanias where idcampania>1";
 $lista_campania = bd_ejecutar_sql($consulta_campania);
 
-$consulta_usuario = "SELECT * FROM usuarios";
+$consulta_usuario = "SELECT * FROM usuarios where activo=0 and tipo<2 order by nombre";
 $lista_usuario = bd_ejecutar_sql($consulta_usuario);
 ?>
 <!DOCTYPE html>

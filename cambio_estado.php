@@ -47,7 +47,8 @@ $var_camp_nombre = $filacamp['campania'];
                             <li><a href="noticias.php">Noticias</a></li>
                             <li class="active"><a href="cambio_estado.php">Estado</a></li>
                             <li><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
-                            <li><a href="contactos.php">Contactos</a></li>
+                            <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
+                            <li><a href="cliente_contacto.php">Contactos</a></li>
                             <li><a href="cliente_atendido.php">Atendidos</a></li>                            
                         </ul>
                     </div>

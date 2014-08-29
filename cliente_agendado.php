@@ -93,7 +93,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                     </table> 
                     <p>&nbsp;</p>
                     <p>
-                        Tipificacion:
+                        Tipificación:
                         <?php
                         $consulta_tipos = "select * from tipificacion";
                         $lista_tipos = bd_ejecutar_sql($consulta_tipos);

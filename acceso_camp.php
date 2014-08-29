@@ -38,5 +38,5 @@ if ($campania == '0') { //opcion1: Si el usuario NO existe o los datos son INCOR
     $filaregcon = bd_obtener_fila($lista_regcon);
     $_SESSION['idregcon'] = $filaregcon['id'];    
     
-    header("Location: progres.html");
+    header("Location: cliente_contacto_agendado.php");
 }

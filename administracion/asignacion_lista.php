@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_asignacion = "SELECT * FROM asignacion_view";
+$consulta_asignacion = "SELECT * FROM asignacion_view order by idasignar desc";
 $lista_asignacion = bd_ejecutar_sql($consulta_asignacion);
 while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
     $asignacion[] = $fila_asignacion;

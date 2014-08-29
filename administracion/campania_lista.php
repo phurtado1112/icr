@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campanias = "SELECT * FROM campanias_view";
+$consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 order by idcampania desc";
     $lista_campanias = bd_ejecutar_sql($consulta_campanias);
     while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
         $campanias[] = $fila_campanias;

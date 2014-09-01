@@ -22,7 +22,7 @@ $var_camp_nombre = $filacamp['campania'];
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta content="charset=utf-8" http-equiv="Content-Type">
         <title>INCAE | CRM</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css" />
@@ -121,19 +121,14 @@ $var_camp_nombre = $filacamp['campania'];
             {
                 var_numero = document.getElementById('cadena').value;
                 var_opcion = document.getElementById('idopcion').value;
-
                 searchdataAtendidos(var_numero, var_opcion);
-
             }
             function getsearch(evt)
             {
-
                 var keyPressed = (evt.which) ? evt.which : event.keyCode;
                 if (keyPressed === 13) {
-
                     var_numero = document.getElementById('cadena').value;
                     var_opcion = document.getElementById('idopcion').value;
-
                     searchdataAtendidos(var_numero, var_opcion);
                 }
             }

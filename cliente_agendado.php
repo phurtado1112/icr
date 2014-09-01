@@ -8,7 +8,7 @@ self.location = "index.php"
 </script>';
 }
 
-$idclient = filter_input(INPUT_GET, 'idclient');
+$idclient = filter_input(INPUT_GET, 'idcliente');
 $consulta_ctes = "SELECT * FROM transacciones_view WHERE idcliente=" . $idclient;
 $lista_clientes = bd_ejecutar_sql($consulta_ctes);
 while ($filax = bd_obtener_fila($lista_clientes)) {
@@ -117,14 +117,15 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                         <textarea name="observacion" id="OBSERVACION" style="width: 817px; height: 141px;"></textarea>
                         <br>
                         <input type="button" value="Guardar" onClick="SAVE()" class="btn btn-success" />
+                        <button type="reset" class="btn btn-success" onclick="location.href='cliente_contacto_agendado.php'">Cancelar</button>
                     </p>
                     <p>&nbsp; </p>
                     <table class="table table-hover">
                         <tr>
                             <th>Fecha</th>
                             <th>Hora</th>                    
-                            <th>Tipificacion</th>                    
-                            <th>Observacion</th>                                        
+                            <th>Tipificación</th>                    
+                            <th>Observación</th>                                        
                         </tr>
                         <?php
                         if (!isset($contactosx)) {

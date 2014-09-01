@@ -39,16 +39,18 @@ if (isset($cte)) {
     if ($age == '0000-00-00') {
         
     } else {
-        $consulta_agregar_agenda = "INSERT INTO agenda (idcliente,fecha)
+        $consulta_agregar_agenda = "INSERT INTO agenda (idcliente,fecha,observacion)
 				VALUES(
 				'" . $cte . "',			
-				'" . $age . "'
+				'" . $age . "',
+                                '" . $obs . "'
 				)";
         bd_ejecutar_sql($consulta_agregar_agenda);
     }
 }
-?>
-<!DOCTYPE html>
+header("Location: cliente_contacto_agendado.php");
+//?>
+<!--<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -57,5 +59,5 @@ if (isset($cte)) {
 <body>
         <center><h3>Registro Guardado...<a href="contactos.php">Contactos</a></h3></center>
 </body>
-</html>
+</html>-->
 

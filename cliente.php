@@ -7,7 +7,8 @@ alert("usuario no autenticado")
 self.location = "index.php"
 </script>';
 }
-$idclien = filter_input(INPUT_GET, 'idclient');
+
+$idclien = filter_input(INPUT_GET, 'idcliente');
 
 $consulta_cliente = "SELECT * FROM transacciones_view WHERE idcliente='" . $idclien . "'";
 $lista_cliente = bd_ejecutar_sql($consulta_cliente);
@@ -71,7 +72,7 @@ $var_camp_nombre = $filacamp['campania'];
                         </p>
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
-                            <li class="active"><a href="contactos.php">Contactos</a></li>
+                            <li class="active"><a href="cliente_contacto.php">Contactos</a></li>
                             <li><a href="cliente_atendido.php">Atendidos</a></li>
                         </ul>
                     </div>
@@ -134,6 +135,7 @@ $var_camp_nombre = $filacamp['campania'];
                         <textarea name="observacion" id="OBSERVACION" style="width: 817px; height: 141px;" ></textarea>
                         <br>       
                         <input type="button" value="Guardar" onClick="SAVE()" class="btn btn-success" />
+                        <button type="reset" class="btn btn-success" onclick="location.href='cliente_contacto.php'">Cancelar</button>
                     </p>
                     <p>&nbsp; </p>
                     <table class="table table-hover">
@@ -192,6 +194,10 @@ $var_camp_nombre = $filacamp['campania'];
                         load(cliente, finales, observacion, usuario, sub_finales, agendar);
                     }
                 }
+            }
+            
+            function CANCEL() {
+                
             }
         </script>
         <script type="text/javascript" src="js/cronos.js"></script>        

@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_tipificacion = "SELECT * FROM tipificacion where activo=0";
+$consulta_tipificacion = "SELECT * FROM tipificacion where activo=1";
     $lista_tipificacion = bd_ejecutar_sql($consulta_tipificacion);
     while ($fila_tipificacion = bd_obtener_fila($lista_tipificacion)) {
         $tipificacion[] = $fila_tipificacion;
@@ -18,7 +18,7 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0";
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Noticias</title>
+        <title>Usuarios</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -39,12 +39,6 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0";
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
-                                <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left" align="center"></div>
-                                    <a href="tipificacion_crear.php" class="btn btn-small btn-success">Nueva Tipificación</a>
-                                    <div class="muted pull-left" align="center"></div>
-                                    <a href="tipificacion_inactivo.php" class="btn btn-small btn-success">Tipificación Inactivas</a>
-                                </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
                                         <?php
@@ -55,7 +49,6 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0";
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Tipificación</th>
-                                                <th>Acción</th>       
                                             </tr>
                                             <?php
                                             foreach ($tipificacion as $t) {
@@ -64,12 +57,15 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0";
                                                     <tr>
                                                     <td>" . $t['idtipificacion'] . "</td>
                                                     <td>" . $t['tipificacion'] . "</td>
-                                                    <td>" . '<a href="tipificacion_editar.php?idtipificacion=' . $ids . '">Editar</a> ---  <a href="tipificacion_inactivar.php?idtipificacion=' . $ids . '">Inactivar</a>' . "</td>
+                                                    <td>" . '<a href="tipificacion_activar.php?idtipificacion=' . $ids . '">Activar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }
                                         ?>
                                     </table>
+                                    <div class="form-actions">
+                                        <button type="reset" class="btn" onclick="location.href = 'tipificacion_lista.php'">Cancelar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

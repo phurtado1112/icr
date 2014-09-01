@@ -8,15 +8,15 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$id = filter_input(INPUT_GET, 'idusuario');
+$id = filter_input(INPUT_GET, 'idtipificacion');
 
 error_reporting(0);
 
 if (isset($id)) {
-    $activa_usuario = "update usuarios set activo=0 WHERE idusuario='" . $id . "'";
-    bd_ejecutar_sql($activa_usuario);
+    $inactiva_tipificacion = "update tipificacion set activo=1 WHERE idtipificacion='" . $id . "'";
+    bd_ejecutar_sql($inactiva_tipificacion);
     
-    header("Location: usuario_lista.php");
+    header("Location: tipificacion_lista.php");
 }			
 	
 

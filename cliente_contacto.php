@@ -8,10 +8,10 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_contactos = "SELECT * FROM agenda_view WHERE idcampania='" . $_SESSION['idcampania'] . "' AND gestionado='0'";
+$consulta_contactos = "SELECT * FROM clientes WHERE idestado=0 and agendado=0 and idcampania=" . $_SESSION['idcampania'];
 $lista_contactos_campaña = bd_ejecutar_sql($consulta_contactos);
 while ($filax = bd_obtener_fila($lista_contactos_campaña)) {
-    $contactosx[] = $filax;
+    $contactos[] = $filax;
 }
 
 $consulta_campania = "SELECT * FROM campanias where idcampania=" . $_SESSION['idcampania'];
@@ -77,48 +77,47 @@ $var_camp_nombre = $filacamp['campania'];
                     </ul>
                 </div>
             </div>
-            <div id="light" class="white_content">
-                <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display = 'none';
-                        document.getElementById('fade').style.display = 'none'">
-                    <p style="font-size:xx-small" align="right">X</p></a>
-                <center><H4>Agendados</H4></center>
-                <table class="table table-hover">
-                    <tr>
-                        <th>Nombre</th>				                                                         
-                        <th>Observación</th>                                                                                
-                        <th>Acción</th>                                                            
-                    </tr>
+            <div id="container" align="center">   
+            <h1 style="alignment-adjust: central">Contactos</h1>       
+            <div id="resul_search">
+                <table class="table">
                     <?php
-                    if (!isset($contactosx)) {
-                        print "<script>document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'</script>'";
+                    if (!isset($contactos)) {
+                        echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
                     } else {
-                        foreach ($contactosx as $c) {
+                        ?>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Celular</th>
+                            <th>Tel. Oficina</th>
+                            <th>Empresa</th>
+                            <th>Cargo</th>
+                            <th>Acción</th>
+                        </tr>                    					
+                        <?php
+                        foreach ($contactos as $c) {
                             $ids = $c['idcliente'];
                             echo"
-						<tr>
-						<td>" . $c['nombre'] . "</td>						
-						<td>" . $c['observacion'] . "</td>												
-						<td>" . '<a href="cliente_agendado.php?idclient=' . $ids . '">Gestionar</a>' . "</td>
-						</tr>";
+				<tr>
+				<td>" . $c['nombre'] . "</td>
+				<td>" . $c['telfijo'] . "</td>
+                                <td>" . $c['telmovil'] . "</td>
+				<td>" . $c['teltrabajo'] . "</td>
+				<td>" . $c['empresa'] . "</td>
+				<td>" . $c['cargo'] . "</td>
+				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
+									</tr>";
                         }
                     }
                     ?>
                 </table>
             </div>
         </div>
-        <div align="center">
-            <h1>Lista de Contactos</h1>
-        </div>
-        <footer> </footer>
-        <div align="center" id="resul_search"> </div>
         <div class="ac">
             <?php include ("pie.php"); ?>
         </div>
-
         <script src="js/obj_ajax.js"></script>
-        <script type="text/javascript">
-            searchdata('0', '');
-        </script>
         <script>
             function porclick()
             {
@@ -130,7 +129,6 @@ $var_camp_nombre = $filacamp['campania'];
             {
                 var keyPressed = (evt.which) ? evt.which : event.keyCode;
                 if (keyPressed === 13) {
-
                     var_numero = document.getElementById('cadena').value;
                     var_opcion = document.getElementById('idopcion').value;
                     searchdata(var_numero, var_opcion);

@@ -24,13 +24,16 @@ if (isset($idcliente)) {
 			</script>';
     
     if ($idtipificacion == '5') {
-        $inserta_agenda = "INSERT INTO agenda (idcliente,fecha,observacion)
+        $inserta_agenda = "INSERT INTO agenda (idcliente,fecha,observacion,gestionado)
 			VALUES(
                             '" . $idcliente . "',
                             '" . $fecha . "',
-                            '" . $observacion . "'
+                            '" . $observacion . "',
+                            '". 0 . "'
 			)";
         bd_ejecutar_sql($inserta_agenda);
+        $actualiza_cliente = "update clientes set agendado=1 where idcliente=" . $idcliente;
+        bd_ejecutar_sql($actualiza_cliente);
     } else {
         $actualiza_cliente = "update clientes set idestado=1 where idcliente=" . $idcliente;
         bd_ejecutar_sql($actualiza_cliente);
@@ -52,14 +55,5 @@ if (isset($idcliente)) {
                             )";
         bd_ejecutar_sql($inserta_trans);
     }
+    header("Location: cliente_contacto.php");
 }
-?>
-<!DOCTYPE html>
-<html>
-	<head>
-            <title>Registro Guardado...</title> 
-	</head>
-<body>
-<center><h3>Registro Guardado...<a href="contactos.php">Contactos</a></h3></center>
-</body>
-</html>

@@ -42,7 +42,7 @@ $consulta_usuarios = "SELECT * FROM usuarios_view where activo=0";
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
                                     <a href="usuario_crear.php" class="btn btn-small btn-success">Nuevo Usuario</a>
-                                     <div class="muted pull-left" align="center"></div>
+                                    <div class="muted pull-left" align="center"></div>
                                     <a href="usuario_inactivo.php" class="btn btn-small btn-success">Usuarios Inactivos</a>
                                 </div>
                                 <div class="block-content collapse in">

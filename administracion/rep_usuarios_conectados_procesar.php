@@ -169,7 +169,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         }
 
         //Consulta a DB
-        $consulta0 = "SELECT idusuario, nombre, tipo FROM usuarios_conectados_view";
+        $consulta0 = "SELECT idusuario, nombre, tipo FROM usuarios_conectados_reporte_view where fechainicio=curdate()";
         $res0 = bd_ejecutar_sql($consulta0);
 
         $numfilas = mysqli_num_rows($res0);
@@ -180,11 +180,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             if ($i % 2 == 1) {
                 $pdf->SetFillColor(192, 192, 192);
                 $pdf->SetTextColor(0);
-                $pdf->Row(array($fila['idusuario'], $fila['nombre'], $fila['tipo']));
+                $pdf->Row(array($fila['idusuario'], utf8_decode($fila['nombre']), utf8_decode($fila['tipo'])));
             } else {
                 $pdf->SetFillColor(128, 128, 128);
                 $pdf->SetTextColor(0);
-                $pdf->Row(array($fila['idusuario'], $fila['nombre'], $fila['tipo']));
+                $pdf->Row(array($fila['idusuario'], utf8_decode($fila['nombre']), utf8_decode($fila['tipo'])));
             }
         }
         

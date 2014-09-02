@@ -10,7 +10,7 @@ self.location = "index.php"
 
 $consulta_contactos = "SELECT * FROM transacciones_view WHERE idusuario='" . $_SESSION['idusuario'] . "'AND idcampania='" . $_SESSION['idcampania'] . "'";
 $lista_contactos = bd_ejecutar_sql($consulta_contactos);
-while ($filacontactos = bd_obtener_fila($lista_contactos)){
+while ($filacontactos = bd_obtener_fila($lista_contactos)) {
     $contactos[] = $filacontactos;
 }
 
@@ -68,31 +68,39 @@ $var_camp_nombre = $filacamp['campania'];
                 </div>
             </div>
         </div>
-        <div id="container" align="center">   
-            <h1 style="alignment-adjust: central">Contactos Atendidos</h1>       
-            <div id="resul_search">
-                <table class="table">
-                    <?php
-                    if (!isset($contactos)) {
-                        echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
-                    } else {
-                        ?>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Cargo</th>
-                            <th>Empresa</th>
-                            <th>Correo</th>
-                            <th>Teléfono</th>
-                            <th>hora</th>
-                            <th>fecha</th>                    
-                            <th>Final</th>                    
-                            <th>Observación</th>                    
-                            <th>Acción</th>                                                            
-                        </tr>                    					
+        <div class="container-fluid"> 
+            <div class="row-fluid">
+                <div class="span3" id="sidebar">
+                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+
+                    </ul>
+                </div>
+            </div>
+            <div id="container" align="center">
+                <h1 style="alignment-adjust: central">Contactos Atendidos</h1>       
+                <div id="resul_search">
+                    <table class="table">
                         <?php
-                        foreach ($contactos as $c) {
-                            $ids = $c['idcliente'];
-                            echo"
+                        if (!isset($contactos)) {
+                            echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
+                        } else {
+                            ?>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                                <th>Empresa</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>hora</th>
+                                <th>fecha</th>                    
+                                <th>Final</th>                    
+                                <th>Observación</th>                    
+                                <th>Acción</th>                                                            
+                            </tr>                    					
+                            <?php
+                            foreach ($contactos as $c) {
+                                $ids = $c['idcliente'];
+                                echo"
 				<tr>
 				<td>" . $c['nombre'] . "</h1></td>
 				<td>" . $c['cargo'] . "</h1></td>
@@ -105,33 +113,34 @@ $var_camp_nombre = $filacamp['campania'];
 				<td>" . $c['observaciones'] . "</td>																																				
 				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>						
 									</tr>";
+                            }
                         }
-                    }
-                    ?>
-                </table>
+                        ?>
+                    </table>
+                </div>
             </div>
-        </div>
+        </div>  
         <div class="ac">
             <?php include ("pie.php"); ?>
         </div>
         <script src="js/jquery.js"></script>
         <script src="js/obj_ajax.js"></script>
         <script>
-            function porclick()
-            {
-                var_numero = document.getElementById('cadena').value;
-                var_opcion = document.getElementById('idopcion').value;
-                searchdataAtendidos(var_numero, var_opcion);
-            }
-            function getsearch(evt)
-            {
-                var keyPressed = (evt.which) ? evt.which : event.keyCode;
-                if (keyPressed === 13) {
-                    var_numero = document.getElementById('cadena').value;
-                    var_opcion = document.getElementById('idopcion').value;
-                    searchdataAtendidos(var_numero, var_opcion);
-                }
-            }
+                                        function porclick()
+                                        {
+                                            var_numero = document.getElementById('cadena').value;
+                                            var_opcion = document.getElementById('idopcion').value;
+                                            searchdataAtendidos(var_numero, var_opcion);
+                                        }
+                                        function getsearch(evt)
+                                        {
+                                            var keyPressed = (evt.which) ? evt.which : event.keyCode;
+                                            if (keyPressed === 13) {
+                                                var_numero = document.getElementById('cadena').value;
+                                                var_opcion = document.getElementById('idopcion').value;
+                                                searchdataAtendidos(var_numero, var_opcion);
+                                            }
+                                        }
         </script>
     </body>
 </html>

@@ -13,6 +13,9 @@ $lista_campa = bd_ejecutar_sql($consulta_campa);
 $filacamp = bd_obtener_fila($lista_campa);
 $var_camp_nombre = $filacamp['campania'];
 
+$consulta_lead = "SELECT idlead,lead FROM leads";
+$lista_lead = bd_ejecutar_sql($consulta_lead);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,9 +79,19 @@ $var_camp_nombre = $filacamp['campania'];
                         <input type="text" name="Cargo" id="cargo" placeholder="Cargo">
                         <input type="text" name="Empresa" id="empresa" placeholder="Empresa">
                         <select name="prioridad" id="prioridad" >
-                            <option value="0">Prioridad Baja</option>
-                            <option value="1">Prioridad Media</option>
-                            <option value="2">Prioridad Alta</option>
+                            <option value="0">Prioridad Roja</option>
+                            <option value="1">Prioridad Verde</option>
+                            <option value="2">Prioridad Azul</option>
+                        </select>
+                        <select name="lead" id="lead">
+                            <option value="0">Lead...</option>
+                                <?php
+                                    while ($fila = bd_obtener_fila($lista_lead)) {
+                                ?>
+                                        <option  value="<?php echo $fila['idlead']; ?>"><?php echo utf8_encode($fila['lead']); ?></option>
+                                <?php                                 
+                                    } 
+                                ?>
                         </select>
                         <div>
                             <div align="center">

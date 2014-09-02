@@ -115,27 +115,28 @@ $var_camp_nombre = $filacamp['campania'];
                     </table>
                 </div>
             </div>
-            <div class="ac">
-                <?php include ("pie.php"); ?>
-            </div>
-            <script src="js/obj_ajax.js"></script>
-            <script>
-                function porclick()
-                {
-                    var_numero = document.getElementById('cadena').value;
-                    var_opcion = document.getElementById('idopcion').value;
-                    searchagendados(var_numero, var_opcion);
-                }
-                function getsearch(evt)
-                {
-                    var keyPressed = (evt.which) ? evt.which : event.keyCode;
-                    if (keyPressed === 13) {
+        </div>
+        <div class="ac">
+            <?php include ("pie.php"); ?>
+        </div>
+        <script src="js/obj_ajax.js"></script>
+        <script>
+                                        function porclick()
+                                        {
+                                            var_numero = document.getElementById('cadena').value;
+                                            var_opcion = document.getElementById('idopcion').value;
+                                            searchagendados(var_numero, var_opcion);
+                                        }
+                                        function getsearch(evt)
+                                        {
+                                            var keyPressed = (evt.which) ? evt.which : event.keyCode;
+                                            if (keyPressed === 13) {
 
-                        var_numero = document.getElementById('cadena').value;
-                        var_opcion = document.getElementById('idopcion').value;
-                        searchagendados(var_numero, var_opcion);
-                    }
-                }
-            </script>
+                                                var_numero = document.getElementById('cadena').value;
+                                                var_opcion = document.getElementById('idopcion').value;
+                                                searchagendados(var_numero, var_opcion);
+                                            }
+                                        }
+        </script>
     </body>
 </html>

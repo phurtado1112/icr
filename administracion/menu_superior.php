@@ -65,9 +65,9 @@
                             <li>
                                 <a href="rep_campanias_form.php">Campañas</a>
                             </li>
-                            <li>
+<!--                            <li>
                                 <a href="rep_estados_contacto_form.php">Estados de Contacto</a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a href="rep_subtipificacion_form.php">Subtipificación</a>
                             </li>

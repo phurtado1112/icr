@@ -114,7 +114,7 @@ $var_camp_nombre = $filacamp['campania'];
                     <p>
                         Tipificación:
                         <?php
-                        $consulta_tipi = "select * from tipificacion";
+                        $consulta_tipi = "select * from tipificacion where activo=0";
                         $lista_tipi = bd_ejecutar_sql($consulta_tipi);
                         ?>
                         <select name="finales" id="finales" onChange="tipificacion(this.value)" >

@@ -47,7 +47,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                         <div class="controls">
                                             <select id="idusuario" name="idusuario" onchange="load(this.value)">
                                                 <?php 
-                                                    gen_llenar_combo("usuarios","idusuario","nombre",$asignacion["idusuario"]);
+                                                    gen_llenar_combo("usuarios_reporte_view","idusuario","nombre",$asignacion["idusuario"]);
                                                 ?>
                                             </select>
                                         </div>

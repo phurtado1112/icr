@@ -95,7 +95,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                     <p>
                         Tipificación:
                         <?php
-                        $consulta_tipos = "select * from tipificacion";
+                        $consulta_tipos = "select * from tipificacion where activo=0";
                         $lista_tipos = bd_ejecutar_sql($consulta_tipos);
                         ?>
                         <select name="finales" id="finales" onChange="tipificacion(this.value)" >

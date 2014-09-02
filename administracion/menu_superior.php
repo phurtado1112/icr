@@ -75,16 +75,16 @@
                                 <a href="rep_tipificacion_form.php">Tipificación</a>
                             </li>
                             <li>
-                                <a href="rep_usuarios_form.php">Usuarios</a>
+                                <a href="rep_usuario_form.php">Usuarios</a>
                             </li>
                             <li class="divider"></li>
 
                             <li>
                                 <a href="rep_usuarios_conectados_form.php">Conectados</a>
                             </li>
-                            <li>
+<!--                            <li>
                                 <a href="prueba.php">Prueba</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>
                 </ul>

@@ -1,6 +1,6 @@
 <?php
 include_once './funciones.general.php';
-
+	
 if (!$_SESSION) {
     echo '<script language = javascript>
 	alert("usuario no autenticado")
@@ -8,24 +8,22 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_cliente = "SELECT * FROM estadoscliente";
-$lista_estado_cliente = bd_ejecutar_sql($consulta_estado_cliente);
-while ($fila_estado_cliente = bd_obtener_fila($lista_estado_cliente)) {
-    $estado_cliente[] = $fila_estado_cliente;
+$consulta_asignacion_prog = "SELECT * FROM campanias_view where idcampania > 1 order by idcampania desc";
+$lista_asignacion_prog = bd_ejecutar_sql($consulta_asignacion_prog);
+while ($fila_asignacion_prog = bd_obtener_fila($lista_asignacion_prog)) {
+    $asignacion_prog[] = $fila_asignacion_prog;
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Prioridad Clientes</title>
+        <meta charset="utf-8"/>
+        <title>Asignación Programa</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <!--<link href="Admin/vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">-->
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
@@ -42,28 +40,30 @@ while ($fila_estado_cliente = bd_obtener_fila($lista_estado_cliente)) {
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
-                                    <a href="estado_cliente_crear.php" class="btn btn-small btn-success">Nuevo Nivel de Prioridad</a>
+                                    <a href="asignacion_programa_crear.php" class="btn btn-small btn-success">Nueva Asignación de Programa</a>
                                 </div>
                                 <div class="block-content collapse in">
-                                    <table class="table table-striped table-hover">                            
+                                    <table class="table table-striped table-hover">
                                         <?php
-                                        if (!isset($estado_cliente)) {
+                                        if (!isset($asignacion_prog)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';
                                         } else {
                                             ?>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Prioridad de Cliente</th>
-                                                <th>Acción</th>       
+                                                <th>Campaña</th>
+                                                <th>Programa</th>
+                                                <th>Acción</th>
                                             </tr>
                                             <?php
-                                            foreach ($estado_cliente as $ec) {
-                                                $ids = $ec['idestadoscliente'];
+                                            foreach ($asignacion_prog as $ap) {
+                                                $ids = $ap['idcampania'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $ec['idestadoscliente'] . "</td>
-                                                    <td>" . $ec['estadocliente'] . "</td>
-                                                    <td>" . '<a href="estado_cliente_editar.php?idestadoscliente=' . $ids . '">Editar</a> ---  <a href="estado_cliente_inactivar.php?idestadoscliente=' . $ids . '">Inacticar</a>' . "</td>
+                                                    <td>" . $ap['idcampania'] . "</td>
+                                                    <td>" . $ap['campania'] . "</td>
+                                                    <td>" . $ap['programa'] . "</td>
+                                                    <td>" . '<a href="asignacion_programa_editar.php?idcampania=' . $ids . '">Editar</a>' ."</td>
                                                     </tr>";
                                             }
                                         }
@@ -81,15 +81,9 @@ while ($fila_estado_cliente = bd_obtener_fila($lista_estado_cliente)) {
             include './pie.php';
             ?>
         </div>
+        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <!--<script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>-->
         <script src="Admin/assets/scripts.js"></script>
-<!--        <script>
-            $(function() {
-                // Easy pie charts
-                $('.chart').easyPieChart({animate: 1000});
-            });
-        </script>-->
     </body>
 </html>

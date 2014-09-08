@@ -60,6 +60,7 @@ $consulta_subtipificacion = "SELECT * FROM subtipificacion_view";
                                                 $ids = $t['idsubtipificacion'];
                                                 echo"
                                                     <tr>
+                                                    <td>" . $t['idsubtipificacion'] . "</td>
                                                     <td>" . $t['subtipificacion'] . "</td>
                                                     <td>" . $t['tipificacion'] . "</td>
                                                     <td>" . '<a href="subtipificacion_editar.php?idsubtipificacion=' . $ids . '">Editar</a> ---  <a href="subtipificacion_eliminar.php?idsubtipificacion=' . $ids . '">Eliminar</a>' . "</td>

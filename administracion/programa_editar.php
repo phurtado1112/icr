@@ -8,26 +8,23 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$idasignar = filter_input(INPUT_GET, 'idasignar');
+$idprograma = filter_input(INPUT_GET, 'idprograma');
 
-$consulta_asignacion = "SELECT * FROM asignacion_view WHERE idasignar='" . $idasignar . "' ";
-$lista_asignacion = bd_ejecutar_sql($consulta_asignacion);
-$asignacion = bd_obtener_fila($lista_asignacion);
+$consulta_programa = "SELECT * FROM programas";
+$lista_programa = bd_ejecutar_sql($consulta_programa);
+$programa = bd_obtener_fila($lista_programa);
 
-//$id = $asignacion['idasignar'];
-//$usuario = $asignacion['nombre'];
-//$campania = $asignacion['campania'];
-
+$id = $programa['idprograma'];
+$programas = $programa['programa'];
 ?>
 <!DOCTYPE html>
 <html>
 
     <head>
         <meta charset="utf-8" />
-        <title>Editar Asignación</title>
+        <title>Editar programa</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="css/jquery-ui.css" rel="stylesheet">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
@@ -50,33 +47,19 @@ $asignacion = bd_obtener_fila($lista_asignacion);
                                 </div>
                                 <div class="block-content collapse in">
 
-                                    <form class="form-horizontal" action="asignacion_editar_procesar.php" name="formasignacion" method="POST">
-                                        <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idasignar" size="1"></div>
+                                    <form class="form-horizontal" action="programa_editar_procesar.php" name="formprograma" method="POST">
+                                        <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idprograma" size="1"></div>
                                         <fieldset>
-                                            <legend >Editar Asignación</legend>
+                                            <legend>Editar Programa</legend>
                                             <div class="control-group">
-                                                <label class="control-label">Asesor</label>
+                                                <label class="control-label">Programa</label>
                                                 <div class="controls">
-                                                    <select id="idusuario" name="idusuario" autofocus>
-                                                        <?php 
-                                                            gen_llenar_combo("asignacion_view","idusuario","nombre",$asignacion["idusuario"]);
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="control-group">
-                                                <label class="control-label">Campaña</label>
-                                                <div class="controls">
-                                                   <select id="idcampania" name="idcampania">
-                                                        <?php 
-                                                            gen_llenar_combo("asignacion_view","idcampania","campania",$asignacion["idcampania"]);
-                                                        ?>
-                                                    </select>
+                                                    <input type="text" class="span6 typeahead" id="programa" name="programa" value="<?php echo $programas; ?>" autofocus>
                                                 </div>
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href='asignacion_lista.php'">Cancelar</button>
+                                                <button type="reset" class="btn" onclick="location.href='programa_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -94,13 +77,14 @@ $asignacion = bd_obtener_fila($lista_asignacion);
         </div>
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="js/cronos.js"></script>
-        <script src="js/jquery-ui.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
-                document.formasignacion.submit();
+                if (document.getElementById('programa').value === '') {
+                    alert('FALTA PROGRAMA');
+                } 
+                    document.formprograma.submit();
             }
         </script>
     </body>

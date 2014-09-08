@@ -22,10 +22,10 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Procesos<b class="caret"></b></a>
                         <ul class="dropdown-menu" id="menu1">
                             <li>
-                                <a href="campania_lista.php">Campañas</a>
+                                <a href="asignacion_programa_lista.php">Asignación Campaña a Programa</a>
                             </li>
                             <li>
-                                <a href="asignacion_lista.php">Asignación Agente - Campaña</a>
+                                <a href="asignacion_lista.php">Asignación Asesor a Campaña</a>
                             </li>
                             <li>
                                 <a href="importar_datos.php">Carga de Contactos por Campaña</a>
@@ -39,8 +39,16 @@
                                 <a href="noticias_lista.php">Noticias</a>
                             </li>
                             <li>
+                                <a href="campania_lista.php">Campañas</a>
+                            </li>
+                            <li>
+                                <a href="programa_lista.php">Programas</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="usuario_lista.php">Usuarios</a>
                             </li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="tipificacion_lista.php">Tipificación de Respuestas</a>
                             </li>
@@ -48,11 +56,14 @@
                                 <a href="subtipificacion_lista.php">Subtipificación de Respuestas</a>
                             </li>
                             <li>
-                                <a href="estado_conectado_lista.php">Estados de Usuario Conectados</a>
+                                <a href="lead_lista.php">Leads</a>
                             </li>
                             <li>
-                                <a href="estado_cliente_lista.php">Estados de Clientes</a>
-                            </li>                                                                        
+                                <a href="estado_conectado_lista.php">Estados de Usuario Conectados</a>
+                            </li>
+<!--                            <li>
+                                <a href="estado_cliente_lista.php">Prioridad de Clientes</a>
+                            </li>                                                                        -->
                         </ul>
                     </li>
                     <li class="dropdown">

@@ -51,8 +51,9 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
                                             ?>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Usuario</th>
+                                                <th>Asesor</th>
                                                 <th>Campaña Asignada</th>
+                                                <th>Programa</th>
                                                 <th>Fecha Asignación</th>
                                                 <th>Acción</th>
                                             </tr>
@@ -64,6 +65,7 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
                                                     <td>" . $a['idasignar'] . "</td>
                                                     <td>" . $a['nombre'] . "</td>
                                                     <td>" . $a['campania'] . "</td>
+                                                    <td>" . $a['programa'] . "</td>
                                                     <td>" . $a['fecha'] . "</td>
                                                     <td>" . '<a href="asignacion_editar.php?idasignar=' . $ids . '">Editar</a> ---  <a href="asignacion_eliminar.php?idasignar=' . $ids . '">Eliminar</a>' . "</td>
                                                     </tr>";

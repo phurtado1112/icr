@@ -15,6 +15,14 @@ $terminada = filter_input(INPUT_POST, 'terminada');
 $fechainicio = filter_input(INPUT_POST, 'fechainicio');
 $fechafin = filter_input(INPUT_POST, 'fechafin');
 $id = filter_input(INPUT_POST, 'idcampania');
+//if ($fechainicio == '0000-00-00'){
+//    $fechainicio = null;
+//}
+if ($terminada == 'NO') {
+    $terminada = 's';
+} else {
+    $terminada = 'n';
+}
 
 error_reporting(0);
 

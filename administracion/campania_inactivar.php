@@ -8,15 +8,15 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$id = filter_input(INPUT_GET, 'idestadocliente');
+$id = filter_input(INPUT_GET, 'idcampania');
 
 error_reporting(0);
 
 if (isset($id)) {
-    $inactiva_lead = "update estadocliente set activo=1 WHERE idlead='" . $id . "'";
-    bd_ejecutar_sql($inactiva_lead);
+    $inactiva_campania = "update campanias set terminada='s' WHERE idcampania='" . $id . "'";
+    bd_ejecutar_sql($inactiva_campania);
     
-    header("Location: lead_lista.php");
+    header("Location: campania_lista.php");
 }			
 	
 

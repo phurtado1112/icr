@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 order by idcampania desc";
+$consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and terminada='No' order by idcampania desc";
     $lista_campanias = bd_ejecutar_sql($consulta_campanias);
     while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
         $campanias[] = $fila_campanias;
@@ -42,6 +42,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 order by 
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
                                     <a href="campania_crear.php" class="btn btn-small btn-success">Nueva Campaña</a>
+                                    <a href="campania_inactivo.php" class="btn btn-small btn-success">Campañas Inactivas</a>
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
@@ -53,7 +54,6 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 order by 
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Campañas</th>
-                                                <th>Finalizada</th>
                                                 <th>Fecha Inicio</th>
                                                 <th>Fecha Fin</th>
                                                 <th>Acción</th>
@@ -65,10 +65,9 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 order by 
                                                     <tr>
                                                     <td>" . $c['idcampania'] . "</td>
                                                     <td>" . $c['campania'] . "</td>
-                                                    <td>" . $c['terminada'] . "</td>
                                                     <td>" . $c['fechainicio'] . "</td>
                                                     <td>" . $c['fechafin'] . "</td>
-                                                    <td>" . '<a href="campania_editar.php?idcampania=' . $ids . '">Editar</a> ---  <a href="campania_eliminar.php?idcampania=' . $ids . '">Eliminar</a>' . "</td>
+                                                    <td>" . '<a href="campania_editar.php?idcampania=' . $ids . '">Editar</a> ---  <a href="campania_inactivar.php?idcampania=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }

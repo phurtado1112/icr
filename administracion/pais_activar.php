@@ -8,15 +8,15 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$id = filter_input(INPUT_GET, 'idlead');
+$id = filter_input(INPUT_GET, 'idpais');
 
 error_reporting(0);
 
 if (isset($id)) {
-    $activa_lead = "update leads set activo=0 WHERE idlead='" . $id . "'";
-    bd_ejecutar_sql($activa_lead);
+    $activa_pais = "update pais set activo=0 WHERE idpais='" . $id . "'";
+    bd_ejecutar_sql($activa_pais);
     
-    header("Location: lead_lista.php");
+    header("Location: pais_lista.php");
 }			
 	
 

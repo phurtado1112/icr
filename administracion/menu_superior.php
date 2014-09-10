@@ -50,20 +50,20 @@
                             </li>
                             <li class="divider"></li>
                             <li>
+                                <a href="pais_lista.php">Países</a>
+                            </li>
+                            <li>
+                                <a href="lead_lista.php">Leads</a>
+                            </li>
+                            <li>
                                 <a href="tipificacion_lista.php">Tipificación de Respuestas</a>
                             </li>
                             <li>
                                 <a href="subtipificacion_lista.php">Subtipificación de Respuestas</a>
                             </li>
                             <li>
-                                <a href="lead_lista.php">Leads</a>
-                            </li>
-                            <li>
                                 <a href="estado_conectado_lista.php">Estados de Usuario Conectados</a>
-                            </li>
-<!--                            <li>
-                                <a href="estado_cliente_lista.php">Prioridad de Clientes</a>
-                            </li>                                                                        -->
+                            </li>                                                                        
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -71,6 +71,15 @@
                         <ul class="dropdown-menu" id="menu3">                                    
                             <li>
                                 <a href="rep_gestion_campania_form.php">Gestión por Campaña</a>
+                            </li>
+                            <li>
+                                <a href="rep_campanias_x_asesor_form.php">Campaña por Asesor</a>
+                            </li>
+                            <li>
+                                <a href="rep_contactos _x_campanias_x_asesor_form.php">Contactos de Campaña por Asesor</a>
+                            </li>
+                            <li>
+                                <a href="rep_campanias_x_asesor_form.php">Desempeño por Asesor por Programa</a>
                             </li>
                             <li class="divider"></li>
                             <li>

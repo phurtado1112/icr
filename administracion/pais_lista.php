@@ -1,6 +1,6 @@
 <?php
 include_once './funciones.general.php';
-	
+
 if (!$_SESSION) {
     echo '<script language = javascript>
 	alert("usuario no autenticado")
@@ -8,17 +8,17 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$lead = "SELECT * FROM leads where activo=1";
-    $lista_leads = bd_ejecutar_sql($lead);
-    while ($fila_lead = bd_obtener_fila($lista_leads)) {
-        $leads[] = $fila_lead;
-    }
+$consulta_pais = "SELECT * FROM pais";
+$lista_pais = bd_ejecutar_sql($consulta_pais);
+while ($fila_pais = bd_obtener_fila($lista_pais)) {
+    $pais[] = $fila_pais;
+}
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Leads</title>
+        <title>País</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -39,34 +39,36 @@ $lead = "SELECT * FROM leads where activo=1";
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
+                                <div class="navbar navbar-inner block-header">
+                                    <div class="muted pull-left" align="center"></div>
+                                    <a href="pais_crear.php" class="btn btn-small btn-success">Nuevo País</a>
+                                    <a href="pais_inactivo.php" class="btn btn-small btn-success">Países Inactivos</a>
+                                </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
                                         <?php
-                                        if (!isset($leads)) {
+                                        if (!isset($pais)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';
                                         } else {
                                             ?>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Lead</th>
-                                                <th>Acción</th>
+                                                <th>País</th>
+                                                <th>Acción</th>       
                                             </tr>
                                             <?php
-                                            foreach ($leads as $l) {
-                                                $ids = $l['idusuario'];
+                                            foreach ($pais as $p) {
+                                                $ids = $p['idpais'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $l['idlead'] . "</td>
-                                                    <td>" . $l['lead'] . "</td>
-                                                    <td>" . '<a href="lead_activar.php?idlead=' . $ids . ">Activar</a></td>
+                                                    <td>" . $p['idpais'] . "</td>
+                                                    <td>" . $p['pais'] . "</td>
+                                                    <td>" . '<a href="pais_editar.php?idpais=' . $ids . '">Editar</a> ---  <a href="pais_inactivar.php?idpais=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }
                                         ?>
                                     </table>
-                                    <div class="form-actions">
-                                        <button type="reset" class="btn" onclick="location.href = 'lead_lista.php'">Cancelar</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>

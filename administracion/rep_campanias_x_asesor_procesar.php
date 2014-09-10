@@ -6,7 +6,7 @@ require './fpdf/fpdf.php';
 switch (filter_input(INPUT_POST, 'Submit')) {
     case "Cancelar":
 
-        header("Location: rep_campanias_form.php");
+        header("Location: rep_campanias_x_asesor_form.php");
         exit(0);
 
         break;
@@ -180,24 +180,24 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln(10);
 
-        $pdf->SetWidths(array(10, 105, 55, 15, 28, 25));
+        $pdf->SetWidths(array(50, 100, 50, 25, 25));
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->SetFillColor(0, 128, 255);
         $pdf->SetTextColor(255);
-
+        
         for ($i = 0; $i < 1; $i++) {
-            $pdf->Row(array('ID', utf8_decode('CAMPAÑA'), 'ASESOR', 'FINAL', 'FECHA INICIO', 'FECHA FIN'));
+            $pdf->Row(array('ASESOR', utf8_decode('CAMPAÑA'), 'PROGRAMA', utf8_decode('ASIGNACIÓN'), 'TERMINADA'));
         }
 
         //Consulta a DB
         if ($tipo == 0) {
-            $consulta0 = "SELECT * FROM campanias_reporte_view order by idcampania desc";
+            $consulta0 = "SELECT * FROM campania_x_asesor_view";
         } elseif ($tipo == 1) {
-           $consulta0 = "SELECT * FROM campanias_reporte_view where terminada='no' order by idcampania desc";
+           $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='no'";
         } elseif ($tipo == 2) {
-            $consulta0 = "SELECT * FROM campanias_reporte_view where terminada='si' order by idcampania desc";
+            $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='si'";
         } else {
-            $consulta0 = "SELECT * FROM campanias_reporte_view where terminada='si' and fechainicio > '.$finicio.' and fechafin < '..$ffin' order by idcampania desc";
+            $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='si' and fechainicio > '.$finicio.' and fechafin < '..$ffin' order by idcampania desc";
         }
         $res0 = bd_ejecutar_sql($consulta0);
 
@@ -209,11 +209,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             if ($i % 2 == 1) {
                 $pdf->SetFillColor(192, 192, 192);
                 $pdf->SetTextColor(0);
-                $pdf->Row(array($fila['idcampania'], utf8_decode($fila['campania']), utf8_decode($fila['agente']), $fila['terminada'], $fila['fechainicio'], $fila['fechafin']));
+                $pdf->Row(array(utf8_decode($fila['nombre']), utf8_decode($fila['campania']), utf8_decode($fila['programa']), $fila['fecha'], $fila['terminada']));
             } else {
                 $pdf->SetFillColor(128, 128, 128);
                 $pdf->SetTextColor(0);
-                $pdf->Row(array($fila['idcampania'], utf8_decode($fila['campania']), utf8_decode($fila['agente']), $fila['terminada'], $fila['fechainicio'], $fila['fechafin']));
+                $pdf->Row(array(utf8_decode($fila['nombre']), utf8_decode($fila['campania']), utf8_decode($fila['programa']), $fila['fecha'], $fila['terminada']));
             }
         }
         

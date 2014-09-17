@@ -90,7 +90,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->SetFillColor(200, 200, 255);
 
-        $consulta1 = "SELECT count(idcliente) FROM transaccion where idcampania=" . $campania;
+        $consulta1 = "SELECT count(idcliente) FROM transaccion where idcampania=" . $campania ." and idtipificacion <> 5";
         $res1 = bd_ejecutar_sql($consulta1);
         $pdf->SetFont('Arial', '', 12);
         while ($fila1 = bd_obtener_fila($res1)) {
@@ -98,11 +98,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             $pdf->Cell(45, 6, $fila1['count(idcliente)'], 1, 1, 'C');
         }
 
-        $consulta2 = "SELECT tra.idtipificacion as cantidad, tip.tipificacion as tipo
+        $consulta2 = "SELECT count(tra.idtipificacion) as cantidad, tip.tipificacion as tipo
                     FROM transaccion as tra 
                     left join tipificacion tip on (tra.idtipificacion=tip.idtipificacion)
-                    where idcampania=" . $campania . "
-                    group by tip.idtipificacion order by tip.tipificacion;";
+                    where idcampania=" . $campania . " and tra.idtipificacion <> 5
+                    group by tra.idtipificacion order by tip.tipificacion;";
         $res2 = bd_ejecutar_sql($consulta2);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila2 = bd_obtener_fila($res2)) {
@@ -138,7 +138,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         }
         $pdf->Cell(45, 8, $contacs, 1, 0, 'C');
 
-        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idcampania=" . $campania;
+        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idcampania=" . $campania ." and idtipificacion <> 5";
         $res21 = bd_ejecutar_sql($consulta21);
         while ($fila21 = bd_obtener_fila($res21)) {
             $contacted = $fila21['count(distinct idcliente)'];
@@ -163,7 +163,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln();
 
-        $consulta30 = "select tra.idsubtipificacion as cantidad, sub.subtipificacion as subtipo
+        $consulta30 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
                     from transaccion tra
                     inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
                     where idcampania=" . $campania . " and tra.idtipificacion=9

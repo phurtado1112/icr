@@ -15,10 +15,10 @@ error_reporting(0);
 
 if (isset($subtipificacion)) {    
 
-    $inserta_subtipificacion = "INSERT INTO subtipificacion (idtipificacion,subtipificacion)
+    $inserta_subtipificacion = "INSERT INTO subtipificacion (subtipificacion, idtipificacion)
 			VALUES(
-			'" . $idtipificacion . "',
-                        '" . $subtipificacion . "'
+                        '" . $subtipificacion . "',
+			'" . $idtipificacion . "'
 			)";
     bd_ejecutar_sql($inserta_subtipificacion);
     

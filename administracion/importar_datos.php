@@ -48,9 +48,6 @@ $lista_campania = bd_ejecutar_sql($consulta_campania);
                                                 <div class="controls">
                                                     <select id="idcampania" name="idcampania">
                                                         <?php
-//                                                        gen_llenar_combo("campanias_activas_view", "idcampania", "campania");
-                                                        ?>
-                                                        <?php
                                                         while ($fila_campania = bd_obtener_fila($lista_campania)) {
                                                             ?>
                                                             <option value="<?php echo $fila_campania['idcampania']; ?>"><?php echo $fila_campania['campania']; ?></option>
@@ -67,7 +64,7 @@ $lista_campania = bd_ejecutar_sql($consulta_campania);
                                                 </div>
                                             </div>
                                             <div class="control-group">
-                                                <label class="control-label">Archivo de Excel</label>
+                                                <label class="control-label">Número de Registros</label>
                                                 <div class="controls">
                                                     <input type="text" class="span1 typeahead" id="registros" name="registros"   >
                                                 </div>

@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_tipificacion = "SELECT * FROM tipificacion where activo=0";
+$consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tipificacion";
     $lista_tipificacion = bd_ejecutar_sql($consulta_tipificacion);
     while ($fila_tipificacion = bd_obtener_fila($lista_tipificacion)) {
         $tipificacion[] = $fila_tipificacion;

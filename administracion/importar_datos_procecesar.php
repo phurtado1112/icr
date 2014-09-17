@@ -31,18 +31,19 @@ if ($action == "upload") {
         $objPHPExcel->setActiveSheetIndex(0);
 
 // Llenamos el arreglo con los datos  del archivo xlsx
-        for ($i = 1; $i <= $registros; $i++) {
+        for ($i = 2; $i <= $registros; $i++) {
             $_DATOS_EXCEL[$i]['idcampania'] = $idcampania;
-            $_DATOS_EXCEL[$i]['nombre'] = $objPHPExcel->getActiveSheet()->getCell('B' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['telfijo'] = $objPHPExcel->getActiveSheet()->getCell('C' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['email'] = $objPHPExcel->getActiveSheet()->getCell('D' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['telmovil'] = $objPHPExcel->getActiveSheet()->getCell('E' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['teltrabajo'] = $objPHPExcel->getActiveSheet()->getCell('F' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['cargo'] = $objPHPExcel->getActiveSheet()->getCell('G' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['empresa'] = $objPHPExcel->getActiveSheet()->getCell('H' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['idestado'] = 0;
-            $_DATOS_EXCEL[$i]['prioridad'] = $objPHPExcel->getActiveSheet()->getCell('I' . $i)->getCalculatedValue();
-            $_DATOS_EXCEL[$i]['teltrabajo'] = $objPHPExcel->getActiveSheet()->getCell('F' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['nombre'] = $objPHPExcel->getActiveSheet()->getCell('A' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['telfijo'] = $objPHPExcel->getActiveSheet()->getCell('B' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['email'] = $objPHPExcel->getActiveSheet()->getCell('C' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['telmovil'] = $objPHPExcel->getActiveSheet()->getCell('D' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['teltrabajo'] = $objPHPExcel->getActiveSheet()->getCell('E' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['cargo'] = $objPHPExcel->getActiveSheet()->getCell('F' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['empresa'] = $objPHPExcel->getActiveSheet()->getCell('G' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['prioridad'] = $objPHPExcel->getActiveSheet()->getCell('H' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['idestado'] = $objPHPExcel->getActiveSheet()->getCell('I' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['agendado'] = $objPHPExcel->getActiveSheet()->getCell('J' . $i)->getCalculatedValue();
+            $_DATOS_EXCEL[$i]['idpais'] = $objPHPExcel->getActiveSheet()->getCell('K' . $i)->getCalculatedValue();
         }
     }
 //si por algo no cargo el archivo bak_ 
@@ -54,9 +55,9 @@ if ($action == "upload") {
 //e ir insertandolos en la BD
     foreach ($_DATOS_EXCEL as $campo => $valor) {
         $sql = "INSERT INTO clientes (idcampania,nombre,telfijo,email,telmovil,"
-                . "teltrabajo,cargo,empresa,idestado,prioridad) VALUES ('";
+                . "teltrabajo,cargo,empresa,prioridad,idestado,agendado,idpais) VALUES ('";
         foreach ($valor as $campo2 => $valor2) {
-            $campo2 == "prioridad" ? $sql.= $valor2 . "');" : $sql.= $valor2 . "','";
+            $campo2 == "idpais" ? $sql.= $valor2 . "');" : $sql.= $valor2 . "','";
         }
         $result = bd_ejecutar_sql($sql);
         if (!$result) {

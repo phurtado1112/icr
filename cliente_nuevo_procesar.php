@@ -16,10 +16,11 @@ $Post4 = filter_input(INPUT_POST, 'Celular');
 $Post5 = filter_input(INPUT_POST, 'TelTrabajo');
 $Post6 = filter_input(INPUT_POST, 'Cargo');
 $Post7 = filter_input(INPUT_POST, 'Empresa');
-$Post8 = 0;
+$Post8 = filter_input(INPUT_POST, 'prioridad');
+$Post9 = filter_input(INPUT_POST, 'idpais');
 
-$consulta_agregar_cliente="insert into clientes (idcampania,nombre,telfijo,email,telmovil,teltrabajo,cargo,empresa,prioridad) "
-        . "values(".$camp.",'".$Post1."','".$Post2."','".$Post3."','".$Post4."','".$Post5."','".$Post6."','".$Post7."',".$Post8.")";
+$consulta_agregar_cliente="insert into clientes (idcampania,nombre,telfijo,email,telmovil,teltrabajo,cargo,empresa,prioridad,idpais,idestado) "
+        . "values(".$camp.",'".$Post1."','".$Post2."','".$Post3."','".$Post4."','".$Post5."','".$Post6."','".$Post7."','".$Post8."','".$Post9."','0')";
 
 error_reporting(0);
 if (isset($Post1)) {

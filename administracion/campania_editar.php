@@ -19,9 +19,9 @@ $campani = $campania['campania'];
 $terminada = $campania['terminada'];
 $fechainicio = $campania['fechainicio'];
 $fechafin = $campania ['fechafin'];
-//if($fechafin==NULL){
-//    $fechafin='0000-00-00';
-//}
+if($fechafin==NULL){
+    $fechafin='0000-00-00';
+}
 
 ?>
 <!DOCTYPE html>

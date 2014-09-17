@@ -52,9 +52,9 @@
                             <li>
                                 <a href="pais_lista.php">Países</a>
                             </li>
-                            <li>
+<!--                            <li>
                                 <a href="lead_lista.php">Leads</a>
-                            </li>
+                            </li>-->
                             <li>
                                 <a href="tipificacion_lista.php">Tipificación de Respuestas</a>
                             </li>

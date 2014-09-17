@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_subtipificacion = "SELECT * FROM subtipificacion_view";
+$consulta_subtipificacion = "SELECT * FROM subtipificacion_view order by tipificacion, subtipificacion";
     $lista_subtipificacion = bd_ejecutar_sql($consulta_subtipificacion);
     while ($fila_subtipificacion = bd_obtener_fila($lista_subtipificacion)) {
         $subtipificacion[] = $fila_subtipificacion;

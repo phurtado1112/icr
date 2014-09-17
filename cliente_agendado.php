@@ -107,7 +107,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                             <?php } ?>	    
                         </select>
                     </p>
-  
+
                     <div id="Divtipnoionteresado"></div> 
 
                     <p>
@@ -117,7 +117,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                         <textarea name="observacion" id="OBSERVACION" style="width: 817px; height: 141px;"></textarea>
                         <br>
                         <input type="button" value="Guardar" onClick="SAVE()" class="btn btn-success" />
-                        <button type="reset" class="btn btn-success" onclick="location.href='cliente_contacto_agendado.php'">Cancelar</button>
+                        <button type="reset" class="btn btn-success" onclick="location.href = 'cliente_contacto_agendado.php'">Cancelar</button>
                     </p>
                     <p>&nbsp; </p>
                     <table class="table table-hover">
@@ -154,28 +154,30 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
         <script src="js/obj_ajax.js"></script>
         <script>
             function getsearch(evt) {
-                    var keyPressed = (evt.which) ? evt.which : event.keyCode;
+                var keyPressed = (evt.which) ? evt.which : event.keyCode;
                     if (keyPressed === 13) {
                         var_numero = document.getElementById('cadena').value;
                         searchdata(var_numero);
-                    }
                 }
+            }
 
             function SAVE() {
-                if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
-                    alert('ALERTA!.Falta la Observacion');
-                } else {
+            if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
+                alert('ALERTA!.Falta la Observacion');
+            } else
+                    if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18') {
+                alert('ALERTA!.Falta la Observacion');
+            } else
                     if (document.getElementById('finales').value === '0') {
-                        alert('ALERTA!.Falta la finales');
-                    } else {
-                        cliente = document.getElementById('idcliente').value;
+            alert('ALERTA!.Falta la finales');
+            } else {
+                cliente = document.getElementById('idcliente').value;
                         finales = document.getElementById('finales').value;
                         observacion = document.getElementById('OBSERVACION').value;
                         usuario = document.getElementById('idusuario').value;
                         sub_finales = document.getElementById('subfinales').value;
                         agendar = document.getElementById('datepicker').value;
                         load_agendados(cliente, finales, observacion, usuario, sub_finales, agendar);
-                    }
                 }
             }
         </script>

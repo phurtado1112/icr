@@ -7,6 +7,9 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
+
+$consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tipificacion";
+$lista_tipificacion = bd_ejecutar_sql($consulta_tipificacion);
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,8 +52,12 @@ if (!$_SESSION) {
                                                 <label class="control-label">Tipificación</label>
                                                 <div class="controls">
                                                     <select id="idtipificacion" name="idtipificacion">
+                                                        <?php
+                                                            while ($fila_tipificacion = bd_obtener_fila($lista_tipificacion)) {
+                                                        ?>
+                                                            <option value="<?php echo $fila_tipificacion['idtipificacion'];?>"><?php echo $fila_tipificacion['tipificacion'];?></option>
                                                         <?php 
-                                                            gen_llenar_combo("tipificacion","idtipificacion","tipificacion",$asignacion["idtipicacion"]);
+                                                            }
                                                         ?>
                                                     </select>
                                                 </div>

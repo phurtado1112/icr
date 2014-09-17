@@ -13,8 +13,8 @@ $lista_campa = bd_ejecutar_sql($consulta_campa);
 $filacamp = bd_obtener_fila($lista_campa);
 $var_camp_nombre = $filacamp['campania'];
 
-$consulta_lead = "SELECT idlead,lead FROM leads";
-$lista_lead = bd_ejecutar_sql($consulta_lead);
+$consulta_pais = "SELECT idpais,pais FROM pais";
+$lista_pais = bd_ejecutar_sql($consulta_pais);
 
 ?>
 <!DOCTYPE html>
@@ -83,12 +83,12 @@ $lista_lead = bd_ejecutar_sql($consulta_lead);
                             <option value="1">Prioridad Verde</option>
                             <option value="2">Prioridad Azul</option>
                         </select>
-                        <select name="lead" id="lead">
-                            <option value="0">Lead...</option>
+                        <select name="idpais" id="idpais">
+                            <option value="0">País...</option>
                                 <?php
-                                    while ($fila = bd_obtener_fila($lista_lead)) {
+                                    while ($fila = bd_obtener_fila($lista_pais)) {
                                 ?>
-                                        <option  value="<?php echo $fila['idlead']; ?>"><?php echo utf8_encode($fila['lead']); ?></option>
+                                        <option  value="<?php echo $fila['idpais']; ?>"><?php echo utf8_encode($fila['pais']); ?></option>
                                 <?php                                 
                                     } 
                                 ?>

@@ -52,9 +52,6 @@
                             <li>
                                 <a href="pais_lista.php">Países</a>
                             </li>
-<!--                            <li>
-                                <a href="lead_lista.php">Leads</a>
-                            </li>-->
                             <li>
                                 <a href="tipificacion_lista.php">Tipificación de Respuestas</a>
                             </li>
@@ -63,7 +60,12 @@
                             </li>
                             <li>
                                 <a href="estado_conectado_lista.php">Estados de Usuario Conectados</a>
-                            </li>                                                                        
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="contactos.php">Leads</a>
+                            </li>
+                            
                         </ul>
                     </li>
                     <li class="dropdown">

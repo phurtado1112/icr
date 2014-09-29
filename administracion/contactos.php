@@ -42,7 +42,7 @@ $lista_campania = bd_ejecutar_sql($consulta_campania);
 
                                     <form class="form-horizontal" action="contactos_lista.php" name="formcontactos" method="POST">
                                         <fieldset>
-                                            <legend>Selecciona la campaña para ver los Leads</legend>
+                                            <legend>Selecciona campaña para ver Leads</legend>
                                             <div class="control-group">
                                                 <label class="control-label">Campaña</label>
                                                 <div class="controls">
@@ -75,14 +75,5 @@ $lista_campania = bd_ejecutar_sql($consulta_campania);
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
         <script src="Admin/assets/scripts.js"></script>
-<!--        <script>
-            function validar() {
-                if (confirm("¿Está seguro de importar los datos?")) {
-                    document.formimportar.submit();
-                } else {
-                    document.formimportar;
-                }
-            }
-        </script>-->
     </body>
 </html>

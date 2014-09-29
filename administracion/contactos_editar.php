@@ -25,8 +25,14 @@ $empresa = $cliente ['empresa'];
 $prioridad = $cliente ['prioridad'];
 $idestado = $cliente ['idestado'];
 $agendado = $cliente ['agendado'];
-$pais = $cliente ['pais'];
-$idcampania = $cliente['idcampania'];
+$pais = $cliente ['idpais'];
+$idcampania = $_SESSION['idcampania'];
+//$idcampania = $cliente['idcampania'];
+
+$consulta_campania = "Select campania from campanias where idcampania= " . $idcampania;
+$lista_campan = bd_ejecutar_sql($consulta_campania);
+$campania = bd_obtener_fila($lista_campan);
+$campania_nombre = $campania['campania'];
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +71,7 @@ $idcampania = $cliente['idcampania'];
                                         <div style="display:none"><input type="text" value="<?php echo $agendado; ?>" name="agendado" size="1"></div>
                                         <div style="display:none"><input type="text" value="<?php echo $idcampania; ?>" name="idcampania" size="1"></div>
                                         <fieldset>
-                                            <legend >Editar Leads</legend>
+                                            <legend >Editar Leads de la campaña <?php echo $campania_nombre; ?></legend>
                                             <div class="control-group">
                                                 <label class="control-label">Nombre</label>
                                                 <div class="controls">
@@ -111,7 +117,7 @@ $idcampania = $cliente['idcampania'];
                                             <div class="control-group">
                                                 <label class="control-label">Prioridad</label>
                                                 <div class="controls">
-                                                    <select>
+                                                    <select id="prioridad" name="prioridad">
                                                         <?php
                                                             $elementos_combo_prioridad = array("0"=>"Roja","1"=>"Verde","2"=>"Azul");
                                                             gen_llenar_combo_arreglo($elementos_combo_prioridad ,$prioridad); 
@@ -122,7 +128,7 @@ $idcampania = $cliente['idcampania'];
                                             <div class="control-group">
                                                 <label class="control-label">País</label>
                                                 <div class="controls">
-                                                    <select>
+                                                    <select name="idpais">
                                                         <?php 
                                                             gen_llenar_combo("pais","idpais","pais",$pais);
                                                         ?>
@@ -131,7 +137,8 @@ $idcampania = $cliente['idcampania'];
                                             </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
-                                                <button type="reset" class="btn" onclick="location.href='contactos_lista.php?idcampania=idcampania'">Cancelar</button>
+                                                <!--<button type="reset" class="btn" onclick="location.href='contactos_lista.php?idcampania='<?php echo $_SESSION['idcampania'] ?>">Cancelar</button>-->
+                                                <button type="reset" class="btn" onclick="location.href='contactos_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>
                                     </form>
@@ -155,10 +162,22 @@ $idcampania = $cliente['idcampania'];
         <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
-                if (document.getElementById('campania').value === '') {
-                    alert('FALTA CAMPAÑA');
+                if (document.getElementById('nombre').value === '') {
+                    alert('FALTA NOMBRE');
+                } else if (document.getElementById('telfijo').value === '') {
+                    alert('FALTA TELÉFONO');
+                } else if (document.getElementById('email').value === '') {
+                    alert('FALTA E-MAIL');
+                } else if (document.getElementById('telmovil').value === '') {
+                    alert('FALTA CELULAR');
+                } else if (document.getElementById('teltrabajo').value === '') {
+                    alert('FALTA TELÉFONO TRABAJO');
+                } else if (document.getElementById('cargo').value === '') {
+                    alert('FALTA CARGO');
+                } else if (document.getElementById('empresa').value === '') {
+                    alert('FALTA EMPRESA');
                 } else {
-                    document.formcampania.submit();
+                    document.formcontactos.submit();
                 }
             }
         </script>

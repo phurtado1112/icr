@@ -63,7 +63,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="contactos.php">Leads</a>
+                                <a href="contactos.php">Leads por campaña</a>
                             </li>
                             
                         </ul>

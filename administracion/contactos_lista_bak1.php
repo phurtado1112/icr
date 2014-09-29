@@ -1,6 +1,5 @@
 <?php
 include_once './funciones.general.php';
-//include_once '';
 
 if (!$_SESSION) {
     echo '<script language = javascript>
@@ -10,13 +9,17 @@ if (!$_SESSION) {
 }
 
 $idcampania = filter_input(INPUT_POST, 'idcampania');
-if($idcampania){
-    $_SESSION['idcampania'] = $idcampania;
+$_SESSION['idcampania'] = $idcampania;
+
+$_pagi_sql = "SELECT * FROM clientes_view where idcampania = " . $_SESSION['idcampania'];
+$lista_contactos = bd_ejecutar_sql($_pagi_sql);
+//$numero_total_registros = mysqli_num_rows($lista_contactos);
+
+while ($fila_contatos = bd_obtener_fila($lista_contactos)) {
+    $contactos[] = $fila_contatos;
 }
 
-
-$consulta_contactos = "SELECT * FROM clientes_view where idcampania = " . $_SESSION['idcampania'];
-$lista_contactos = bd_ejecutar_sql($consulta_contactos);
+include './paginator.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,14 +48,17 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
+                                    <?php
+                                    echo $_SESSION ['idcampania'];
+                                    ?>
+                                    <!--                                    <a href="campania_crear.php" class="btn btn-small btn-success">Nueva Campaña</a>
+                                                                        <a href="campania_inactivo.php" class="btn btn-small btn-success">Campañas Inactivas</a>-->
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
                                         <?php
-                                        while ($fila_contactos = bd_obtener_fila($lista_contactos)) {
-                                            $contactos[] = $fila_contactos;
-                                        }
-
+                                        $_pagi_cuantos = 10; 
+                                        
                                         if (!isset($contactos)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';
                                         } else {
@@ -70,7 +76,7 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
                                                 <th>Acción</th>
                                             </tr>
                                             <?php
-                                            foreach ($contactos as $c) {
+                                            while($row = mysql_fetch_array($_pagi_result)){ 
                                                 $ids = $c['idcliente'];
                                                 echo"
                                                     <tr>
@@ -87,6 +93,7 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
                                                     </tr>";
                                             }
                                         }
+                                        echo"<p>".$_pagi_navegacion."</p>";
                                         ?>
                                     </table>
                                 </div>

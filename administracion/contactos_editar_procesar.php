@@ -10,28 +10,34 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$campania = filter_input(INPUT_POST, 'campania');
-$terminada = filter_input(INPUT_POST, 'terminada');
-$fechainicio = filter_input(INPUT_POST, 'fechainicio');
-$fechafin = filter_input(INPUT_POST, 'fechafin');
-$id = filter_input(INPUT_POST, 'idcampania');
+$campania = filter_input(INPUT_POST, 'idcampania');
+$nombre = filter_input(INPUT_POST, 'nombre');
+$telfijo = filter_input(INPUT_POST, 'telfijo');
+$email = filter_input(INPUT_POST, 'email');
+$telmovil = filter_input(INPUT_POST, 'telmovil');
+$teltrabajo = filter_input(INPUT_POST, 'teltrabajo');
+$cargo = filter_input(INPUT_POST, 'cargo');
+$empresa = filter_input(INPUT_POST, 'empresa');
+$prioridad = filter_input(INPUT_POST, 'prioridad');
+$idpais = filter_input(INPUT_POST, 'idpais');
+$id = filter_input(INPUT_POST, 'idcliente');
 //if ($fechainicio == '0000-00-00'){
 //    $fechainicio = null;
 //}
-if ($terminada == 'NO') {
-    $terminada = 's';
-} else {
-    $terminada = 'n';
-}
+//if ($terminada == 'NO') {
+//    $terminada = 's';
+//} else {
+//    $terminada = 'n';
+//}
 
 error_reporting(0);
 
 if (isset($campania)) {
 
-    $actualiza_campania = "UPDATE  campanias set campania='" . $campania . "', terminada='" . $terminada . "', fechainicio='" . $fechainicio . "', fechafin='" . $fechafin . "' where idcampania='" . $id . "'";
-    bd_ejecutar_sql($actualiza_campania);
+    $actualiza_cliente = "UPDATE  clientes set nombre='" . $nombre . "', email='" . $email . "', telfijo='" . $telfijo . "', telmovil='" . $telmovil . "', teltrabajo='" . $teltrabajo . "', cargo='" . $cargo . "', empresa='" . $empresa . "', prioridad='" . $prioridad . "', idpais='" . $idpais . "' where idcliente='" . $id . "'";
+    bd_ejecutar_sql($actualiza_cliente);
     
-    header("Location: campania_lista.php");
+    header("Location: contactos_lista.php");
 }
 
 

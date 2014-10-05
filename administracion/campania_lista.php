@@ -54,6 +54,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Campañas</th>
+                                                <th>Programa</th>
                                                 <th>Fecha Inicio</th>
                                                 <th>Fecha Fin</th>
                                                 <th>Acción</th>
@@ -65,6 +66,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                                     <tr>
                                                     <td>" . $c['idcampania'] . "</td>
                                                     <td>" . $c['campania'] . "</td>
+                                                    <td>" . $c['programa'] . "</td>
                                                     <td>" . $c['fechainicio'] . "</td>
                                                     <td>" . $c['fechafin'] . "</td>
                                                     <td>" . '<a href="campania_editar.php?idcampania=' . $ids . '">Editar</a> ---  <a href="campania_inactivar.php?idcampania=' . $ids . '">Inactivar</a>' . "</td>

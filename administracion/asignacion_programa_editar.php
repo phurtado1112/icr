@@ -7,8 +7,9 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
+$idcampania = filter_input(INPUT_GET,'idcampania');
 
-$consulta_campania = "SELECT * FROM campanias where idcampania > 1";
+$consulta_campania = "SELECT * FROM campanias where idcampania = ".$idcampania;
 $lista_campania = bd_ejecutar_sql($consulta_campania);
 
 $consulta_programa = "SELECT * FROM programas where activo=0 order by programa";
@@ -43,24 +44,10 @@ $lista_programa = bd_ejecutar_sql($consulta_programa);
                                 </div>
                                 <div class="block-content collapse in">
 
-                                    <form class="form-horizontal" action="asignacion_editar_procesar.php" name="formasignacionprog" method="POST">
+                                    <form class="form-horizontal" action="asignacion_programa_editar_procesar.php" name="formasignacionprog" method="POST">
                                         <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idasignar" size="1"></div>
                                         <fieldset>
                                             <legend >Editar Asignación Campaña a Programa</legend>
-                                            <div class="control-group">
-                                                <label class="control-label">Programa</label>
-                                                <div class="controls">
-                                                    <select id="idprograma" name="idprograma" autofocus>
-                                                        <?php
-                                                            while ($fila_programa = bd_obtener_fila($lista_programa)) {
-                                                        ?>
-                                                            <option value="<?php echo $fila_programa['idprograma'];?>"><?php echo $fila_programa['programa'];?></option>
-                                                        <?php 
-                                                            }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
                                             <div class="control-group">
                                                 <label class="control-label">Campaña</label>
                                                 <div class="controls">
@@ -69,6 +56,20 @@ $lista_programa = bd_ejecutar_sql($consulta_programa);
                                                             while ($fila_campania = bd_obtener_fila($lista_campania)) {
                                                         ?>
                                                             <option value="<?php echo $fila_campania['idcampania'];?>"><?php echo $fila_campania['campania'];?></option>
+                                                        <?php 
+                                                            }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Programa</label>
+                                                <div class="controls">
+                                                    <select id="idprograma" name="idprograma" autofocus>
+                                                        <?php
+                                                            while ($fila_programa = bd_obtener_fila($lista_programa)) {
+                                                        ?>
+                                                            <option value="<?php echo $fila_programa['idprograma'];?>"><?php echo $fila_programa['programa'];?></option>
                                                         <?php 
                                                             }
                                                         ?>

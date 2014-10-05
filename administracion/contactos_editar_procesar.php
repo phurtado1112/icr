@@ -1,6 +1,4 @@
 <?php
-
-//Iniciar Sesión
 include_once './funciones.general.php';
 
 if (!$_SESSION) {
@@ -21,14 +19,6 @@ $empresa = filter_input(INPUT_POST, 'empresa');
 $prioridad = filter_input(INPUT_POST, 'prioridad');
 $idpais = filter_input(INPUT_POST, 'idpais');
 $id = filter_input(INPUT_POST, 'idcliente');
-//if ($fechainicio == '0000-00-00'){
-//    $fechainicio = null;
-//}
-//if ($terminada == 'NO') {
-//    $terminada = 's';
-//} else {
-//    $terminada = 'n';
-//}
 
 error_reporting(0);
 

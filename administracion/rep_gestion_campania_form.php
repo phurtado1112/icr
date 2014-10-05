@@ -16,7 +16,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Reporte de Gestión por Campaña</title>
+        <title>Reporte de Gestión de Asesor por Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -27,7 +27,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
     <body>
         <div>
             <?php
-                include './menu_superior.php';
+                include 'menu_superior.php';
             ?>
         </div>
         <div class="container-fluid">
@@ -43,7 +43,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                 </div>
                                 <form class="form-horizontal" id="frmgestionxprograma" name="formgestioncampania" method="post" action="rep_gestion_campania_procesar.php">
                                     <div class="control-group">
-                                        <label class="control-label">Agente</label>
+                                        <label class="control-label">Asesor</label>
                                         <div class="controls">
                                             <select id="idusuario" name="idusuario" onchange="load(this.value)">
                                                 <?php 

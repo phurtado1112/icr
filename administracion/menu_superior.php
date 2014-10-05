@@ -72,10 +72,14 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes<b class="caret"></b></a>
                         <ul class="dropdown-menu" id="menu3">                                    
                             <li>
-                                <a href="rep_gestion_campania_form.php">Gestión por Campaña</a>
+                                <a href="rep_gestion_campania_form.php">Gestión de Asesor por Campaña</a>
                             </li>
                             <li>
-                                <a href="rep_campanias_x_asesor_form.php">Campaña por Asesor</a>
+                                <a href="rep_gestion_de_campania_form.php">Gestión de Campaña</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="rep_campanias_x_asesor_form.php">Campañas asignadas a Asesor</a>
                             </li>
                             <li>
                                 <a href="rep_contactos _x_campanias_x_asesor_form.php">Contactos de Campaña por Asesor</a>

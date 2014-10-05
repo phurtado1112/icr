@@ -61,7 +61,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $res0 = bd_ejecutar_sql($consulta0);
         $pdf->SetFont('Arial', 'b', 14);
         while ($fila0 = bd_obtener_fila($res0)) {
-            $pdf->Cell(0, 8, $fila0['nombre'], 0, 1, 'C');
+            $pdf->Cell(0, 8, utf8_decode($fila0['nombre']), 0, 1, 'C');
         }
         $pdf->Ln(1);
 
@@ -69,7 +69,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $res00 = bd_ejecutar_sql($consulta00);
         $pdf->SetFont('Arial', 'u', 12);
         while ($fila00 = bd_obtener_fila($res00)) {
-            $pdf->Cell(0, 8, $fila00['campania'], 0, 1, 'C');
+            $pdf->Cell(0, 8, utf8_decode($fila00['campania']), 0, 1, 'C');
         }
 
         $pdf->Ln(5);

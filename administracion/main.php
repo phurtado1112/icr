@@ -63,7 +63,8 @@ function graficar($titulo, $idcampania) {
                                             <td>
                                                 <?php
                                                     foreach ($camp as $c) {
-                                                        graficar($c['campania'], $c['idcampania']);
+                                                        graficar($c['campania'].' - '.$c['nombre'] , $c['idcampania']);
+                                                        
                                                     }
                                                 ?>
                                             </td>

@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_asignacion_prog = "SELECT * FROM campanias_view where idcampania > 1 order by idcampania desc";
+$consulta_asignacion_prog = "SELECT * FROM campanias_view where idcampania > 1 and terminada='no' order by idcampania desc";
 $lista_asignacion_prog = bd_ejecutar_sql($consulta_asignacion_prog);
 while ($fila_asignacion_prog = bd_obtener_fila($lista_asignacion_prog)) {
     $asignacion_prog[] = $fila_asignacion_prog;

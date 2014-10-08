@@ -62,10 +62,14 @@ function graficar($titulo, $idcampania) {
                                         <tr>
                                             <td>
                                                 <?php
+                                                if(isset($camp)){
                                                     foreach ($camp as $c) {
                                                         graficar($c['campania'].' - '.$c['nombre'] , $c['idcampania']);
                                                         
                                                     }
+                                                } else {
+                                                    echo '<h2>Inicie cargando los Catálogos del sistema</h2>';
+                                                }
                                                 ?>
                                             </td>
                                         </tr>

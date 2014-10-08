@@ -75,7 +75,13 @@
                                 <a href="rep_gestion_campania_form.php">Gestión de Asesor por Campaña</a>
                             </li>
                             <li>
-                                <a href="rep_gestion_de_campania_form.php">Gestión de Campaña</a>
+                                <a href="rep_gestion_de_campania_program_form.php">Gestión Total de Campañas por Programa</a>
+                            </li>
+                            <li>
+                                <a href="rep_gestion_de_campania_detallado_campania_form.php">Gestión Detallada por Campañas por Programa</a>
+                            </li>
+                            <li>
+                                <a href="rep_gestion_de_campania_detallado_asesor_form.php">Gestión Detallada por Asesor por Campañas por Programa</a>
                             </li>
                             <li class="divider"></li>
                             <li>
@@ -108,9 +114,6 @@
                             <li>
                                 <a href="rep_usuarios_conectados_form.php">Conectados</a>
                             </li>
-<!--                            <li>
-                                <a href="prueba.php">Prueba</a>
-                            </li>-->
                         </ul>
                     </li>
                 </ul>

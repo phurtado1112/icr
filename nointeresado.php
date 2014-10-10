@@ -7,6 +7,7 @@ $consulta_tipif = "select * from subtipificacion where idtipificacion=" . $idtip
 $lista_tipif = bd_ejecutar_sql($consulta_tipif);
 ?>
 <p>
+    Subtipificación:
     <select id="subfinales">
         <option value="0">-----</option>    
         <?php while ($filat = bd_obtener_fila($lista_tipif)) { ?>

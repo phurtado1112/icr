@@ -11,8 +11,10 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         break;
 
     case "Presentar":
-        $agente = (filter_input(INPUT_POST, 'idusuario'));
-        $campania = (filter_input(INPUT_POST, 'idcampania'));
+        $agente = (filter_input(INPUT_POST, 'idusuario'));        
+        $asignar = (filter_input(INPUT_POST, 'idasignar'));
+//        $consul_camp="select ";
+//        $campania = (filter_input(INPUT_POST, 'idasignar'));
 
         class PDF extends FPDF {
 
@@ -65,7 +67,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         }
         $pdf->Ln(1);
 
-        $consulta00 = "SELECT campania FROM campanias where idcampania=" . $campania;
+        $consulta00 = "SELECT campania FROM campanias_reporte_view where idasignar=" . $asignar;
         $res00 = bd_ejecutar_sql($consulta00);
         $pdf->SetFont('Arial', 'u', 12);
         while ($fila00 = bd_obtener_fila($res00)) {
@@ -79,7 +81,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln(5);
 
-        $consulta = "select count(idcliente) from clientes where idcampania=" . $campania;
+        $consulta = "select count(idcliente) from clientes where idasignar=" . $asignar;
         $res = bd_ejecutar_sql($consulta);
         $pdf->SetFont('Arial', '', 12);
         while ($fila = bd_obtener_fila($res)) {
@@ -90,7 +92,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->SetFillColor(200, 200, 255);
 
-        $consulta1 = "SELECT count(idcliente) FROM transaccion where idcampania=" . $campania ." and idtipificacion <> 5";
+        $consulta1 = "SELECT count(idcliente) FROM transaccion where idasignar=" . $asignar ." and idtipificacion <> 5";
         $res1 = bd_ejecutar_sql($consulta1);
         $pdf->SetFont('Arial', '', 12);
         while ($fila1 = bd_obtener_fila($res1)) {
@@ -101,7 +103,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $consulta2 = "SELECT count(tra.idtipificacion) as cantidad, tip.tipificacion as tipo
                     FROM transaccion as tra 
                     left join tipificacion tip on (tra.idtipificacion=tip.idtipificacion)
-                    where idcampania=" . $campania . " and tra.idtipificacion <> 5
+                    where idasignar=" . $asignar . " and tra.idtipificacion <> 5
                     group by tra.idtipificacion order by tip.tipificacion;";
         $res2 = bd_ejecutar_sql($consulta2);
         $pdf->SetFont('Arial', 'b', 10);
@@ -130,7 +132,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $pdf->Ln();
         //Valore de la tabla Totales de campaña
 
-        $consulta20 = "select count(idcliente) from clientes where idcampania=" . $campania;
+        $consulta20 = "select count(idcliente) from clientes where idasignar=" . $asignar;
         $res20 = bd_ejecutar_sql($consulta20);
         $pdf->SetFont('Arial', '', 12);
         while ($fila20 = bd_obtener_fila($res20)) {
@@ -138,7 +140,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         }
         $pdf->Cell(45, 8, $contacs, 1, 0, 'C');
 
-        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idcampania=" . $campania ." and idtipificacion <> 5";
+        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idasignar=" . $asignar ." and idtipificacion <> 5";
         $res21 = bd_ejecutar_sql($consulta21);
         while ($fila21 = bd_obtener_fila($res21)) {
             $contacted = $fila21['count(distinct idcliente)'];
@@ -166,7 +168,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $consulta30 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
                     from transaccion tra
                     inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
-                    where idcampania=" . $campania . " and tra.idtipificacion=9
+                    where idasignar=" . $asignar . " and tra.idtipificacion=9
                     group by tra.idsubtipificacion";
         $res30 = bd_ejecutar_sql($consulta30);
         $pdf->SetFont('Arial', 'b', 10);

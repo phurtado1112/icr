@@ -23,7 +23,7 @@ if (isset($cte)) {
     $consulta_actualizacion_agenda = "update agenda SET gestionado=1 WHERE idcliente='" . $cte . "'";
     bd_ejecutar_sql($consulta_actualizacion_agenda);
 
-    $consulta_agregar_transaccion = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,idsubtipificacion,fecha,hora,observaciones,idcampania)
+    $consulta_agregar_transaccion = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,idsubtipificacion,fecha,hora,observaciones,idcampania,idasignar)
 			VALUES(
                             '" . $cte . "',
                             '" . $usua . "',
@@ -32,7 +32,8 @@ if (isset($cte)) {
                             '" . date("Y-m-d") . "',
                             '" . date('H:i:s') . "',
                             '" . $obs . "',
-                            '" . $_SESSION['idcampania'] . "'
+                            '" . $_SESSION['idcampania'] . "',
+                            '" . $_SESSION['idasignar'] . "'
 			)";
     bd_ejecutar_sql($consulta_agregar_transaccion);
 

@@ -4,7 +4,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-$consultaCamp = "SELECT Idcamp,campania FROM asignar_view WHERE terminada='n' and ID='" . $_SESSION['idusuario'] . "'";
+$consultaCamp = "SELECT idasignar,Idcamp,campania FROM asignar_view WHERE terminada='n' and ID='" . $_SESSION['idusuario'] . "'";
 $lista_campanias = bd_ejecutar_sql($consultaCamp);
 ?>
 <!DOCTYPE html>
@@ -34,13 +34,13 @@ $lista_campanias = bd_ejecutar_sql($consultaCamp);
                 </div>
                 <div class="block_content">
                     <div align="center">
-                        <form accept-charset="UTF-8" action="acceso_camp.php" class="new_user" id="new_user" method="post">
-                            <select name="Camp" >            
+                        <form accept-charset="UTF-8" action="acceso_camp.php" class="new_user" id="new_user" method="post">                            
+                            <select name="idasignar" >            
                                 <option value="0">Campaña...</option>
                                 <?php
                                     while ($fila = bd_obtener_fila($lista_campanias)) {
                                 ?>
-                                        <option  value="<?php echo $fila['Idcamp']; ?>"><?php echo utf8_encode($fila['campania']); ?></option>
+                                        <option  value="<?php echo $fila['idasignar']; ?>"><?php echo utf8_encode($fila['campania']); ?></option>
                                 <?php                                 
                                     } 
                                 ?>

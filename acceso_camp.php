@@ -8,16 +8,22 @@ if (!isset($_SESSION)) {
 }
 
 //Recibir los datos ingresados en el formulario
-$campania = filter_input(INPUT_POST, 'Camp');
+$idasignar = filter_input(INPUT_POST, 'idasignar');
 
-if ($campania == '0') { //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
+$consulta_camp = "select idcampania from asignar where idasignar=".$idasignar;
+$lista_camp = bd_ejecutar_sql($consulta_camp);
+$fila_camp = bd_obtener_fila($lista_camp);
+$idcampania = $fila_camp['idcampania'];
+
+if ($idasignar == '0') { //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
     echo '<script language = javascript>
 	alert("Seleccione una Campaña")
 	self.location = "camp.php"
 	</script>';
 } else { //opcion2: Usuario logueado correctamente
     //Definimos las variables de sesi�n y redirigimos a la p�gina de usuario
-    $_SESSION['idcampania'] = $campania;
+    $_SESSION['idasignar'] = $idasignar;
+    $_SESSION['idcampania'] = $idcampania;
 
     $insert_sesion = "INSERT INTO session (session_id,idusuario,usuario) "
             . "VALUES("

@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campania = "SELECT * FROM campanias where idcampania>1";
+$consulta_campania = "SELECT * FROM campanias where idcampania>1 and terminada='n'";
 $lista_campania = bd_ejecutar_sql($consulta_campania);
 
 $consulta_programa = "SELECT * FROM programas where activo=0 order by programa";

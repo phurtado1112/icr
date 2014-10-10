@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campania = "SELECT * FROM campanias WHERE terminada= 'n'";
+$consulta_campania = "SELECT * FROM campanias_asignadas_view WHERE terminada= 'n'";
 $lista_campania = bd_ejecutar_sql($consulta_campania);
 ?>
 <!DOCTYPE html>
@@ -46,11 +46,11 @@ $lista_campania = bd_ejecutar_sql($consulta_campania);
                                             <div class="control-group">
                                                 <label class="control-label">Campaña</label>
                                                 <div class="controls">
-                                                    <select id="idcampania" name="idcampania">
+                                                    <select id="idasignar" name="idasignar">
                                                         <?php
                                                         while ($fila_campania = bd_obtener_fila($lista_campania)) {
                                                             ?>
-                                                            <option value="<?php echo $fila_campania['idcampania']; ?>"><?php echo $fila_campania['campania']; ?></option>
+                                                            <option value="<?php echo $fila_campania['idasignar']; ?>"><?php echo $fila_campania['campania'].' - '.$fila_campania['nombre']; ?></option>
                                                             <?php
                                                         }
                                                         ?>

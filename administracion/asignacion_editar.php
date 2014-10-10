@@ -69,7 +69,7 @@ $asignacion = bd_obtener_fila($lista_asignacion);
                                                 <div class="controls">
                                                    <select id="idcampania" name="idcampania">
                                                         <?php 
-                                                            gen_llenar_combo("asignacion_view","idcampania","campania",$asignacion["idcampania"]);
+                                                            gen_llenar_combo("asignacion_view","idcampania","campnom",$asignacion["idcampania"]);
                                                         ?>
                                                     </select>
                                                 </div>

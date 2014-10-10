@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$camp = $_SESSION['idcampania'];
+$idasignar = $_SESSION['idasignar'];
 $Post1 = filter_input(INPUT_POST, 'Nombre');
 $Post2 = filter_input(INPUT_POST, 'Telefono');
 $Post3 = filter_input(INPUT_POST, 'Correo');
@@ -19,8 +19,8 @@ $Post7 = filter_input(INPUT_POST, 'Empresa');
 $Post8 = filter_input(INPUT_POST, 'prioridad');
 $Post9 = filter_input(INPUT_POST, 'idpais');
 
-$consulta_agregar_cliente="insert into clientes (idcampania,nombre,telfijo,email,telmovil,teltrabajo,cargo,empresa,prioridad,idpais,idestado) "
-        . "values(".$camp.",'".$Post1."','".$Post2."','".$Post3."','".$Post4."','".$Post5."','".$Post6."','".$Post7."','".$Post8."','".$Post9."','0')";
+$consulta_agregar_cliente="insert into clientes (idasignar,nombre,telfijo,email,telmovil,teltrabajo,cargo,empresa,prioridad,idpais,idestado) "
+        . "values(".$idasignar.",'".$Post1."','".$Post2."','".$Post3."','".$Post4."','".$Post5."','".$Post6."','".$Post7."','".$Post8."','".$Post9."','0')";
 
 error_reporting(0);
 if (isset($Post1)) {

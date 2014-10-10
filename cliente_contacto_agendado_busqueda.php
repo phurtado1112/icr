@@ -9,6 +9,7 @@ if (!$_SESSION) {
 }
 
 $idcampania = $_SESSION['idcampania'];
+$idasignar = $_SESSION['idasignar'];
 
 $opcion = filter_input(INPUT_POST, 'ajxopcion');
 $cadena = filter_input(INPUT_POST, 'ajxcadena');
@@ -18,19 +19,19 @@ error_reporting(0);
 if (isset($opcion)) {
     switch ($opcion) {
         case 0:
-            $busqueda = "SELECT * FROM agenda_view WHERE idcampania=" . $idcampania;
+            $busqueda = "SELECT * FROM agenda_view WHERE idasignar=" . $idasignar;
             break;
         case 2:
-            $busqueda = "SELECT * FROM agenda_view WHERE nombre LIKE '%" . $cadena . "%' and idcampania=" . $idcampania;
+            $busqueda = "SELECT * FROM agenda_view WHERE nombre LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 3:
-            $busqueda = "SELECT * FROM agenda_view WHERE cargo LIKE '%" . $cadena . "%' and idcampania=" . $idcampania;
+            $busqueda = "SELECT * FROM agenda_view WHERE cargo LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 4:
-            $busqueda = "SELECT * FROM agenda_view WHERE empresa LIKE '%" . $cadena . "%' and idcampania=" . $idcampania;
+            $busqueda = "SELECT * FROM agenda_view WHERE empresa LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 5:
-            $busqueda = "SELECT * FROM agenda_view WHERE email LIKE '%" . $cadena . "%' and idcampania=" . $idcampania;
+            $busqueda = "SELECT * FROM agenda_view WHERE email LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
     }
 

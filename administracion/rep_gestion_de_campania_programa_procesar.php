@@ -24,11 +24,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
                 // Arial bold 15
                 $this->SetFont('Arial', 'B', 15);
                 // Movernos a la derecha
-                //$this->Cell(55);
+                $this->Ln(8);
                 // Título
                 $this->Cell(0, 10, utf8_decode('Reporte de Gestión de Campañas por Programa'), 0, 1, 'C');
                 // Salto de línea
-                $this->Ln(5);
+                $this->Ln(2);
                 // Nombre de agente
                 //$this->Cell(0, 10, utf8_decode($fila00['nombres']), 0, 1, 'C');
             }
@@ -66,32 +66,30 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         }
         $pdf->Ln(1);
 
-        $consulta00 = "SELECT distinct campania, agente FROM transacciones_view where idprograma=" . $idprograma;
+        $consulta00 = "SELECT distinct campania, idcampania FROM campanias where idprograma=" . $idprograma;
         $res00 = bd_ejecutar_sql($consulta00);
         $pdf->SetFont('Arial', 'u', 12);
         $pdf->Cell(0, 8, utf8_decode('Campañas del programa'), 0, 1, 'L');
         $pdf->Ln(1);
         $pdf->SetFont('Arial', '', 12);
         while ($fila00 = bd_obtener_fila($res00)) {
-            $pdf->Cell(0, 8, '- '. utf8_decode($fila00['campania']).' - '.  utf8_decode($fila00['agente']), 0, 1, 'L');
+            $pdf->Cell(0, 8, '- '. utf8_decode($fila00['campania']), 0, 1, 'L');
         }
 
-        $pdf->Ln(5);
-
-        $pdf->SetFont('Arial', 'b', 12);
-        $pdf->Cell(0, 8, utf8_decode('Clasificación de Leads Atendidos'), 0, 1, 'C');
-        $pdf->Ln(2);
-        $pdf->Cell(0, 8, utf8_decode('Consolidado Total de Leads Todas las Campañas'), 0, 1, 'C');
         $pdf->Ln(5);
 
         $consulta = "SELECT count(idcliente) FROM incaecrm.clientes_x_programa_view where idprograma=" . $idprograma;
         $res = bd_ejecutar_sql($consulta);
         $pdf->SetFont('Arial', '', 12);
         while ($fila = bd_obtener_fila($res)) {
-            $pdf->Cell(95, 6, utf8_decode('No Total de Leads por Campañas del Programa: '), 1, 0, 'L', true);
+            $pdf->Cell(65, 6, utf8_decode('Total de Leads del Programa: '), 1, 0, 'L', true);
             $pdf->Cell(40, 6, $fila['count(idcliente)'], 1, 0, 'C');
         }
         $pdf->Ln(10);
+        
+        $pdf->SetFont('Arial', 'bu', 12);
+        $pdf->Cell(0, 8, utf8_decode('Clasificación de Leads Atendidos'), 0, 1, 'L');
+        $pdf->Ln(2);
         
         $pdf->SetFont('Arial', 'b', 12);
         $pdf->Cell(0, 8, utf8_decode('1.- Totales del Programa:'), 0, 1, 'L');
@@ -100,7 +98,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->SetFillColor(200, 200, 255);
         
-        $pdf->Cell(95, 6, utf8_decode('Tipificación'), 1, 0, 'L', true);
+        $pdf->Cell(65, 6, utf8_decode('Tipificación'), 1, 0, 'L', true);
         $pdf->Cell(40, 6, utf8_decode('No. Contactos'), 1, 1, 'C', true);
 
         $consulta2 = "SELECT count(tra.idtipificacion) as cantidad, tip.tipificacion as tipo
@@ -112,7 +110,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $res2 = bd_ejecutar_sql($consulta2);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila2 = bd_obtener_fila($res2)) {
-            $pdf->Cell(95, 8, utf8_decode($fila2['tipo']), 1, 0, 'L');
+            $pdf->Cell(65, 8, utf8_decode($fila2['tipo']), 1, 0, 'L');
             $pdf->Cell(40, 8, $fila2['cantidad'], 1, 0, 'C');
             $pdf->Ln();
         }
@@ -123,7 +121,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $res1 = bd_ejecutar_sql($consulta1);
         $pdf->SetFont('Arial', '', 12);
         while ($fila1 = bd_obtener_fila($res1)) {
-            $pdf->Cell(95, 6, utf8_decode('No Total de Leads Atendidos'), 1, 0, 'L', true);
+            $pdf->Cell(65, 6, utf8_decode('Total de Leads Atendidos'), 1, 0, 'L', true);
             $pdf->Cell(40, 6, $fila1['count(idcliente)'], 1, 1, 'C', true);
         }
         

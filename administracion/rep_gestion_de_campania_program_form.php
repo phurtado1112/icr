@@ -15,7 +15,7 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Reporte de Gestión de Campaña</title>
+        <title>Reporte de Gestión Total de Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -37,7 +37,7 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Reporte de Gestión de Campaña por Programa</div>
+                                    <div class="muted pull-left">Reporte de Gestión Total por Programa</div>
                                 </div>
                                 <div class="block-content collapse in">
                                 </div>

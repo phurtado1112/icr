@@ -8,14 +8,14 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select * from estado_campania_view where terminada='n'";
+$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' order by idasignar";
 $lista_camp = bd_ejecutar_sql($consulta_estado_campanias);
 while ($fila_camp = bd_obtener_fila($lista_camp)) {
     $camp[] = $fila_camp;
 }
-//function graficar($titulo, $porcent, $idcampania) {
-function graficar($titulo, $idcampania) {
-    $consulta_ctes_ctos = " select * from clientes_contactados_view WHERE idcampania =" . $idcampania;
+
+function graficar($titulo, $idasignar) {
+    $consulta_ctes_ctos = " select * from clientes_contactados_view WHERE idasignar =" . $idasignar;
     $lista_ctes_ctos = bd_ejecutar_sql($consulta_ctes_ctos);
     $fila_ctes_ctos = bd_obtener_fila($lista_ctes_ctos);
 
@@ -64,7 +64,7 @@ function graficar($titulo, $idcampania) {
                                                 <?php
                                                 if(isset($camp)){
                                                     foreach ($camp as $c) {
-                                                        graficar($c['campania'].' - '.$c['nombre'] , $c['idcampania']);
+                                                        graficar($c['campania'].' - '.$c['nombre'] , $c['idasignar']);
                                                         
                                                     }
                                                 } else {

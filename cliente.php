@@ -16,9 +16,9 @@ while ($filax = bd_obtener_fila($lista_cliente)) {
     $contactosx[] = $filax;
 }
 
-$idcampania = $_SESSION['idcampania'];
+$idcampania = $_SESSION['idasignar'];
 
-$consulta_clientes = "SELECT * FROM clientes WHERE idcampania='" . $idcampania . "'AND idcliente='" . $idclien . "' ";
+$consulta_clientes = "SELECT * FROM clientes WHERE idasignar='" . $idcampania . "'AND idcliente='" . $idclien . "' ";
 $lista_clientes = bd_ejecutar_sql($consulta_clientes);
 $fila = bd_obtener_fila($lista_clientes);
 $idcliente = $fila['idcliente'];
@@ -30,12 +30,12 @@ $Work_Phone = $fila['teltrabajo'];
 $Current_Employer_Title = $fila['cargo'];
 $Current_Employer = $fila['empresa'];
 
-$atendido = "SELECT count(*) as conteo FROM clientes WHERE idcampania='" . $idcampania . "'AND idestado='1'";
+$atendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idcampania . "'AND idestado='1'";
 $lista_antendido = bd_ejecutar_sql($atendido);
 $filaa = bd_obtener_fila($lista_antendido);
 $var_atendido = $filaa['conteo'];
 
-$noatendido = "SELECT count(*) as conteo1 FROM clientes WHERE idcampania='" . $idcampania . "'";
+$noatendido = "SELECT count(*) as conteo1 FROM clientes WHERE idasignar='" . $idcampania . "'";
 $lista_noatendidos = bd_ejecutar_sql($noatendido);
 $filana = bd_obtener_fila($lista_noatendidos);
 $var_no_atendido = $filana['conteo1'];
@@ -48,7 +48,7 @@ $var_camp_nombre = $filacamp['campania'];
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta charset="utf-8">
         <title>INCAE</title>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/estilos.css" rel="stylesheet">
@@ -126,13 +126,14 @@ $var_camp_nombre = $filacamp['campania'];
                             <?php } ?>	    
                         </select>
                     </p>
-                    <div id="Divtipnoionteresado"></div> 
+                    <div id="Divtiponointeresado"></div> 
 
                     <p>
-                        Agendar
+                        Agendar:
                         <input type="text" id="datepicker" value="0000-00-00"/>
                         <br>
-                        <textarea name="observacion" id="OBSERVACION" style="width: 817px; height: 141px;" ></textarea>
+                        Observación:
+                        <textarea name="observacion" id="OBSERVACION" style="width: 500px; height: 50px;" ></textarea>
                         <br>       
                         <input type="button" value="Guardar" onClick="SAVE()" class="btn btn-success" />
                         <button type="reset" class="btn btn-success" onclick="location.href='cliente_contacto.php'">Cancelar</button>
@@ -179,12 +180,15 @@ $var_camp_nombre = $filacamp['campania'];
 
             function SAVE() {
                 if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
-                    alert('ALERTA!.Falta la Observacion');
+                    alert('¡ALERTA!.Falta la Observación');
+                } else if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18'){
+                    alert('¡ALERTA!.Falta indicar el programa en Observación');
                 } else {
                     if (document.getElementById('finales').value === '0') {
-                        alert('ALERTA!.Falta la finales');
+                        alert('ALERTA!.Falta la Tipificación');
+                    } else if (document.getElementById('finales').value === '9' && document.getElementById('subfinales').value === '0'){
+                         alert('ALERTA!.Falta la Subtipificación');
                     } else {
-
                         cliente = document.getElementById('idcliente').value;
                         finales = document.getElementById('finales').value;
                         observacion = document.getElementById('OBSERVACION').value;

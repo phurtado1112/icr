@@ -41,17 +41,20 @@ if (isset($idcliente)) {
 
     if ($idsubtipificacion == '0') {
         $inserta_transaccion = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,
-            idsubtipificacion,fecha,hora,observaciones,idcampania)
+            idsubtipificacion,fecha,hora,observaciones,idcampania,idasignar)
 			VALUES($idcliente, $idusuario, $idtipificacion, $idsubtipificacion, 
                             '" . date("Y-m-d") . "','" . date("H:i:s") . "',
-                            '" . $observacion . "','" . $_SESSION['idcampania'] . "'
+                            '" . $observacion . "','" . $_SESSION['idcampania'] . "',
+                                '" . $_SESSION['idasignar'] . "'
 			)";
         bd_ejecutar_sql($inserta_transaccion);
     } else {
-        $inserta_trans = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,idsubtipificacion,fecha,hora,observaciones,idcampania)
+        $inserta_trans = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,idsubtipificacion,
+            fecha,hora,observaciones,idcampania,idasignar)
 			VALUES($idcliente ,$idusuario ,$idtipificacion,$idsubtipificacion,
                             '" . date("Y-m-d") . "','" . date("H:i:s") . "',
-                            '" . $observacion . "','" . $_SESSION['idcampania'] . "'        
+                            '" . $observacion . "','" . $_SESSION['idcampania'] . "',
+                                '" . $_SESSION['idasignar'] . "'
                             )";
         bd_ejecutar_sql($inserta_trans);
     }

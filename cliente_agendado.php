@@ -15,9 +15,10 @@ while ($filax = bd_obtener_fila($lista_clientes)) {
     $contactosx[] = $filax;
 }
 
+$idasignar = $_SESSION['idasignar'];
 $idcampania = $_SESSION['idcampania'];
 
-$consulta_cte = "SELECT * FROM clientes WHERE idcampania='" . $idcampania . "'AND idcliente=" . $idclient;
+$consulta_cte = "SELECT * FROM clientes WHERE idasignar='" . $idasignar . "'AND idcliente=" . $idclient;
 
 $lista_clien = bd_ejecutar_sql($consulta_cte);
 while ($filas = bd_obtener_fila($lista_clien)) {
@@ -31,13 +32,13 @@ while ($filas = bd_obtener_fila($lista_clien)) {
     $empresa = $filas['empresa'];
 }
 
-$atendido = "SELECT count(*) as conteo FROM clientes WHERE idcampania='" . $idcampania . "'AND idestado='1'";
+$atendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idasignar . "'AND idestado='1'";
 $lista_atendidos = bd_ejecutar_sql($atendido);
 while ($filaat = bd_obtener_fila($lista_atendidos)) {
     $var_atendido = $filaat['conteo'];
 }
 
-$noatendido = "SELECT count(*) as conteo FROM clientes WHERE idcampania='" . $idcampania . "'AND idestado='0'";
+$noatendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idasignar . "'AND idestado='0'";
 $lista_noatendidos = bd_ejecutar_sql($noatendido);
 while ($filanoat = bd_obtener_fila($lista_noatendidos)) {
     $var_no_atendido = $filanoat['conteo'];
@@ -108,7 +109,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                         </select>
                     </p>
 
-                    <div id="Divtipnoionteresado"></div> 
+                    <div id="Divtiponointeresado"></div> 
 
                     <p>
                         Agendar

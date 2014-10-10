@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_contactos = "SELECT * FROM clientes WHERE idestado=0 and agendado=0 and idcampania=" . $_SESSION['idcampania'];
+$consulta_contactos = "SELECT * FROM clientes WHERE idestado=0 and agendado=0 and idasignar=" . $_SESSION['idasignar'];
 $lista_contactos_campaña = bd_ejecutar_sql($consulta_contactos);
 while ($filax = bd_obtener_fila($lista_contactos_campaña)) {
     $contactos[] = $filax;
@@ -57,9 +57,9 @@ $var_camp_nombre = $filacamp['campania'];
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
                                         <option value="2">Nombre de contacto</option> 	
-                                        <option value="3">Puesto de trabajo</option>
+                                        <option value="3">Cargo</option>
                                         <option value="4">Empresa</option>        
-                                        <option value="5">Email</option>            
+                                        <!--<option value="5">Correo</option>-->            
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        

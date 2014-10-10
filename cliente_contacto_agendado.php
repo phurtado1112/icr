@@ -8,7 +8,13 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_contactos = "SELECT * FROM agenda_view WHERE idcampania='" . $_SESSION['idcampania'] . "' AND gestionado='0'";
+$consulta_asignar = "Select idasignar from asignar where idcampania='". $_SESSION['idcampania']. "' and idusuario='".$_SESSION['idusuario']."'";
+$lista_asignar = bd_ejecutar_sql($consulta_asignar);
+$fila_idasignar = bd_obtener_fila($lista_asignar);
+$idasignar = $fila_idasignar['idasignar'];
+$_SESSION['idasignar'] = $idasignar;
+
+$consulta_contactos = "SELECT * FROM agenda_view WHERE idasignar='" . $_SESSION['idasignar'] . "' AND gestionado='0'";
 $lista_contactos_campaña = bd_ejecutar_sql($consulta_contactos);
 while ($filax = bd_obtener_fila($lista_contactos_campaña)) {
     $contactosx[] = $filax;
@@ -57,9 +63,9 @@ $var_camp_nombre = $filacamp['campania'];
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
                                         <option value="2">Nombre de contacto</option> 	
-                                        <option value="3">Puesto de trabajo</option>
+                                        <option value="3">Cargo</option>
                                         <option value="4">Empresa</option>        
-                                        <option value="5">Email</option>            
+                                        <!--<option value="5">Correo</option>-->            
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        

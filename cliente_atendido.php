@@ -56,9 +56,9 @@ $var_camp_nombre = $filacamp['campania'];
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
                                         <option value="2">Nombre de contacto</option> 	
-                                        <option value="3">Puesto de trabajo</option>
+                                        <option value="3">Cargo</option>
                                         <option value="4">Empresa</option>        
-                                        <option value="5">Email</option>            
+                                        <option value="5">Correo</option>            
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        

@@ -3,7 +3,7 @@ include_once './funciones.general.php';
 
 $archivo = filter_input(INPUT_POST, 'excel');
 $action = filter_input(INPUT_POST, 'action');
-$idcampania = filter_input(INPUT_POST, 'idcampania');
+$idcampania = filter_input(INPUT_POST, 'idasignar');
 $registros = filter_input(INPUT_POST, 'registros');
 
 if ($action == "upload") {
@@ -32,7 +32,7 @@ if ($action == "upload") {
 
 // Llenamos el arreglo con los datos  del archivo xlsx
         for ($i = 2; $i <= $registros; $i++) {
-            $_DATOS_EXCEL[$i]['idcampania'] = $idcampania;
+            $_DATOS_EXCEL[$i]['idasignar'] = $idcampania;
             $_DATOS_EXCEL[$i]['nombre'] = $objPHPExcel->getActiveSheet()->getCell('A' . $i)->getCalculatedValue();
             $_DATOS_EXCEL[$i]['telfijo'] = $objPHPExcel->getActiveSheet()->getCell('B' . $i)->getCalculatedValue();
             $_DATOS_EXCEL[$i]['email'] = $objPHPExcel->getActiveSheet()->getCell('C' . $i)->getCalculatedValue();
@@ -54,7 +54,7 @@ if ($action == "upload") {
 //recorremos el arreglo multidimensional para ir recuperando los datos obtenidos del excel 
 //e ir insertandolos en la BD
     foreach ($_DATOS_EXCEL as $campo => $valor) {
-        $sql = "INSERT INTO clientes (idcampania,nombre,telfijo,email,telmovil,"
+        $sql = "INSERT INTO clientes (idasignar,nombre,telfijo,email,telmovil,"
                 . "teltrabajo,cargo,empresa,prioridad,idestado,agendado,idpais) VALUES ('";
         foreach ($valor as $campo2 => $valor2) {
             $campo2 == "idpais" ? $sql.= $valor2 . "');" : $sql.= $valor2 . "','";

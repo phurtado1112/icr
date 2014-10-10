@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_usuarios = "select idusuario, idcampania from asignar";
+$consulta_usuarios = "select idasignar, idusuario, idcampania from asignar";
 $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
 
 ?>
@@ -55,7 +55,7 @@ $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
                                     <div class="control-group">
                                         <label class="control-label">Campaña</label>
                                         <div class="controls" id="myDiv">
-                                            <select>
+                                            <select >                                                
                                             </select>
                                         </div>
                                     </div>  

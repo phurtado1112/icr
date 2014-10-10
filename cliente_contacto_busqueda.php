@@ -8,6 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 $idcampania = $_SESSION['idcampania'];
+$idasignar = $_SESSION['idasignar'];
 
 $opcion = filter_input(INPUT_POST, 'ajxopcion');
 $cadena = filter_input(INPUT_POST, 'ajxcadena');
@@ -17,19 +18,19 @@ error_reporting(0);
 if (isset($opcion)) {
     switch ($opcion) {
         case 0:
-            $busqueda = "SELECT * FROM clientes WHERE idcampania='" . $idcampania . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes WHERE idcampania='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
             break;
         case 2:
-            $busqueda = "SELECT * FROM clientes WHERE nombre LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes WHERE nombre LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
             break;
         case 3:
-            $busqueda = "SELECT * FROM clientes WHERE cargo LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes WHERE cargo LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
             break;
         case 4:
-            $busqueda = "SELECT * FROM clientes WHERE empresa LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes WHERE empresa LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
             break;
         case 5:
-            $busqueda = "SELECT * FROM clientes WHERE email LIKE '%" . $cadena . "%' and idcampania='" . $idcampania . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes WHERE email LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
             break;
     }
 

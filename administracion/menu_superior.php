@@ -75,24 +75,24 @@
                                 <a href="rep_gestion_campania_form.php">Gestión de Asesor por Campaña</a>
                             </li>
                             <li>
-                                <a href="rep_gestion_de_campania_program_form.php">Gestión Total de Campañas por Programa</a>
+                                <a href="rep_gestion_de_campania_program_form.php">Gestión Total de Programa</a>
                             </li>
                             <li>
-                                <a href="rep_gestion_de_campania_detallado_campania_form.php">Gestión Detallada por Campañas por Programa</a>
+                                <a href="rep_gestion_de_campania_detallado_campania_form.php">Gestión Detallada de Programa por Campañas</a>
                             </li>
                             <li>
-                                <a href="rep_gestion_de_campania_detallado_asesor_form.php">Gestión Detallada por Asesor por Campañas por Programa</a>
+                                <a href="rep_gestion_de_campania_detallado_asesor_form.php">Gestión Detallada de Programa por Asesor</a>
                             </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="rep_campanias_x_asesor_form.php">Campañas asignadas a Asesor</a>
                             </li>
-                            <li>
+<!--                            <li>
                                 <a href="rep_contactos _x_campanias_x_asesor_form.php">Contactos de Campaña por Asesor</a>
-                            </li>
-                            <li>
+                            </li>-->
+<!--                            <li>
                                 <a href="rep_campanias_x_asesor_form.php">Desempeño por Asesor por Programa</a>
-                            </li>
+                            </li>-->
                             <li class="divider"></li>
                             <li>
                                 <a href="rep_campanias_form.php">Campañas</a>

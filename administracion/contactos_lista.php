@@ -9,13 +9,13 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$idcampania = filter_input(INPUT_POST, 'idcampania');
+$idcampania = filter_input(INPUT_POST, 'idasignar');
 if($idcampania){
     $_SESSION['idcampania'] = $idcampania;
 }
 
 
-$consulta_contactos = "SELECT * FROM clientes_view where idcampania = " . $_SESSION['idcampania'];
+$consulta_contactos = "SELECT * FROM clientes_view where idasignar = " . $_SESSION['idcampania'];
 $lista_contactos = bd_ejecutar_sql($consulta_contactos);
 ?>
 <!DOCTYPE html>

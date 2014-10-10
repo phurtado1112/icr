@@ -37,11 +37,11 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Reporte de Gestión de Campaña por Programa</div>
+                                    <div class="muted pull-left">Reporte de Gestión Detallada de Programa por Campaña</div>
                                 </div>
                                 <div class="block-content collapse in">
                                 </div>
-                                <form class="form-horizontal" id="frmgestionxprograma" name="formgestioncampania" method="post" action="rep_gestion_de_campania_programa_procesar.php">
+                                <form class="form-horizontal" id="frmgestionxprograma" name="formgestioncampania" method="post" action="rep_gestion_de_campania_detallado_campania_procesar.php">
                                     <div class="control-group">
                                         <label class="control-label">Programa</label>
                                         <div class="controls">
@@ -70,7 +70,7 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                                             </div>
                                     <div class="form-actions">
                                         <input type="submit" name="Submit" class="btn btn-primary" value="Presentar" onclick="document.formgestioncampania.target = '_blank'" >
-                                        <button type="reset" class="btn" onclick="location.href = 'rep_gestion_campania_form.php'">Cancelar</button>
+                                        <button type="reset" class="btn" onclick="location.href = 'rep_gestion_de_campania_detallado_campania_form.php'">Cancelar</button>
                                     </div>
                                 </form>
                             </div>

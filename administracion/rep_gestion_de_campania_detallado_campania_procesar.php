@@ -250,40 +250,5 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             $pdf->SetFont('Arial','bu', 12);
         }
 
-//        $pdf->Ln(7);
-//
-//        $pdf->SetFont('Arial', 'b', 12);
-//        $pdf->Cell(0, 8, utf8_decode('2.- Totales de Campaña:'), 0, 1, 'L');
-//
-//        $pdf->Ln(5);
-        //Encabezado de Totales de campaña
-//        $pdf->SetFont('Arial', 'b', 10);
-//        $pdf->SetFillColor(100, 100, 255);
-//
-//        $pdf->Cell(45, 6, 'TOTAL CONTACTOS', 1, 0, 'C', true);
-//        $pdf->Cell(45, 6, 'TOTAL CONTACTADOS', 1, 0, 'C', true);
-//        $pdf->Cell(45, 6, 'TOTAL PENDIENTES', 1, 0, 'C', true);
-//        $pdf->Cell(45, 6, '% DE CONTACTO', 1, 0, 'C', true);
-//
-//        $pdf->Ln();
-        //Valore de la tabla Totales de campaña
-//        $consulta20 = "select count(idcliente) from clientes where idcampania=" . $campania;
-//        $res20 = bd_ejecutar_sql($consulta20);
-//        $pdf->SetFont('Arial', '', 12);
-//        while ($fila20 = bd_obtener_fila($res20)) {
-//            $contacs = $fila20['count(idcliente)'];
-//        }
-//        $pdf->Cell(45, 8, $contacs, 1, 0, 'C');
-//        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idcampania=" . $campania ." and idtipificacion <> 5";
-//        $res21 = bd_ejecutar_sql($consulta21);
-//        while ($fila21 = bd_obtener_fila($res21)) {
-//            $contacted = $fila21['count(distinct idcliente)'];
-//        }
-//        $pdf->Cell(45, 8, $contacted, 1, 0, 'C');
-//        $diferencia = $contacs - $contacted;
-//        $pdf->Cell(45, 8, $diferencia, 1, 0, 'C');
-//        $porcentaje = round($contacted / $contacs * 100, 0);
-//        $pdf->Cell(45, 8, $porcentaje, 1, 1, 'C');
-
         $pdf->Output();
 }

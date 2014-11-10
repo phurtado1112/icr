@@ -191,13 +191,13 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         //Consulta a DB
         if ($tipo == 0) {
-            $consulta0 = "SELECT * FROM campania_x_asesor_view";
+            $consulta0 = "SELECT * FROM campania_x_asesor_view where idcampania>1";
         } elseif ($tipo == 1) {
-           $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='no'";
+           $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='no' and where idcampania>1";
         } elseif ($tipo == 2) {
-            $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='si'";
+            $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='si' and  where idcampania>1";
         } else {
-            $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='si' and fechainicio > '.$finicio.' and fechafin < '..$ffin' order by idcampania desc";
+            $consulta0 = "SELECT * FROM campania_x_asesor_view where terminada='si' and fechainicio > '.$finicio.' and fechafin < '.$ffin.' and where idcampania>1 order by idcampania desc";
         }
         $res0 = bd_ejecutar_sql($consulta0);
 
@@ -205,7 +205,6 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         for ($i = 0; $i < $numfilas; $i++) {
             $fila = bd_obtener_fila($res0);
             $pdf->SetFont('Arial', '', 10);
-
             if ($i % 2 == 1) {
                 $pdf->SetFillColor(192, 192, 192);
                 $pdf->SetTextColor(0);

@@ -41,6 +41,8 @@ $consulta_subtipificacion = "SELECT * FROM subtipificacion_view order by tipific
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
                                     <a href="subtipificacion_crear.php" class="btn btn-small btn-success">Nueva Subtipificación</a>
+                                    <div class="muted pull-left" align="center"></div>
+                                    <a href="subtipificacion_inactivo.php" class="btn btn-small btn-success">Subtipificaciones Inactivas</a>
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
@@ -63,7 +65,7 @@ $consulta_subtipificacion = "SELECT * FROM subtipificacion_view order by tipific
                                                     <td>" . $t['idsubtipificacion'] . "</td>
                                                     <td>" . $t['subtipificacion'] . "</td>
                                                     <td>" . $t['tipificacion'] . "</td>
-                                                    <td>" . '<a href="subtipificacion_editar.php?idsubtipificacion=' . $ids . '">Editar</a> ---  <a href="subtipificacion_eliminar.php?idsubtipificacion=' . $ids . '">Eliminar</a>' . "</td>
+                                                    <td>" . '<a href="subtipificacion_editar.php?idsubtipificacion=' . $ids . '">Editar</a> ---  <a href="subtipificacion_inactivar.php?idsubtipificacion=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }

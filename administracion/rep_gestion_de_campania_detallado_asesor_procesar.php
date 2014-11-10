@@ -27,7 +27,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
                 // Movernos a la derecha
                 $this->Ln(8);
                 // Título
-                $this->Cell(0, 10, utf8_decode('Reporte de Gestión Detallada de Programa por Agente'), 0, 1, 'C');
+                $this->Cell(0, 10, utf8_decode('Reporte de Gestión Detallada de Programa por Asesor'), 0, 1, 'C');
                 // Salto de línea
                 $this->Ln(2);
                 // Nombre de agente

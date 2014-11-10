@@ -8,17 +8,17 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tipificacion";
-    $lista_tipificacion = bd_ejecutar_sql($consulta_tipificacion);
-    while ($fila_tipificacion = bd_obtener_fila($lista_tipificacion)) {
-        $tipificacion[] = $fila_tipificacion;
+$estado = "SELECT * FROM estados where activo='1'";
+    $lista_estado = bd_ejecutar_sql($estado);
+    while ($fila_estado = bd_obtener_fila($lista_estado)) {
+        $estados[] = $fila_estado;
     }
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Tipificación</title>
+        <meta charset="utf-8" />
+        <title>Estados Inactivos</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -39,37 +39,34 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tip
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
-                                <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left" align="center"></div>
-                                    <a href="tipificacion_crear.php" class="btn btn-small btn-success">Nueva Tipificación</a>
-                                    <div class="muted pull-left" align="center"></div>
-                                    <a href="tipificacion_inactivo.php" class="btn btn-small btn-success">Tipificación Inactivas</a>
-                                </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
                                         <?php
-                                        if (!isset($tipificacion)) {
+                                        if (!isset($estados)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';
                                         } else {
                                             ?>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Tipificación</th>
-                                                <th>Acción</th>       
+                                                <th>Campañas</th>
+                                                <th>Acción</th>
                                             </tr>
                                             <?php
-                                            foreach ($tipificacion as $t) {
-                                                $ids = $t['idtipificacion'];
+                                            foreach ($estados as $e) {
+                                                $ids = $e['idestado'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $t['idtipificacion'] . "</td>
-                                                    <td>" . $t['tipificacion'] . "</td>
-                                                    <td>" . '<a href="tipificacion_editar.php?idtipificacion=' . $ids . '">Editar</a> ---  <a href="tipificacion_inactivar.php?idtipificacion=' . $ids . '">Inactivar</a>' . "</td>
+                                                    <td>" . $e['idestado'] . "</td>
+                                                    <td>" . $e['estado'] . "</td>
+                                                    <td>" . '<a href="estado_conectado_activar.php?idestado=' . $ids . ">Activar</a></td>
                                                     </tr>";
                                             }
                                         }
                                         ?>
                                     </table>
+                                    <div class="form-actions">
+                                        <button type="reset" class="btn" onclick="location.href = 'campania_lista.php'">Cancelar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

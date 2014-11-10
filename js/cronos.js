@@ -60,5 +60,5 @@ function saveajx() {
     stateactive = document.getElementById("idestados").value;
     time = document.getElementById("divhora").innerHTML;
     ajxSAVETIME(stateactive, time);
-    setInterval("self.location = 'contactos.php'", 1000);
+    setInterval("self.location = 'cliente_contacto.php'", 1000);
 }	

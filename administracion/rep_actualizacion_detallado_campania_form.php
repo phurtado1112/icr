@@ -15,7 +15,7 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Reporte de Actualización de Contactos</title>
+        <title>Reporte de Actualización por Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -37,11 +37,11 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left">Reporte de Actualización de Contactos de Programa Detallado por Campaña</div>
+                                    <div class="muted pull-left">Reporte de Actualización de Contactos Detallado de Programa por Campaña</div>
                                 </div>
                                 <div class="block-content collapse in">
                                 </div>
-                                <form class="form-horizontal" id="frmgestionxprograma" name="formgestioncampania" method="post" action="rep_gestion_de_campania_detallado_campania_procesar.php">
+                                <form class="form-horizontal" id="frmctualizacioncampania" name="formactualizacioncampania" method="post" action="rep_actualizacion_detallado_campania_procesar.php">
                                     <div class="control-group">
                                         <label class="control-label">Programa</label>
                                         <div class="controls">
@@ -69,8 +69,8 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                                                 </div>
                                             </div>
                                     <div class="form-actions">
-                                        <input type="submit" name="Submit" class="btn btn-primary" value="Presentar" onclick="document.formgestioncampania.target = '_blank'" >
-                                        <button type="reset" class="btn" onclick="location.href = 'rep_gestion_de_campania_detallado_campania_form.php'">Cancelar</button>
+                                        <input type="submit" name="Submit" class="btn btn-primary" value="Presentar" onclick="document.formactualizacioncampania.target = '_blank'" >
+                                        <button type="reset" class="btn" onclick="location.href = 'rep_actualizacion_detallado_campania_form.php'">Cancelar</button>
                                     </div>
                                 </form>
                             </div>

@@ -18,7 +18,7 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=1";
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Usuarios</title>
+        <title>Tipificación Inactivos</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">

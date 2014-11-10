@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_usuarios = "SELECT * FROM usuarios_view where activo=0 order by tipo desc";
+$consulta_usuarios = "SELECT * FROM usuarios_view where activo=0 order by tipo desc, nombre asc";
     $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
     while ($fila_usuario = bd_obtener_fila($lista_usuarios)) {
         $usuarios[] = $fila_usuario;

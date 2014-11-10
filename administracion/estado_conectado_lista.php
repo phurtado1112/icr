@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_conectado = "SELECT * FROM estados";
+$consulta_estado_conectado = "SELECT * FROM estados where activo=0";
 $lista_estado_conectado = bd_ejecutar_sql($consulta_estado_conectado);
 while ($fila_estado_conectado = bd_obtener_fila($lista_estado_conectado)) {
     $estado_conectado[] = $fila_estado_conectado;
@@ -43,6 +43,8 @@ while ($fila_estado_conectado = bd_obtener_fila($lista_estado_conectado)) {
                                 <div class="navbar navbar-inner block-header">
                                     <div class="muted pull-left" align="center"></div>
                                     <a href="estado_conectado_crear.php" class="btn btn-small btn-success">Nuevo Estado</a>
+                                    <div class="muted pull-left" align="center"></div>
+                                    <a href="estado_conectado_inactivo.php" class="btn btn-small btn-success">Estados Inactivos</a>
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
@@ -63,7 +65,7 @@ while ($fila_estado_conectado = bd_obtener_fila($lista_estado_conectado)) {
                                                     <tr>
                                                     <td>" . $ec['idestado'] . "</td>
                                                     <td>" . $ec['estado'] . "</td>
-                                                    <td>" . '<a href="estado_conectado_editar.php?idestado=' . $ids . '">Editar</a> ---  <a href="estado_conectado_eliminar.php?idestado=' . $ids . '">Eliminar</a>' . "</td>
+                                                    <td>" . '<a href="estado_conectado_editar.php?idestado=' . $ids . '">Editar</a> ---  <a href="estado_conectado_inactivar.php?idestado=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }

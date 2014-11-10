@@ -5,7 +5,7 @@ require './fpdf/fpdf.php';
 switch (filter_input(INPUT_POST, 'Submit')) {
     case "Cancelar":
 
-        header("Location: rep_gestion_de_campania_form.php");
+        header("Location: rep_gestion_de_campania_programa_form.php");
         exit(0);
 
         break;

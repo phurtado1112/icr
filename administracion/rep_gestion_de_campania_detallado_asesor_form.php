@@ -15,7 +15,7 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Reporte de Gestión de Asesor</title>
+        <title>Reporte de Gestión Asesor</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">

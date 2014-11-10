@@ -22,7 +22,7 @@ $tipificaci = $tipificacion['tipificacion'];
 
     <head>
         <meta charset="utf-8" />
-        <title>Editar Noticia </title>
+        <title>Editar Tipificación</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">

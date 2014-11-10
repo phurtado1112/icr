@@ -183,10 +183,17 @@ $var_camp_nombre = $filacamp['campania'];
                     alert('¡ALERTA!.Falta la Observación');
                 } else if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18'){
                     alert('¡ALERTA!.Falta indicar el programa en Observación');
-                } else {
-                    if (document.getElementById('finales').value === '0') {
-                        alert('ALERTA!.Falta la Tipificación');
-                    } else if (document.getElementById('finales').value === '9' && document.getElementById('subfinales').value === '0'){
+                } else if (document.getElementById('finales').value === '9' && 
+                            document.getElementById('subfinales').value === '0'){
+                         alert('ALERTA!.Falta la Subtipificación');
+                    } else if (document.getElementById('finales').value === '16' && 
+                            document.getElementById('subfinales').value === '0'){
+                         alert('ALERTA!.Falta la Subtipificación');
+                    } else if (document.getElementById('finales').value === '17' && 
+                            document.getElementById('subfinales').value === '0'){
+                         alert('ALERTA!.Falta la Subtipificación');
+                    } else if (document.getElementById('finales').value === '10' && 
+                            document.getElementById('subfinales').value === '0'){
                          alert('ALERTA!.Falta la Subtipificación');
                     } else {
                         cliente = document.getElementById('idcliente').value;
@@ -198,7 +205,6 @@ $var_camp_nombre = $filacamp['campania'];
                         load(cliente, finales, observacion, usuario, sub_finales, agendar);
                     }
                 }
-            }
             
             function CANCEL() {
                 

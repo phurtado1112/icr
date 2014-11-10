@@ -85,6 +85,16 @@
                             </li>
                             <li class="divider"></li>
                             <li>
+                                <a href="rep_actualizacion_program_form.php">Actualización de Contactos Total de Programa</a>
+                            </li>
+                            <li>
+                                <a href="rep_actualizacion_detallado_campania_form.php">Actualización de Contactos Detallada de Programa por Campaña</a>
+                            </li>
+                            <li>
+                                <a href="rep_actualizacion_detallado_asesor_form.php">Actualización de Contactos Detallada de Programa por Asesor</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
                                 <a href="rep_campanias_x_asesor_form.php">Campañas asignadas a Asesor</a>
                             </li>
 <!--                            <li>
@@ -113,6 +123,9 @@
 
                             <li>
                                 <a href="rep_usuarios_conectados_form.php">Conectados</a>
+                            </li>
+							<li>
+                                <a href="rep_usuarios_conectados_form.php">Nuevo Menú</a>
                             </li>
                         </ul>
                     </li>

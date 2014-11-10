@@ -8,7 +8,7 @@ self.location = "index.php"
 </script>';
 }
 
-$consulta_contactos = "SELECT * FROM transacciones_view WHERE idusuario='" . $_SESSION['idusuario'] . "'AND idcampania='" . $_SESSION['idcampania'] . "'";
+$consulta_contactos = "SELECT * FROM transacciones_view WHERE idusuario='" . $_SESSION['idusuario'] . "'AND idcampania='" . $_SESSION['idcampania'] . "' order by fecha desc, hora desc";
 $lista_contactos = bd_ejecutar_sql($consulta_contactos);
 while ($filacontactos = bd_obtener_fila($lista_contactos)) {
     $contactos[] = $filacontactos;
@@ -91,8 +91,8 @@ $var_camp_nombre = $filacamp['campania'];
                                 <th>Empresa</th>
                                 <th>Correo</th>
                                 <th>Teléfono</th>
-                                <th>hora</th>
-                                <th>fecha</th>                    
+                                <th>fecha</th>
+                                <th>hora</th>                    
                                 <th>Final</th>                    
                                 <th>Observación</th>                    
                                 <th>Acción</th>                                                            
@@ -107,8 +107,8 @@ $var_camp_nombre = $filacamp['campania'];
 				<td>" . $c['empresa'] . "</h1></td>
 				<td>" . $c['email'] . "</h1></td>
 				<td>" . $c['telfijo'] . "</td>
-				<td>" . $c['hora'] . "</td>
 				<td>" . $c['fecha'] . "</td>
+                                <td>" . $c['hora'] . "</td>
 				<td>" . $c['tipificacion'] . "</td>																														
 				<td>" . $c['observaciones'] . "</td>																																				
 				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>						

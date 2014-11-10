@@ -59,7 +59,7 @@ $var_camp_nombre = $filacamp['campania'];
                                         <option value="2">Nombre de contacto</option> 	
                                         <option value="3">Cargo</option>
                                         <option value="4">Empresa</option>        
-                                        <!--<option value="5">Correo</option>-->            
+                                        <option value="5">Correo</option>            
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        
@@ -91,6 +91,7 @@ $var_camp_nombre = $filacamp['campania'];
                                 <th>Teléfono</th>
                                 <th>Celular</th>
                                 <th>Tel. Oficina</th>
+                                <th>Correo</th>
                                 <th>Empresa</th>
                                 <th>Cargo</th>
                                 <th>Acción</th>
@@ -104,6 +105,7 @@ $var_camp_nombre = $filacamp['campania'];
 				<td>" . $c['telfijo'] . "</td>
                                 <td>" . $c['telmovil'] . "</td>
 				<td>" . $c['teltrabajo'] . "</td>
+                                <td>" . $c['email'] . "</td>    
 				<td>" . $c['empresa'] . "</td>
 				<td>" . $c['cargo'] . "</td>
 				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>

@@ -52,6 +52,7 @@ if (isset($opcion)) {
                 <th>Teléfono</th>
                 <th>Celular</th>
                 <th>Tel. oficina</th>
+                <th>Correo</th>
                 <th>Empresa</th>
                 <th>Cargo</th>
                 <th>Acción</th>                                                            
@@ -68,6 +69,7 @@ if (isset($opcion)) {
                                 <td ><font color='#094AB2'><strong>" . ($c['telfijo']) . "</td>
                                 <td ><font color='#094AB2'><strong>" . ($c['telmovil']) . "</td>
                                 <td ><font color='#094AB2'><strong>" . ($c['teltrabajo']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['email']) . "</td>
                                 <td ><font color='#094AB2'><strong>" . ($c['empresa']) . "</td>						
                                 <td ><font color='#094AB2'><strong>" . ($c['cargo']) . "</td>
                                 <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
@@ -80,6 +82,7 @@ if (isset($opcion)) {
                                 <td ><font color='#008A00'><strong>" . ($c['telfijo']) . "</td>
                                 <td ><font color='#008A00'><strong>" . ($c['telmovil']) . "</td>
                                 <td ><font color='#008A00'><strong>" . ($c['teltrabajo']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['email']) . "</td>    
                                 <td ><font color='#008A00'><strong>" . ($c['empresa']) . "</td>					
                                 <td ><font color='#008A00'><strong>" . ($c['cargo']) . "</td>
                                 <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
@@ -92,6 +95,7 @@ if (isset($opcion)) {
                                 <td >" . ($c['telfijo']) . "</td>
                                 <td >" . ($c['telmovil']) . "</td>
                                 <td >" . ($c['teltrabajo']) . "</td>
+                                <td >" . ($c['email']) . "</td>    
                                 <td >" . ($c['empresa']) . "</td>						
                                 <td >" . ($c['cargo']) . "</td>
                                 <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>

@@ -30,12 +30,12 @@ $Work_Phone = $fila['teltrabajo'];
 $Current_Employer_Title = $fila['cargo'];
 $Current_Employer = $fila['empresa'];
 
-$atendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idcampania . "'AND idestado='1'";
+$atendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $_SESSION['idasignar'] . "'AND idestado='1'";
 $lista_antendido = bd_ejecutar_sql($atendido);
 $filaa = bd_obtener_fila($lista_antendido);
 $var_atendido = $filaa['conteo'];
 
-$noatendido = "SELECT count(*) as conteo1 FROM clientes WHERE idasignar='" . $idcampania . "'";
+$noatendido = "SELECT count(*) as conteo1 FROM clientes WHERE idasignar='" . $_SESSION['idasignar'] . "'";
 $lista_noatendidos = bd_ejecutar_sql($noatendido);
 $filana = bd_obtener_fila($lista_noatendidos);
 $var_no_atendido = $filana['conteo1'];

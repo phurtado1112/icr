@@ -82,10 +82,11 @@ $var_camp_nombre = $filacamp['campania'];
                     <table class="table">
                         <?php
                         if (!isset($contactos)) {
-                            echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
+                            echo '<table><tr><th><h3><center>No exiten registros</center></h3><th><tr><table>';
                         } else {
                             ?>
                             <tr>
+                                <th>No</th>
                                 <th>Nombre</th>
                                 <th>Cargo</th>
                                 <th>Empresa</th>
@@ -98,14 +99,16 @@ $var_camp_nombre = $filacamp['campania'];
                                 <th>Acción</th>                                                            
                             </tr>                    					
                             <?php
+                            $i=1;
                             foreach ($contactos as $c) {
                                 $ids = $c['idcliente'];
                                 echo"
 				<tr>
-				<td>" . $c['nombre'] . "</h1></td>
-				<td>" . $c['cargo'] . "</h1></td>
-				<td>" . $c['empresa'] . "</h1></td>
-				<td>" . $c['email'] . "</h1></td>
+                                <td><b>" . $i . "</b></td>
+				<td>" . $c['nombre'] . "</td>
+				<td>" . $c['cargo'] . "</td>
+				<td>" . $c['empresa'] . "</td>
+				<td>" . $c['email'] . "</td>
 				<td>" . $c['telfijo'] . "</td>
 				<td>" . $c['fecha'] . "</td>
                                 <td>" . $c['hora'] . "</td>
@@ -113,6 +116,7 @@ $var_camp_nombre = $filacamp['campania'];
 				<td>" . $c['observaciones'] . "</td>																																				
 				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>						
 									</tr>";
+                                $i = $i + 1;
                             }
                         }
                         ?>

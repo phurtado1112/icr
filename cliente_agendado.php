@@ -38,7 +38,7 @@ while ($filaat = bd_obtener_fila($lista_atendidos)) {
     $var_atendido = $filaat['conteo'];
 }
 
-$noatendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idasignar . "'AND idestado='0'";
+$noatendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idasignar ."'";
 $lista_noatendidos = bd_ejecutar_sql($noatendido);
 while ($filanoat = bd_obtener_fila($lista_noatendidos)) {
     $var_no_atendido = $filanoat['conteo'];

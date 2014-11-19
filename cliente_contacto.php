@@ -18,6 +18,11 @@ $consulta_campania = "SELECT * FROM campanias where idcampania=" . $_SESSION['id
 $lista_campanias = bd_ejecutar_sql($consulta_campania);
 $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
+
+$consulta_cantidad_contactos = "SELECT count(*) as total FROM clientes WHERE idasignar='" . $_SESSION['idasignar'] . "'";
+$lista_cantidad_contactos = bd_ejecutar_sql($consulta_cantidad_contactos);
+$filas = bd_obtener_fila($lista_cantidad_contactos);
+$total_contactos = $filas['total'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,15 +83,18 @@ $var_camp_nombre = $filacamp['campania'];
                 </div>
             </div>
             <div id="container" align="center">   
-                <h1 style="alignment-adjust: central">Contactos</h1>       
+                <h1 style="alignment-adjust: central">Contactos</h1>
+                <h4 style="alignment-adjust: central">Total de Contactos de Campaña: <?php echo $total_contactos; ?> </h4>
+                <?php echo $_SESSION['idasignar']; ?>
                 <div id="resul_search">
                     <table class="table">
                         <?php
                         if (!isset($contactos)) {
-                            echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
+                            echo '<table><tr><th><h3><center>No exiten registros</center></h3><th><tr><table>';
                         } else {
                             ?>
                             <tr>
+                                <th>No</th>
                                 <th>Nombre</th>
                                 <th>Teléfono</th>
                                 <th>Celular</th>
@@ -97,10 +105,13 @@ $var_camp_nombre = $filacamp['campania'];
                                 <th>Acción</th>
                             </tr>                    					
                             <?php
+                            $i=1;
                             foreach ($contactos as $c) {
                                 $ids = $c['idcliente'];
+                                
                                 echo"
 				<tr>
+                                <td><b>" . $i . "</b></td>
 				<td>" . $c['nombre'] . "</td>
 				<td>" . $c['telfijo'] . "</td>
                                 <td>" . $c['telmovil'] . "</td>
@@ -110,6 +121,7 @@ $var_camp_nombre = $filacamp['campania'];
 				<td>" . $c['cargo'] . "</td>
 				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
 									</tr>";
+                                $i = $i + 1; 
                             }
                         }
                         ?>

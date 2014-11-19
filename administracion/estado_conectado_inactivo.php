@@ -65,7 +65,7 @@ $estado = "SELECT * FROM estados where activo='1'";
                                         ?>
                                     </table>
                                     <div class="form-actions">
-                                        <button type="reset" class="btn" onclick="location.href = 'campania_lista.php'">Cancelar</button>
+                                        <button type="reset" class="btn" onclick="location.href = 'estado_conectado_lista.php'">Cancelar</button>
                                     </div>
                                 </div>
                             </div>

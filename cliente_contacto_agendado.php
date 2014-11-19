@@ -84,10 +84,11 @@ $var_camp_nombre = $filacamp['campania'];
                 </div>
             </div>
             <div id="container" align="center">
-                <h1 style="alignment-adjust: central">Contactos Agendados</h1>       
+                <h1 style="alignment-adjust: central">Contactos Agendados</h1>
                 <div id="resul_search">
                     <table class="table">
                         <tr>
+                            <th>No</th>
                             <th>Nombre</th>
                             <th>Observación</th>
                             <th>Teléfono fijo</th>
@@ -99,13 +100,14 @@ $var_camp_nombre = $filacamp['campania'];
                         </tr>
                         <?php
                         if (!isset($contactosx)) {
-                            echo '<table><tr><th><h3><center>No exite registro alguno</center></h3><th><tr><table>';
-//                        print "<script>document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'</script>'";
+                            echo '<table><tr><th><h3><center>No exiten registros</center></h3><th><tr><table>';
                         } else {
+                            $i=1;
                             foreach ($contactosx as $c) {
                                 $ids = $c['idcliente'];
                                 echo"
                                     <tr>
+                                    <td><b>" . $i . "</b></td>
                                     <td>" . $c['nombre'] . "</td>
                                     <td>" . $c['observacion'] . "</td>
                                     <td>" . $c['telfijo'] . "</td>
@@ -115,6 +117,7 @@ $var_camp_nombre = $filacamp['campania'];
                                     <td>" . $c['cargo'] . "</td>
                                     <td>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
                                     </tr>";
+                                $i = $i + 1;
                             }
                         }
                         ?>

@@ -90,6 +90,7 @@ $var_camp_nombre = $filacamp['campania'];
                         <tr>
                             <th>No</th>
                             <th>Nombre</th>
+                            <th>Fecha Contacto</th>
                             <th>Observación</th>
                             <th>Teléfono fijo</th>
                             <th>Teléfono móvil</th>
@@ -109,6 +110,7 @@ $var_camp_nombre = $filacamp['campania'];
                                     <tr>
                                     <td><b>" . $i . "</b></td>
                                     <td>" . $c['nombre'] . "</td>
+                                    <td>" . $c['fecha'] . "</td>
                                     <td>" . $c['observacion'] . "</td>
                                     <td>" . $c['telfijo'] . "</td>
                                     <td>" . $c['telmovil'] . "</td>

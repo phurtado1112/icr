@@ -58,7 +58,7 @@ $lead = "SELECT * FROM leads where activo=1";
                                                     <tr>
                                                     <td>" . $l['idlead'] . "</td>
                                                     <td>" . $l['lead'] . "</td>
-                                                    <td>" . '<a href="lead_activar.php?idlead=' . $ids . ">Activar</a></td>
+                                                    <td>" . '<a href="lead_activar.php?idlead=' . $ids . '">Activar</a>'."</td>
                                                     </tr>";
                                             }
                                         }

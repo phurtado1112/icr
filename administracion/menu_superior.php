@@ -122,10 +122,10 @@
                             <li class="divider"></li>
 
                             <li>
-                                <a href="rep_usuarios_conectados_form.php">Conectados</a>
+                                <a href="rep_usuarios_conectados_form.php">Usuarios Conectados</a>
                             </li>
-							<li>
-                                <a href="rep_usuarios_conectados_form.php">Nuevo Menú</a>
+                            <li>
+                                <a href="rep_estados_asesor_form.php">Actividad de Asesor</a>
                             </li>
                         </ul>
                     </li>

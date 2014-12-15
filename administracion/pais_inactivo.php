@@ -58,7 +58,7 @@ $pais = "SELECT * FROM pais where activo=1";
                                                     <tr>
                                                     <td>" . $p['idpais'] . "</td>
                                                     <td>" . $p['pais'] . "</td>
-                                                    <td>" . '<a href="pais_activar.php?idpais=' . $ids . ">Activar</a></td>
+                                                    <td>" . '<a href="pais_activar.php?idpais=' . $ids . '">Activar</a>'."</td>
                                                     </tr>";
                                             }
                                         }

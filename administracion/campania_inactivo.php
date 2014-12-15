@@ -40,7 +40,7 @@ $campania = "SELECT * FROM campanias where terminada='s' and idcampania>1";
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="block-content collapse in">
-                                    <table class="table table-striped table-hover">                            
+                                    <table class="table table-striped table-hover table-bordered">                            
                                         <?php
                                         if (!isset($campanias)) {
                                             echo '<table><tr><th><h3><center></center></h3><th><tr><table>';
@@ -62,7 +62,7 @@ $campania = "SELECT * FROM campanias where terminada='s' and idcampania>1";
                                                     <td>" . $c['campania'] . "</td>
                                                     <td>" . $c['fechainicio'] . "</td>
                                                     <td>" . $c['fechafin'] . "</td>
-                                                    <td>" . '<a href="campania_activar.php?idcampania=' . $ids . ">Activar</a></td>
+                                                    <td>" . '<a href="campania_activar.php?idcampania=' . $ids . '">Activar</a>'."</td>
                                                     </tr>";
                                             }
                                         }

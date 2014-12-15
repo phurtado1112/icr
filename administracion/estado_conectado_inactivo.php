@@ -58,7 +58,7 @@ $estado = "SELECT * FROM estados where activo='1'";
                                                     <tr>
                                                     <td>" . $e['idestado'] . "</td>
                                                     <td>" . $e['estado'] . "</td>
-                                                    <td>" . '<a href="estado_conectado_activar.php?idestado=' . $ids . ">Activar</a></td>
+                                                    <td>" . '<a href="estado_conectado_activar.php?idestado=' . $ids . '">Activar</a>'."</td>
                                                     </tr>";
                                             }
                                         }

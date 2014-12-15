@@ -59,13 +59,13 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                                     <div class="control-group">
                                                 <label class="control-label">Fecha Inicio</label>
                                                 <div class="controls">
-                                                    <input type="text" id="datepicker" name="fechainicio" value="0000-00-00" />
+                                                    <input type="text" id="datepicker" name="fechainicio" value="<?php echo date('Y-m-d');?>" />
                                                 </div>
                                             </div>
                                             <div class="control-group">
                                                 <label class="control-label">Fecha Final</label>
                                                 <div class="controls">
-                                                    <input type="text" id="datepicker1" name="fechafin" value="0000-00-00" />
+                                                    <input type="text" id="datepicker1" name="fechafin" value="<?php echo date('Y-m-d');?>" />
                                                 </div>
                                             </div>
                                     <div class="form-actions">

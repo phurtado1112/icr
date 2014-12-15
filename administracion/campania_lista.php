@@ -17,7 +17,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset=utf-8" />
         <title>Campañas</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
@@ -43,6 +43,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                     <div class="muted pull-left" align="center"></div>
                                     <a href="campania_crear.php" class="btn btn-small btn-success">Nueva Campaña</a>
                                     <a href="campania_inactivo.php" class="btn btn-small btn-success">Campañas Inactivas</a>
+                                    <a href="campania_estado.php" class="btn btn-small btn-success">Estado de Campañas</a>
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
@@ -52,6 +53,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                         } else {
                                             ?>
                                             <tr>
+                                                <th>No.</th>
                                                 <th>ID</th>
                                                 <th>Campañas</th>
                                                 <th>Programa</th>
@@ -60,10 +62,12 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                                 <th>Acción</th>
                                             </tr>
                                             <?php
+                                            $i=1;
                                             foreach ($campanias as $c) {
                                                 $ids = $c['idcampania'];
                                                 echo"
                                                     <tr>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $c['idcampania'] . "</td>
                                                     <td>" . $c['campania'] . "</td>
                                                     <td>" . $c['programa'] . "</td>
@@ -71,6 +75,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                                     <td>" . $c['fechafin'] . "</td>
                                                     <td>" . '<a href="campania_editar.php?idcampania=' . $ids . '">Editar</a> ---  <a href="campania_inactivar.php?idcampania=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

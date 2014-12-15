@@ -58,7 +58,7 @@ while ($fila_programa = bd_obtener_fila($lista_programas)) {
                                                     <tr>
                                                     <td>" . $p['idprograma'] . "</td>
                                                     <td>" . $p['programa'] . "</td>
-                                                    <td>" . '<a href="programa_activar.php?idprograma=' . $ids . ">Activar</a></td>
+                                                    <td class='btn'>" . '<a href="programa_activar.php?idprograma=' . $ids . '">Activar</a>'."</td>
                                                     </tr>";
                                             }
                                         }

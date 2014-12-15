@@ -36,8 +36,8 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span2"></div>
-                <div class="span8" id="content">
+                <div class="span1"></div>
+                <div class="span10" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
@@ -56,7 +56,10 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                     <tr>
                                                         <td><strong>No.</strong></td>
                                                         <td><strong>Campaña</strong></td>
+                                                        <td><strong>Programa</strong></td>
                                                         <td><strong>Asesor</strong></td>
+                                                        <td><strong>Fecha Inicio</strong></td>
+                                                        <td><strong>Fecha Fin</strong></td>
                                                         <td><strong>Total</strong></td>
                                                         <td><strong>Gestionados</strong></td>        
                                                         <td><strong>Pendientes</strong></td>                
@@ -73,7 +76,10 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
 						<tr>
                                                 <td><b>" . $i . "</b></td>
 						<td>" . $c['campania'] . "</td>
-                                                <td>" . $c['nombre'] . "</td>    
+                                                <td>" . $c['programa'] . "</td>
+                                                <td>" . $c['nombre'] . "</td>
+                                                <td>" . $c['fechainicio'] . "</td>
+                                                <td>" . $c['fechafin'] . "</td>
                                                 <td>" . $c['TOTAL'] . "</td>    
 						<td>" . $c['ATENDIDO'] . "</td>
 						<td>" . $c['PENDIENTE'] . "</td>

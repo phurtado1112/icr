@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select campania,nombre,TOTAL,ATENDIDO,PENDIENTE,PROCENT from estado_campania_view where terminada='n' order by idasignar";
+$consulta_estado_campanias = "select campania,programa,nombre,fechainicio,fechafin,TOTAL,ATENDIDO,PENDIENTE,PROCENT from estado_campania_view where terminada='n' order by idasignar";
 
 $lista_estado_campanias = bd_ejecutar_sql($consulta_estado_campanias);
 //while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
@@ -20,7 +20,7 @@ require './Classes/PHPExcel.php';
 
 // simple query 
 
-$headings = array('CAMPAÑA','ASESOR','TOTAL','ATENDIDO','PENDIENTE','PROCENT'); 
+$headings = array('CAMPAÑA','PROGRAMA','ASESOR','INICIO','FIN','TOTAL','ATENDIDO','PENDIENTE','PROCENT'); 
 
 if ($lista_estado_campanias) { 
     // Create a new PHPExcel object 

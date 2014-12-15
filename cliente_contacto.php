@@ -85,7 +85,6 @@ $total_contactos = $filas['total'];
             <div id="container" align="center">   
                 <h1 style="alignment-adjust: central">Contactos</h1>
                 <h4 style="alignment-adjust: central">Total de Contactos de Campaña: <?php echo $total_contactos; ?> </h4>
-                <?php echo $_SESSION['idasignar']; ?>
                 <div id="resul_search">
                     <table class="table">
                         <?php

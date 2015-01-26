@@ -20,4 +20,4 @@ define("NOMBRE_BD","incaecrm");
 define("TIPO_BD","mysql");
 
 // indica que estamos en modo desarrollo y vamos a imprimir todos los errores
-define("MODO_DESARROLLO",true);
+define("MODO_DESARROLLO",false);

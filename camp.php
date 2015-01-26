@@ -8,9 +8,9 @@ $consultaCamp = "SELECT idasignar,Idcamp,campania FROM asignar_view WHERE termin
 $lista_campanias = bd_ejecutar_sql($consultaCamp);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta charset="utf-8">
         <!--<meta name="robots" content="noindex, nofollow">-->
         <title>INCAE | Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
@@ -34,7 +34,8 @@ $lista_campanias = bd_ejecutar_sql($consultaCamp);
                 </div>
                 <div class="block_content">
                     <div align="center">
-                        <form accept-charset="UTF-8" action="acceso_camp.php" class="new_user" id="new_user" method="post">                            
+                        <form action="acceso_camp.php" class="new_user" id="new_user" method="post">
+                            <div class="control-group">
                             <select name="idasignar" >            
                                 <option value="0">Campaña...</option>
                                 <?php
@@ -45,7 +46,9 @@ $lista_campanias = bd_ejecutar_sql($consultaCamp);
                                     } 
                                 ?>
                             </select>
-                            <br><input class="btn btn-primary btn-large" name="commit" type="submit" value="Acceder">
+                            </div>
+                            <input class="btn btn-primary btn-large" name="commit" type="submit" value="Acceder">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="reset" class="btn btn-primary btn-large" onclick="location.href = 'index.php'">Cancelar</button>
                         </form>
                     </div>
                 </div>

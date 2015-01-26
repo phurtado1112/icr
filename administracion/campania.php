@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once './funciones.general.php';
 //include 'Fconexion.php';
 //session_start();
@@ -19,7 +19,7 @@ $var_camp_nombre = $filacamp['campania'];
 <html class="no-js">
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
         <title>Admin Home Page</title>
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 //Iniciar Sesión
 include_once './funciones.general.php';
 if (!$_SESSION) {

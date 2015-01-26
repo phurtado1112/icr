@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estadoCampanias" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4ce6fded-0668-4823-a9e0-0ed90b9b7247">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+        `asignar`.`idasignar` AS `idasignar`,
+        `campanias`.`idcampania` AS `idcampania`,
+        `campanias`.`campania` AS `campania`,
+        `campanias`.`terminada` AS `terminada`,
+        `programas`.`programa` AS `programa`,
+        `usuarios`.`nombre` AS `nombre`,
+        SUM(IF((`clientes`.`idestado` = '1'), 1, 0)) AS `ATENDIDO`,
+        SUM(IF((`clientes`.`idestado` = '0'), 1, 0)) AS `PENDIENTE`,
+        COUNT(0) AS `TOTAL`,
+        ROUND(((SUM(IF((`clientes`.`idestado` = '1'), 1, 0)) * 100) / COUNT(0)),
+                1) AS `PROCENT`,
+        SUM(IF((`transaccion`.`idtipificacion` = 16),
+            1,
+            0)) AS `CALIFICADO`,
+        SUM(IF((`transaccion`.`idtipificacion` = 9),
+            1,
+            0)) AS `NOINTERESADO`,
+        (SUM(IF((`transaccion`.`idtipificacion` = 18),
+            1,
+            0)) + SUM(IF((`transaccion`.`idtipificacion` = 21),
+            1,
+            0))) AS `OTROPROGRAMA`,
+        (SUM(IF((`transaccion`.`idtipificacion` = 17),
+            1,
+            0)) + SUM(IF((`transaccion`.`idtipificacion` = 10),
+            1,
+            0))) AS `FALLIDA`
+    FROM
+        (((((`asignar`
+        LEFT JOIN `campanias` ON ((`asignar`.`idcampania` = `campanias`.`idcampania`)))
+        LEFT JOIN `clientes` ON ((`asignar`.`idasignar` = `clientes`.`idasignar`)))
+        LEFT JOIN `usuarios` ON ((`asignar`.`idusuario` = `usuarios`.`idusuario`)))
+        LEFT JOIN `programas` ON ((`campanias`.`idprograma` = `programas`.`idprograma`)))
+        LEFT JOIN `transaccion` ON ((`clientes`.`idcliente` = `transaccion`.`idcliente`)))
+    WHERE
+        (`transaccion`.`ultimo` = 1)
+    GROUP BY `asignar`.`idasignar`]]>
+	</queryString>
+	<field name="idasignar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idcampania" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="campania" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="terminada" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="programa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ATENDIDO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PENDIENTE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOTAL" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROCENT" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CALIFICADO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOINTERESADO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="OTROPROGRAMA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FALLIDA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<staticText>
+				<reportElement x="200" y="0" width="355" height="33" uuid="4c0875cb-709c-403a-b60e-0a54a03b93af"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Estado de Campañas]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="200" height="72" uuid="7113c407-3d27-48ac-8ad6-0d95c83b5fcb"/>
+				<imageExpression><![CDATA["C:\\xampp\\htdocs\\incaecrm\\administracion\\images\\incae_logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="ba6c5ca3-8380-41e7-9187-a45df4b57c43"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="16260b73-6440-42b2-8fdf-41e62efdee7a"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asesor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="79" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="317b8684-6883-40de-9937-faf450cf08b8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Programa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="158" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6fc8f0fc-adeb-407b-af6a-9fe5b52f58d9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Campaña]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="73feffc7-651a-4f62-b1ab-fb23c7355c96"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Atendido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="32e0e594-f592-481b-8c4f-4dbf761115d0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pendiente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5437dbd5-342e-4453-8ada-0ba60e96b591"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="674" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="98f14256-9619-4164-bb61-f12a738a9d53"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[% Cumple]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="474" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="eaa99d37-db10-4de7-a14f-aa77454ff05f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Calificados]]></text>
+			</staticText>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement mode="Transparent" x="476" y="0" width="79" height="20" forecolor="#000000" backcolor="#FFFFFF" uuid="8e1267a9-a221-4ced-9581-59d7e09ea46e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="Arial" size="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CALIFICADO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="4200bd8f-ddbf-426c-aba8-e4b9bc40416b"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="79" height="20" uuid="b5e2a302-a2b2-47c8-a325-51404799b915"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="79" y="0" width="79" height="20" uuid="6f672c87-5727-4b33-9ccd-254bdfc63073"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{programa}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="158" y="0" width="79" height="20" uuid="6e8b24cd-8971-47dd-bf3b-599f2e5ba870"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{campania}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="237" y="0" width="79" height="20" uuid="6497607c-8449-4b3e-bd44-03ed251d6cd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ATENDIDO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="316" y="0" width="79" height="20" uuid="d72ffa2c-d33a-4653-bbc9-e1d4d677e343"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PENDIENTE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="395" y="0" width="79" height="20" uuid="848b951c-0082-4186-b421-3c01f8b10076"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="674" y="0" width="79" height="20" uuid="55334568-7625-460e-a801-b285de566b0e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCENT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="196" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a9513db9-1d48-4f05-87b8-1e4a22875d8f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="711" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="35e7d233-5b7c-4a1b-9d51-e84475d98fe2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="9ae2dadc-51c9-43dc-8b66-e7f34bfc5d7f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,4 +1,4 @@
-<?php //
+﻿<?php //
 include_once './funciones.general.php';
 //session_start();
 if (!$_SESSION) {
@@ -32,7 +32,7 @@ function graficar($titulo, $idasignar) {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
         <title>Admin Inicio</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">

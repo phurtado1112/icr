@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once './funciones.general.php';
 
 if (!$_SESSION) {
@@ -11,7 +11,7 @@ if (!$_SESSION) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
         <title>Nueva Campaña</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">

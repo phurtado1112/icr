@@ -17,7 +17,7 @@ $age = filter_input(INPUT_POST, 'ajxagendar');
 
 if (isset($cte)) {
 
-    $consulta_actualizacion_clientes= "update clientes set idestado=1 where idcliente='" . $cte . "'";
+    $consulta_actualizacion_clientes = "update clientes set idestado=1 where idcliente='" . $cte . "'";
     bd_ejecutar_sql($consulta_actualizacion_clientes);
 
     $consulta_actualizacion_agenda = "update agenda SET gestionado=1 WHERE idcliente='" . $cte . "'";
@@ -49,16 +49,22 @@ if (isset($cte)) {
         bd_ejecutar_sql($consulta_agregar_agenda);
     }
 }
+
+$consulta_existe_otro_cliente = "select count(*) idtrasaccion from transaccion where idcliente=' " . $cte . "'";
+$lista_cantidad_cliente = bd_ejecutar_sql($consulta_existe_otro_cliente);
+$fila_cantidad_cliente = bd_obtener_fila($lista_cantidad_cliente);
+$cantidad_cliente = $fila_cantidad_cliente['idtrasaccion'];
+
+if ($cantidad_cliente > 1) {
+    $consulta_cliente_anterior = "select min(idtrasaccion) as idtransaccion from transaccion where idcliente=' " . $cte . "' limit 1";
+    $lista_transaccion_anterior = bd_ejecutar_sql($consulta_cliente_anterior);
+    $fila_transaccion_anterior = bd_obtener_fila($lista_transaccion_anterior);
+    $transaccion_anterior = $fila_transaccion_anterior['idtransaccion'] ;
+
+    $consulta_actualiza_ultimo = "UPDATE transaccion SET ultimo = '0' WHERE idtrasaccion = '" . $transaccion_anterior . "'";
+    bd_ejecutar_sql($consulta_actualiza_ultimo);
+}
+
 header("Location: cliente_contacto_agendado.php");
-//?>
-<!--<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Registro Guardado...</title>
-</head>
-<body>
-        <center><h3>Registro Guardado...<a href="contactos.php">Contactos</a></h3></center>
-</body>
-</html>-->
+
 

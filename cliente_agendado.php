@@ -38,7 +38,7 @@ while ($filaat = bd_obtener_fila($lista_atendidos)) {
     $var_atendido = $filaat['conteo'];
 }
 
-$noatendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idasignar ."'";
+$noatendido = "SELECT count(*) as conteo FROM clientes WHERE idasignar='" . $idasignar . "'";
 $lista_noatendidos = bd_ejecutar_sql($noatendido);
 while ($filanoat = bd_obtener_fila($lista_noatendidos)) {
     $var_no_atendido = $filanoat['conteo'];
@@ -53,7 +53,7 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
         <title>INCAE</title>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/estilos.css" rel="stylesheet">  
@@ -156,29 +156,29 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
         <script>
             function getsearch(evt) {
                 var keyPressed = (evt.which) ? evt.which : event.keyCode;
-                    if (keyPressed === 13) {
-                        var_numero = document.getElementById('cadena').value;
-                        searchdata(var_numero);
+                if (keyPressed === 13) {
+                    var_numero = document.getElementById('cadena').value;
+                    searchdata(var_numero);
                 }
             }
 
             function SAVE() {
-            if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
-                alert('ALERTA!.Falta la Observacion');
-            } else
-                    if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18') {
-                alert('ALERTA!.Falta la Observacion');
-            } else
-                    if (document.getElementById('finales').value === '0') {
-            alert('ALERTA!.Falta la finales');
-            } else {
-                cliente = document.getElementById('idcliente').value;
-                        finales = document.getElementById('finales').value;
-                        observacion = document.getElementById('OBSERVACION').value;
-                        usuario = document.getElementById('idusuario').value;
-                        sub_finales = document.getElementById('subfinales').value;
-                        agendar = document.getElementById('datepicker').value;
-                        load_agendados(cliente, finales, observacion, usuario, sub_finales, agendar);
+                if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
+                    alert('ALERTA!.Falta la Observacion');
+                } else
+                if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18') {
+                    alert('ALERTA!.Falta la Observacion');
+                } else
+                if (document.getElementById('finales').value === '0') {
+                    alert('ALERTA!.Falta la finales');
+                } else {
+                    cliente = document.getElementById('idcliente').value;
+                    finales = document.getElementById('finales').value;
+                    observacion = document.getElementById('OBSERVACION').value;
+                    usuario = document.getElementById('idusuario').value;
+                    sub_finales = document.getElementById('subfinales').value;
+                    agendar = document.getElementById('datepicker').value;
+                    load_agendados(cliente, finales, observacion, usuario, sub_finales, agendar);
                 }
             }
         </script>
@@ -186,9 +186,9 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script>
-            $(function() {
-                $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
-            });
+                            $(function () {
+                                $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+                            });
         </script>
     </body>
 </html>

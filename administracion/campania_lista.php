@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once './funciones.general.php';
 	
 if (!$_SESSION) {
@@ -17,7 +17,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
         <title>Campañas</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">

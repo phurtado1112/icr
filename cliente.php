@@ -96,7 +96,7 @@ $var_camp_nombre = $filacamp['campania'];
                             <td><strong>Teléfono:</strong></td>
                             <td><strong>Email:</strong></td>
                             <td><strong>Celular:</strong></td>
-                            <td><strong>Teléfono trabajo:</strong></td>
+                            <td><strong>Teléfono Trabajo:</strong></td>
                             <td><strong>Puesto:</strong> </td>
                             <td><strong>Empresa:</strong> </td>
                         </tr>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once './funciones.general.php';
 
 if (!$_SESSION) {
@@ -37,7 +37,7 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span1"></div>
-                <div class="span10" id="content">
+                <div class="span11" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
@@ -62,7 +62,11 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                         <td><strong>Fecha Fin</strong></td>
                                                         <td><strong>Total</strong></td>
                                                         <td><strong>Gestionados</strong></td>        
-                                                        <td><strong>Pendientes</strong></td>                
+                                                        <td><strong>Pendientes</strong></td>
+                                                        <td><strong>Calificados</strong></td>
+                                                        <td><strong>No Interesados</strong></td>
+                                                        <td><strong>Otro Programa</strong></td>
+                                                        <td><strong>Fallidas</strong></td>
                                                         <td><strong>% Avance</strong></td>
                                                     </tr>
                                                     <?php
@@ -83,6 +87,10 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                 <td>" . $c['TOTAL'] . "</td>    
 						<td>" . $c['ATENDIDO'] . "</td>
 						<td>" . $c['PENDIENTE'] . "</td>
+                                                <td>" . $c['CALIFICADO'] . "</td>
+                                                <td>" . $c['NOINTERESADO'] . "</td>
+                                                <td>" . $c['OTROPROGRAMA'] . "</td>
+                                                <td>" . $c['FALLIDA'] . "</td>
 						<td>" . $c['PROCENT'] . "</td>
 						</tr>";
                                                             $i = $i + 1;

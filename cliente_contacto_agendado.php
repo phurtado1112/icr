@@ -26,7 +26,7 @@ $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <title>INCAE | CRM</title>
@@ -132,22 +132,20 @@ $var_camp_nombre = $filacamp['campania'];
         </div>
         <script src="js/obj_ajax.js"></script>
         <script>
-                                        function porclick()
-                                        {
-                                            var_numero = document.getElementById('cadena').value;
-                                            var_opcion = document.getElementById('idopcion').value;
-                                            searchagendados(var_numero, var_opcion);
-                                        }
-                                        function getsearch(evt)
-                                        {
-                                            var keyPressed = (evt.which) ? evt.which : event.keyCode;
-                                            if (keyPressed === 13) {
-
-                                                var_numero = document.getElementById('cadena').value;
-                                                var_opcion = document.getElementById('idopcion').value;
-                                                searchagendados(var_numero, var_opcion);
-                                            }
-                                        }
+            function porclick() {
+                var_numero = document.getElementById('cadena').value;
+                var_opcion = document.getElementById('idopcion').value;
+                searchagendados(var_numero, var_opcion);
+            }
+            
+            function getsearch(evt) {
+                var keyPressed = (evt.which) ? evt.which : event.keyCode;
+                if (keyPressed === 13) {
+                    var_numero = document.getElementById('cadena').value;
+                    var_opcion = document.getElementById('idopcion').value;
+                    searchagendados(var_numero, var_opcion);
+                }
+            }
         </script>
     </body>
 </html>

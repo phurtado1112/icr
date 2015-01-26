@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once './funciones.general.php';
 	
 if (!$_SESSION) {
@@ -17,7 +17,7 @@ $campania = "SELECT * FROM campanias where terminada='s' and idcampania>1";
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8" />
         <title>Campañas Inactivas</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">

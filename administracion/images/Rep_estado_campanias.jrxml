@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Rep_estado_campanias" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db29248a-1eaf-4e4d-ae2c-deebb163256e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+        `asignar`.`idasignar` AS `idasignar`,
+        `campanias`.`idcampania` AS `idcampania`,
+        `campanias`.`campania` AS `campania`,
+        `campanias`.`terminada` AS `terminada`,
+        `campanias`.`fechainicio` AS `fechainicio`,
+        `campanias`.`fechafin` AS `fechafin`,
+        `programas`.`programa` AS `programa`,
+        `usuarios`.`nombre` AS `nombre`,
+        SUM(IF((`clientes`.`idestado` = '1'), 1, 0)) AS `ATENDIDO`,
+        SUM(IF((`clientes`.`idestado` = '0'), 1, 0)) AS `PENDIENTE`,
+        COUNT(0) AS `TOTAL`,
+        ROUND(((SUM(IF((`clientes`.`idestado` = '1'), 1, 0)) * 100) / COUNT(0)),
+                1) AS `PROCENT`,
+        SUM(IF((`transaccion`.`idtipificacion` = 16),
+            1,
+            0)) AS `CALIFICADO`,
+        SUM(IF((`transaccion`.`idtipificacion` = 9),
+            1,
+            0)) AS `NOINTERESADO`,
+        (SUM(IF((`transaccion`.`idtipificacion` = 18),
+            1,
+            0)) + SUM(IF((`transaccion`.`idtipificacion` = 21),
+            1,
+            0))) AS `OTROPROGRAMA`,
+        (SUM(IF((`transaccion`.`idtipificacion` = 17),
+            1,
+            0)) + SUM(IF((`transaccion`.`idtipificacion` = 10),
+            1,
+            0))) AS `FALLIDA`
+    FROM
+        (((((`asignar`
+        LEFT JOIN `campanias` ON ((`asignar`.`idcampania` = `campanias`.`idcampania`)))
+        LEFT JOIN `clientes` ON ((`asignar`.`idasignar` = `clientes`.`idasignar`)))
+        LEFT JOIN `usuarios` ON ((`asignar`.`idusuario` = `usuarios`.`idusuario`)))
+        LEFT JOIN `programas` ON ((`campanias`.`idprograma` = `programas`.`idprograma`)))
+        LEFT JOIN `transaccion` ON ((`clientes`.`idcliente` = `transaccion`.`idcliente`)))
+    WHERE
+        (`transaccion`.`ultimo` = 1)
+    GROUP BY `asignar`.`idasignar`]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="campania" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="programa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechainicio" class="java.util.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechafin" class="java.util.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ATENDIDO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PENDIENTE" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CALIFICADO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NOINTERESADO" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="OTROPROGRAMA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FALLIDA" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TOTAL" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="PROCENT" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="programa">
+		<groupExpression><![CDATA[$F{programa}]]></groupExpression>
+	</group>
+	<group name="campania">
+		<groupExpression><![CDATA[$F{campania}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="6ec06f04-24e6-4eef-a1ed-27aad267ecc3"/>
+				<text><![CDATA[nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="106" y="2" width="100" height="20" uuid="2542dd4e-e879-4dc1-a53f-7faf30b76e82"/>
+				<text><![CDATA[campania]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="2" width="100" height="20" uuid="a0cda2f7-4519-4c95-902c-18bc121837c0"/>
+				<text><![CDATA[programa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="2" width="100" height="20" uuid="c1ceb0bf-727d-408e-8c5b-c00a0ffc61b5"/>
+				<text><![CDATA[fechainicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="2" width="100" height="20" uuid="cd4984d1-006f-4476-bd28-ca0b6e0c15b6"/>
+				<text><![CDATA[fechafin]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="b9da6413-50d4-4abf-a982-88c831b78193"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="3" width="100" height="20" uuid="eb62cea9-2bf0-4cfc-8790-d0a8cfa0c05b"/>
+				<textFieldExpression><![CDATA[$F{campania}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="197" y="3" width="100" height="20" uuid="310f7821-ce36-4b63-a5ac-eb48351f5075"/>
+				<textFieldExpression><![CDATA[$F{programa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="281" y="3" width="100" height="20" uuid="bcceba69-7bd2-487c-8340-f4a6a8f47f47"/>
+				<textFieldExpression><![CDATA[$F{fechainicio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="367" y="3" width="100" height="20" uuid="1cde275a-7e40-4ec5-8532-1bfe4f118d45"/>
+				<textFieldExpression><![CDATA[$F{fechafin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

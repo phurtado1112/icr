@@ -236,3 +236,10 @@ function bd_limpiar_cadena($cadena) {
 
     return $cadena_limpia;
 }
+
+function contar_registros($lista){
+    
+    $numero_registros = mysqli_num_rows($lista) ;
+    
+    return $numero_registros;
+}

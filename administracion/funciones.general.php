@@ -251,11 +251,11 @@ function debug($var, $seguir = false) {
     echo "<pre>";
     print_r($var);
     echo "</pre>";
-    if (!$seguir)
+    if (!$seguir){
         die();
+    }
 }
 
 // FIN función genérica debug
 
 include_once("funcion.util.php");
-?>

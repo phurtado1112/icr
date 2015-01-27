@@ -22,14 +22,14 @@ if (isset($idcliente)) {
     echo '<script language = javascript>
 			alert("llego")"
 			</script>';
-    
+
     if ($idtipificacion == '5') {
         $inserta_agenda = "INSERT INTO agenda (idcliente,fecha,observacion,gestionado)
 			VALUES(
                             '" . $idcliente . "',
                             '" . $fecha . "',
                             '" . $observacion . "',
-                            '". 0 . "'
+                            '" . 0 . "'
 			)";
         bd_ejecutar_sql($inserta_agenda);
         $actualiza_cliente = "update clientes set agendado=1 where idcliente=" . $idcliente;
@@ -58,5 +58,22 @@ if (isset($idcliente)) {
                             )";
         bd_ejecutar_sql($inserta_trans);
     }
+//debug("EStoy en procesar cliente antes de verificar la duplicacion");
+    $consulta_existe_otro_cliente = "select count(*) idtrasaccion from transaccion where idcliente=' " . $idcliente . "'";
+    $lista_cantidad_cliente = bd_ejecutar_sql($consulta_existe_otro_cliente);
+    $fila_cantidad_cliente = bd_obtener_fila($lista_cantidad_cliente);
+    $cantidad_cliente = $fila_cantidad_cliente['idtrasaccion'];
+
+    if ($cantidad_cliente > 1) {
+        $consulta_cliente_anterior = "select min(idtrasaccion) as idtransaccion from transaccion where idcliente=' " . $idcliente . "' limit 1";
+//        debug($consulta_cliente_anterior);
+        $lista_transaccion_anterior = bd_ejecutar_sql($consulta_cliente_anterior);
+        $fila_transaccion_anterior = bd_obtener_fila($lista_transaccion_anterior);
+        $transaccion_anterior = $fila_transaccion_anterior['idtransaccion'];
+
+        $consulta_actualiza_ultimo = "UPDATE transaccion SET ultimo = '0' WHERE idtrasaccion = '" . $transaccion_anterior . "'";
+        bd_ejecutar_sql($consulta_actualiza_ultimo);
+    }
+
     header("Location: cliente_contacto.php");
 }

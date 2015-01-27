@@ -24,15 +24,30 @@ if (!$fila[0]) { //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
 
     $_SESSION['idusuario'] = $fila['idusuario'];
     $_SESSION['usuario'] = $fila['usuario'];
-    $admin = $fila['tipo'];
-    //Agregado por PHD 19 de marzo 2014
-    if ($admin == 2) {
-        header("Location: main.php");
-    } else {
-        header("Location: camp.php");
+
+    $consulta_sesion_anterior="select * from session where idusuario= '".$_SESSION['idusuario']."'";
+    $lista_sesion_anterior = bd_ejecutar_sql($consulta_sesion_anterior);
+    $fila_sesion_anterior = bd_obtener_fila($lista_sesion_anterior);
+    $sesion_anterior = $fila_sesion_anterior['idusuario'];
+//    debug($sesion_anterior);
+    
+    
+    if(isset($sesion_anterior)){
+        $consulta_eliminar_sesion_anterior = "delete from session where idusuario = '".$sesion_anterior."'";
+        bd_ejecutar_sql($consulta_eliminar_sesion_anterior);
     }
-    //Comentariado por PHD 19 de marzo 2014 sustituido por el if anterior
-    //header("Location: camp.php");
+    
+    header("Location: camp.php");
+    // Comentado PHD 26 Enero 2015 se decidió no dar entrada al admin
+    // //    $admin = $fila['tipo'];
+//    //Agregado por PHD 19 de marzo 2014
+//    if ($admin == 2) {
+//        header("Location: main.php");
+//    } else {
+//        header("Location: camp.php");
+//    }
+//    //Comentariado por PHD 19 de marzo 2014 sustituido por el if anterior
+//    //header("Location: camp.php");
 }
 
 

@@ -58,20 +58,39 @@ if (isset($idcliente)) {
                             )";
         bd_ejecutar_sql($inserta_trans);
     }
-//debug("EStoy en procesar cliente antes de verificar la duplicacion");
+
     $consulta_existe_otro_cliente = "select count(*) idtrasaccion from transaccion where idcliente=' " . $idcliente . "'";
     $lista_cantidad_cliente = bd_ejecutar_sql($consulta_existe_otro_cliente);
     $fila_cantidad_cliente = bd_obtener_fila($lista_cantidad_cliente);
     $cantidad_cliente = $fila_cantidad_cliente['idtrasaccion'];
 
     if ($cantidad_cliente > 1) {
-        $consulta_cliente_anterior = "select min(idtrasaccion) as idtransaccion from transaccion where idcliente=' " . $idcliente . "' limit 1";
-//        debug($consulta_cliente_anterior);
+        $consulta_cliente_anterior = "select idtrasaccion as idtransaccion from transaccion where idcliente=' " . $idcliente . "'";
         $lista_transaccion_anterior = bd_ejecutar_sql($consulta_cliente_anterior);
-        $fila_transaccion_anterior = bd_obtener_fila($lista_transaccion_anterior);
-        $transaccion_anterior = $fila_transaccion_anterior['idtransaccion'];
+        while ($fila_transaccion_anterior = bd_obtener_fila($lista_transaccion_anterior)){
+            $repetido[]=$fila_transaccion_anterior;
+        }
 
-        $consulta_actualiza_ultimo = "UPDATE transaccion SET ultimo = '0' WHERE idtrasaccion = '" . $transaccion_anterior . "'";
+        switch ($cantidad_cliente) {
+            case 2:    
+                $transaccion_anterior = $repetido[0];
+                break;
+            case 3:    
+                $transaccion_anterior = $repetido[1];
+                break;
+            case 4:    
+                $transaccion_anterior = $repetido[2];
+                break;
+            case 5:    
+                $transaccion_anterior = $repetido[3];
+                break;
+            case 6:    
+                $transaccion_anterior = $repetido[4];
+                break;
+        }
+        
+        $consulta_actualiza_ultimo = "UPDATE transaccion SET ultimo = '0' WHERE idtrasaccion = '" 
+                . $transaccion_anterior['idtransaccion'] . "'";
         bd_ejecutar_sql($consulta_actualiza_ultimo);
     }
 

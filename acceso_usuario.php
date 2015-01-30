@@ -25,12 +25,11 @@ if (!$fila[0]) { //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
     $_SESSION['idusuario'] = $fila['idusuario'];
     $_SESSION['usuario'] = $fila['usuario'];
 
+    // Se busca y elimina cualquier sesión anterior hecha por el usuario
     $consulta_sesion_anterior="select * from session where idusuario= '".$_SESSION['idusuario']."'";
     $lista_sesion_anterior = bd_ejecutar_sql($consulta_sesion_anterior);
     $fila_sesion_anterior = bd_obtener_fila($lista_sesion_anterior);
     $sesion_anterior = $fila_sesion_anterior['idusuario'];
-//    debug($sesion_anterior);
-    
     
     if(isset($sesion_anterior)){
         $consulta_eliminar_sesion_anterior = "delete from session where idusuario = '".$sesion_anterior."'";

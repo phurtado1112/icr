@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' order by idasignar";
+$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' order by idusuario,idprograma,idcampania";
 
 $lista_estado_campanias = bd_ejecutar_sql($consulta_estado_campanias);
 while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
@@ -55,9 +55,9 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <tr>
                                                         <td><strong>No.</strong></td>
-                                                        <td><strong>Campaña</strong></td>
-                                                        <td><strong>Programa</strong></td>
                                                         <td><strong>Asesor</strong></td>
+                                                        <td><strong>Programa</strong></td>
+                                                        <td><strong>Campaña</strong></td>                                                  
                                                         <td><strong>Fecha Inicio</strong></td>
                                                         <td><strong>Fecha Fin</strong></td>
                                                         <td><strong>Total</strong></td>
@@ -79,9 +79,9 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                             echo"
 						<tr>
                                                 <td><b>" . $i . "</b></td>
-						<td>" . $c['campania'] . "</td>
-                                                <td>" . $c['programa'] . "</td>
                                                 <td>" . $c['nombre'] . "</td>
+                                                <td>" . $c['programa'] . "</td>
+						<td>" . $c['campania'] . "</td>
                                                 <td>" . $c['fechainicio'] . "</td>
                                                 <td>" . $c['fechafin'] . "</td>
                                                 <td>" . $c['TOTAL'] . "</td>    

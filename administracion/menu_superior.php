@@ -69,8 +69,16 @@
                         </ul>
                     </li>
                     <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gestión<b class="caret"></b></a>
+                        <ul class="dropdown-menu" id="menu4">
+                            <li>
+                                <a href="./reportes/index.php">Gestión de Contactos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes<b class="caret"></b></a>
-                        <ul class="dropdown-menu" id="menu3">                                    
+                        <ul class="dropdown-menu" id="menu3">
                             <li>
                                 <a href="rep_gestion_campania_form.php">Gestión de Asesor por Campaña</a>
                             </li>

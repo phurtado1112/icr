@@ -39,7 +39,7 @@ if (isset($opcion)) {
     while ($fila = bd_obtener_fila($lista_contactos_atendidos)) {
         $contactos[] = $fila;
     }
-}		
+}
 ?>
 <center>
     <table class="table table-hover">
@@ -75,7 +75,7 @@ if (isset($opcion)) {
                     <td>" . $c['fecha'] . "</td>
                     <td>" . $c['tipificacion'] . "</td>																														
                     <td>" . $c['observaciones'] . "</td>																																				
-                    <td>" . '<a href="cliente.php?idclient=' . $ids . '">Gestionar</a>' . "</td>						
+                    <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>						
                     </tr>";
             }
         }

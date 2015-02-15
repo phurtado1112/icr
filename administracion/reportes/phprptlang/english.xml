@@ -1,0 +1,1002 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<ew-language date="2015/2/3" version="7.0.0" id="en" name="English" desc="English" author="e.World Technology Ltd.">
+	<locale>
+		<phrase id="locale" value=""/><!-- *** system locale for this language -->
+		<phrase id="use_system_locale" value="1"/><!-- *** change to "0" to disable system locale and use the following settings *** -->
+		<phrase id="decimal_point" value="."/>
+		<phrase id="thousands_sep" value=","/>
+		<phrase id="mon_decimal_point" value="."/>
+		<phrase id="mon_thousands_sep" value=","/>
+		<phrase id="currency_symbol" value="$"/>
+		<phrase id="positive_sign" value=""/>
+		<phrase id="negative_sign" value="-"/>
+		<phrase id="frac_digits" value="2"/>
+		<phrase id="p_cs_precedes" value="1"/>
+		<phrase id="p_sep_by_space" value="0"/>
+		<phrase id="n_cs_precedes" value="1"/>
+		<phrase id="n_sep_by_space" value="0"/>
+		<phrase id="p_sign_posn" value="3"/>
+		<phrase id="n_sign_posn" value="3"/>
+		<phrase id="time_zone" value="US/Pacific"/><!-- *** used for multi-language site only *** -->
+	</locale>
+	<global>
+		<phrase id="allrecords" value="All"/>
+		<phrase id="alwaysask" value="Always ask for my user name and password"/>
+		<phrase id="autologin" value="Auto login until I logout explicitly"/>
+		<phrase id="backtologin" value="Back to Login Page"/>
+		<phrase id="booleanno" value="No"/>
+		<phrase id="booleanyes" value="Yes"/>
+		<phrase id="breadcrumbdivider" value="/"/>
+		<phrase id="browsernoflashsupport" value="Your browser does not support Flash player." client="1"/>
+		<phrase id="buttonexport" value="Export"/>
+		<phrase id="cancelbtn" value="Cancel" client="1"/>
+		<phrase id="chartorder" value="Order by"/>
+		<phrase id="chartorderxasc" value="Labels ASC"/>
+		<phrase id="chartorderxdesc" value="Labels DESC"/>
+		<phrase id="chartorderyasc" value="Values ASC"/>
+		<phrase id="chartorderydesc" value="Values DESC"/>
+		<phrase id="clicktodrilldown" value="Click to drill down"/>
+		<phrase id="currentfilters" value="Current filters:"/>
+		<phrase id="drilldownallrecords" value="All records"/>
+		<phrase id="drilldownfilters" value="Drill down filters:"/>
+		<phrase id="entersenderemail" value="Please enter sender email" client="1"/>
+		<phrase id="enterpropersenderemail" value="Exceed maximum sender email count or email address incorrect" client="1"/>
+		<phrase id="enterrecipientemail" value="Please enter recipient email" client="1"/>
+		<phrase id="enterproperrecipientemail" value="Exceed maximum recipient email count or email address incorrect" client="1"/>
+		<phrase id="enterproperccemail" value="Exceed maximum cc email count or email address incorrect" client="1"/>
+		<phrase id="enterproperbccemail" value="Exceed maximum bcc email count or email address incorrect" client="1"/>
+		<phrase id="entersubject" value="Please enter subject" client="1"/>
+		<phrase id="emailformsender" value="From"/>
+		<phrase id="emailformrecipient" value="To"/>
+		<phrase id="emailformcc" value="Cc"/>
+		<phrase id="emailformbcc" value="Bcc"/>
+		<phrase id="emailformsubject" value="Subject"/>
+		<phrase id="emailformmessage" value="Message"/>
+		<phrase id="emailformcontenttype" value="Send as"/>
+		<phrase id="emailformcontenttypeurl" value="URL"/>
+		<phrase id="emailformcontenttypehtml" value="HTML"/>
+		<phrase id="emptylabel" value="(Empty)"/>
+		<phrase id="enterpassword" value="Please enter password" client="1"/>
+		<phrase id="enterpwd" value="Please enter password" client="1"/>
+		<phrase id="entersearchcriteria" value="Please enter search criteria"/>
+		<phrase id="enteruid" value="Please enter user ID" client="1"/>
+		<phrase id="entervalidatecode" value="Please enter the validation code shown" client="1"/>
+		<phrase id="exceedmaxemailexport" value="Exceed maximum export email count. Please try again later."/>
+		<phrase id="exportchart" value="Exporting chart: " client="1"/>
+		<phrase id="exportchartdata" value="Exporting chart data" client="1"/>
+		<phrase id="exportcharterror" value="Failed to export chart: " client="1"/>
+		<phrase id="exportingchart" value="Exporting chart (%c of %t), please wait..." client="1"/>
+		<phrase id="exporttoemail" value="Email" imageurl="phprptimages/exportemail.gif" client="1" imagewidth="16" imageheight="16"/>
+		<phrase id="exporttoemailtext" value="Email"/>
+		<phrase id="exporttoexcel" value="Export to Excel" imageurl="phprptimages/exportxls.gif" imagewidth="16" imageheight="16"/>
+		<phrase id="exporttoexceltext" value="Export to Excel"/>
+		<phrase id="exporttopdf" value="Export to PDF" imageurl="phprptimages/exportpdf.gif" imagewidth="16" imageheight="16"/>
+		<phrase id="exporttopdftext" value="Export to PDF"/>
+		<phrase id="exporttoword" value="Export to Word" imageurl="phprptimages/exportdoc.gif" imagewidth="16" imageheight="16"/>
+		<phrase id="exporttowordtext" value="Export to Word"/>
+		<phrase id="fieldrequiredindicator" value="&lt;span class=&quot;ewRequired&quot;&gt;&amp;nbsp;*&lt;/span&gt;"/>
+		<phrase id="filters" value="Filters"/>
+		<phrase id="homepage" value="Home"/>
+		<phrase id="incorrectcreditcard" value="Incorrect credit card number" client="1"/>
+		<phrase id="incorrectdateymd" value="Incorrect date, format = yyyy%smm%sdd"/>
+		<phrase id="incorrectdatemdy" value="Incorrect date, format = mm%sdd%syyyy"/>
+		<phrase id="incorrectdatedmy" value="Incorrect date, format = dd%smm%syyyy"/>
+		<phrase id="incorrectshortdateymd" value="Incorrect date, format = yy%smm%sdd"/>
+		<phrase id="incorrectshortdatemdy" value="Incorrect date, format = mm%sdd%syy"/>
+		<phrase id="incorrectshortdatedmy" value="Incorrect date, format = dd%smm%syy"/>
+		<phrase id="incorrectemail" value="Incorrect email" client="1"/>
+		<phrase id="incorrectfield" value="Incorrect field" client="1"/>
+		<phrase id="incorrectfloat" value="Incorrect floating point number" client="1"/>
+		<phrase id="incorrectguid" value="Incorrect GUID" client="1"/>
+		<phrase id="incorrectinteger" value="Incorrect integer" client="1"/>
+		<phrase id="incorrectphone" value="Incorrect phone number" client="1"/>
+		<phrase id="incorrectrange" value="Number must be between %1 and %2" client="1"/>
+		<phrase id="incorrectregexp" value="Regular expression not matched" client="1"/>
+		<phrase id="incorrectssn" value="Incorrect Social Security Number" client="1"/>
+		<phrase id="incorrecttime" value="Incorrect time (hh:mm:ss)" client="1"/>
+		<phrase id="incorrectzip" value="Incorrect ZIP code" client="1"/>
+		<phrase id="invaliduidpwd" value="Incorrect user ID or password"/>
+		<phrase id="language" value="Language"/>
+		<phrase id="loading" value="Loading%s..." client="1"/>
+		<phrase id="login" value="Login"/>
+		<phrase id="loginpage" value="Login Page"/>
+		<phrase id="logout" value="Logout"/>
+		<phrase id="messageok" value="OK" client="1"/>
+		<phrase id="mobilemenu" value="Menu"/>
+		<phrase id="monthjan" value="Jan"/>
+		<phrase id="monthfeb" value="Feb"/>
+		<phrase id="monthmar" value="Mar"/>
+		<phrase id="monthapr" value="Apr"/>
+		<phrase id="monthmay" value="May"/>
+		<phrase id="monthjun" value="Jun"/>
+		<phrase id="monthjul" value="Jul"/>
+		<phrase id="monthaug" value="Aug"/>
+		<phrase id="monthsep" value="Sep"/>
+		<phrase id="monthoct" value="Oct"/>
+		<phrase id="monthnov" value="Nov"/>
+		<phrase id="monthdec" value="Dec"/>
+		<phrase id="next" value="Next"/>
+		<phrase id="nopermission" value="You do not have permission to access the page."/>
+		<phrase id="norecord" value="No records found"/>
+		<phrase id="noreportorcharts" value="No report or charts is selected for generation. Please check your report/charts settings."/>
+		<phrase id="nodistinctcolvals" value="No distinct column values for sql: "/>
+		<phrase id="nulllabel" value="(Null)"/>
+		<phrase id="of" value="of"/>
+		<phrase id="page" value="Page"/>
+		<phrase id="pagerfirst" value="First"/>
+		<phrase id="pagerlast" value="Last"/>
+		<phrase id="pagernext" value="Next"/>
+		<phrase id="pagerprevious" value="Previous"/>
+		<phrase id="password" value="Password"/>
+		<phrase id="pleaseselect" value="Please Select"/>
+		<phrase id="popupall" value="(All)" client="1"/>
+		<phrase id="popupcancel" value="Cancel" client="1"/>
+		<phrase id="popupfrom" value="From" client="1"/>
+		<phrase id="popupnovalue" value="No value selected!" client="1"/>
+		<phrase id="popupok" value="  OK  " client="1"/>
+		<phrase id="popupselect" value="Please Select" client="1"/>
+		<phrase id="popupto" value="To" client="1"/>
+		<phrase id="prev" value="Prev"/>
+		<phrase id="printerfriendly" value="Printer Friendly" imageurl="phprptimages/print.gif" imagewidth="16" imageheight="16"/>
+		<phrase id="printerfriendlytext" value="Printer Friendly"/>
+		<phrase id="group" value="Groups"/>
+		<phrase id="groupsperpage" value="Groups per page"/>
+		<phrase id="qtr1" value="1st Quarter"/>
+		<phrase id="qtr2" value="2nd Quarter"/>
+		<phrase id="qtr3" value="3rd Quarter"/>
+		<phrase id="qtr4" value="4th Quarter"/>
+		<phrase id="record" value="Records"/>
+		<phrase id="recordsperpage" value="Records per page"/>
+		<phrase id="report" value="Reports"/>
+		<phrase id="reset" value="Reset"/>
+		<phrase id="resetallfilter" value="&lt;span class=&quot;glyphicon glyphicon-filter&quot;&gt;&lt;/span&gt;&lt;small&gt;&lt;span class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/span&gt;&lt;/small&gt;"/>
+		<phrase id="resetallfiltertext" value="Reset all filters"/>
+		<phrase id="resetsearch" value="Reset search criteria"/>
+		<phrase id="rptavg" value="AVG"/>
+		<phrase id="rptcnt" value="COUNT"/>
+		<phrase id="rptdtlrec" value=" detail records"/>
+		<phrase id="rptgrandsummary" value="Grand Summary"/>
+		<phrase id="rptgrandtotal" value="Grand Total"/>
+		<phrase id="rptmax" value="MAX"/>
+		<phrase id="rptmin" value="MIN"/>
+		<phrase id="rptpagesummary" value="Page Summary"/>
+		<phrase id="rptpagetotal" value="Page Total"/>
+		<phrase id="rptseparator" value=":&amp;nbsp;"/>
+		<phrase id="rptsum" value="SUM"/>
+		<phrase id="rptsumhead" value="Summary for"/>
+		<phrase id="saveusername" value="Save my user name"/>
+		<phrase id="search" value="Search"/>
+		<phrase id="selectall" value="(All)"/>
+		<phrase id="sendemailbtn" value="Send" client="1"/>
+		<phrase id="sendemailsuccess" value="Email sent successfully" client="1"/>
+		<phrase id="showall" value="Show all"/>
+		<phrase id="summary" value="Summary"/>
+		<phrase id="tasks" value="Tasks"/>
+		<phrase id="to" value="to"/>
+		<phrase id="top" value="Top"/>
+		<phrase id="total" value="Total"/>
+		<phrase id="unmatchedvalue" value="&lt;img src=&quot;%fwarn.gif&quot; alt=&quot;Value does not exist&quot; title=&quot;Value does not exist&quot; width=&quot;16&quot; height=&quot;15&quot; style=&quot;border: 0;&quot;&gt;"/>
+		<phrase id="username" value="User name"/>
+		<phrase id="week" value="Week"/>
+		<phrase id="year" value="Year"/>
+		<!-- Search Operators -->
+		<phrase id="=" value="&amp;nbsp;"/>
+		<phrase id="&lt;&gt;" value="&amp;lt;&amp;gt;"/>
+		<phrase id="&lt;" value="&amp;lt;"/>
+		<phrase id="&lt;=" value="&amp;lt;="/>
+		<phrase id="&gt;" value="&amp;gt;"/>
+		<phrase id="&gt;=" value="&amp;gt;="/>
+		<phrase id="like" value="contains"/>
+		<phrase id="not like" value="not contains"/>
+		<phrase id="starts with" value="starts with"/>
+		<phrase id="ends with" value="ends with"/>
+		<phrase id="is null" value="is null"/>
+		<phrase id="is not null" value="is not null"/>
+		<phrase id="between" value="between"/>
+		<phrase id="and" value="and"/>
+		<phrase id="or" value="or"/>
+		<!-- Menu Prefix/Suffix -->
+		<phrase id="simplereportmenuitemprefix" value=""/>
+		<phrase id="simplereportmenuitemsuffix" value=""/>
+		<phrase id="detailsummaryreportmenuitemprefix" value=""/>
+		<phrase id="detailsummaryreportmenuitemsuffix" value=""/>
+		<phrase id="crosstabreportmenuitemprefix" value=""/>
+		<phrase id="crosstabreportmenuitemsuffix" value=""/>
+		<phrase id="chartreportmenuitemprefix" value=""/>
+		<phrase id="chartreportmenuitemsuffix" value=""/>
+		<!-- Advanced Filter -->
+		<phrase id="future" value="Future"/>
+		<phrase id="past" value="Past"/>
+		<phrase id="last14days" value="Last 14 days"/>
+		<phrase id="last30days" value="Last 30 days"/>
+		<phrase id="last7days" value="Last 7 days"/>
+		<phrase id="next14days" value="Next 14 days"/>
+		<phrase id="next30days" value="Next 30 days"/>
+		<phrase id="next7days" value="Next 7 days"/>
+		<phrase id="today" value="Today"/>
+		<phrase id="tomorrow" value="Tomorrow"/>
+		<phrase id="yesterday" value="Yesterday"/>
+		<phrase id="lastmonth" value="Last month"/>
+		<phrase id="nextmonth" value="Next month"/>
+		<phrase id="thismonth" value="This month"/>
+		<phrase id="lasttwoweeks" value="Last two weeks"/>
+		<phrase id="lastweek" value="Last week"/>
+		<phrase id="nexttwoweeks" value="Next two weeks"/>
+		<phrase id="nextweek" value="Next week"/>
+		<phrase id="thisweek" value="This week"/>
+		<phrase id="lastyear" value="Last year"/>
+		<phrase id="nextyear" value="Next year"/>
+		<phrase id="thisyear" value="This year"/>
+	</global>
+	<project><phrase id="bodytitle" value="Asignación de Campañas"/>
+<phrase id="footertext" value="&amp;copy;2013 DUQCISA - Pablo Hurtado. All rights reserved."/>
+<menu id="1"><phrase id="menutext" value="agenda"/>
+</menu>
+<menu id="2"><phrase id="menutext" value="agenda view"/>
+</menu>
+<menu id="3"><phrase id="menutext" value="asignacion view"/>
+</menu>
+<menu id="4"><phrase id="menutext" value="asignar"/>
+</menu>
+<menu id="5"><phrase id="menutext" value="asignar view"/>
+</menu>
+<menu id="6"><phrase id="menutext" value="cambiarestado"/>
+</menu>
+<menu id="7"><phrase id="menutext" value="cambio estado view"/>
+</menu>
+<menu id="8"><phrase id="menutext" value="campania x asesor view"/>
+</menu>
+<menu id="9"><phrase id="menutext" value="campanias"/>
+</menu>
+<menu id="10"><phrase id="menutext" value="campanias asignadas view"/>
+</menu>
+<menu id="11"><phrase id="menutext" value="campanias reporte view"/>
+</menu>
+<menu id="12"><phrase id="menutext" value="campanias view"/>
+</menu>
+<menu id="13"><phrase id="menutext" value="campanias x programa view"/>
+</menu>
+<menu id="14"><phrase id="menutext" value="cliente transaccion"/>
+</menu>
+<menu id="15"><phrase id="menutext" value="clientes"/>
+</menu>
+<menu id="16"><phrase id="menutext" value="clientes contactados view"/>
+</menu>
+<menu id="17"><phrase id="menutext" value="clientes view"/>
+</menu>
+<menu id="18"><phrase id="menutext" value="clientes x programa view"/>
+</menu>
+<menu id="19"><phrase id="menutext" value="estado campania view"/>
+</menu>
+<menu id="20"><phrase id="menutext" value="estados"/>
+</menu>
+<menu id="21"><phrase id="menutext" value="noticias"/>
+</menu>
+<menu id="22"><phrase id="menutext" value="noticias view"/>
+</menu>
+<menu id="23"><phrase id="menutext" value="pais"/>
+</menu>
+<menu id="24"><phrase id="menutext" value="programas"/>
+</menu>
+<menu id="25"><phrase id="menutext" value="registroconexion"/>
+</menu>
+<menu id="26"><phrase id="menutext" value="session"/>
+</menu>
+<menu id="27"><phrase id="menutext" value="subtipificacion"/>
+</menu>
+<menu id="28"><phrase id="menutext" value="subtipificacion reporte view"/>
+</menu>
+<menu id="29"><phrase id="menutext" value="subtipificacion view"/>
+</menu>
+<menu id="30"><phrase id="menutext" value="temp transa"/>
+</menu>
+<menu id="31"><phrase id="menutext" value="tipificacion"/>
+</menu>
+<menu id="32"><phrase id="menutext" value="tipificacion reporte view"/>
+</menu>
+<menu id="33"><phrase id="menutext" value="transaccion"/>
+</menu>
+<menu id="34"><phrase id="menutext" value="transacciones view"/>
+</menu>
+<menu id="35"><phrase id="menutext" value="usuarios"/>
+</menu>
+<menu id="36"><phrase id="menutext" value="usuarios conectados reporte view"/>
+</menu>
+<menu id="37"><phrase id="menutext" value="usuarios conectados view"/>
+</menu>
+<menu id="38"><phrase id="menutext" value="usuarios reporte view"/>
+</menu>
+<menu id="39"><phrase id="menutext" value="usuarios view"/>
+</menu>
+<menu id="40"><phrase id="menutext" value="Estado de Campañas"/>
+</menu>
+<menu id="41"><phrase id="menutext" value="Asignación"/>
+</menu>
+<table id="agenda"><phrase id="tblcaption" value="agenda"/>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="observacion"><phrase id="fldcaption" value="observacion"/>
+</field>
+<field id="gestionado"><phrase id="fldcaption" value="gestionado"/>
+</field>
+</table>
+<table id="agenda_view"><phrase id="tblcaption" value="agenda view"/>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="empresa"><phrase id="fldcaption" value="empresa"/>
+</field>
+<field id="cargo"><phrase id="fldcaption" value="cargo"/>
+</field>
+<field id="_email"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="telfijo"><phrase id="fldcaption" value="telfijo"/>
+</field>
+<field id="telmovil"><phrase id="fldcaption" value="telmovil"/>
+</field>
+<field id="teltrabajo"><phrase id="fldcaption" value="teltrabajo"/>
+</field>
+<field id="gestionado"><phrase id="fldcaption" value="gestionado"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="observacion"><phrase id="fldcaption" value="observacion"/>
+</field>
+</table>
+<table id="asignacion_view"><phrase id="tblcaption" value="asignacion view"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campnom"><phrase id="fldcaption" value="campnom"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="asesor"><phrase id="fldcaption" value="asesor"/>
+</field>
+</table>
+<table id="asignar"><phrase id="tblcaption" value="asignar"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+</table>
+<table id="asignar_view"><phrase id="tblcaption" value="asignar view"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="id"><phrase id="fldcaption" value="ID"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="idcamp"><phrase id="fldcaption" value="Idcamp"/>
+</field>
+<field id="name"><phrase id="fldcaption" value="name"/>
+</field>
+<field id="username"><phrase id="fldcaption" value="username"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+</table>
+<table id="cambiarestado"><phrase id="tblcaption" value="cambiarestado"/>
+<field id="idcambio"><phrase id="fldcaption" value="idcambio"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="idestado"><phrase id="fldcaption" value="idestado"/>
+</field>
+<field id="time"><phrase id="fldcaption" value="time"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+</table>
+<table id="cambio_estado_view"><phrase id="tblcaption" value="cambio estado view"/>
+<field id="idcambio"><phrase id="fldcaption" value="idcambio"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="idestado"><phrase id="fldcaption" value="idestado"/>
+</field>
+<field id="tiempo"><phrase id="fldcaption" value="tiempo"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="estado"><phrase id="fldcaption" value="estado"/>
+</field>
+</table>
+<table id="campania_x_asesor_view"><phrase id="tblcaption" value="campania x asesor view"/>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+</table>
+<table id="campanias"><phrase id="tblcaption" value="campanias"/>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+</table>
+<table id="campanias_asignadas_view"><phrase id="tblcaption" value="campanias asignadas view"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+</table>
+<table id="campanias_reporte_view"><phrase id="tblcaption" value="campanias reporte view"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="agente"><phrase id="fldcaption" value="agente"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+</table>
+<table id="campanias_view"><phrase id="tblcaption" value="campanias view"/>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+</table>
+<table id="campanias_x_programa_view"><phrase id="tblcaption" value="campanias x programa view"/>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+</table>
+<table id="cliente_transaccion"><phrase id="tblcaption" value="cliente transaccion"/>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="idtransaccion"><phrase id="fldcaption" value="idtransaccion"/>
+</field>
+</table>
+<table id="clientes"><phrase id="tblcaption" value="clientes"/>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="telfijo"><phrase id="fldcaption" value="telfijo"/>
+</field>
+<field id="_email"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="telmovil"><phrase id="fldcaption" value="telmovil"/>
+</field>
+<field id="teltrabajo"><phrase id="fldcaption" value="teltrabajo"/>
+</field>
+<field id="cargo"><phrase id="fldcaption" value="cargo"/>
+</field>
+<field id="empresa"><phrase id="fldcaption" value="empresa"/>
+</field>
+<field id="prioridad"><phrase id="fldcaption" value="prioridad"/>
+</field>
+<field id="idestado"><phrase id="fldcaption" value="idestado"/>
+</field>
+<field id="agendado"><phrase id="fldcaption" value="agendado"/>
+</field>
+<field id="idpais"><phrase id="fldcaption" value="idpais"/>
+</field>
+</table>
+<table id="clientes_contactados_view"><phrase id="tblcaption" value="clientes contactados view"/>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="atendido"><phrase id="fldcaption" value="ATENDIDO"/>
+</field>
+<field id="pendiente"><phrase id="fldcaption" value="PENDIENTE"/>
+</field>
+<field id="procent"><phrase id="fldcaption" value="PROCENT"/>
+</field>
+<field id="total"><phrase id="fldcaption" value="TOTAL"/>
+</field>
+</table>
+<table id="clientes_view"><phrase id="tblcaption" value="clientes view"/>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="telfijo"><phrase id="fldcaption" value="telfijo"/>
+</field>
+<field id="_email"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="telmovil"><phrase id="fldcaption" value="telmovil"/>
+</field>
+<field id="teltrabajo"><phrase id="fldcaption" value="teltrabajo"/>
+</field>
+<field id="cargo"><phrase id="fldcaption" value="cargo"/>
+</field>
+<field id="empresa"><phrase id="fldcaption" value="empresa"/>
+</field>
+<field id="prioridad"><phrase id="fldcaption" value="prioridad"/>
+</field>
+<field id="idestado"><phrase id="fldcaption" value="idestado"/>
+</field>
+<field id="agendado"><phrase id="fldcaption" value="agendado"/>
+</field>
+<field id="idpais"><phrase id="fldcaption" value="idpais"/>
+</field>
+<field id="pais"><phrase id="fldcaption" value="pais"/>
+</field>
+</table>
+<table id="clientes_x_programa_view"><phrase id="tblcaption" value="clientes x programa view"/>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+</table>
+<table id="estado_campania_view"><phrase id="tblcaption" value="estado campania view"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="fechatrans"><phrase id="fldcaption" value="fechatrans"/>
+</field>
+<field id="atendido"><phrase id="fldcaption" value="ATENDIDO"/>
+</field>
+<field id="pendiente"><phrase id="fldcaption" value="PENDIENTE"/>
+</field>
+<field id="total"><phrase id="fldcaption" value="TOTAL"/>
+</field>
+<field id="procent"><phrase id="fldcaption" value="PROCENT"/>
+</field>
+<field id="calificado"><phrase id="fldcaption" value="CALIFICADO"/>
+</field>
+<field id="nointeresado"><phrase id="fldcaption" value="NOINTERESADO"/>
+</field>
+<field id="otroprograma"><phrase id="fldcaption" value="OTROPROGRAMA"/>
+</field>
+<field id="fallida"><phrase id="fldcaption" value="FALLIDA"/>
+</field>
+<field id="otras"><phrase id="fldcaption" value="Otras"/>
+</field>
+<field id="asesor"><phrase id="fldcaption" value="asesor"/>
+</field>
+</table>
+<table id="estados"><phrase id="tblcaption" value="estados"/>
+<field id="idestado"><phrase id="fldcaption" value="idestado"/>
+</field>
+<field id="estado"><phrase id="fldcaption" value="estado"/>
+</field>
+</table>
+<table id="noticias"><phrase id="tblcaption" value="noticias"/>
+<field id="idnoticias"><phrase id="fldcaption" value="idnoticias"/>
+</field>
+<field id="titulo"><phrase id="fldcaption" value="titulo"/>
+</field>
+<field id="contenido"><phrase id="fldcaption" value="contenido"/>
+</field>
+<field id="fechacreado"><phrase id="fldcaption" value="fechacreado"/>
+</field>
+</table>
+<table id="noticias_view"><phrase id="tblcaption" value="noticias view"/>
+<field id="idnoticias"><phrase id="fldcaption" value="idnoticias"/>
+</field>
+<field id="titulo"><phrase id="fldcaption" value="titulo"/>
+</field>
+<field id="contenido"><phrase id="fldcaption" value="contenido"/>
+</field>
+<field id="fechacreado"><phrase id="fldcaption" value="fechacreado"/>
+</field>
+</table>
+<table id="pais"><phrase id="tblcaption" value="pais"/>
+<field id="idpais"><phrase id="fldcaption" value="idpais"/>
+</field>
+<field id="pais"><phrase id="fldcaption" value="pais"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+</table>
+<table id="programas"><phrase id="tblcaption" value="programas"/>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+</table>
+<table id="registroconexion"><phrase id="tblcaption" value="registroconexion"/>
+<field id="idregcon"><phrase id="fldcaption" value="idregcon"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="horainicio"><phrase id="fldcaption" value="horainicio"/>
+</field>
+<field id="horafin"><phrase id="fldcaption" value="horafin"/>
+</field>
+</table>
+<table id="session"><phrase id="tblcaption" value="session"/>
+<field id="session_id"><phrase id="fldcaption" value="session id"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="usuario"><phrase id="fldcaption" value="usuario"/>
+</field>
+</table>
+<table id="subtipificacion"><phrase id="tblcaption" value="subtipificacion"/>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="subtipificacion"><phrase id="fldcaption" value="subtipificacion"/>
+</field>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+</table>
+<table id="subtipificacion_reporte_view"><phrase id="tblcaption" value="subtipificacion reporte view"/>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="subtipificacion"><phrase id="fldcaption" value="subtipificacion"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+</table>
+<table id="subtipificacion_view"><phrase id="tblcaption" value="subtipificacion view"/>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="subtipificacion"><phrase id="fldcaption" value="subtipificacion"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+</table>
+<table id="temp_transa"><phrase id="tblcaption" value="temp transa"/>
+<field id="idtransaccion"><phrase id="fldcaption" value="idtransaccion"/>
+</field>
+</table>
+<table id="tipificacion"><phrase id="tblcaption" value="tipificacion"/>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+</table>
+<table id="tipificacion_reporte_view"><phrase id="tblcaption" value="tipificacion reporte view"/>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+</table>
+<table id="transaccion"><phrase id="tblcaption" value="transaccion"/>
+<field id="idtrasaccion"><phrase id="fldcaption" value="idtrasaccion"/>
+</field>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="hora"><phrase id="fldcaption" value="hora"/>
+</field>
+<field id="observaciones"><phrase id="fldcaption" value="observaciones"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="idpais"><phrase id="fldcaption" value="idpais"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="ultimo"><phrase id="fldcaption" value="ultimo"/>
+</field>
+</table>
+<table id="transacciones_view"><phrase id="tblcaption" value="transacciones view"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="agente"><phrase id="fldcaption" value="agente"/>
+</field>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="cargo"><phrase id="fldcaption" value="cargo"/>
+</field>
+<field id="empresa"><phrase id="fldcaption" value="empresa"/>
+</field>
+<field id="_email"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="telfijo"><phrase id="fldcaption" value="telfijo"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="hora"><phrase id="fldcaption" value="hora"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="subtipificacion"><phrase id="fldcaption" value="subtipificacion"/>
+</field>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="observaciones"><phrase id="fldcaption" value="observaciones"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="pais"><phrase id="fldcaption" value="pais"/>
+</field>
+</table>
+<table id="usuarios"><phrase id="tblcaption" value="usuarios"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="usuario"><phrase id="fldcaption" value="usuario"/>
+</field>
+<field id="contrasena"><phrase id="fldcaption" value="contrasena"/>
+</field>
+<field id="tipo"><phrase id="fldcaption" value="tipo"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+<field id="idasesor"><phrase id="fldcaption" value="idasesor"/>
+</field>
+</table>
+<table id="usuarios_conectados_reporte_view"><phrase id="tblcaption" value="usuarios conectados reporte view"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="usuario"><phrase id="fldcaption" value="usuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="tipo"><phrase id="fldcaption" value="tipo"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="horainicio"><phrase id="fldcaption" value="horainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="horafin"><phrase id="fldcaption" value="horafin"/>
+</field>
+<field id="total"><phrase id="fldcaption" value="total"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+</table>
+<table id="usuarios_conectados_view"><phrase id="tblcaption" value="usuarios conectados view"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="usuario"><phrase id="fldcaption" value="usuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="fechainicio"/>
+</field>
+<field id="horainicio"><phrase id="fldcaption" value="horainicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="horafin"><phrase id="fldcaption" value="horafin"/>
+</field>
+<field id="total"><phrase id="fldcaption" value="total"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+</table>
+<table id="usuarios_reporte_view"><phrase id="tblcaption" value="usuarios reporte view"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="usuario"><phrase id="fldcaption" value="usuario"/>
+</field>
+</table>
+<table id="usuarios_view"><phrase id="tblcaption" value="usuarios view"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="usuario"><phrase id="fldcaption" value="usuario"/>
+</field>
+<field id="contrasena"><phrase id="fldcaption" value="contrasena"/>
+</field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
+<field id="tipo"><phrase id="fldcaption" value="tipo"/>
+</field>
+<field id="idasesor"><phrase id="fldcaption" value="idasesor"/>
+</field>
+</table>
+<table id="estado_de_campaf1as"><phrase id="tblcaption" value="Estado de Campañas"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="Campañas"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechainicio"><phrase id="fldcaption" value="Fecha Inicio"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="Fecha Fin"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="Programas"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="fechatrans"><phrase id="fldcaption" value="Fecha de Contacto"/>
+</field>
+<field id="atendido"><phrase id="fldcaption" value="ATENDIDO"/>
+</field>
+<field id="pendiente"><phrase id="fldcaption" value="PENDIENTE"/>
+</field>
+<field id="total"><phrase id="fldcaption" value="TOTAL"/>
+</field>
+<field id="procent"><phrase id="fldcaption" value="% Avance"/>
+</field>
+<field id="calificado"><phrase id="fldcaption" value="CALIFICADO"/>
+</field>
+<field id="nointeresado"><phrase id="fldcaption" value="NOINTERESADO"/>
+</field>
+<field id="otroprograma"><phrase id="fldcaption" value="OTROPROGRAMA"/>
+</field>
+<field id="fallida"><phrase id="fldcaption" value="FALLIDA"/>
+</field>
+<field id="otras"><phrase id="fldcaption" value="Otras"/>
+</field>
+<field id="asesor"><phrase id="fldcaption" value="Asesor"/>
+</field>
+</table>
+<table id="asignacif3n"><phrase id="tblcaption" value="Asignación"/>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="Fecha Asignación"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="Campañas"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campnom"><phrase id="fldcaption" value="campnom"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="Programas"/>
+</field>
+<field id="asesor"><phrase id="fldcaption" value="Asesor"/>
+</field>
+</table>
+</project>
+</ew-language>

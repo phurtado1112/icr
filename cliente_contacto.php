@@ -104,11 +104,38 @@ $total_contactos = $filas['total'];
                                 <th>Acción</th>
                             </tr>                    					
                             <?php
-                            $i=1;
+                            $i = 1;
                             foreach ($contactos as $c) {
                                 $ids = $c['idcliente'];
-                                
-                                echo"
+                                switch ($c['prioridad']) {
+                                    case '2':
+                                        echo"
+                                <tr>
+                                <td><font color='#094AB2'><strong>" . ($c['nombre']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['telfijo']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['telmovil']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['teltrabajo']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['email']) . "</td>
+                                <td ><font color='#094AB2'><strong>" . ($c['empresa']) . "</td>						
+                                <td ><font color='#094AB2'><strong>" . ($c['cargo']) . "</td>
+                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr";
+                                        break;
+                                    case '1':
+                                        echo"
+                                <tr>
+                                <td><font color='#008A00'><strong>" . ($c['nombre']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['telfijo']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['telmovil']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['teltrabajo']) . "</td>
+                                <td ><font color='#008A00'><strong>" . ($c['email']) . "</td>    
+                                <td ><font color='#008A00'><strong>" . ($c['empresa']) . "</td>					
+                                <td ><font color='#008A00'><strong>" . ($c['cargo']) . "</td>
+                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr";
+                                        break;
+                                    case '0':
+                                        echo"
 				<tr>
                                 <td><b>" . $i . "</b></td>
 				<td>" . $c['nombre'] . "</td>
@@ -120,7 +147,9 @@ $total_contactos = $filas['total'];
 				<td>" . $c['cargo'] . "</td>
 				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
 									</tr>";
-                                $i = $i + 1; 
+                                        break;
+                                }
+                                $i = $i + 1;
                             }
                         }
                         ?>

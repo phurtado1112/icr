@@ -92,7 +92,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->SetFillColor(200, 200, 255);
 
-        $consulta1 = "SELECT count(idcliente) FROM transaccion where idasignar=" . $asignar ." and idtipificacion <> 5";
+        $consulta1 = "SELECT count(idcliente) FROM transaccion where idasignar=" . $asignar ." and idtipificacion <> 5 and ultimo=1";
         $res1 = bd_ejecutar_sql($consulta1);
         $pdf->SetFont('Arial', '', 12);
         while ($fila1 = bd_obtener_fila($res1)) {
@@ -103,7 +103,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $consulta2 = "SELECT count(tra.idtipificacion) as cantidad, tip.tipificacion as tipo
                     FROM transaccion as tra 
                     left join tipificacion tip on (tra.idtipificacion=tip.idtipificacion)
-                    where idasignar=" . $asignar . " and tra.idtipificacion <> 5
+                    where idasignar=" . $asignar . " and tra.idtipificacion <> 5 and ultimo=1
                     group by tra.idtipificacion order by tip.tipificacion;";
         $res2 = bd_ejecutar_sql($consulta2);
         $pdf->SetFont('Arial', 'b', 10);
@@ -140,7 +140,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         }
         $pdf->Cell(45, 8, $contacs, 1, 0, 'C');
 
-        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idasignar=" . $asignar ." and idtipificacion <> 5";
+        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idasignar=" . $asignar ." and idtipificacion <> 5 and ultimo=1";
         $res21 = bd_ejecutar_sql($consulta21);
         while ($fila21 = bd_obtener_fila($res21)) {
             $contacted = $fila21['count(distinct idcliente)'];
@@ -168,7 +168,7 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $consulta30 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
                     from transaccion tra
                     inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
-                    where idasignar=" . $asignar . " and tra.idtipificacion=9
+                    where idasignar=" . $asignar . " and tra.idtipificacion=9 and ultimo=1
                     group by tra.idsubtipificacion";
         $res30 = bd_ejecutar_sql($consulta30);
         $pdf->SetFont('Arial', 'b', 10);

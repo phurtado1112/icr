@@ -9,7 +9,6 @@ if (!$_SESSION) {
 }
 $idcampania = $_SESSION['idcampania'];
 $idasignar = $_SESSION['idasignar'];
-
 $opcion = filter_input(INPUT_POST, 'ajxopcion');
 $cadena = filter_input(INPUT_POST, 'ajxcadena');
 

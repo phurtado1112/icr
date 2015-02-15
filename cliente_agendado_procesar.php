@@ -1,4 +1,5 @@
 <?php
+
 include_once './funciones.general.php';
 
 if (!$_SESSION) {
@@ -17,7 +18,7 @@ $age = filter_input(INPUT_POST, 'ajxagendar');
 
 if (isset($cte)) {
 
-    $consulta_actualizacion_clientes = "update clientes set idestado=1 where idcliente='" . $cte . "'";
+    $consulta_actualizacion_clientes = "update clientes set idestado=1, agendado=0 where idcliente='" . $cte . "'";
     bd_ejecutar_sql($consulta_actualizacion_clientes);
 
     $consulta_actualizacion_agenda = "update agenda SET gestionado=1 WHERE idcliente='" . $cte . "'";
@@ -36,6 +37,15 @@ if (isset($cte)) {
                             '" . $_SESSION['idasignar'] . "'
 			)";
     bd_ejecutar_sql($consulta_agregar_transaccion);
+
+    $consulta_idtransaccion = "select max(idtrasaccion) as idtransaccion from transaccion where idcliente = '" . $cte . "'";
+    $lista_idtransaccion = bd_ejecutar_sql($consulta_idtransaccion);
+    $fila_idtransaccion = bd_obtener_fila($lista_idtransaccion);
+    $idtransaccion = $fila_idtransaccion['idtransaccion'];
+
+    $consulta_actualiza_cliente_transaccion = "update cliente_transaccion set idtransaccion = '" . $idtransaccion . "' where idcliente = '" . $cte . "'";
+    bd_ejecutar_sql($consulta_actualiza_cliente_transaccion);
+
 
     if ($age == '0000-00-00') {
         
@@ -59,7 +69,7 @@ if ($cantidad_cliente > 1) {
     $consulta_cliente_anterior = "select min(idtrasaccion) as idtransaccion from transaccion where idcliente=' " . $cte . "' limit 1";
     $lista_transaccion_anterior = bd_ejecutar_sql($consulta_cliente_anterior);
     $fila_transaccion_anterior = bd_obtener_fila($lista_transaccion_anterior);
-    $transaccion_anterior = $fila_transaccion_anterior['idtransaccion'] ;
+    $transaccion_anterior = $fila_transaccion_anterior['idtransaccion'];
 
     $consulta_actualiza_ultimo = "UPDATE transaccion SET ultimo = '0' WHERE idtrasaccion = '" . $transaccion_anterior . "'";
     bd_ejecutar_sql($consulta_actualiza_ultimo);

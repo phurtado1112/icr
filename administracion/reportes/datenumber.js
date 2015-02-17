@@ -1,4 +1,4 @@
-<!--##session datenumberjs##-->
+<!-- ##session datenumberjs## -->
 //
 // JavaScript for PHP Report Maker 7
 // (C)2007-2013 e.World Technology Ltd.

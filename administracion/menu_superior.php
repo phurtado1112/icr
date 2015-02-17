@@ -59,6 +59,9 @@
                                 <a href="subtipificacion_lista.php">Subtipificación de Respuestas</a>
                             </li>
                             <li>
+                                <a href="tipificacion_tipo_lista.php">Tipos de Tipificación</a>
+                            </li>
+                            <li>
                                 <a href="estado_conectado_lista.php">Estados de Usuario Conectados</a>
                             </li>
                             <li class="divider"></li>

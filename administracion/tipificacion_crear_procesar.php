@@ -9,14 +9,16 @@ if (!$_SESSION) {
 }
 
 $tipificacion = filter_input(INPUT_POST, 'tipificacion');
+$idtipificaciontipo = filter_input(INPUT_POST, 'idtipificaciontipo');
 
 error_reporting(0);
 
 if (isset($tipificacion)) {    
 
-    $inserta_tipificacion = "INSERT INTO tipificacion (tipificacion)
+    $inserta_tipificacion = "INSERT INTO tipificacion (tipificacion,idtipificaciontipo)
 			VALUES(
-			'" . $tipificacion . "'
+			'" . $tipificacion . "',
+                        '" . $idtipificaciontipo . "'
 			)";
     bd_ejecutar_sql($inserta_tipificacion);
     

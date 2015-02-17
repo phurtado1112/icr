@@ -16,6 +16,7 @@ $tipificacion = bd_obtener_fila($lista_tipificacion);
 
 $id = $tipificacion['idtipificacion'];
 $tipificaci = $tipificacion['tipificacion'];
+$idtipificaciontipo = $tipificacion['idtipificaciontipo'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,7 +57,17 @@ $tipificaci = $tipificacion['tipificacion'];
                                                 <div class="controls">
                                                     <input type="text" class="span6 typeahead" id="tipificacion" name="tipificacion" value="<?php echo $tipificaci; ?>" autofocus>
                                                 </div>
-                                            </div>                                            
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Tipificación</label>
+                                                <div class="controls">
+                                                    <select id="idtipificaciontipo" name="idtipificaciontipo">
+                                                        <?php 
+                                                            gen_llenar_combo("tipificaciontipo","idtipificaciontipo","tipificaciontipo",$idtipificaciontipo);
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
                                                 <button type="reset" class="btn" onclick="location.href='tipificacion_lista.php'">Cancelar</button>

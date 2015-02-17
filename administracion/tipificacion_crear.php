@@ -45,6 +45,16 @@ if (!$_SESSION) {
                                                     <input type="text" class="span6 typeahead" id="tipificacion" name="tipificacion" autofocus>
                                                 </div>
                                             </div>
+                                            <div class="control-group">
+                                                <label class="control-label">Tipo</label>
+                                                <div class="controls">
+                                                    <select id="idtipificaciontipo" name="idtipificaciontipo">
+                                                <?php 
+                                                    gen_llenar_combo("tipificacion_tipo_view","idtipificaciontipo","tipificaciontipo",$asignacion["idtipificaciontipo"]);
+                                                ?>
+                                            </select>
+                                                </div>
+                                            </div>
                                             <div class="form-actions">
                                                 <input type="button" class="btn btn-primary" onClick="validar()" value="Guardar">
                                                 <button type="reset" class="btn" onclick="location.href='tipificacion_lista.php'">Cancelar</button>

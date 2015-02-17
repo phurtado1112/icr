@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tipificacion";
+$consulta_tipificacion = "SELECT * FROM tipificacion_view where activo=0 order by tipificacion";
     $lista_tipificacion = bd_ejecutar_sql($consulta_tipificacion);
     while ($fila_tipificacion = bd_obtener_fila($lista_tipificacion)) {
         $tipificacion[] = $fila_tipificacion;
@@ -55,6 +55,7 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tip
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Tipificación</th>
+                                                <th>Tipo</th>
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
@@ -64,6 +65,7 @@ $consulta_tipificacion = "SELECT * FROM tipificacion where activo=0 order by tip
                                                     <tr>
                                                     <td>" . $t['idtipificacion'] . "</td>
                                                     <td>" . $t['tipificacion'] . "</td>
+                                                    <td>" . $t['tipificaciontipo'] . "</td>    
                                                     <td>" . '<a href="tipificacion_editar.php?idtipificacion=' . $ids . '">Editar</a> ---  <a href="tipificacion_inactivar.php?idtipificacion=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
                                             }

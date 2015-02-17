@@ -1,4 +1,5 @@
-//////////////ENVIO DE VARIABLES PARA GUARDAR TIEMPOS EN CAMBIO DE ESTADO//////////////////////////////////
+/* **** ENVIO DE VARIABLES PARA GUARDAR TIEMPOS EN CAMBIO DE ESTADO **** */
+
 function ajxSAVETIME(estado, time) {
     var xmlhttp;
     if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -17,7 +18,8 @@ function ajxSAVETIME(estado, time) {
     xmlhttp.send('ajxtime=' + time + '&ajxestado=' + estado);
 }
 
-//////////////ENVIO DE VARIABLES PARA GUARDAR INFORMACION CLIENTES AGENDADOS////////////////////
+/* **** ENVIO DE VARIABLES PARA GUARDAR INFORMACION CLIENTES AGENDADOS **** */
+
 function load_agendados(cliente, finales, observacion, usuario, sub_finales, agendar) {
     var xmlhttp;
 
@@ -34,13 +36,12 @@ function load_agendados(cliente, finales, observacion, usuario, sub_finales, age
     };
     xmlhttp.open("POST", "cliente_agendado_procesar.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//xmlhttp.send();
-//xmlhttp.send("q="+user);
-//xmlhttp.send("q= " + user + "&Date1 = " + D1);
     xmlhttp.send('ajxcliente=' + cliente + '&ajxfinales=' + finales + '&ajxobservacion=' + observacion + '&ajxuser=' + usuario + '&ajxsubfinal=' + sub_finales + '&ajxagendar=' + agendar);
 }
 
-//////////////ENVIO DE VARIABLES PARA GUARDAR INFORMACION CLIENTE AGENDADOS PREVIAMENTE/////////
+/* **** ENVIO DE VARIABLES PARA GUARDAR INFORMACION CLIENTE AGENDADOS PREVIAMENTE 
+ * Y DE CONTACTOS PROCESADOS **** */
+
 function load(cliente, finales, observacion, usuario, sub_finales, agendar) {
     var xmlhttp;
 
@@ -60,7 +61,8 @@ function load(cliente, finales, observacion, usuario, sub_finales, agendar) {
     xmlhttp.send('ajxcliente=' + cliente + '&jaxfinales=' + finales + '&ajxobservacion=' + observacion + '&ajxuser=' + usuario + '&ajxsubfinal=' + sub_finales + '&ajxsagendar=' + agendar);
 }
 
-///////////////////ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CLIENTES ATENDIDOS/////////////
+/* **** ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CLIENTES ATENDIDOS **** */
+
 function searchdataAtendidos(cadena, opcion) {
     var xmlhttp;
 
@@ -77,12 +79,11 @@ function searchdataAtendidos(cadena, opcion) {
     };
     xmlhttp.open("POST", "cliente_atendido_busqueda.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//xmlhttp.send();
-//xmlhttp.send("ajxcadena="+cadena);
     xmlhttp.send("ajxcadena=" + cadena + "&ajxopcion=" + opcion);
 }
 
-//////////////////////ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CONTACTOS/////////////////
+/* **** ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CONTACTOS **** */
+
 function searchdata(cadena, opcion) {
     var xmlhttp;
 
@@ -97,15 +98,13 @@ function searchdata(cadena, opcion) {
             document.getElementById("resul_search").innerHTML = xmlhttp.responseText;
         }
     };
-//xmlhttp.open("POST","contactos_busqueda.php",true);
     xmlhttp.open("POST", "cliente_contacto_busqueda.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//xmlhttp.send();
-//xmlhttp.send("ajxcadena="+cadena);
     xmlhttp.send("ajxcadena=" + cadena + "&ajxopcion=" + opcion);
 }
 
-//////////////////////ENVIO DE INFORMACION PARA TIPIFICAR////////////////////////////////////////////
+/* **** ENVIO DE INFORMACION PARA TIPIFICAR **** */ 
+
 function tipificacion(str) {
     var xmlhttp;
 
@@ -125,7 +124,8 @@ function tipificacion(str) {
     xmlhttp.send("q=" + str);
 }
 
-///////////////////ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CLIENTES AGENDADOS/////////////
+/* **** ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CLIENTES AGENDADOS **** */
+
 function searchagendados(cadena, opcion) {
     var xmlhttp;
 
@@ -142,7 +142,5 @@ function searchagendados(cadena, opcion) {
     };
     xmlhttp.open("POST", "cliente_contacto_agendado_busqueda.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//xmlhttp.send();
-//xmlhttp.send("ajxcadena="+cadena);
     xmlhttp.send("ajxcadena=" + cadena + "&ajxopcion=" + opcion);
 }

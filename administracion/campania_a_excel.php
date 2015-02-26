@@ -9,12 +9,12 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select campania,programa,nombre,fechainicio,fechafin,TOTAL,ATENDIDO,PENDIENTE,CALIFICADO,NOINTERESADO,OTROPROGRAMA,FALLIDA,PROCENT from estado_campania_view where terminada='n' order by idasignar";
+$consulta_estado_campanias = "select nombre,programa,campania,fechainicio,fechafin,TOTAL,ATENDIDO,PENDIENTE,CALIFICADO,NOINTERESADO,OTROPROGRAMA,FALLIDA,PROCENT from estado_campania_view where terminada='n' order by idusuario,idprograma,idcampania";
 
 $lista_estado_campanias = bd_ejecutar_sql($consulta_estado_campanias);
 $registros = contar_registros($lista_estado_campanias);
 
-$headings = array('CAMPAÑA', 'PROGRAMA', 'ASESOR', 'INICIO', 'FIN', 'TOTAL', 'ATENDIDO', 'PENDIENTE', 'CALIFICADOS', 'NOINTERESADOS', 'OTROPROGRAMA', 'FALLIDAS', 'PROCENT');
+$headings = array('ASESOR', 'PROGRAMA', 'CAMPAÑA', 'INICIO', 'FIN', 'TOTAL', 'ATENDIDO', 'PENDIENTE', 'CALIFICADOS', 'NOINTERESADOS', 'OTROPROGRAMA', 'FALLIDAS', 'PROCENT');
 
 if ($registros > 0) {
     

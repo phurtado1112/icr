@@ -5,7 +5,7 @@ require './fpdf/fpdf.php';
 switch (filter_input(INPUT_POST, 'Submit')) {
     case "Cancelar":
 
-        header("Location: rep_gestion_de_campania_programa_form.php");
+        header("Location: rep_gestion_de_campanias_form.php");
         exit(0);
 
         break;
@@ -101,12 +101,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
         $pdf->Cell(65, 6, utf8_decode('Tipificación'), 1, 0, 'L', true);
         $pdf->Cell(40, 6, utf8_decode('No. Contactos'), 1, 1, 'C', true);
 
-        $consulta2 = "SELECT count(tra.idtipificacion) as cantidad, tip.tipificacion as tipo
-                    FROM transacciones_view as tra 
-                    left join tipificacion tip on (tra.idtipificacion=tip.idtipificacion)
-                    where idprograma=" . $idprograma . " and tra.idtipificacion <> 5 and tra.idtipificacion <> 14
-                     and (fecha >='".$fechainicio."' and fecha <= '".$fechafin.
-                    "') group by tra.idtipificacion order by tip.tipificacion;";
+        $consulta2 = "SELECT count(tipificaciontipo) as cantidad, tipificaciontipo as tipo
+                    FROM transacciones_tipos_view
+                    where idprograma=" . $idprograma . " and idtipificacion <> 5 and idtipificacion <> 14
+                    and ultimo=1 and (fecha >='".$fechainicio."' and fecha <= '".$fechafin.
+                    "') group by idtipificaciontipo order by idtipificaciontipo;";
         $res2 = bd_ejecutar_sql($consulta2);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila2 = bd_obtener_fila($res2)) {
@@ -115,9 +114,9 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             $pdf->Ln();
         }
         
-        $consulta1 = "SELECT count(idcliente) FROM transacciones_view where idprograma=" . $idprograma ." "
-                . "and (idtipificacion <> 5 and idtipificacion <> 14) and (fecha >='".$fechainicio."' "
-                . "and fecha <= '".$fechafin."')";
+        $consulta1 = "SELECT count(idcliente) FROM transacciones_tipos_view where idprograma=" . $idprograma ." "
+                . "and idtipificaciontipo <> 6 and (fecha >='".$fechainicio."' "
+                . "and fecha <= '".$fechafin."') and ultimo=1";
         $res1 = bd_ejecutar_sql($consulta1);
         $pdf->SetFont('Arial', '', 12);
         while ($fila1 = bd_obtener_fila($res1)) {
@@ -141,12 +140,12 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln();
 
-        $consulta30 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
-                    from transacciones_view tra
-                    inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
-                    where idprograma=" . $idprograma . " and tra.idtipificacion=9  and (fecha >='".$fechainicio."' "
+        $consulta30 = "select count(idsubtipificacion) as cantidad, subtipificacion as subtipo
+                    from transacciones_tipos_view
+                    where idprograma=" . $idprograma . " and idtipificaciontipo=3  "
+                . "and (fecha >='".$fechainicio."' "
                 . "and fecha <= '".$fechafin."')
-                    group by tra.idsubtipificacion";
+                    group by idsubtipificacion";
         $res30 = bd_ejecutar_sql($consulta30);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila30 = bd_obtener_fila($res30)) {
@@ -169,12 +168,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln();
 
-        $consulta40 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
-                    from transacciones_view tra
-                    inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
-                    where idprograma=" . $idprograma . " and tra.idtipificacion=16  and (fecha >='".$fechainicio."' "
-                . "and fecha <= '".$fechafin."')
-                    group by tra.idsubtipificacion";
+        $consulta40 = "select count(idsubtipificacion) as cantidad, subtipificacion as subtipo
+                    from transacciones_tipos_view 
+                    where idprograma=" . $idprograma . " and idtipificaciontipo=1  "
+                . "and (fecha >='".$fechainicio."' and fecha <= '".$fechafin."') and ultimo=1
+                    group by idsubtipificacion";
         $res40 = bd_ejecutar_sql($consulta40);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila40 = bd_obtener_fila($res40)) {
@@ -197,12 +195,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln();
 
-        $consulta50 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
-                    from transacciones_view tra
-                    inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
-                    where idprograma=" . $idprograma . " and tra.idtipificacion=17  and (fecha >='".$fechainicio."' "
-                . "and fecha <= '".$fechafin."')
-                    group by tra.idsubtipificacion";
+        $consulta50 = "select count(idsubtipificacion) as cantidad, subtipificacion as subtipo
+                    from transacciones_tipos_view
+                    where idprograma=" . $idprograma . " and idtipificaciontipo=5  "
+                . "and (fecha >='".$fechainicio."' and fecha <= '".$fechafin."') and ultimo=1
+                    group by idsubtipificacion";
         $res50 = bd_ejecutar_sql($consulta50);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila50 = bd_obtener_fila($res50)) {
@@ -225,12 +222,11 @@ switch (filter_input(INPUT_POST, 'Submit')) {
 
         $pdf->Ln();
 
-        $consulta60 = "select count(tra.idsubtipificacion) as cantidad, sub.subtipificacion as subtipo
-                    from transacciones_view tra
-                    inner join subtipificacion sub on(tra.idsubtipificacion=sub.idsubtipificacion)
-                    where idprograma=" . $idprograma . " and tra.idtipificacion=10  and (fecha >='".$fechainicio."' "
-                . "and fecha <= '".$fechafin."')
-                    group by tra.idsubtipificacion";
+        $consulta60 = "select count(idsubtipificacion) as cantidad, subtipificacion as subtipo
+                    from transacciones_tipos_view
+                    where idprograma=" . $idprograma . " and idtipificaciontipo=7  "
+                . "and (fecha >='".$fechainicio."' and fecha <= '".$fechafin."') and ultimo=1
+                    group by idsubtipificacion";
         $res60 = bd_ejecutar_sql($consulta60);
         $pdf->SetFont('Arial', 'b', 10);
         while ($fila60 = bd_obtener_fila($res60)) {
@@ -238,46 +234,33 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             $pdf->Cell(45, 8, $fila60['cantidad'], 1, 0, 'C');
             $pdf->Ln();
         }
+        
+        /*------OTROS PROGRAMAS-------*/
+        
+        $pdf->Ln(7);
 
-//        $pdf->Ln(7);
-//
-//        $pdf->SetFont('Arial', 'b', 12);
-//        $pdf->Cell(0, 8, utf8_decode('2.- Totales de Campaña:'), 0, 1, 'L');
-//
-//        $pdf->Ln(5);
+        $pdf->SetFont('Arial', 'b', 12);
+        $pdf->Cell(0, 8, utf8_decode('6.- Subtipos de Otros Programas:'), 0, 1, 'L');
 
-        //Encabezado de Totales de campaña
-//        $pdf->SetFont('Arial', 'b', 10);
-//        $pdf->SetFillColor(100, 100, 255);
-//
-//        $pdf->Cell(45, 6, 'TOTAL CONTACTOS', 1, 0, 'C', true);
-//        $pdf->Cell(45, 6, 'TOTAL CONTACTADOS', 1, 0, 'C', true);
-//        $pdf->Cell(45, 6, 'TOTAL PENDIENTES', 1, 0, 'C', true);
-//        $pdf->Cell(45, 6, '% DE CONTACTO', 1, 0, 'C', true);
-//
-//        $pdf->Ln();
-        //Valore de la tabla Totales de campaña
+        $pdf->Ln(5);
 
-//        $consulta20 = "select count(idcliente) from clientes where idcampania=" . $campania;
-//        $res20 = bd_ejecutar_sql($consulta20);
-//        $pdf->SetFont('Arial', '', 12);
-//        while ($fila20 = bd_obtener_fila($res20)) {
-//            $contacs = $fila20['count(idcliente)'];
-//        }
-//        $pdf->Cell(45, 8, $contacs, 1, 0, 'C');
+        $pdf->Cell(65, 6, 'RAZONES', 1, 0, 'L', true);
+        $pdf->Cell(45, 6, 'CANTIDAD', 1, 0, 'C', true);
 
-//        $consulta21 = "SELECT count(distinct idcliente) FROM transaccion where idcampania=" . $campania ." and idtipificacion <> 5";
-//        $res21 = bd_ejecutar_sql($consulta21);
-//        while ($fila21 = bd_obtener_fila($res21)) {
-//            $contacted = $fila21['count(distinct idcliente)'];
-//        }
-//        $pdf->Cell(45, 8, $contacted, 1, 0, 'C');
+        $pdf->Ln();
 
-//        $diferencia = $contacs - $contacted;
-//        $pdf->Cell(45, 8, $diferencia, 1, 0, 'C');
-
-//        $porcentaje = round($contacted / $contacs * 100, 0);
-//        $pdf->Cell(45, 8, $porcentaje, 1, 1, 'C');
+        $consulta70 = "select count(idsubtipificacion) as cantidad, subtipificacion as subtipo
+                    from transacciones_tipos_view
+                    where idprograma=" . $idprograma . " and idtipificaciontipo=4  "
+                . "and (fecha >='".$fechainicio."' and fecha <= '".$fechafin."') and ultimo=1
+                    group by idsubtipificacion";
+        $res70 = bd_ejecutar_sql($consulta70);
+        $pdf->SetFont('Arial', 'b', 10);
+        while ($fila70 = bd_obtener_fila($res70)) {
+            $pdf->Cell(65, 8, utf8_decode($fila70['subtipo']), 1, 0, 'L');
+            $pdf->Cell(45, 8, $fila70['cantidad'], 1, 0, 'C');
+            $pdf->Ln();
+        }
 
         $pdf->Output();
 }

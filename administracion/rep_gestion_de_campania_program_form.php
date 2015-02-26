@@ -16,8 +16,8 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
     <head>
         <meta charset="UTF-8">
         <title>Reporte de Gestión Total de Campaña</title>
-        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
+<!--        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">-->
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/jquery-ui.css" rel="stylesheet">
@@ -79,14 +79,14 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                 </div>
             </div>
         </div>
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-        <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
+        <!--<script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
+        <script src="js/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/cronos.js"></script>
+        <!--<script type="text/javascript" src="js/cronos.js"></script>-->
         <script src="js/jquery-ui.js"></script>
-        <script src="Admin/assets/scripts.js"></script>
-        <script src="js/ajax_agentes.js"></script>
-        <script src="js/ajax.js"></script>
+        <!--<script src="Admin/assets/scripts.js"></script>-->
+<!--        <script src="js/ajax_agentes.js"></script>
+        <script src="js/ajax.js"></script>-->
         <script>
             $(function() {
                 $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });

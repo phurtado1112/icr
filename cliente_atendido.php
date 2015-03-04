@@ -20,9 +20,9 @@ $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <meta content="charset=utf-8" http-equiv="Content-Type">
+        <meta charset="utf-8">
         <title>INCAE | CRM</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css" />
@@ -55,10 +55,11 @@ $var_camp_nombre = $filacamp['campania'];
                                 <div align="center">
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
-                                        <option value="2">Nombre de contacto</option> 	
+                                        <option value="2">Nombre de contacto</option>
                                         <option value="3">Cargo</option>
-                                        <option value="4">Empresa</option>        
-                                        <option value="5">Correo</option>            
+                                        <option value="4">Empresa</option>
+                                        <option value="5">Correo</option>
+                                        <option value="6">País</option>
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        
@@ -93,29 +94,69 @@ $var_camp_nombre = $filacamp['campania'];
                                 <th>Correo</th>
                                 <th>Teléfono</th>
                                 <th>fecha</th>
-                                <th>hora</th>                    
-                                <th>Final</th>                    
-                                <th>Observación</th>                    
-                                <th>Acción</th>                                                            
+                                <th>hora</th>
+                                <th>Final</th>
+                                <th>País</th>
+                                <th>Observación</th>
+                                <th>Acción</th>
                             </tr>                    					
                             <?php
                             $i=1;
                             foreach ($contactos as $c) {
                                 $ids = $c['idcliente'];
-                                echo"
-				<tr>
-                                <td><b>" . $i . "</b></td>
-				<td>" . $c['nombre'] . "</td>
-				<td>" . $c['cargo'] . "</td>
-				<td>" . $c['empresa'] . "</td>
-				<td>" . $c['email'] . "</td>
-				<td>" . $c['telfijo'] . "</td>
-				<td>" . $c['fecha'] . "</td>
-                                <td>" . $c['hora'] . "</td>
-				<td>" . $c['tipificacion'] . "</td>																														
-				<td>" . $c['observaciones'] . "</td>																																				
-				<td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>						
-									</tr>";
+                                switch ($c['prioridad']) {
+                                    case 2:
+                                        echo"
+                                            <tr>
+                                                <td id='td2'><b>" . $i . "</b></td>
+                                                <td id='td2'>" . ($c['nombre']) . "</td>
+                                                <td id='td2'>" . ($c['cargo']) . "</td>
+                                                <td id='td2'>" . ($c['empresa']) . "</td>
+                                                <td id='td2'>" . ($c['email']) . "</td>
+                                                <td id='td2'>" . ($c['telfijo']) . "</td>
+                                                <td id='td2'>" . ($c['fecha']) . "</td>
+                                                <td id='td2'>" . ($c['hora']) . "</td>
+                                                <td id='td2'>" . ($c['tipificacion']) . "</td>
+                                                <td id='td2'>" . ($c['pais']) . "</td>
+                                                <td id='td2'>" . ($c['observaciones']) . "</td>
+                                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                            </tr>";
+                                        break;
+                                    case 1:
+                                        echo"
+                                            <tr>
+                                                <td id='td1'><b>" . $i . "</b></td>
+                                                <td id='td1'>" . ($c['nombre']) . "</td>
+                                                <td id='td1'>" . ($c['cargo']) . "</td>
+                                                <td id='td1'>" . ($c['empresa']) . "</td>
+                                                <td id='td1'>" . ($c['email']) . "</td>
+                                                <td id='td1'>" . ($c['telfijo']) . "</td>    
+                                                <td id='td1'>" . ($c['fecha']) . "</td>					
+                                                <td id='td1'>" . ($c['hora']) . "</td>
+                                                <td id='td1'>" . ($c['tipificacion']) . "</td>
+                                                <td id='td1'>" . ($c['pais']) . "</td>
+                                                <td id='td1'>" . ($c['observaciones']) . "</td>
+                                                <td id='td1'>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                            </tr>";
+                                        break;
+                                    case 0:
+                                        echo"
+                                            <tr>
+                                                <td id='td0'><b>" . $i . "</b></td>
+                                                <td id='td0'>" . $c['nombre'] . "</td>
+                                                <td id='td0'>" . $c['cargo'] . "</td>
+                                                <td id='td0'>" . $c['empresa'] . "</td>
+                                                <td id='td0'>" . $c['email'] . "</td>
+                                                <td id='td0'>" . $c['telfijo'] . "</td>    
+                                                <td id='td0'>" . $c['fecha'] . "</td>
+                                                <td id='td0'>" . $c['hora'] . "</td>
+                                                <td id='td0'>" . $c['tipificacion'] . "</td>
+                                                <td id='td0'>" . $c['pais'] . "</td>
+                                                <td id='td0'>" . $c['observaciones'] . "</td>
+                                                <td><font color='#C91515'>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
+                                            </tr>";
+                                        break;
+                                }
                                 $i = $i + 1;
                             }
                         }

@@ -20,16 +20,19 @@ if (isset($opcion)) {
             $busqueda = "SELECT * FROM clientes WHERE idcampania='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
             break;
         case 2:
-            $busqueda = "SELECT * FROM clientes WHERE nombre LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes_busqueda_view WHERE nombre LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY prioridad";
             break;
         case 3:
-            $busqueda = "SELECT * FROM clientes WHERE cargo LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes_busqueda_view WHERE cargo LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY prioridad";
             break;
         case 4:
-            $busqueda = "SELECT * FROM clientes WHERE empresa LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes_busqueda_view WHERE empresa LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY prioridad";
             break;
         case 5:
-            $busqueda = "SELECT * FROM clientes WHERE email LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY clientes.prioridad";
+            $busqueda = "SELECT * FROM clientes_busqueda_view WHERE email LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY prioridad";
+            break;
+        case 6:
+            $busqueda = "SELECT * FROM clientes_busqueda_view WHERE pais LIKE '%" . $cadena . "%' and idasignar='" . $idasignar . "' and agendado=0 ORDER BY prioridad";
             break;
     }
 
@@ -47,6 +50,7 @@ if (isset($opcion)) {
         } else {
             ?>
             <tr>
+                <th>No.</th>
                 <th>Nombre</th>
                 <th>Teléfono</th>
                 <th>Celular</th>
@@ -54,53 +58,62 @@ if (isset($opcion)) {
                 <th>Correo</th>
                 <th>Empresa</th>
                 <th>Cargo</th>
+                <th>País</th>
                 <th>Acción</th>                                                            
             </tr>
             <?php
+            $i=1;
             foreach ($contactos as $c) {
                 $ids = $c['idcliente'];
                 if ($c['idestado'] == '0') {
                     switch ($c['prioridad']) {
-                        case '2':
+                        case 2:
                             echo"
                                 <tr>
-                                <td><font color='#094AB2'><strong>" . ($c['nombre']) . "</td>
-                                <td ><font color='#094AB2'><strong>" . ($c['telfijo']) . "</td>
-                                <td ><font color='#094AB2'><strong>" . ($c['telmovil']) . "</td>
-                                <td ><font color='#094AB2'><strong>" . ($c['teltrabajo']) . "</td>
-                                <td ><font color='#094AB2'><strong>" . ($c['email']) . "</td>
-                                <td ><font color='#094AB2'><strong>" . ($c['empresa']) . "</td>						
-                                <td ><font color='#094AB2'><strong>" . ($c['cargo']) . "</td>
-                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
-                                </tr";
+                                    <td id='td2'><b>" . $i . "</b></td>
+                                    <td id='td2'>" . ($c['nombre']) . "</td>
+                                    <td id='td2'>" . ($c['telfijo']) . "</td>
+                                    <td id='td2'>" . ($c['telmovil']) . "</td>
+                                    <td id='td2'>" . ($c['teltrabajo']) . "</td>
+                                    <td id='td2'>" . ($c['email']) . "</td>
+                                    <td id='td2'>" . ($c['empresa']) . "</td>						
+                                    <td id='td2'>" . ($c['cargo']) . "</td>
+                                    <td id='td2'>" . ($c['pais']) . "</td>
+                                    <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr>";
                             break;
-                        case '1':
+                        case 1:
                             echo"
                                 <tr>
-                                <td><font color='#008A00'><strong>" . ($c['nombre']) . "</td>
-                                <td ><font color='#008A00'><strong>" . ($c['telfijo']) . "</td>
-                                <td ><font color='#008A00'><strong>" . ($c['telmovil']) . "</td>
-                                <td ><font color='#008A00'><strong>" . ($c['teltrabajo']) . "</td>
-                                <td ><font color='#008A00'><strong>" . ($c['email']) . "</td>    
-                                <td ><font color='#008A00'><strong>" . ($c['empresa']) . "</td>					
-                                <td ><font color='#008A00'><strong>" . ($c['cargo']) . "</td>
-                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
-                                </tr";
+                                    <td id='td1'><b>" . $i . "</b></td>
+                                    <td id='td1'>" . ($c['nombre']) . "</td>
+                                    <td id='td1'>" . ($c['telfijo']) . "</td>
+                                    <td id='td1'>" . ($c['telmovil']) . "</td>
+                                    <td id='td1'>" . ($c['teltrabajo']) . "</td>
+                                    <td id='td1'>" . ($c['email']) . "</td>    
+                                    <td id='td1'>" . ($c['empresa']) . "</td>					
+                                    <td id='td1'>" . ($c['cargo']) . "</td>
+                                    <td id='td1'>" . ($c['pais']) . "</td>
+                                    <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr>";
                             break;
-                        case '0':
+                        case 0:
                             echo"
                                 <tr>
-                                <td>" . ($c['nombre']) . "</td>
-                                <td >" . ($c['telfijo']) . "</td>
-                                <td >" . ($c['telmovil']) . "</td>
-                                <td >" . ($c['teltrabajo']) . "</td>
-                                <td >" . ($c['email']) . "</td>    
-                                <td >" . ($c['empresa']) . "</td>						
-                                <td >" . ($c['cargo']) . "</td>
-                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
-                                </tr";
+                                    <td id='td0'><b>" . $i . "</b></td>
+                                    <td id='td0'>" . ($c['nombre']) . "</td>
+                                    <td id='td0'>" . ($c['telfijo']) . "</td>
+                                    <td id='td0'>" . ($c['telmovil']) . "</td>
+                                    <td id='td0'>" . ($c['teltrabajo']) . "</td>
+                                    <td id='td0'>" . ($c['email']) . "</td>    
+                                    <td id='td0'>" . ($c['empresa']) . "</td>						
+                                    <td id='td0'>" . ($c['cargo']) . "</td>
+                                    <td id='td0'>" . ($c['pais']) . "</td>
+                                    <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                </tr>";
                             break;
                     }
+                    $i = $i + 1;
                 }
             }
         }

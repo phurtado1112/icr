@@ -64,8 +64,9 @@ $var_camp_nombre = $filacamp['campania'];
                                     <select id="idopcion">
                                         <option value="2">Nombre de contacto</option> 	
                                         <option value="3">Cargo</option>
-                                        <option value="4">Empresa</option>        
-                                        <!--<option value="5">Correo</option>-->            
+                                        <option value="4">Empresa</option>
+                                        <!--<option value="5">Correo</option>-->
+                                        <option value="6">País</option>
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        
@@ -97,6 +98,7 @@ $var_camp_nombre = $filacamp['campania'];
                             <th>Teléfono oficina</th>
                             <th>Empresa</th>
                             <th>Cargo</th>
+                            <th>País</th>
                             <th>Acción</th>
                         </tr>
                         <?php
@@ -106,19 +108,56 @@ $var_camp_nombre = $filacamp['campania'];
                             $i=1;
                             foreach ($contactosx as $c) {
                                 $ids = $c['idcliente'];
-                                echo"
-                                    <tr>
-                                    <td><b>" . $i . "</b></td>
-                                    <td>" . $c['nombre'] . "</td>
-                                    <td>" . $c['fecha'] . "</td>
-                                    <td>" . $c['observacion'] . "</td>
-                                    <td>" . $c['telfijo'] . "</td>
-                                    <td>" . $c['telmovil'] . "</td>
-                                    <td>" . $c['teltrabajo'] . "</td>
-                                    <td>" . $c['empresa'] . "</td>
-                                    <td>" . $c['cargo'] . "</td>
-                                    <td>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
-                                    </tr>";
+                                switch ($c['prioridad']) {
+                                    case 2:
+                                        echo"
+                                            <tr>
+                                                <td id='td2'><b>" . $i . "</b></td>
+                                                <td id='td2'>" . ($c['nombre']) . "</td>
+                                                <td id='td2'>" . ($c['fecha']) . "</td>
+                                                <td id='td2'>" . ($c['observacion']) . "</td>
+                                                <td id='td2'>" . ($c['telfijo']) . "</td>
+                                                <td id='td2'>" . ($c['telmovil']) . "</td>
+                                                <td id='td2'>" . ($c['teltrabajo']) . "</td>
+                                                <td id='td2'>" . ($c['empresa']) . "</td>						
+                                                <td id='td2'>" . ($c['cargo']) . "</td>
+                                                <td id='td2'>" . ($c['pais']) . "</td>
+                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                            </tr>";
+                                        break;
+                                    case 1:
+                                        echo"
+                                            <tr>
+                                                <td id='td1'><b>" . $i . "</b></td>
+                                                <td id='td1'>" . ($c['nombre']) . "</td>
+                                                <td id='td1'>" . ($c['fecha']) . "</td>
+                                                <td id='td1'>" . ($c['observacion']) . "</td>
+                                                <td id='td1'>" . ($c['telfijo']) . "</td>
+                                                <td id='td1'>" . ($c['telmovil']) . "</td>
+                                                <td id='td1'>" . ($c['teltrabajo']) . "</td>    
+                                                <td id='td1'>" . ($c['empresa']) . "</td>					
+                                                <td id='td1'>" . ($c['cargo']) . "</td>
+                                                <td id='td1'>" . ($c['pais']) . "</td>
+                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                            </tr>";
+                                        break;
+                                    case 0:
+                                        echo"
+                                            <tr>
+                                                <td id='td0'><b>" . $i . "</b></td>
+                                                <td id='td0'>" . $c['nombre'] . "</td>
+                                                <td id='td0'>" . $c['fecha'] . "</td>
+                                                <td id='td0'>" . $c['observacion'] . "</td>
+                                                <td id='td0'>" . $c['telfijo'] . "</td>
+                                                <td id='td0'>" . $c['telmovil'] . "</td>
+                                                <td id='td0'>" . $c['teltrabajo'] . "</td>    
+                                                <td id='td0'>" . $c['empresa'] . "</td>
+                                                <td id='td0'>" . $c['cargo'] . "</td>
+                                                <td id='td0'>" . ($c['pais']) . "</td>
+                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
+                                            </tr>";
+                                        break;
+                                }
                                 $i = $i + 1;
                             }
                         }

@@ -12,3 +12,17 @@ body {
 .sidebar-nav {
     padding: 9px 0;
 }
+
+#alinea_derecha{
+    text-align: right;
+    vertical-align: middle;
+}
+
+#alinea_vertical{
+    vertical-align: middle;
+}
+
+#alinea_vertical_centrado{
+    vertical-align: middle;
+    text-align: center;
+}

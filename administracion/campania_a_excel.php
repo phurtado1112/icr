@@ -9,12 +9,12 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select nombre,programa,campania,fechainicio,fechafin,TOTAL,ATENDIDO,PENDIENTE,CALIFICADO,NOINTERESADO,OTROPROGRAMA,FALLIDA,PROCENT from estado_campania_view where terminada='n' order by idusuario,idprograma,idcampania";
+$consulta_estado_campanias = "select nombre,programa,campania,fechainicio,fechafin,TOTAL,ATENDIDO,PENDIENTE,CALIFICADO,NOINTERESADO,OTROPROGRAMA,FALLIDA,Otras,PROCENT from estado_campania_view where terminada='n' order by idusuario,idprograma,idcampania";
 
 $lista_estado_campanias = bd_ejecutar_sql($consulta_estado_campanias);
 $registros = contar_registros($lista_estado_campanias);
 
-$headings = array('ASESOR', 'PROGRAMA', 'CAMPAÑA', 'INICIO', 'FIN', 'TOTAL', 'ATENDIDO', 'PENDIENTE', 'CALIFICADOS', 'NOINTERESADOS', 'OTROPROGRAMA', 'FALLIDAS', 'PROCENT');
+$headings = array('ASESOR', 'PROGRAMA', 'CAMPAÑA', 'INICIO', 'FIN', 'TOTAL', 'ATENDIDO', 'PENDIENTE', 'CALIFICADOS', 'NOINTERESADOS', 'OTROPROGRAMA', 'FALLIDAS', 'OTRAS', 'PORCENT');
 
 if ($registros > 0) {
     
@@ -24,7 +24,8 @@ if ($registros > 0) {
     
     $rowNumberT = 1;
     $col = 'A';    
-    foreach ($headings as $heading) {        
+    foreach ($headings as $heading) {
+        $objPHPExcel->getActiveSheet()->getStyle($col . $rowNumberT, $heading)->getFont()->setBold(TRUE);
         $objPHPExcel->getActiveSheet()->setCellValue($col . $rowNumberT, $heading);
         $col++;
     }
@@ -35,7 +36,13 @@ if ($registros > 0) {
     while ($fila_estado_campanias = mysqli_fetch_row($lista_estado_campanias)) {
         $col = 'A';
         foreach ($fila_estado_campanias as $cell) {
+            if($col!='N'){
             $objPHPExcel->getActiveSheet()->setCellValue($col . $rowNumber, $cell);
+            } else {
+                $objPHPExcel->getActiveSheet()->getStyle($col . $rowNumber, $cell/100)->getFont()->setBold(TRUE);
+                $objPHPExcel->getActiveSheet()->getStyle($col . $rowNumber, $cell/100)->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_PERCENTAGE_00);
+                $objPHPExcel->getActiveSheet()->setCellValue($col . $rowNumber, $cell/100);
+        }
             $col++;
         }
         $rowNumber++;

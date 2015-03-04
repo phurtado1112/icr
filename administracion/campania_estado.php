@@ -16,16 +16,17 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <title>Estado Campaña</title>
-        <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
+        <link href="css/fio.css" rel="stylesheet" type="text/css">
+        <link href="css/bs.css" rel="stylesheet" type="text/css">
         <link href="css/jquery-ui.css" rel="stylesheet">
-        <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="Admin/assets/styles.css" rel="stylesheet" media="screen">
+        <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="Admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet">
+        <!--<link href="Admin/assets/styles.css" rel="stylesheet" media="screen">-->
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
@@ -36,8 +37,8 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span1"></div>
-                <div class="span11" id="content">
+                <div class="span12"></div>
+                <div class="span12" id="content">
                     <div class="row-fluid">
                         <div class="row-fluid">
                             <div class="block">
@@ -54,20 +55,21 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
 
                                                 <table class="table table-striped table-bordered table-hover">
                                                     <tr>
-                                                        <td><strong>No.</strong></td>
-                                                        <td><strong>Asesor</strong></td>
-                                                        <td><strong>Programa</strong></td>
-                                                        <td><strong>Campaña</strong></td>                                                  
-                                                        <td><strong>Fecha Inicio</strong></td>
-                                                        <td><strong>Fecha Fin</strong></td>
-                                                        <td><strong>Total</strong></td>
-                                                        <td><strong>Gestionados</strong></td>        
-                                                        <td><strong>Pendientes</strong></td>
-                                                        <td><strong>Calificados</strong></td>
-                                                        <td><strong>No Interesados</strong></td>
-                                                        <td><strong>Otro Programa</strong></td>
-                                                        <td><strong>Fallidas</strong></td>
-                                                        <td><strong>% Avance</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>No.</strong></td>
+                                                        <td id='alinea_vertical'><strong>Asesor</strong></td>
+                                                        <td id='alinea_vertical'><strong>Programa</strong></td>
+                                                        <td id='alinea_vertical'><strong>Campaña</strong></td>                                                  
+                                                        <td id='alinea_vertical_centrado'><strong>Fecha Inicio</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Fecha Fin</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Total</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Gestionados</strong></td>        
+                                                        <td id='alinea_vertical_centrado'><strong>Pendientes</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Calificados</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>No Interesados</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Otro Programa</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Fallidas</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>Otras</strong></td>
+                                                        <td id='alinea_vertical_centrado'><strong>% Avance</strong></td>
                                                     </tr>
                                                     <?php
                                                     if (!isset($estado_campanias)) {
@@ -78,20 +80,21 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                             $ids = $c['idcampania'];
                                                             echo"
 						<tr>
-                                                <td><b>" . $i . "</b></td>
-                                                <td>" . $c['nombre'] . "</td>
-                                                <td>" . $c['programa'] . "</td>
-						<td>" . $c['campania'] . "</td>
-                                                <td>" . $c['fechainicio'] . "</td>
-                                                <td>" . $c['fechafin'] . "</td>
-                                                <td>" . $c['TOTAL'] . "</td>    
-						<td>" . $c['ATENDIDO'] . "</td>
-						<td>" . $c['PENDIENTE'] . "</td>
-                                                <td>" . $c['CALIFICADO'] . "</td>
-                                                <td>" . $c['NOINTERESADO'] . "</td>
-                                                <td>" . $c['OTROPROGRAMA'] . "</td>
-                                                <td>" . $c['FALLIDA'] . "</td>
-						<td>" . $c['PROCENT'] . "</td>
+                                                <td id='alinea_vertical_centrado'><b>" . $i . "</b></td>
+                                                <td id='alinea_vertical'>" . $c['nombre'] . "</td>
+                                                <td id='alinea_vertical'>" . $c['programa'] . "</td>
+						<td id='alinea_vertical'>" . $c['campania'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['fechainicio'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['fechafin'] . "</td>
+                                                <td id='alinea_vertical_centrado'><b>" . $c['TOTAL'] . "</b></td>    
+						<td id='alinea_vertical_centrado'>" . $c['ATENDIDO'] . "</td>
+						<td id='alinea_vertical_centrado'>" . $c['PENDIENTE'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['CALIFICADO'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['NOINTERESADO'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['OTROPROGRAMA'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['FALLIDA'] . "</td>
+                                                <td id='alinea_vertical_centrado'>" . $c['Otras'] . "</td>
+						<td id='alinea_derecha'><b>" . number_format($c['PROCENT'],2) . "</b></td>
 						</tr>";
                                                             $i = $i + 1;
                                                         }
@@ -119,10 +122,10 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
         </div>
         <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="js/cronos.js"></script>
+        <!--<script type="text/javascript" src="js/cronos.js"></script>-->
         <script src="js/jquery-ui.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/assets/scripts.js"></script>
+        <!--<script src="Admin/assets/scripts.js"></script>-->
         <script>
                                                     function validar() {
                                                         if (document.getElementById('campania').value === '') {

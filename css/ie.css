@@ -19,7 +19,7 @@
 	zoom: 1;
 	}
 	
-*html .wrapper { width:expression(document.body.clientWidth < 1024 ? "960px" : "90%" ); }
+*html .wrapper { width: expression(document.body.clientWidth < 1024 ? "960px" : "90%" ); }
 *html .bendl, *html .bendr { font-size: 1px; }
 *html .block .block_content .imglist li { margin: 13px 24px 13px 3px; }
 *html .block form .cmf-skinned-select { background: none; border: 0; padding: 0; }

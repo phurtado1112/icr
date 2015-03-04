@@ -1,3 +1,0 @@
-$found = $c->organizationService()->searchOrganization('org');
-foreach ($found as $result)
-    printf('<br>Organization Found: %s', $result->id);

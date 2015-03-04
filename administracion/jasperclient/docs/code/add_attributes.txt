@@ -1,4 +1,0 @@
-$CAuser = $c->userService()->getUser("CaliforniaUser", "organization_1");
-
-$animal_attr = new Attribute("Favorite Animal", "Bear");
-$c->userService()->addOrUpdateAttribute($CAuser, $animal_attr);

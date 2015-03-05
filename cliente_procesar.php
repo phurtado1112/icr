@@ -19,31 +19,31 @@ $idusuario = filter_input(INPUT_POST, 'ajxuser');
 error_reporting(0);
 
 if (isset($idcliente)) {
-    
-    /* **** CARGA DE DATOS EN TABLA transaccion Y cliente_transaccion **** */
-    
-    $consulta_idpais="SELECT idpais from clientes where idcliente='".$idcliente."'";
+
+    /*     * *** CARGA DE DATOS EN TABLA transaccion Y cliente_transaccion **** */
+
+    $consulta_idpais = "SELECT idpais from clientes where idcliente='" . $idcliente . "'";
     $lista_pais = bd_ejecutar_sql($consulta_idpais);
-        $fila_idpais = bd_obtener_fila($lista_pais);
-        $idpais = $fila_idpais['idpais'];
-        
+    $fila_idpais = bd_obtener_fila($lista_pais);
+    $idpais = $fila_idpais['idpais'];
+
     $inserta_transaccion = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,
             idsubtipificacion,fecha,hora,observaciones,idcampania,idpais,idasignar)
 			VALUES($idcliente, $idusuario, $idtipificacion, $idsubtipificacion, 
                             '" . date("Y-m-d") . "','" . date("H:i:s") . "',
                             '" . $observacion . "','" . $_SESSION['idcampania'] . "',
-                                '".$idpais."',
+                                '" . $idpais . "',
                                 '" . $_SESSION['idasignar'] . "'
 			)";
     bd_ejecutar_sql($inserta_transaccion);
 
     $consulta_idtransaccion = "SELECT idtrasaccion FROM transaccion where idcliente='" . $idcliente . "'";
-        $lista_idtransaccion = bd_ejecutar_sql($consulta_idtransaccion);
-        $fila_idtransaccion = bd_obtener_fila($lista_idtransaccion);
-        $idtransaccion = $fila_idtransaccion['idtrasaccion'];
+    $lista_idtransaccion = bd_ejecutar_sql($consulta_idtransaccion);
+    $fila_idtransaccion = bd_obtener_fila($lista_idtransaccion);
+    $idtransaccion = $fila_idtransaccion['idtrasaccion'];
 
-        /* **** VERIFICACIÓN DEL idtipificación DE LA TRANSACCION **** */
-    
+    /*     * *** VERIFICACIÓN DEL idtipificación DE LA TRANSACCION **** */
+
     if ($idtipificacion == '5') {
         $inserta_agenda = "INSERT INTO agenda (idcliente,idtransaccion,fecha,observacion,gestionado)
 			VALUES(
@@ -62,14 +62,14 @@ if (isset($idcliente)) {
         bd_ejecutar_sql($actualiza_cliente);
     }
 
-    /* **** VALIDACIÓN, VERIFICA SI EL CLIENTE YA TIENE OTRAS TRANSACCIONES 
+    /*     * *** VALIDACIÓN, VERIFICA SI EL CLIENTE YA TIENE OTRAS TRANSACCIONES 
      * Y LAS PROCESA PARA INDICAR CUAL ES LA ÚLTIMA TRANSACCION **** */
-    
+
     $consulta_existe_otro_cliente = "select count(*) idtrasaccion from transaccion where idcliente=' " . $idcliente . "'";
     $lista_cantidad_cliente = bd_ejecutar_sql($consulta_existe_otro_cliente);
     $fila_cantidad_cliente = bd_obtener_fila($lista_cantidad_cliente);
     $cantidad_cliente = $fila_cantidad_cliente['idtrasaccion'];
-    
+
     if ($cantidad_cliente <= 1) {
         $consulta_guarda_cliente_transaccion = "insert into cliente_transaccion (idcliente, idtransaccion) values('" . $idcliente . "' , '" . $idtransaccion . "')";
         bd_ejecutar_sql($consulta_guarda_cliente_transaccion);
@@ -96,15 +96,27 @@ if (isset($idcliente)) {
             case 6:
                 $transaccion_anterior = $repetido[4];
                 break;
+            case 7:
+                $transaccion_anterior = $repetido[5];
+                break;
+            case 8:
+                $transaccion_anterior = $repetido[6];
+                break;
+            case 9:
+                $transaccion_anterior = $repetido[7];
+                break;
+            case 10:
+                $transaccion_anterior = $repetido[8];
+                break;
         }
 
         $consulta_actualiza_ultimo = "UPDATE transaccion SET ultimo = '0' WHERE idtrasaccion = '"
                 . $transaccion_anterior['idtransaccion'] . "'";
         bd_ejecutar_sql($consulta_actualiza_ultimo);
 
-        /* **** SI EXISTEN MULTIPLES TRANSACCIONE PARA EL CONTACTO PROCESADO,
+        /*         * *** SI EXISTEN MULTIPLES TRANSACCIONE PARA EL CONTACTO PROCESADO,
          *  SE ACTUALIZA LA TABLA DE cliente_transaccion CON EL ÚLTIMO idtransaccion **** */
-        
+
         $consulta_idtransaccion_max = "select max(idtrasaccion) as idtransaccion from transaccion where idcliente = '" . $idcliente . "'";
         $lista_idtransaccion_max = bd_ejecutar_sql($consulta_idtransaccion_max);
         $fila_idtransaccion_max = bd_obtener_fila($lista_idtransaccion_max);

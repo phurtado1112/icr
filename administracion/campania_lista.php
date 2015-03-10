@@ -1,6 +1,6 @@
 ﻿<?php
 include_once './funciones.general.php';
-	
+
 if (!$_SESSION) {
     echo '<script language = javascript>
 	alert("usuario no autenticado")
@@ -8,11 +8,11 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and terminada='No' order by campania";
-    $lista_campanias = bd_ejecutar_sql($consulta_campanias);
-    while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
-        $campanias[] = $fila_campanias;
-    }
+$consulta_campanias = "SELECT * FROM campanias_view where idcampania > 1 and terminada='No' order by campania";
+$lista_campanias = bd_ejecutar_sql($consulta_campanias);
+while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
+    $campanias[] = $fila_campanias;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,10 +40,14 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                         <div class="row-fluid">
                             <div class="block">
                                 <div class="navbar navbar-inner block-header">
-                                    <div class="muted pull-left" align="center"></div>
-                                    <a href="campania_crear.php" class="btn btn-small btn-success">Nueva Campaña</a>
-                                    <a href="campania_inactivo.php" class="btn btn-small btn-success">Campañas Inactivas</a>
-                                    <a href="campania_estado.php" class="btn btn-small btn-success">Estado de Campañas</a>
+                                    <div class="muted pull-left center-block">
+                                        <a href="campania_crear.php" class="btn btn-small btn-success">Nueva Campaña</a>
+                                        <a href="campania_inactivo.php" class="btn btn-small btn-success">Campañas Inactivas</a>
+                                    </div>
+                                    <div class="muted pull-right">
+                                        <a href="campania_estado.php" class="btn btn-small btn-success right">Estado Campañas Seminarios</a>
+                                        <a href="campania_estado_emba.php" class="btn btn-small btn-success right">Estado Campañas Global EMBA</a>
+                                    </div>
                                 </div>
                                 <div class="block-content collapse in">
                                     <table class="table table-striped table-hover">                            
@@ -62,7 +66,7 @@ $consulta_campanias = "SELECT * FROM campanias_view where idcampania>1 and termi
                                                 <th>Acción</th>
                                             </tr>
                                             <?php
-                                            $i=1;
+                                            $i = 1;
                                             foreach ($campanias as $c) {
                                                 $ids = $c['idcampania'];
                                                 echo"

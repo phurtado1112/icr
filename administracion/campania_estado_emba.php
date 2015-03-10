@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' and tipo=0 and activo=0 order by idusuario,idprograma,idcampania";
+$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' and tipo=3 and activo=0 order by idusuario,idprograma,idcampania";
 
 $lista_estado_campanias = bd_ejecutar_sql($consulta_estado_campanias);
 while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
@@ -19,7 +19,7 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
 <html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>Estado Campañas Seminarios</title>
+        <title>Estado Campañas EMBA</title>
         <link href="css/fio.css" rel="stylesheet" type="text/css">
         <link href="css/bs.css" rel="stylesheet" type="text/css">
         <link href="css/jquery-ui.css" rel="stylesheet">
@@ -49,7 +49,7 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                     <form class="form-horizontal" action="campania_editar_procesar.php" name="formcampania" method="POST">
                                         <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idcampania" size="1"></div>
                                         <fieldset>
-                                            <legend>  Estado de Campañas Seminarios Activas</legend>
+                                            <legend>  Estado de Campañas Global EMBA Activas</legend>
                                             <div class="well">  
 
                                                 <table class="table table-striped table-bordered table-hover">
@@ -102,7 +102,7 @@ while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {
                                                 </table>
                                             </div>
                                             <div class="form-actions">
-                                                <a href="campania_a_excel.php" class="btn btn-primary">Exportar a Excel</a>
+                                                <a href="campania_a_excel_emba.php" class="btn btn-primary">Exportar a Excel</a>
                                                 <button type="reset" class="btn" onclick="location.href = 'campania_lista.php'">Cancelar</button>
                                             </div>
                                         </fieldset>

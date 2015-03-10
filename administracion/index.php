@@ -28,26 +28,25 @@
                             Ingrese su usuario y contraseña.
                         </div>
                         <form class="form-horizontal" action="acceso_usuario_proceso.php" method="post">
-                            <fieldset>
-                                <div class="input-prepend" title="Usuario" data-rel="tooltip">
-                                    <label class="control-label">Usuario</label>
+                            <br>
+                            <div class="form-group">
+                                <div class="col-sm-10">
                                     <span class="add-on"><i class="icon-user"></i></span>
-                                    <input autofocus class="input-large span6" name="usuario" id="Usuario" type="text"  />
+                                    <input class="form-control" name="usuario" id="Usuario" type="text" placeholder="Usuario" autofocus />
                                 </div>
-                                <div class="clearfix"></div>                                
-                                <div class="input-prepend" title="Contraseña" data-rel="tooltip">
-                                    <label class="control-label">Contraseña</label>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <div class="col-sm-10">
                                     <span class="add-on"><i class="icon-lock"></i></span>
-                                    <input class="input-large span6" name="pass" id="Contrasena" type="password"  />
+                                    <input class="form-control" name="pass" id="Contrasena" type="password" placeholder="Contraseña" />
                                 </div>
-                                <div class="clearfix"></div>
-
-                                <div class="clearfix"></div>
-
-                                <p class="center span5">
+                            </div>
+                            <div class="form-group">
+                                <div class="center span5">
                                     <button type="submit" class="btn btn-primary">Acceder</button>
-                                </p>
-                            </fieldset>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

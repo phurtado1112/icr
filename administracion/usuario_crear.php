@@ -64,6 +64,8 @@ if (!$_SESSION) {
                                                         <option value="0">Seminarios</option>
                                                         <option value="1">Maestría</option>
                                                         <option value="2">Administración</option>
+                                                        <option value="3">Global EMBA</option>
+                                                        <option value="4">Actualizadores</option>
                                                     </select>
                                                 </div>
                                             </div>

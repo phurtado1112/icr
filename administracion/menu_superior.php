@@ -75,7 +75,12 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gestión<b class="caret"></b></a>
                         <ul class="dropdown-menu" id="menu4">
                             <li>
-                                <a href="./reportes/index.php">Gestión de Contactos</a>
+                                <!--<a href="./rep_gestion_campanias.php">Gestión de Contactos</a>-->
+                                <a href="./reportes/index.php" target="_blank">Gestión de Contactos</a>
+                            </li>
+                            <li>
+                                <!--<a href="./rep_gestion_campanias.php">Gestión de Contactos</a>-->
+                                <a href="campania_avances.php" target="_blank">Avances de Campaña</a>
                             </li>
                         </ul>
                     </li>
@@ -108,9 +113,9 @@
                             <li>
                                 <a href="rep_campanias_x_asesor_form.php">Campañas asignadas a Asesor</a>
                             </li>
-<!--                            <li>
-                                <a href="rep_contactos _x_campanias_x_asesor_form.php">Contactos de Campaña por Asesor</a>
-                            </li>-->
+                            <li>
+                                <a href="rep_gestion_de_campanias_form.php">Gestión de Campañas</a>
+                            </li>
 <!--                            <li>
                                 <a href="rep_campanias_x_asesor_form.php">Desempeño por Asesor por Programa</a>
                             </li>-->

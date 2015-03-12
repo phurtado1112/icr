@@ -79,9 +79,9 @@ $lista_pais = bd_ejecutar_sql($consulta_pais);
                         <input type="text" name="Cargo" id="cargo" placeholder="Cargo">
                         <input type="text" name="Empresa" id="empresa" placeholder="Empresa">
                         <select name="prioridad" id="prioridad" >
-                            <option value="0">Prioridad Roja</option>
-                            <option value="1">Prioridad Verde</option>
-                            <option value="2">Prioridad Azul</option>
+                            <option value="0">Nuevo Contacto</option>
+                            <option value="1">Campos Vacíos</option>
+                            <option value="2">Campaña</option>
                         </select>
                         <select name="idpais" id="idpais">
                             <option value="0">País...</option>

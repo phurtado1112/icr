@@ -103,7 +103,7 @@ if (isset($cte)) {
             
             $consulta_actualiza_ultimo = "UPDATE agenda SET gestionado = '1' WHERE idtransaccion = '"
                     . $transaccion_anterior['idtransaccion'] . "'";
-            bd_ejecutar_sql($consulta_actualiza_ultimo);
+            bd_ejecutar_sql($consulta_actualiza_ultimo);          
         }
     }
 
@@ -137,6 +137,18 @@ if (isset($cte)) {
                 break;
             case 6:
                 $transaccion_anterior = $repetido[4];
+                break;
+            case 7:
+                $transaccion_anterior = $repetido[5];
+                break;
+            case 8:
+                $transaccion_anterior = $repetido[6];
+                break;
+            case 9:
+                $transaccion_anterior = $repetido[7];
+                break;
+            case 10:
+                $transaccion_anterior = $repetido[8];
                 break;
         }
 

@@ -122,7 +122,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td2'>" . ($c['empresa']) . "</td>						
                                                 <td id='td2'>" . ($c['cargo']) . "</td>
                                                 <td id='td2'>" . ($c['pais']) . "</td>
-                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                                <td><b>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</b></td>
                                             </tr>";
                                         break;
                                     case 1:
@@ -138,7 +138,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td1'>" . ($c['empresa']) . "</td>					
                                                 <td id='td1'>" . ($c['cargo']) . "</td>
                                                 <td id='td1'>" . ($c['pais']) . "</td>
-                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                                <td><b>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</b></td>
                                             </tr>";
                                         break;
                                     case 0:
@@ -154,7 +154,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td0'>" . $c['empresa'] . "</td>
                                                 <td id='td0'>" . $c['cargo'] . "</td>
                                                 <td id='td0'>" . ($c['pais']) . "</td>
-                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
+                                                <td><b>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</b></td>
                                             </tr>";
                                         break;
                                 }

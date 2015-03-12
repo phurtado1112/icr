@@ -185,7 +185,7 @@ class crrptdefault {
 	function Page_Main() {
 		global $Security;
 		global $ReportLanguage;
-		$this->Page_Terminate("estado_de_campaf1as_x_programa_x_campaf1asmry.php"); // Exit and go to default page
+		$this->Page_Terminate("gestif3n_campaf1a_x_programa_seminariossmry.php"); // Exit and go to default page
 	}
 
 	// Page Load event

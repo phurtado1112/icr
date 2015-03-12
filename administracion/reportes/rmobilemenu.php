@@ -43,10 +43,10 @@ ob_start();
 
 // Generate all menu items
 $RootMenu->IsRoot = TRUE;
-$RootMenu->AddMenuItem(40, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("40", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "estado_de_campaf1as_x_programa_x_campaf1asmry.php", -1, "", TRUE, FALSE);
-$RootMenu->AddMenuItem(41, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("41", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "asignacif3nsmry.php", -1, "", TRUE, FALSE);
-$RootMenu->AddMenuItem(43, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("43", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "detalle_de_contacto_atendidosmry.php?cmd=resetdrilldown", -1, "", TRUE, FALSE);
-$RootMenu->AddMenuItem(46, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("46", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "estado_de_campaf1as_x_asesorsmry.php", -1, "", TRUE, FALSE);
+$RootMenu->AddMenuItem(50, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("50", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "gestif3n_campaf1a_x_programa_seminariossmry.php", -1, "", TRUE, FALSE);
+$RootMenu->AddMenuItem(51, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("51", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "gestif3n_campaf1a_x_asesor_seminariossmry.php", -1, "", TRUE, FALSE);
+$RootMenu->AddMenuItem(52, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("52", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "gestif3n_campaf1a_x_asesor_global_embasmry.php", -1, "", TRUE, FALSE);
+$RootMenu->AddMenuItem(54, $ReportLanguage->Phrase("DetailSummaryReportMenuItemPrefix") . $ReportLanguage->MenuPhrase("54", "MenuText") . $ReportLanguage->Phrase("DetailSummaryReportMenuItemSuffix"), "gestif3n_campaf1a_x_programa_global_embasmry.php", -1, "", TRUE, FALSE);
 $RootMenu->Render();
 ?>
 	</div><!-- /content -->

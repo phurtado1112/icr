@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campania = "SELECT * FROM campanias_asignadas_view WHERE terminada= 'n'";
+$consulta_campania = "SELECT * FROM campanias_asignadas_view order by idasignar desc";
 $lista_campania = bd_ejecutar_sql($consulta_campania);
 ?>
 <!DOCTYPE html>

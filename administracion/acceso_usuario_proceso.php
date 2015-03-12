@@ -10,7 +10,8 @@ if (!$_SESSION) {
 
 //Recibir los datos ingresados en el formulario
 $usuario = filter_input(INPUT_POST, 'usuario');
-$contrasena = filter_input(INPUT_POST, 'pass');
+$contrase = filter_input(INPUT_POST, 'pass');
+$contrasena =md5($contrase);
 
 //Consultar si los datos son est�n guardados en la base de datos
 $consulta_usuario = "SELECT * FROM usuarios WHERE usuario='" . $usuario . "' AND contrasena='" . $contrasena . "' AND tipo='2'";

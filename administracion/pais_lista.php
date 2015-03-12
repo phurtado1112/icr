@@ -52,19 +52,21 @@ while ($fila_pais = bd_obtener_fila($lista_pais)) {
                                         } else {
                                             ?>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No.</th>
                                                 <th>País</th>
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($pais as $p) {
                                                 $ids = $p['idpais'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $p['idpais'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $p['pais'] . "</td>
                                                     <td>" . '<a href="pais_editar.php?idpais=' . $ids . '">Editar</a> ---  <a href="pais_inactivar.php?idpais=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

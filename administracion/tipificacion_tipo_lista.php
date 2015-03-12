@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_tipificaciontipo = "SELECT * FROM tipificaciontipo where activo=0";
+$consulta_tipificaciontipo = "SELECT tipificaciontipo, idtipificaciontipo FROM tipificaciontipo where activo=0";
 $lista_tipificaciontipo = bd_ejecutar_sql($consulta_tipificaciontipo);
 while ($fila_tipificaciontipo = bd_obtener_fila($lista_tipificaciontipo)) {
     $tipificaciontipo[] = $fila_tipificaciontipo;
@@ -58,15 +58,17 @@ while ($fila_tipificaciontipo = bd_obtener_fila($lista_tipificaciontipo)) {
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($tipificaciontipo as $tt) {
                                                 $ids = $tt['idtipificaciontipo'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $tt['idtipificaciontipo'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $tt['tipificaciontipo'] . "</td>
                                                     <td>" . '<a href="tipificacion_tipo_editar.php?idtipificaciontipo=' . $ids . '">Editar'
                                                         . '</a> ---  <a href="tipificacion_tipo_inactivar.php?idtipificaciontipo=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

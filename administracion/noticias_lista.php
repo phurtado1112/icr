@@ -58,15 +58,17 @@ $consulta_noticias = "SELECT * FROM noticias_view";
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($noticias as $n) {
                                                 $ids = $n['idnoticias'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $n['idnoticias'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $n['titulo'] . "</td>
                                                     <td>" . $n['fechacreado'] . "</td>
                                                     <td>" . '<a href="noticia_editar.php?idnoticias=' . $ids . '">Editar</a> ---  <a href="noticia_eliminar.php?idnoticias=' . $ids . '">Eliminar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

@@ -1,4 +1,5 @@
 <?php
+
 include_once './funciones.general.php';
 
 if (!$_SESSION) {
@@ -10,13 +11,19 @@ if (!$_SESSION) {
 
 $nombre = filter_input(INPUT_POST, 'nombre');
 $usuario = filter_input(INPUT_POST, 'usuario');
-$contrasenia = filter_input(INPUT_POST, 'contrasenia');
+$contrasena = filter_input(INPUT_POST, 'contrasenia');
 $tipo = filter_input(INPUT_POST, 'tipo');
 
 error_reporting(0);
 
-if (isset($nombre) && isset($usuario) && isset($contrasenia)) {    
+if (isset($nombre) && isset($usuario) && isset($contrasena)) {
 
+    if ($tipo == 2) {
+        $contrasenia = md5($contrasena);
+    } else {
+        $contrasenia = $contrasena;
+    }
+    
     $inserta_usuario = "INSERT INTO usuarios (nombre,usuario,contrasena,tipo)
 			VALUES(
 			'" . $nombre . "',
@@ -25,7 +32,7 @@ if (isset($nombre) && isset($usuario) && isset($contrasenia)) {
                         '" . $tipo . "'
 			)";
     bd_ejecutar_sql($inserta_usuario);
-    
+
     header("Location: usuario_lista.php");
 }
 

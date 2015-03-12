@@ -31,14 +31,14 @@
                             <br>
                             <div class="form-group">
                                 <div class="col-sm-10">
-                                    <span class="add-on"><i class="icon-user"></i></span>
+                                    <span class="add-on icon-user"></span>
                                     <input class="form-control" name="usuario" id="Usuario" type="text" placeholder="Usuario" autofocus />
                                 </div>
                             </div>
                             <br>
                             <div class="form-group">
                                 <div class="col-sm-10">
-                                    <span class="add-on"><i class="icon-lock"></i></span>
+                                    <span class="add-on icon-lock"></span>
                                     <input class="form-control" name="pass" id="Contrasena" type="password" placeholder="Contraseña" />
                                 </div>
                             </div>

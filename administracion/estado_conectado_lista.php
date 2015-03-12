@@ -54,19 +54,21 @@ while ($fila_estado_conectado = bd_obtener_fila($lista_estado_conectado)) {
                                         } else {
                                             ?>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No.</th>
                                                 <th>Estado</th>
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($estado_conectado as $ec) {
                                                 $ids = $ec['idestado'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $ec['idestado'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $ec['estado'] . "</td>
                                                     <td>" . '<a href="estado_conectado_editar.php?idestado=' . $ids . '">Editar</a> ---  <a href="estado_conectado_inactivar.php?idestado=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

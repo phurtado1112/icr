@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_campanias = "SELECT * FROM campanias_view where idcampania > 1 and terminada='No' order by campania";
+$consulta_campanias = "SELECT * FROM campanias_view where idcampania > 1 and terminada='No' order by idcampania desc";
 $lista_campanias = bd_ejecutar_sql($consulta_campanias);
 while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
     $campanias[] = $fila_campanias;
@@ -58,7 +58,6 @@ while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
                                             ?>
                                             <tr>
                                                 <th>No.</th>
-                                                <th>ID</th>
                                                 <th>Campañas</th>
                                                 <th>Programa</th>
                                                 <th>Fecha Inicio</th>
@@ -72,7 +71,6 @@ while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
                                                 echo"
                                                     <tr>
                                                     <td><b>" . $i . "</b></td>
-                                                    <td>" . $c['idcampania'] . "</td>
                                                     <td>" . $c['campania'] . "</td>
                                                     <td>" . $c['programa'] . "</td>
                                                     <td>" . $c['fechainicio'] . "</td>

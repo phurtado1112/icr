@@ -50,7 +50,7 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
                                         } else {
                                             ?>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No.</th>
                                                 <th>Asesor</th>
                                                 <th>Campaña Asignada</th>
                                                 <th>Programa</th>
@@ -58,17 +58,19 @@ while ($fila_asignacion = bd_obtener_fila($lista_asignacion)) {
                                                 <th>Acción</th>
                                             </tr>
                                             <?php
+                                            $i=1;
                                             foreach ($asignacion as $a) {
                                                 $ids = $a['idasignar'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $a['idasignar'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $a['nombre'] . "</td>
                                                     <td>" . $a['campania'] . "</td>
                                                     <td>" . $a['programa'] . "</td>
                                                     <td>" . $a['fecha'] . "</td>
                                                     <td>" . '<a href="asignacion_editar.php?idasignar=' . $ids . '">Editar</a> ---  <a href="asignacion_eliminar.php?idasignar=' . $ids . '">Eliminar</a>' . "</td>
                                                     </tr>";
+                                                $i = $i + 1;
                                             }
                                         }
                                         ?>

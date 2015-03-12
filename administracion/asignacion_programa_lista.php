@@ -50,21 +50,23 @@ while ($fila_asignacion_prog = bd_obtener_fila($lista_asignacion_prog)) {
                                         } else {
                                             ?>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No.</th>
                                                 <th>Campaña</th>
                                                 <th>Programa</th>
                                                 <th>Acción</th>
                                             </tr>
                                             <?php
+                                            $i=1;
                                             foreach ($asignacion_prog as $ap) {
                                                 $ids = $ap['idcampania'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $ap['idcampania'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $ap['campania'] . "</td>
                                                     <td>" . $ap['programa'] . "</td>
                                                     <td>" . '<a href="asignacion_programa_editar.php?idcampania=' . $ids . '">Editar</a>' ."</td>
                                                     </tr>";
+                                                $i = $i + 1;
                                             }
                                         }
                                         ?>

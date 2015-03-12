@@ -58,6 +58,7 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
                                         } else {
                                             ?>
                                             <tr>
+                                                <th><b>No.</b></th>
                                                 <th>Nombre</th>
                                                 <th>Teléfono</th>
                                                 <th>Email</th>
@@ -70,10 +71,12 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
                                                 <th>Acción</th>
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($contactos as $c) {
                                                 $ids = $c['idcliente'];
                                                 echo"
                                                     <tr>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $c['nombre'] . "</td>
                                                     <td>" . $c['telfijo'] . "</td>
                                                     <td>" . $c['email'] . "</td>
@@ -85,6 +88,7 @@ $lista_contactos = bd_ejecutar_sql($consulta_contactos);
                                                     <td>" . $c['pais'] . "</td>
                                                     <td>" . '<a href="contactos_editar.php?idcliente=' . $ids . '">Editar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

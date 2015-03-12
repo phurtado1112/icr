@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_subtipificacion = "SELECT * FROM subtipificacion_view order by tipificacion, subtipificacion";
+$consulta_subtipificacion = "SELECT tipificacion, idsubtipificacion, subtipificacion FROM subtipificacion_view order by tipificacion, subtipificacion";
     $lista_subtipificacion = bd_ejecutar_sql($consulta_subtipificacion);
     while ($fila_subtipificacion = bd_obtener_fila($lista_subtipificacion)) {
         $subtipificacion[] = $fila_subtipificacion;
@@ -52,21 +52,23 @@ $consulta_subtipificacion = "SELECT * FROM subtipificacion_view order by tipific
                                         } else {
                                             ?>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No.</th>
                                                 <th>Subtipificación</th>
                                                 <th>Tipificación</th>
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($subtipificacion as $t) {
                                                 $ids = $t['idsubtipificacion'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $t['idsubtipificacion'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $t['subtipificacion'] . "</td>
                                                     <td>" . $t['tipificacion'] . "</td>
                                                     <td>" . '<a href="subtipificacion_editar.php?idsubtipificacion=' . $ids . '">Editar</a> ---  <a href="subtipificacion_inactivar.php?idsubtipificacion=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

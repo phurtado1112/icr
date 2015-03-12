@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_programa = "SELECT * FROM programas where activo=0 and idprograma>0";
+$consulta_programa = "SELECT programa FROM programas where activo=0 and idprograma>0 order by programa";
 $lista_programa = bd_ejecutar_sql($consulta_programa);
 while ($fila_programa = bd_obtener_fila($lista_programa)) {
     $programas[] = $fila_programa;
@@ -52,19 +52,21 @@ while ($fila_programa = bd_obtener_fila($lista_programa)) {
                                         } else {
                                             ?>
                                             <tr>
-                                                <th>ID</th>
+                                                <th>No.</th>
                                                 <th>Programa</th>
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($programas as $p) {
                                                 $ids = $p['idprograma'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $p['idprograma'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $p['programa'] . "</td>
                                                     <td>" . '<a href="programa_editar.php?idprograma=' . $ids . '">Editar</a> ---  <a href="programa_inactivar.php?idprograma=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

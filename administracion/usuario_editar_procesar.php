@@ -10,13 +10,23 @@ if (!$_SESSION) {
 
 $nombre = filter_input(INPUT_POST, 'nombre');
 $usuario = filter_input(INPUT_POST, 'usuario');
-$contrasenia = filter_input(INPUT_POST, 'contrasenia');
+$contrasena = filter_input(INPUT_POST, 'contrasenia');
 $tipo = filter_input(INPUT_POST, 'tipo');
 $id = filter_input(INPUT_POST, 'idusuario');
 
 error_reporting(0);
 
-if (isset($nombre) && isset($usuario) && isset($contrasenia)) {
+if($tipo==2){
+    $tipo = md5($tipo);
+}
+
+if (isset($nombre) && isset($usuario) && isset($contrasena)) {
+    
+    if ($tipo == 2) {
+        $contrasenia = md5($contrasena);
+    } else {
+        $contrasenia = $contrasena;
+    }
 
     $actualiza_usuario = "UPDATE  usuarios set nombre='" . $nombre. "', usuario='" . $usuario . "', contrasena='" . $contrasenia . "', tipo='" . $tipo . "' where idusuario='" . $id . "'";
     bd_ejecutar_sql($actualiza_usuario);

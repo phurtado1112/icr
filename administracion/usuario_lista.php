@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_usuarios = "SELECT * FROM usuarios_view where activo=0 order by tipo desc, nombre asc";
+$consulta_usuarios = "SELECT idusuario, nombre, usuario, tipo FROM usuarios_view where activo=0 order by tipo desc, nombre asc";
     $lista_usuarios = bd_ejecutar_sql($consulta_usuarios);
     while ($fila_usuario = bd_obtener_fila($lista_usuarios)) {
         $usuarios[] = $fila_usuario;
@@ -60,16 +60,18 @@ $consulta_usuarios = "SELECT * FROM usuarios_view where activo=0 order by tipo d
                                                 <th>Acción</th>       
                                             </tr>
                                             <?php
+                                            $i = 1;
                                             foreach ($usuarios as $u) {
                                                 $ids = $u['idusuario'];
                                                 echo"
                                                     <tr>
-                                                    <td>" . $u['idusuario'] . "</td>
+                                                    <td><b>" . $i . "</b></td>
                                                     <td>" . $u['nombre'] . "</td>
                                                     <td>" . $u['usuario'] . "</td>
                                                     <td>" . $u['tipo'] . "</td>
                                                     <td>" . '<a href="usuario_editar.php?idusuario=' . $ids . '">Editar</a> ---  <a href="usuario_inactivar.php?idusuario=' . $ids . '">Inactivar</a>' . "</td>
                                                     </tr>";
+                                                $i++;
                                             }
                                         }
                                         ?>

@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' and tipo=0 and activo=0 order by idusuario,idprograma,idcampania";
+$consulta_estado_campanias = "select * from estado_campania_view where terminada='n' and tipo=0 and activo=0 and ultimo=1 order by idusuario,idprograma,idcampania";
 
 $lista_estado_campanias = bd_ejecutar_sql($consulta_estado_campanias);
 while ($fila_estado_campanias = bd_obtener_fila($lista_estado_campanias)) {

@@ -42,7 +42,7 @@ if (isset($idcliente)) {
     $fila_idtransaccion = bd_obtener_fila($lista_idtransaccion);
     $idtransaccion = $fila_idtransaccion['idtrasaccion'];
 
-    /*     * *** VERIFICACIÓN DEL idtipificación DE LA TRANSACCION **** */
+    /* **** VERIFICACIÓN DEL idtipificación DE LA TRANSACCION **** */
 
     if ($idtipificacion == '5') {
         $inserta_agenda = "INSERT INTO agenda (idcliente,idtransaccion,fecha,observacion,gestionado)
@@ -55,7 +55,7 @@ if (isset($idcliente)) {
 			)";
         bd_ejecutar_sql($inserta_agenda);
 
-        $actualiza_cliente = "update clientes set agendado=1 where idcliente=" . $idcliente;
+        $actualiza_cliente = "update clientes set agendado=1, idestado=0 where idcliente=" . $idcliente;
         bd_ejecutar_sql($actualiza_cliente);
     } else {
         $actualiza_cliente = "update clientes set idestado=1 where idcliente=" . $idcliente;

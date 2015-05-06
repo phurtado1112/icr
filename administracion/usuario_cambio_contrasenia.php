@@ -15,20 +15,14 @@ $lista_usuario = bd_ejecutar_sql($consulta_usuario);
 $usuario = bd_obtener_fila($lista_usuario);
 
 $id = $usuario['idusuario'];
-$nombre = $usuario['nombre'];
 $usua = $usuario['usuario'];
-$contrasenia = $usuario['contrasena'];
 $tipo = $usuario['tipo'];
-
-$consulta_usuario_tipo = "SELECT idusuariotipo, usuariotipo from usuario_tipo";
-$lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
 ?>
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>Editar Usuario</title>
+        <title>Cambio Contraseña Usuario</title>
         <link href="css/fio.css" media="screen" rel="stylesheet" type="text/css">
         <link href="css/bs.css" media="screen" rel="stylesheet" type="text/css">
         <link href="Admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -54,16 +48,11 @@ $lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
                                     </div>
                                     <div class="block-content collapse in">
 
-                                        <form class="form-horizontal" action="usuario_editar_procesar.php" name="formusuario" method="POST">
+                                        <form class="form-horizontal" action="usuario_cambio_contrasenia_procesar.php" name="formusuariocontrasenia" method="POST">
                                             <div style="display:none"><input type="text" value="<?php echo $id; ?>" name="idusuario" size="1"></div>
+                                            <div style="display:none"><input type="text" value="<?php echo $tipo; ?>" name="tipo" size="1"></div>
                                             <fieldset>
-                                                <legend >Editar Usuario</legend>
-                                                <div class="control-group">
-                                                    <label class="control-label">Nombre</label>
-                                                    <div class="controls">
-                                                        <input type="text" class="span6 typeahead" id="nombre" name="nombre" value="<?php echo $nombre; ?>" autofocus>
-                                                    </div>
-                                                </div>
+                                                <legend >Cambio de Contraseña de Usuario</legend>
                                                 <div class="control-group">
                                                     <label class="control-label" >Usuario</label>
                                                     <div class="controls">
@@ -71,20 +60,15 @@ $lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
                                                     </div>
                                                 </div>
                                                 <div class="control-group">
-                                                    <label class="control-label">Tipo</label>
+                                                    <label class="control-label" >Contraseña</label>
                                                     <div class="controls">
-                                                        <select id="tipo" name="tipo">
-                                                            <?php
-                                                            while ($fila_usuario_tipo = bd_obtener_fila($lista_usuario_tipo)) {
-                                                               
-                                                                echo '<option value="'.$fila_usuario_tipo['idusuariotipo'].'"';
-                                                                if($fila_usuario_tipo['idusuariotipo']==$tipo){
-                                                                    echo 'selected';
-                                                                }
-                                                                echo '>'.$fila_usuario_tipo['usuariotipo'].'</option>';
-                                                            }
-                                                            ?>
-                                                        </select>
+                                                        <input type="password" class="span6 typeahead" id="contrasenia" name="contrasenia" value=""  >
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" >Confirmar Contraseña</label>
+                                                    <div class="controls">
+                                                        <input type="password" class="span6 typeahead" id="contraseniac" name="contraseniac" value=""  >
                                                     </div>
                                                 </div>
                                                 <div class="form-actions">
@@ -96,8 +80,8 @@ $lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>                 
+                        </div>                 
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,17 +96,13 @@ $lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
         <script src="Admin/assets/scripts.js"></script>
         <script>
                                                     function validar() {
-                                                        if (document.getElementById('nombre').value === '') {
-                                                            alert('FALTA NOMBRE');
+                                                        if (document.getElementById('contrasenia').value === '') {
+                                                            alert('FALTA CONTRASEÑA');
                                                         } else {
-                                                            if (document.getElementById('usuario').value === '') {
-                                                                alert('FALTA USUARIO');
+                                                            if (document.getElementById('contraseniac').value === '') {
+                                                                alert('FALTA VALIDAR CONTRASEÑA');
                                                             } else {
-                                                                if (document.getElementById('contrasenia').value === '') {
-                                                                    alert('FALTA CONTRASEÑA');
-                                                                } else {
-                                                                    document.formusuario.submit();
-                                                                }
+                                                                document.formusuariocontrasenia.submit();
                                                             }
                                                         }
                                                     }

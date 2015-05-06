@@ -16,7 +16,7 @@ $consulta_programa = "SELECT * FROM programas where activo=0 order by programa";
 $lista_programa = bd_ejecutar_sql($consulta_programa);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
         <title>Editar Asignación Campaña a Programa</title>

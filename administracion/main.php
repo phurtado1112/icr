@@ -7,6 +7,22 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
+
+$consulta_campanias_vencidas = "SELECT nombre, campania, programa, fechafin, activo, terminada, atraso FROM incaecrm.campania_x_asesor_view where activo='Si' and terminada='No' and atraso > 0";
+$lista_campanias_vencidas = bd_ejecutar_sql($consulta_campanias_vencidas);
+while ($fila_campanias_vencidas = bd_obtener_fila($lista_campanias_vencidas)) {
+    $campanias_vencidas[] = $fila_campanias_vencidas;
+}
+if (isset($campanias_vencidas)) {
+    echo "<script language = javascript>";
+    foreach ($campanias_vencidas as $cv) {
+        echo "alert('La campaña" . $cv['campania'] . " tiene " . $cv['atraso'] . " días de atraso');";
+    }
+    echo "</script>";
+}
+//echo '<script language = javascript>';
+//echo 'alert ("Prueba")';
+//echo '</script>';
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,7 +38,7 @@ if (!$_SESSION) {
     </head>
     <body>
         <div>
-            <?php 
+            <?php
             include './menu_superior.php';
             ?>
         </div>
@@ -34,7 +50,7 @@ if (!$_SESSION) {
                             <div class="span6">
                                 <div class="block">
                                     <div class="navbar navbar-inner block-header">
-                                        <div class="muted pull-left">Usuarios conectados</div>
+                                        <div class="muted pull-left"><h4>Usuarios conectados</h4></div>
                                     </div>
                                     <div class="block-content collapse in">
                                         <?php include 'usuarios_online.php' ?>	
@@ -44,7 +60,7 @@ if (!$_SESSION) {
                             <div class="span6">
                                 <div class="block">
                                     <div class="navbar navbar-inner block-header">
-                                        <div class="muted pull-left">Tipificaciones de hoy</div>
+                                        <div class="muted pull-left"><h3>Tipificaciones de hoy</h3></div>
                                         <div class="pull-right"></div>                                   
                                     </div>
                                     <div class="block-content collapse in">
@@ -57,9 +73,29 @@ if (!$_SESSION) {
                 </div>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span10" id="content">
+                    <div class="row-fluid">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <div class="block">
+                                    <div class="navbar navbar-inner block-header">
+                                        <div class="muted pull-left"><h3>Campaña por finalizar</h3></div>
+                                    </div>
+                                    <div class="block-content collapse in">
+                                        <?php include 'campanias_x_finalizar.php' ?>	
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <hr>
         <div class="ac">
-            <?php 
+            <?php
             include './pie.php';
             ?>
         </div>

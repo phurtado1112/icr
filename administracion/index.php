@@ -12,7 +12,7 @@
         <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     </head>
 
-    <body oncontextmenu="return false" onkeydown="return false">
+    <body>
         <div class="container-fluid">
             <div class="row-fluid">
 

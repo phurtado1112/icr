@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
-<configuration date="2015/03/10" author="e.World Technology Ltd.">
-<project id="{FBAFD19E-E753-4738-84A0-8DC7FC3CBD41}" file="C:\Users\PabloAntonio\Documents\PHPReportMaker\Projects\Reportes_INCAE.prp" name="Reportes_INCAE" product="PHPReportMaker" version="7.0" datetime="2015/03/10 21:11:42" languagefolder="phprptlang" userlevel="0,&quot;Default&quot;,0">
+<configuration date="2015/05/06" author="e.World Technology Ltd.">
+<project id="{FBAFD19E-E753-4738-84A0-8DC7FC3CBD41}" file="C:\Users\PabloAntonio\Documents\PHPReportMaker\Projects\Reportes_INCAE.prp" name="Reportes_INCAE" product="PHPReportMaker" version="7.0" datetime="2015/05/06 10:34:55" languagefolder="phprptlang" userlevel="0,&quot;Default&quot;,0">
 <table id="agenda" name="agenda" caption="agenda" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 <table id="agenda_view" name="agenda_view" caption="agenda view" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 <table id="asignacion_view" name="asignacion_view" caption="asignacion view" userlevel="0,&quot;Default&quot;,0" priv="1"/>
@@ -51,8 +51,10 @@
 <table id="estado_campania_rep_asesor_view" name="estado_campania_rep_asesor_view" caption="estado campania rep asesor view" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 <table id="estado_campania_rep_programa_emba_view" name="estado_campania_rep_programa_emba_view" caption="estado campania rep programa emba view" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 <table id="estado_campania_rep_programa_view" name="estado_campania_rep_programa_view" caption="estado campania rep programa view" userlevel="0,&quot;Default&quot;,0" priv="1"/>
-<table id="GestiF3n_CampaF1a_x_Programa_Seminarios" name="Gestión Campaña x Programa Seminarios" caption="Gestión de Campaña por Programa Seminarios" userlevel="0,&quot;Default&quot;,0" priv="1"/>
-<table id="GestiF3n_CampaF1a_x_Asesor_Seminarios" name="Gestión Campaña x Asesor Seminarios" caption="Gestión de Campaña por Asesor Seminarios" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="GestiF3n_CampaF1a_x_Programa_Open_ExEd" name="Gestión Campaña x Programa Open ExEd" caption="Gestión de Campaña por Programa Open ExEd" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="GestiF3n_CampaF1a_x_Asesor_Open_ExEd" name="Gestión Campaña x Asesor Open ExEd" caption="Gestión de Campaña por Asesor Open ExEd" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 <table id="GestiF3n_CampaF1a_x_Asesor_Global_EMBA" name="Gestión Campaña x Asesor Global EMBA" caption="Gestión de Campaña por Asesor Global EMBA" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 <table id="GestiF3n_CampaF1a_x_Programa_Global_EMBA" name="Gestión Campaña x Programa Global EMBA" caption="Gestión de Campaña por Programa Global EMBA" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="transacciones_reporte_view" name="transacciones_reporte_view" caption="transacciones reporte view" userlevel="0,&quot;Default&quot;,0" priv="1"/>
+<table id="GestiF3n_Detalle_de_CampaF1a_x_Asesor_Open_ExEd" name="Gestión Detalle de Campaña x Asesor Open ExEd" caption="Gestión Detalle de Campaña x Asesor Open ExEd" userlevel="0,&quot;Default&quot;,0" priv="1"/>
 </project></configuration>

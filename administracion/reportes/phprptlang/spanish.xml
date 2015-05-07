@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" standalone="yes"?>
-<ew-language date="2015/3/10" version="7.0.0" id="es" name="Spanish" desc="Spanish" author="Pablo Hurtado">
+<ew-language date="2015/5/6" version="7.0.0" id="es" name="Spanish" desc="Spanish" author="Pablo Hurtado">
 	<locale>
 		<phrase id="locale" value="es-ni"/><!-- *** system locale for this language -->
 		<phrase id="use_system_locale" value="1"/><!-- *** change to "0" to disable system locale and use the following settings *** -->
@@ -328,15 +328,19 @@
 </menu>
 <menu id="49"><phrase id="menutext" value="estado campania rep programa view"/>
 </menu>
-<menu id="50"><phrase id="menutext" value="Gestión de Campaña por Programa Seminarios"/>
+<menu id="50"><phrase id="menutext" value="Gestión de Campaña por Programa Open ExEd"/>
 </menu>
-<menu id="51"><phrase id="menutext" value="Gestión de Campaña por Asesor Seminarios"/>
+<menu id="51"><phrase id="menutext" value="Gestión de Campaña por Asesor Open ExEd"/>
 </menu>
 <menu id="52"><phrase id="menutext" value="Gestión de Campaña por Asesor Global EMBA"/>
 </menu>
 <menu id="53"><phrase id="menutext" value="estado campania rep programa emba view"/>
 </menu>
 <menu id="54"><phrase id="menutext" value="Gestión de Campaña por Programa Global EMBA"/>
+</menu>
+<menu id="55"><phrase id="menutext" value="transacciones reporte view"/>
+</menu>
+<menu id="56"><phrase id="menutext" value="Gestión Detalle de Campaña x Asesor Open ExEd"/>
 </menu>
 <table id="agenda"><phrase id="tblcaption" value="agenda"/>
 <field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
@@ -476,6 +480,10 @@
 <field id="activo"><phrase id="fldcaption" value="activo"/>
 </field>
 <field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+<field id="fechafin"><phrase id="fldcaption" value="fechafin"/>
+</field>
+<field id="atraso"><phrase id="fldcaption" value="atraso"/>
 </field>
 </table>
 <table id="campanias"><phrase id="tblcaption" value="campanias"/>
@@ -715,6 +723,8 @@
 </field>
 <field id="estado"><phrase id="fldcaption" value="estado"/>
 </field>
+<field id="activo"><phrase id="fldcaption" value="activo"/>
+</field>
 </table>
 <table id="noticias"><phrase id="tblcaption" value="noticias"/>
 <field id="idnoticias"><phrase id="fldcaption" value="idnoticias"/>
@@ -895,9 +905,13 @@
 </field>
 <field id="pais"><phrase id="fldcaption" value="pais"/>
 </field>
-<field id="prioridad"><phrase id="fldcaption" value="prioridad"/>
-</field>
 <field id="ultimo"><phrase id="fldcaption" value="ultimo"/>
+</field>
+<field id="tipificaciontipo"><phrase id="fldcaption" value="tipificaciontipo"/>
+</field>
+<field id="idtipificaciontipo"><phrase id="fldcaption" value="idtipificaciontipo"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
 </field>
 </table>
 <table id="usuarios"><phrase id="tblcaption" value="usuarios"/>
@@ -1444,7 +1458,7 @@
 <field id="otras"><phrase id="fldcaption" value="Otras"/>
 </field>
 </table>
-<table id="gestif3n_campaf1a_x_programa_seminarios"><phrase id="tblcaption" value="Gestión de Campaña por Programa Seminarios"/>
+<table id="gestif3n_campaf1a_x_programa_open_exed"><phrase id="tblcaption" value="Gestión de Campaña por Programa Seminarios"/>
 <field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
 </field>
 <field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
@@ -1498,7 +1512,7 @@
 <field id="procent"><phrase id="fldcaption" value="% Avance"/>
 </field>
 </table>
-<table id="gestif3n_campaf1a_x_asesor_seminarios"><phrase id="tblcaption" value="Gestión de Campaña por Asesor Seminarios"/>
+<table id="gestif3n_campaf1a_x_asesor_open_exed"><phrase id="tblcaption" value="Gestión de Campaña por Asesor Seminarios"/>
 <field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
 </field>
 <field id="asesor"><phrase id="fldcaption" value="Asesor"/>
@@ -1660,5 +1674,107 @@
 <field id="procent"><phrase id="fldcaption" value="% Avance"/>
 </field>
 </table>
+<table id="session_view"/>
+<table id="transacciones_reporte_view"><phrase id="tblcaption" value="transacciones reporte view"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="nombre"/>
+</field>
+<field id="cargo"><phrase id="fldcaption" value="cargo"/>
+</field>
+<field id="empresa"><phrase id="fldcaption" value="empresa"/>
+</field>
+<field id="_email"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="telfijo"><phrase id="fldcaption" value="telfijo"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="prioridad"><phrase id="fldcaption" value="prioridad"/>
+</field>
+<field id="hora"><phrase id="fldcaption" value="hora"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="subtipificacion"><phrase id="fldcaption" value="subtipificacion"/>
+</field>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="observaciones"><phrase id="fldcaption" value="observaciones"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="ultimo"><phrase id="fldcaption" value="ultimo"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="campania"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="programa"/>
+</field>
+<field id="pais"><phrase id="fldcaption" value="pais"/>
+</field>
+<field id="asesor"><phrase id="fldcaption" value="asesor"/>
+</field>
+</table>
+<table id="gestif3n_detalle_de_campaf1a_x_asesor_open_exed"><phrase id="tblcaption" value="Gestión Detalle de Campaña x Asesor Seminario"/>
+<field id="idusuario"><phrase id="fldcaption" value="idusuario"/>
+</field>
+<field id="agente"><phrase id="fldcaption" value="Asesor"/>
+</field>
+<field id="idcliente"><phrase id="fldcaption" value="idcliente"/>
+</field>
+<field id="nombre"><phrase id="fldcaption" value="Contacto"/>
+</field>
+<field id="cargo"><phrase id="fldcaption" value="Cargo"/>
+</field>
+<field id="empresa"><phrase id="fldcaption" value="Empresa"/>
+</field>
+<field id="_email"><phrase id="fldcaption" value="email"/>
+</field>
+<field id="telfijo"><phrase id="fldcaption" value="telfijo"/>
+</field>
+<field id="idasignar"><phrase id="fldcaption" value="idasignar"/>
+</field>
+<field id="hora"><phrase id="fldcaption" value="hora"/>
+</field>
+<field id="fecha"><phrase id="fldcaption" value="fecha"/>
+</field>
+<field id="tipificacion"><phrase id="fldcaption" value="tipificacion"/>
+</field>
+<field id="idtipificacion"><phrase id="fldcaption" value="idtipificacion"/>
+</field>
+<field id="subtipificacion"><phrase id="fldcaption" value="subtipificacion"/>
+</field>
+<field id="idsubtipificacion"><phrase id="fldcaption" value="idsubtipificacion"/>
+</field>
+<field id="observaciones"><phrase id="fldcaption" value="observaciones"/>
+</field>
+<field id="idcampania"><phrase id="fldcaption" value="idcampania"/>
+</field>
+<field id="campania"><phrase id="fldcaption" value="Campaña"/>
+</field>
+<field id="idprograma"><phrase id="fldcaption" value="idprograma"/>
+</field>
+<field id="programa"><phrase id="fldcaption" value="Programa"/>
+</field>
+<field id="pais"><phrase id="fldcaption" value="Pais"/>
+</field>
+<field id="tipificaciontipo"><phrase id="fldcaption" value="Tipificaciontipo"/>
+</field>
+<field id="ultimo"><phrase id="fldcaption" value="ultimo"/>
+</field>
+<field id="idtipificaciontipo"><phrase id="fldcaption" value="idtipificaciontipo"/>
+</field>
+<field id="terminada"><phrase id="fldcaption" value="terminada"/>
+</field>
+</table>
+<table id="usuario_tipo"/>
 </project>
 </ew-language>

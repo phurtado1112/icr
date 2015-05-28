@@ -15,10 +15,31 @@ $fin = filter_input(INPUT_POST, 'ajxfinales');
 $sub = filter_input(INPUT_POST, 'ajxsubfinal');
 $obs = filter_input(INPUT_POST, 'ajxobservacion');
 $age = filter_input(INPUT_POST, 'ajxagendar');
+$act = filter_input(INPUT_POST, 'ajxactual');
 
 
 
 if (isset($cte)) {
+    
+    if ($act == 'si') {
+        $consulta_inserta = "INSERT INTO transaccion (idcliente,idusuario,idtipificacion,
+            idsubtipificacion,fecha,hora,observaciones,idcampania,idpais,idasignar, ultimo)
+			VALUES($idcliente, $idusuario, 14, 0, 
+                            '" . date("Y-m-d") . "','" . date("H:i:s") . "',
+                            '" . $observacion . "','" . $_SESSION['idcampania'] . "',
+                                '" . $idpais . "','" . $_SESSION['idasignar'] . "', 1
+			)";
+        bd_ejecutar_sql($consulta_inserta);
+
+//        $consulta_idtransaccion = "SELECT idtrasaccion FROM transaccion where idcliente='" . $idcliente . "'";
+//        $lista_idtransaccion = bd_ejecutar_sql($consulta_idtransaccion);
+//        $fila_idtransaccion = bd_obtener_fila($lista_idtransaccion);
+//        $idtransaccion = $fila_idtransaccion['idtrasaccion'];
+//
+//        $consulta_guarda_cliente_transaccion = "insert into cliente_transaccion (idcliente, idtransaccion) values('" . $idcliente . "' , '" . $idtransaccion . "')";
+//        bd_ejecutar_sql($consulta_guarda_cliente_transaccion);
+    }
+    
     $consulta_idpais = "SELECT idpais from clientes where idcliente='" . $cte . "'";
     $lista_pais = bd_ejecutar_sql($consulta_idpais);
     $fila_idpais = bd_obtener_fila($lista_pais);

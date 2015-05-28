@@ -18,6 +18,11 @@ $consulta_campania = "SELECT * FROM campanias where idcampania=" . $_SESSION['id
 $lista_campanias = bd_ejecutar_sql($consulta_campania);
 $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
+
+$consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['idusuario'] . "'";
+$lista_asesor = bd_ejecutar_sql($consulta_asesor);
+$fila_asesor = bd_obtener_fila($lista_asesor);
+$nombre_asesor = $fila_asesor['nombre'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,9 +46,6 @@ $var_camp_nombre = $filacamp['campania'];
                     </button>
                     <a class="brand" href="#"><?php echo $var_camp_nombre; ?></a>
                     <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">
-                            <a href="salir.php" class="navbar-link">Salir</a>
-                        </p>
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
                             <li><a href="cambio_estado.php">Estado</a></li>
@@ -51,8 +53,8 @@ $var_camp_nombre = $filacamp['campania'];
                             <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
                             <li><a href="cliente_contacto.php">Contactos</a></li>
                             <li class="active"><a href="cliente_atendido.php">Atendidos</a></li> 
-                            <li>		
-                                <div align="center">
+                            <li>
+                                <div>
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
                                         <option value="2">Nombre de contacto</option>
@@ -63,6 +65,15 @@ $var_camp_nombre = $filacamp['campania'];
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        
+                            </li>
+                            <li><a></a></li>
+                            <li><a href="contacto_agendado_todos.php">Todos los Agendados</a></li>
+                            <li><a></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><?php echo $nombre_asesor; ?></strong><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="salir.php">Salir</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -101,9 +112,10 @@ $var_camp_nombre = $filacamp['campania'];
                                 <th>Acción</th>
                             </tr>                    					
                             <?php
-                            $i=1;
+                            $i = 1;
                             foreach ($contactos as $c) {
                                 $ids = $c['idcliente'];
+                                $transac = $c['idtransaccion'];
                                 switch ($c['prioridad']) {
                                     case 2:
                                         echo"
@@ -119,7 +131,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td2'>" . ($c['tipificacion']) . "</td>
                                                 <td id='td2'>" . ($c['pais']) . "</td>
                                                 <td id='td2'>" . ($c['observaciones']) . "</td>
-                                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                                <td >" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=3&idtransaccion=' . $transac . '">Gestionar</a>' . "</strong></td>
                                             </tr>";
                                         break;
                                     case 1:
@@ -136,7 +148,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td1'>" . ($c['tipificacion']) . "</td>
                                                 <td id='td1'>" . ($c['pais']) . "</td>
                                                 <td id='td1'>" . ($c['observaciones']) . "</td>
-                                                <td id='td1'>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</strong></td>
+                                                <td id='td1'>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=3&idtransaccion=' . $transac . '">Gestionar</a>' . "</strong></td>
                                             </tr>";
                                         break;
                                     case 0:
@@ -153,7 +165,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td0'>" . $c['tipificacion'] . "</td>
                                                 <td id='td0'>" . $c['pais'] . "</td>
                                                 <td id='td0'>" . $c['observaciones'] . "</td>
-                                                <td><font color='#C91515'>" . '<a href="cliente.php?idcliente=' . $ids . '">Gestionar</a>' . "</td>
+                                                <td><font color='#C91515'>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=3&idtransaccion=' . $transac . '">Gestionar</a>' . "</td>
                                             </tr>";
                                         break;
                                 }
@@ -168,7 +180,8 @@ $var_camp_nombre = $filacamp['campania'];
         <div class="ac">
             <?php include ("pie.php"); ?>
         </div>
-        <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <script src="js/obj_ajax.js"></script>
         <script>
                                         function porclick()
@@ -177,9 +190,9 @@ $var_camp_nombre = $filacamp['campania'];
                                             var_opcion = document.getElementById('idopcion').value;
                                             searchdataAtendidos(var_numero, var_opcion);
                                         }
-                                        function getsearch(evt)
+                                        function getsearch(even)
                                         {
-                                            var keyPressed = (evt.which) ? evt.which : event.keyCode;
+                                            var keyPressed = (even.which) ? even.which : even.keyCode;
                                             if (keyPressed === 13) {
                                                 var_numero = document.getElementById('cadena').value;
                                                 var_opcion = document.getElementById('idopcion').value;

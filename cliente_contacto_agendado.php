@@ -8,7 +8,7 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_asignar = "Select idasignar from asignar where idcampania='". $_SESSION['idcampania']. "' and idusuario='".$_SESSION['idusuario']."'";
+$consulta_asignar = "Select idasignar from asignar where idcampania='" . $_SESSION['idcampania'] . "' and idusuario='" . $_SESSION['idusuario'] . "'";
 $lista_asignar = bd_ejecutar_sql($consulta_asignar);
 $fila_idasignar = bd_obtener_fila($lista_asignar);
 $idasignar = $fila_idasignar['idasignar'];
@@ -24,6 +24,11 @@ $consulta_campania = "SELECT * FROM campanias where idcampania=" . $_SESSION['id
 $lista_campanias = bd_ejecutar_sql($consulta_campania);
 $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
+
+$consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['idusuario'] . "'";
+$lista_asesor = bd_ejecutar_sql($consulta_asesor);
+$fila_asesor = bd_obtener_fila($lista_asesor);
+$nombre_asesor = $fila_asesor['nombre'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -48,9 +53,6 @@ $var_camp_nombre = $filacamp['campania'];
                     </button>
                     <a class="brand" href="#"><?php echo $var_camp_nombre; ?></a>
                     <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">
-                            <a href="salir.php" class="navbar-link">Salir</a>
-                        </p>
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
                             <li><a href="cambio_estado.php">Estado</a></li>
@@ -58,18 +60,27 @@ $var_camp_nombre = $filacamp['campania'];
                             <li class="active"><a href="cliente_contacto_agendado.php">Agendados</a></li>
                             <li><a href="cliente_contacto.php">Contactos</a></li>
                             <li><a href="cliente_atendido.php">Atendidos</a></li>
-                            <li>		
-                                <div align="center">
+                            <li>
+                                <div>
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
-                                        <option value="2">Nombre de contacto</option> 	
+                                        <option value="2">Nombre de contacto</option>
                                         <option value="3">Cargo</option>
                                         <option value="4">Empresa</option>
-                                        <!--<option value="5">Correo</option>-->
+                                        <option value="5">Correo</option>
                                         <option value="6">País</option>
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
-                                </div>        
+                                </div>
+                            </li>
+                            <li><a></a></li>
+                            <li><a href="contacto_agendado_todos.php">Todos los Agendados</a></li>
+                            <li><a></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><?php echo $nombre_asesor; ?></strong><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="salir.php">Salir</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -105,7 +116,7 @@ $var_camp_nombre = $filacamp['campania'];
                         if (!isset($contactosx)) {
                             echo '<table><tr><th><h3><center>No exiten registros</center></h3><th><tr><table>';
                         } else {
-                            $i=1;
+                            $i = 1;
                             foreach ($contactosx as $c) {
                                 $ids = $c['idcliente'];
                                 switch ($c['prioridad']) {
@@ -122,7 +133,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td2'>" . ($c['empresa']) . "</td>						
                                                 <td id='td2'>" . ($c['cargo']) . "</td>
                                                 <td id='td2'>" . ($c['pais']) . "</td>
-                                                <td><b>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</b></td>
+                                                <td><b>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=1">Gestionar</a>' . "</b></td>
                                             </tr>";
                                         break;
                                     case 1:
@@ -138,7 +149,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td1'>" . ($c['empresa']) . "</td>					
                                                 <td id='td1'>" . ($c['cargo']) . "</td>
                                                 <td id='td1'>" . ($c['pais']) . "</td>
-                                                <td><b>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</b></td>
+                                                <td><b>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=1">Gestionar</a>' . "</b></td>
                                             </tr>";
                                         break;
                                     case 0:
@@ -154,7 +165,7 @@ $var_camp_nombre = $filacamp['campania'];
                                                 <td id='td0'>" . $c['empresa'] . "</td>
                                                 <td id='td0'>" . $c['cargo'] . "</td>
                                                 <td id='td0'>" . ($c['pais']) . "</td>
-                                                <td><b>" . '<a href="cliente_agendado.php?idcliente=' . $ids . '">Gestionar</a>' . "</b></td>
+                                                <td><b>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=1">Gestionar</a>' . "</b></td>
                                             </tr>";
                                         break;
                                 }
@@ -169,22 +180,24 @@ $var_camp_nombre = $filacamp['campania'];
         <div class="ac">
             <?php include ("pie.php"); ?>
         </div>
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <script src="js/obj_ajax.js"></script>
         <script>
-            function porclick() {
-                var_numero = document.getElementById('cadena').value;
-                var_opcion = document.getElementById('idopcion').value;
-                searchagendados(var_numero, var_opcion);
-            }
-            
-            function getsearch(evt) {
-                var keyPressed = (evt.which) ? evt.which : event.keyCode;
-                if (keyPressed === 13) {
-                    var_numero = document.getElementById('cadena').value;
-                    var_opcion = document.getElementById('idopcion').value;
-                    searchagendados(var_numero, var_opcion);
-                }
-            }
+                                        function porclick() {
+                                            var_numero = document.getElementById('cadena').value;
+                                            var_opcion = document.getElementById('idopcion').value;
+                                            searchagendados(var_numero, var_opcion);
+                                        }
+
+                                        function getsearch(even) {
+                                            var keyPressed = (even.which) ? even.which : even.keyCode;
+                                            if (keyPressed === 13) {
+                                                var_numero = document.getElementById('cadena').value;
+                                                var_opcion = document.getElementById('idopcion').value;
+                                                searchagendados(var_numero, var_opcion);
+                                            }
+                                        }
         </script>
     </body>
 </html>

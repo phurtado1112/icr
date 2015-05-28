@@ -8,21 +8,22 @@ if (!$_SESSION) {
 	</script>';
 }
 
-$consulta_contactos = "SELECT * FROM clientes_contactos_view WHERE idestado=0 AND agendado=0 AND idasignar=" . $_SESSION['idasignar'];
+$consulta_asignar = "Select idasignar from asignar where idcampania='" . $_SESSION['idcampania'] . "' and idusuario='" . $_SESSION['idusuario'] . "'";
+$lista_asignar = bd_ejecutar_sql($consulta_asignar);
+$fila_idasignar = bd_obtener_fila($lista_asignar);
+$idasignar = $fila_idasignar['idasignar'];
+$_SESSION['idasignar'] = $idasignar;
+
+$consulta_contactos = "SELECT * FROM agenda_todos_view WHERE idusuario='" . $_SESSION['idusuario'] . "' order by campania, prioridad";
 $lista_contactos_campaña = bd_ejecutar_sql($consulta_contactos);
 while ($filax = bd_obtener_fila($lista_contactos_campaña)) {
-    $contactos[] = $filax;
+    $contactosx[] = $filax;
 }
 
 $consulta_campania = "SELECT * FROM campanias where idcampania=" . $_SESSION['idcampania'];
 $lista_campanias = bd_ejecutar_sql($consulta_campania);
 $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
-
-$consulta_cantidad_contactos = "SELECT count(*) as total FROM clientes WHERE idasignar='" . $_SESSION['idasignar'] . "'";
-$lista_cantidad_contactos = bd_ejecutar_sql($consulta_cantidad_contactos);
-$filas = bd_obtener_fila($lista_cantidad_contactos);
-$total_contactos = $filas['total'];
 
 $consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['idusuario'] . "'";
 $lista_asesor = bd_ejecutar_sql($consulta_asesor);
@@ -57,9 +58,9 @@ $nombre_asesor = $fila_asesor['nombre'];
                             <li><a href="cambio_estado.php">Estado</a></li>
                             <li><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
                             <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
-                            <li class="active"><a href="cliente_contacto.php">Contactos</a></li>
-                            <li><a href="cliente_atendido.php">Atendidos</a></li> 
-                            <li>		
+                            <li><a href="cliente_contacto.php">Contactos</a></li>
+                            <li><a href="cliente_atendido.php">Atendidos</a></li>
+                            <li>
                                 <div>
                                     <input type="text" class="input-medium search-query" id="cadena" onKeyPress="getsearch(event)">
                                     <select id="idopcion">
@@ -68,12 +69,13 @@ $nombre_asesor = $fila_asesor['nombre'];
                                         <option value="4">Empresa</option>
                                         <option value="5">Correo</option>
                                         <option value="6">País</option>
+                                        <option value="7">Campaña</option>
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
-                                </div>      
+                                </div>
                             </li>
                             <li><a></a></li>
-                            <li><a href="contacto_agendado_todos.php">Todos los Agendados</a></li>
+                            <li class="active"><a href="contacto_agendado_todos.php">Todos los Agendados</a></li>
                             <li><a></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><?php echo $nombre_asesor; ?></strong><span class="caret"></span></a>
@@ -94,29 +96,29 @@ $nombre_asesor = $fila_asesor['nombre'];
                     </ul>
                 </div>
             </div>
-            <div id="container" align="center">   
-                <h1 style="alignment-adjust: central">Contactos</h1>
-                <h4 style="alignment-adjust: central">Total de Contactos de Campaña: <?php echo $total_contactos; ?> </h4>
+            <div id="container" align="center">
+                <h1 style="alignment-adjust: central">Todos los Contactos Agendados</h1>
                 <div id="resul_search">
                     <table class="table">
                         <tr>
                             <th>No</th>
                             <th>Nombre</th>
-                            <th>Teléfono</th>
-                            <th>Celular</th>
-                            <th>Tel. Oficina</th>
-                            <th>Correo</th>
+                            <th>Fecha Contacto</th>
+                            <th>Observación</th>
+                            <th>Teléfono fijo</th>
+                            <th>Teléfono móvil</th>
+                            <th>Teléfono oficina</th>
                             <th>Empresa</th>
                             <th>Cargo</th>
                             <th>País</th>
-                            <th>Acción</th>
+                            <th>Campaña</th>
                         </tr>
                         <?php
-                        if (!isset($contactos)) {
+                        if (!isset($contactosx)) {
                             echo '<table><tr><th><h3><center>No exiten registros</center></h3><th><tr><table>';
                         } else {
                             $i = 1;
-                            foreach ($contactos as $c) {
+                            foreach ($contactosx as $c) {
                                 $ids = $c['idcliente'];
                                 switch ($c['prioridad']) {
                                     case 2:
@@ -124,14 +126,15 @@ $nombre_asesor = $fila_asesor['nombre'];
                                             <tr>
                                                 <td id='td2'><b>" . $i . "</b></td>
                                                 <td id='td2'>" . ($c['nombre']) . "</td>
+                                                <td id='td2'>" . ($c['fecha']) . "</td>
+                                                <td id='td2'>" . ($c['observacion']) . "</td>
                                                 <td id='td2'>" . ($c['telfijo']) . "</td>
                                                 <td id='td2'>" . ($c['telmovil']) . "</td>
                                                 <td id='td2'>" . ($c['teltrabajo']) . "</td>
-                                                <td id='td2'>" . ($c['email']) . "</td>
                                                 <td id='td2'>" . ($c['empresa']) . "</td>						
                                                 <td id='td2'>" . ($c['cargo']) . "</td>
                                                 <td id='td2'>" . ($c['pais']) . "</td>
-                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=2">Gestionar</a>' . "</strong></td>
+                                                <td id='td2'>" . ($c['campania']) . "</td>
                                             </tr>";
                                         break;
                                     case 1:
@@ -139,14 +142,15 @@ $nombre_asesor = $fila_asesor['nombre'];
                                             <tr>
                                                 <td id='td1'><b>" . $i . "</b></td>
                                                 <td id='td1'>" . ($c['nombre']) . "</td>
+                                                <td id='td1'>" . ($c['fecha']) . "</td>
+                                                <td id='td1'>" . ($c['observacion']) . "</td>
                                                 <td id='td1'>" . ($c['telfijo']) . "</td>
                                                 <td id='td1'>" . ($c['telmovil']) . "</td>
-                                                <td id='td1'>" . ($c['teltrabajo']) . "</td>
-                                                <td id='td1'>" . ($c['email']) . "</td>    
+                                                <td id='td1'>" . ($c['teltrabajo']) . "</td>    
                                                 <td id='td1'>" . ($c['empresa']) . "</td>					
                                                 <td id='td1'>" . ($c['cargo']) . "</td>
                                                 <td id='td1'>" . ($c['pais']) . "</td>
-                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=2">Gestionar</a>' . "</strong></td>
+                                                <td id='td1'>" . ($c['campania']) . "</td>
                                             </tr>";
                                         break;
                                     case 0:
@@ -154,14 +158,15 @@ $nombre_asesor = $fila_asesor['nombre'];
                                             <tr>
                                                 <td id='td0'><b>" . $i . "</b></td>
                                                 <td id='td0'>" . $c['nombre'] . "</td>
+                                                <td id='td0'>" . $c['fecha'] . "</td>
+                                                <td id='td0'>" . $c['observacion'] . "</td>
                                                 <td id='td0'>" . $c['telfijo'] . "</td>
                                                 <td id='td0'>" . $c['telmovil'] . "</td>
-                                                <td id='td0'>" . $c['teltrabajo'] . "</td>
-                                                <td id='td0'>" . $c['email'] . "</td>    
+                                                <td id='td0'>" . $c['teltrabajo'] . "</td>    
                                                 <td id='td0'>" . $c['empresa'] . "</td>
                                                 <td id='td0'>" . $c['cargo'] . "</td>
                                                 <td id='td0'>" . ($c['pais']) . "</td>
-                                                <td>" . '<a href="cliente.php?idcliente=' . $ids . '&proceso=2">Gestionar</a>' . "</td>
+                                                <td id='td0'>" . ($c['campania']) . "</td>
                                             </tr>";
                                         break;
                                 }
@@ -176,23 +181,22 @@ $nombre_asesor = $fila_asesor['nombre'];
         <div class="ac">
             <?php include ("pie.php"); ?>
         </div>
-        <script src="js/jquery-1.9.1.js" type="text/javascript"></script>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/obj_ajax.js" type="text/javascript"></script>
+        <script src="js/jquery-1.9.1.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/obj_ajax.js"></script>
         <script>
-                                        function porclick()
-                                        {
-                                            var_numero = document.getElementById('cadena').value;
+                                        function porclick() {
+                                            var_cadena = document.getElementById('cadena').value;
                                             var_opcion = document.getElementById('idopcion').value;
-                                            searchdata(var_numero, var_opcion);
+                                            buscaragendadostodos(var_cadena, var_opcion);
                                         }
-                                        function getsearch(even)
-                                        {
+
+                                        function getsearch(even) {
                                             var keyPressed = (even.which) ? even.which : even.keyCode;
                                             if (keyPressed === 13) {
-                                                var_numero = document.getElementById('cadena').value;
+                                                var_cadena = document.getElementById('cadena').value;
                                                 var_opcion = document.getElementById('idopcion').value;
-                                                searchdata(var_numero, var_opcion);
+                                                buscaragendadostodos(var_cadena, var_opcion);
                                             }
                                         }
         </script>

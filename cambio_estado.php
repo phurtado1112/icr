@@ -16,6 +16,11 @@ $consulta_campa = "SELECT * FROM campanias where idcampania='" . $_SESSION['idca
 $lista_campa = bd_ejecutar_sql($consulta_campa);
 $filacamp = bd_obtener_fila($lista_campa);
 $var_camp_nombre = $filacamp['campania'];
+
+$consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['idusuario'] . "'";
+$lista_asesor = bd_ejecutar_sql($consulta_asesor);
+$fila_asesor = bd_obtener_fila($lista_asesor);
+$nombre_asesor = $fila_asesor['nombre'];
 ?>   
 <html lang="en">
     <head>
@@ -40,16 +45,28 @@ $var_camp_nombre = $filacamp['campania'];
                     </button>
                     <a class="brand" href="#"><?php echo $var_camp_nombre; ?></a>
                     <div class="nav-collapse collapse">
-                        <p class="navbar-text pull-right">
-                            <a href="salir.php" class="navbar-link">Salir</a>
-                        </p>
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
                             <li class="active"><a href="cambio_estado.php">Estado</a></li>
                             <li><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
                             <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
                             <li><a href="cliente_contacto.php">Contactos</a></li>
-                            <li><a href="cliente_atendido.php">Atendidos</a></li>                            
+                            <li><a href="cliente_atendido.php">Atendidos</a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><?php echo $nombre_asesor; ?></strong><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="salir.php">Salir</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -98,7 +115,7 @@ $var_camp_nombre = $filacamp['campania'];
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/obj_ajax.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <!--<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>-->
         <script type="text/javascript" src="js/cronos.js"></script>  
     </body>
 </html>

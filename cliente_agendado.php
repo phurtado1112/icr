@@ -8,18 +8,17 @@ self.location = "index.php"
 </script>';
 }
 
-$idclient = filter_input(INPUT_GET, 'idcliente');
-$consulta_ctes = "SELECT * FROM transacciones_view WHERE idcliente=" . $idclient;
+$idclien = filter_input(INPUT_GET, 'idcliente');
+
+$consulta_cliente = "SELECT * FROM transacciones_view WHERE idcliente=" . $idclien;
 $lista_clientes = bd_ejecutar_sql($consulta_ctes);
 while ($filax = bd_obtener_fila($lista_clientes)) {
     $contactosx[] = $filax;
 }
 
 $idasignar = $_SESSION['idasignar'];
-$idcampania = $_SESSION['idcampania'];
 
 $consulta_cte = "SELECT * FROM clientes WHERE idasignar='" . $idasignar . "'AND idcliente=" . $idclient;
-
 $lista_clien = bd_ejecutar_sql($consulta_cte);
 while ($filas = bd_obtener_fila($lista_clien)) {
     $idcliente = $filas['idcliente'];
@@ -91,36 +90,69 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
                             <td><?php echo $cargo ?></td>
                             <td><?php echo $empresa ?></td>
                         </tr>
-                    </table> 
-                    <p>&nbsp;</p>
-                    <p>
-                        Tipificación:
-                        <?php
-                        $consulta_tipos = "select * from tipificacion where activo=0";
-                        $lista_tipos = bd_ejecutar_sql($consulta_tipos);
-                        ?>
-                        <select name="finales" id="finales" onChange="tipificacion(this.value)" >
-                            <option value="0">Seleccione...</option>
-                            <?php
-                            while ($fila = bd_obtener_fila($lista_tipos)) {
-                                ?>
-                                <option  id="tipicacion" value="<?php echo $fila['idtipificacion']; ?>"><?php echo $fila['tipificacion']; ?></option>
-                            <?php } ?>	    
-                        </select>
-                    </p>
-
-                    <div id="Divtiponointeresado"></div> 
-
-                    <p>
-                        Agendar
-                        <input type="text" id="datepicker" value="0000-00-00" />
-                        <br>
-                        <textarea name="observacion" id="OBSERVACION" style="width: 817px; height: 141px;"></textarea>
-                        <br>
+                    </table>
+                    <br><br>
+                    <div class="row-fluid">
+                        <div class="span6 offset3 well">
+                            <div class="row-fluid">
+                                <div class="row-fluid">
+                                    <div class="block-content">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th>Tipificación:</th>
+                                                <td>
+                                                    <?php
+                                                    $consulta_tipi = "select * from tipificacion where activo=0";
+                                                    $lista_tipi = bd_ejecutar_sql($consulta_tipi);
+                                                    ?>
+                                                    <select name="finales" id="finales" onChange="tipificacion(this.value)" >
+                                                        <option value="0">Seleccione...</option>
+                                                        <?php
+                                                        while ($fila = bd_obtener_fila($lista_tipi)) {
+                                                            ?>
+                                                            <option  id="tipicacion" value="<?php echo $fila['idtipificacion']; ?>"><?php echo $fila['tipificacion']; ?></option>
+                                                        <?php } ?>	    
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Subtipificación</th>
+                                                <td>
+                                                    <div id="Divtiponointeresado"></div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Actualización:</th>
+                                                <td>
+                                                    <div id="actualiza">
+                                                        <input type="radio" id="actualiza0" name="actualiza" value="no" checked> NO
+                                                        <input type="radio" id="actualiza1" name="actualiza" value="si"> SI
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Agendar:</th>
+                                                <td>
+                                                    <input type="text" id="datepicker" value="0000-00-00"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Observación:</th>
+                                                <td>
+                                                    <textarea name="observacion" id="OBSERVACION" style="width: 480px; height: 70px;" ></textarea>
+                                                </td>
+                                            </tr>     
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
                         <input type="button" value="Guardar" onClick="SAVE()" class="btn btn-success" />
                         <button type="reset" class="btn btn-success" onclick="location.href = 'cliente_contacto_agendado.php'">Cancelar</button>
-                    </p>
-                    <p>&nbsp; </p>
+                    </div>
+                    <br><br>
                     <table class="table table-hover">
                         <tr>
                             <th>Fecha</th>
@@ -154,40 +186,62 @@ while ($filacam = bd_obtener_fila($lista_campania)) {
 
         <script src="js/obj_ajax.js"></script>
         <script>
-            function getsearch(evt) {
-                var keyPressed = (evt.which) ? evt.which : event.keyCode;
-                if (keyPressed === 13) {
-                    var_numero = document.getElementById('cadena').value;
-                    searchdata(var_numero);
-                }
-            }
+                            function getsearch(evt) {
+                                var keyPressed = (evt.which) ? evt.which : event.keyCode;
+                                if (keyPressed === 13) {
+                                    var_numero = document.getElementById('cadena').value;
+                                    searchdata(var_numero);
+                                }
+                            }
 
-            function SAVE() {
-                if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
-                    alert('ALERTA!.Falta la Observacion');
-                } else
-                if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18') {
-                    alert('ALERTA!.Falta la Observacion');
-                } else
-                if (document.getElementById('finales').value === '0') {
-                    alert('ALERTA!.Falta la finales');
-                } else {
-                    cliente = document.getElementById('idcliente').value;
-                    finales = document.getElementById('finales').value;
-                    observacion = document.getElementById('OBSERVACION').value;
-                    usuario = document.getElementById('idusuario').value;
-                    sub_finales = document.getElementById('subfinales').value;
-                    agendar = document.getElementById('datepicker').value;
-                    load_agendados(cliente, finales, observacion, usuario, sub_finales, agendar);
-                }
-            }
+                            function SAVE() {
+                                if (document.getElementById('actualiza1').checked) {
+                                    actual = document.getElementById('actualiza1').value;
+                                } else {
+                                    actual = document.getElementById('actualiza0').value;
+                                }
+                                if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '5') {
+                                    alert('¡ALERTA!.Falta la Observación');
+                                } else if (document.getElementById('OBSERVACION').value === '' && document.getElementById('finales').value === '18') {
+                                    alert('¡ALERTA!.Falta indicar el programa en Observación');
+                                } else if (document.getElementById('finales').value === '9' &&
+                                        document.getElementById('subfinales').value === '0') {
+                                    alert('ALERTA!.Falta la Subtipificación');
+                                } else if (document.getElementById('finales').value === '16' &&
+                                        document.getElementById('subfinales').value === '0') {
+                                    alert('ALERTA!.Falta la Subtipificación');
+                                } else if (document.getElementById('finales').value === '17' &&
+                                        document.getElementById('subfinales').value === '0') {
+                                    alert('ALERTA!.Falta la Subtipificación');
+                                } else if (document.getElementById('finales').value === '10' &&
+                                        document.getElementById('subfinales').value === '0') {
+                                    alert('ALERTA!.Falta la Subtipificación');
+                                } else {
+                                    cliente = document.getElementById('idcliente').value;
+                                    finales = document.getElementById('finales').value;
+                                    observacion = document.getElementById('OBSERVACION').value;
+                                    usuario = document.getElementById('idusuario').value;
+                                    sub_finales = document.getElementById('subfinales').value;
+                                    agendar = document.getElementById('datepicker').value;
+                                    load(cliente, finales, observacion, usuario, sub_finales, agendar, actual);
+                                }
+                            }
         </script>
-        <script type="text/javascript" src="js/cronos.js"></script>
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/jquery-ui.js"></script>
         <script>
                             $(function () {
                                 $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+                            });
+
+                            $('#finales').change(function () {
+                                var indice = $(this).val();
+
+                                if (indice === '14') {
+                                    $('#actualiza').prop('disabled', true);
+                                } else {
+                                    $('#actualiza').prop('disabled', false);
+                                }
                             });
         </script>
     </body>

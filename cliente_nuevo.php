@@ -16,6 +16,10 @@ $var_camp_nombre = $filacamp['campania'];
 $consulta_pais = "SELECT idpais,pais FROM pais";
 $lista_pais = bd_ejecutar_sql($consulta_pais);
 
+$consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['idusuario'] . "'";
+$lista_asesor = bd_ejecutar_sql($consulta_asesor);
+$fila_asesor = bd_obtener_fila($lista_asesor);
+$nombre_asesor = $fila_asesor['nombre'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,15 +46,28 @@ $lista_pais = bd_ejecutar_sql($consulta_pais);
                     <a class="brand" href="#"><?php echo $var_camp_nombre; ?></a>
                     <div class="nav-collapse collapse">
                         <p class="navbar-text pull-right">
-                            <a href="salir.php" class="navbar-link">Salir</a>
-                        </p>
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
                             <li><a href="cambio_estado.php">Estado</a></li>
                             <li class="active"><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
                             <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
                             <li><a href="cliente_contacto.php">Contactos</a></li>
-                            <li><a href="cliente_atendido.php">Atendidos</a></li>                            
+                            <li><a href="cliente_atendido.php">Atendidos</a></li>  
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li><a></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><?php echo $nombre_asesor; ?></strong><span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="salir.php">Salir</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>

@@ -11,13 +11,14 @@
     </head>
 
     <body>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
+        <p>&nbsp;</p>     
         <p>&nbsp;</p>
         <div id="login">
             <div id="logo" >
                 <a href="#" title="LOGO INCAE"><img alt="Logo" src="images/incae_logo.png" height="100" width="280"></a>
             </div>
+            <p>&nbsp;</p>
+            <div class="container" id="titulologin"><h1 id="tituloexed">PROGRAMA Ex Ed</h1></div>   
             <div class="block center login small">
                 <div class="block_head">
                     <div class="bheadl"></div>
@@ -41,6 +42,5 @@
         </div>
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/application.js"></script>
     </body>
 </html>

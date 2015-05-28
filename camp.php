@@ -61,6 +61,6 @@ $lista_campanias = bd_ejecutar_sql($consultaCamp);
         </div>
         <script src="js/jquery-2.1.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/application.js"></script>.
+        <!--<script src="js/application.js"></script>.-->
     </body>
 </html>

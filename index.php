@@ -18,7 +18,7 @@
                 <a href="#" title="LOGO INCAE"><img alt="Logo" src="images/incae_logo.png" height="100" width="280"></a>
             </div>
             <p>&nbsp;</p>
-            <div class="container" id="titulologin"><h1 id="tituloexed">PROGRAMA Ex Ed</h1></div>   
+            <div class="container" id="titulologin"><h1 id="tituloexed">PROGRAMA ExEd</h1></div>
             <div class="block center login small">
                 <div class="block_head">
                     <div class="bheadl"></div>

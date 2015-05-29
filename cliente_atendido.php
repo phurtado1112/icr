@@ -19,6 +19,17 @@ $lista_campanias = bd_ejecutar_sql($consulta_campania);
 $filacamp = bd_obtener_fila($lista_campanias);
 $var_camp_nombre = $filacamp['campania'];
 
+$consulta_cantidad_actualizados = "SELECT count(idtipificacion) as idtipificacion FROM transacciones_view WHERE "
+        . "idusuario='" . $_SESSION['idusuario'] . "'AND idcampania='" . $_SESSION['idcampania'] . "' AND idtipificacion=14";
+$lista_cantidad_actualizados = bd_ejecutar_sql($consulta_cantidad_actualizados);
+$fila_cantidad_actualizados = bd_obtener_fila($lista_cantidad_actualizados);
+$total_contactos_actualizados = $fila_cantidad_actualizados['idtipificacion'];
+
+$consulta_cantidad_contactos = "SELECT count(*) as total FROM clientes WHERE idasignar='" . $_SESSION['idasignar'] . "'";
+$lista_cantidad_contactos = bd_ejecutar_sql($consulta_cantidad_contactos);
+$filas = bd_obtener_fila($lista_cantidad_contactos);
+$total_contactos = $filas['total'];
+
 $consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['idusuario'] . "'";
 $lista_asesor = bd_ejecutar_sql($consulta_asesor);
 $fila_asesor = bd_obtener_fila($lista_asesor);
@@ -62,6 +73,7 @@ $nombre_asesor = $fila_asesor['nombre'];
                                         <option value="4">Empresa</option>
                                         <option value="5">Correo</option>
                                         <option value="6">País</option>
+                                        <option value="7">Final</option>
                                     </select>
                                     <button type="button" class="btn" onClick="porclick()">Buscar</button>
                                 </div>        
@@ -89,7 +101,8 @@ $nombre_asesor = $fila_asesor['nombre'];
                 </div>
             </div>
             <div id="container" align="center">
-                <h1 style="alignment-adjust: central">Contactos Atendidos</h1>       
+                <h1 style="alignment-adjust: central">Contactos Atendidos</h1>
+                <h4 style="alignment-adjust: central">Contactos Actualizados <?php echo $total_contactos_actualizados;?> de <?php echo $total_contactos; ?> </h4>
                 <div id="resul_search">
                     <table class="table">
                         <?php

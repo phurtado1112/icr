@@ -91,27 +91,6 @@ if ($idtipificacion == '5') {
                             <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
                             <li><a href="cliente_contacto.php">Contactos</a></li>
                             <li><a href="cliente_atendido.php">Atendidos</a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li><a></a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong><?php echo $nombre_asesor; ?></strong><span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="salir.php">Salir</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -324,14 +303,14 @@ if ($idtipificacion == '5') {
                                     document.getElementById("actualiza0").disabled = false;
                                     document.getElementById("actualiza1").disabled = false;
                                     document.getElementById('OBSERVACION').disabled = false;
-//                                    $('#subfinale').change(function () {
-//                                        var subtipi = $(this).val();
-//                                        if (subtipi === '13') {
-//                                            document.getElementById('OBSERVACION').disabled = false;
-//                                        } else {
-//                                            document.getElementById('OBSERVACION').disabled = true;
-//                                        }
-//                                    });
+                                    $('#subfinale').change(function () {
+                                        var subtipi = $(this).val();
+                                        if (subtipi === '13') {
+                                            document.getElementById('OBSERVACION').disabled = false;
+                                        } else {
+                                            document.getElementById('OBSERVACION').disabled = true;
+                                        }
+                                    });
                                     document.getElementById('datepicker').disabled = true;
                                     document.getElementById('Divtiponointeresado').style.display = 'block';
                                 } else if (indice === '10') { // Otras

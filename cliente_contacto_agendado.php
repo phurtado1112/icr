@@ -8,10 +8,13 @@ if (!$_SESSION) {
 	</script>';
 }
 
+$inicio = filter_input(INPUT_GET, 'inicio');
+
 $consulta_asignar = "Select idasignar from asignar where idcampania='" . $_SESSION['idcampania'] . "' and idusuario='" . $_SESSION['idusuario'] . "'";
 $lista_asignar = bd_ejecutar_sql($consulta_asignar);
 $fila_idasignar = bd_obtener_fila($lista_asignar);
 $idasignar = $fila_idasignar['idasignar'];
+
 $_SESSION['idasignar'] = $idasignar;
 
 $consulta_contactos = "SELECT * FROM agenda_view WHERE idasignar='" . $_SESSION['idasignar'] . "' AND gestionado='0'";
@@ -29,6 +32,22 @@ $consulta_asesor = "SELECT nombre FROM usuarios WHERE idusuario='" . $_SESSION['
 $lista_asesor = bd_ejecutar_sql($consulta_asesor);
 $fila_asesor = bd_obtener_fila($lista_asesor);
 $nombre_asesor = $fila_asesor['nombre'];
+
+if ($inicio == 'si') {
+    $consulta_campania_finaliza = "SELECT campania, DATE_FORMAT(fechafin,'%d %b %y') as fechafin, (atraso*-1) as dias 
+    FROM incaecrm.campania_x_asesor_view WHERE activo='Si' AND terminada='No' and idcampania='" . $_SESSION['idcampania'] . "';";
+    $lista_campania_finaliza = bd_ejecutar_sql($consulta_campania_finaliza);
+    $fila_campania_finaliza = bd_obtener_fila($lista_campania_finaliza);
+    $campania_finaliza = $fila_campania_finaliza;
+
+    if (isset($campania_finaliza)) {
+        echo "<script language = javascript>";
+        echo "alert('La campaña \"" . $campania_finaliza['campania'] . "\" finalizan el día " .
+        $campania_finaliza['fechafin'] . ". Quedan " .
+        $campania_finaliza['dias'] . " días restantes');";
+        echo "</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">

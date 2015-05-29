@@ -36,6 +36,9 @@ if (isset($opcion)) {
         case 6:
             $busqueda = "SELECT * FROM transacciones_view WHERE pais LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
+        case 7:
+            $busqueda = "SELECT * FROM transacciones_view WHERE tipificacion LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            break;
     }
 
     $lista_contactos_atendidos = bd_ejecutar_sql($busqueda);

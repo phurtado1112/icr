@@ -105,7 +105,7 @@ function load_atendido(cliente, finales, observacion, usuario, sub_finales, agen
 
 /* **** ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CONTACTOS AGENDADOS **** */
 
-function searchagendados(cadena, opcion) {
+function buscaragendados(cadena, opcion) {
     var xmlhttp;
 
     if (window.XMLHttpRequest) {
@@ -118,14 +118,14 @@ function searchagendados(cadena, opcion) {
             document.getElementById("resul_search").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("POST", "cliente_contacto_agendado_busqueda.php", true);
+    xmlhttp.open("POST", "contacto_agendado_busqueda.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("ajxcadena=" + cadena + "&ajxopcion=" + opcion);
 }
 
 /* **** ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CONTACTOS ATENDIDOS **** */
 
-function searchdataAtendidos(cadena, opcion) {
+function buscaratendidos(cadena, opcion) {
     var xmlhttp;
 
     if (window.XMLHttpRequest) {
@@ -138,14 +138,14 @@ function searchdataAtendidos(cadena, opcion) {
             document.getElementById("resul_search").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("POST", "cliente_atendido_busqueda.php", true);
+    xmlhttp.open("POST", "contacto_atendido_busqueda.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("ajxcadena=" + cadena + "&ajxopcion=" + opcion);
 }
 
 /* **** ENVIO DE INFORMACION PARA REALILZAR BUSQUEDAS DE CONTACTOS NUEVOS **** */
 
-function searchdata(cadena, opcion) {
+function buscarnuevos(cadena, opcion) {
     var xmlhttp;
 
     if (window.XMLHttpRequest) {
@@ -158,7 +158,7 @@ function searchdata(cadena, opcion) {
             document.getElementById("resul_search").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("POST", "cliente_contacto_busqueda.php", true);
+    xmlhttp.open("POST", "contacto_nuevo_busqueda.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("ajxcadena=" + cadena + "&ajxopcion=" + opcion);
 }

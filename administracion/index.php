@@ -18,7 +18,7 @@
 
                 <div class="row-fluid">
                     <div class="span12 center login-header">
-                        <h2>Administrador de CRM INCAE</h2>
+                        <h2 id="titulologinadmin">ADMINISTRADOR DE CRM ExEd INCAE</h2>
                     </div>
                 </div>
 

@@ -75,11 +75,9 @@
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gestión<b class="caret"></b></a>
                         <ul class="dropdown-menu" id="menu4">
                             <li>
-                                <!--<a href="./rep_gestion_campanias.php">Gestión de Contactos</a>-->
                                 <a href="./reportes/index.php" target="_blank">Gestión de Contactos</a>
                             </li>
                             <li>
-                                <!--<a href="./rep_gestion_campanias.php">Gestión de Contactos</a>-->
                                 <a href="campania_avances.php" target="_blank">Avances de Campaña</a>
                             </li>
                         </ul>

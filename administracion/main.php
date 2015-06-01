@@ -13,6 +13,7 @@ $lista_campanias_vencidas = bd_ejecutar_sql($consulta_campanias_vencidas);
 while ($fila_campanias_vencidas = bd_obtener_fila($lista_campanias_vencidas)) {
     $campanias_vencidas[] = $fila_campanias_vencidas;
 }
+
 if (isset($campanias_vencidas)) {
     echo "<script language = javascript>";
     foreach ($campanias_vencidas as $cv) {
@@ -20,9 +21,6 @@ if (isset($campanias_vencidas)) {
     }
     echo "</script>";
 }
-//echo '<script language = javascript>';
-//echo 'alert ("Prueba")';
-//echo '</script>';
 ?>
 <!DOCTYPE html>
 <html>

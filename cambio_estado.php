@@ -48,10 +48,10 @@ $nombre_asesor = $fila_asesor['nombre'];
                         <ul class="nav">
                             <li><a href="noticias.php">Noticias</a></li>
                             <li class="active"><a href="cambio_estado.php">Estado</a></li>
-                            <li><a href="cliente_nuevo.php">Nuevo Contacto</a></li>
-                            <li><a href="cliente_contacto_agendado.php">Agendados</a></li>
-                            <li><a href="cliente_contacto.php">Contactos</a></li>
-                            <li><a href="cliente_atendido.php">Atendidos</a></li>
+                            <li><a href="contacto_nuevo_agregar.php">Nuevo Contacto</a></li>
+                            <li><a href="contacto_agendado.php">Agendados</a></li>
+                            <li><a href="contacto_nuevo.php">Contactos</a></li>
+                            <li><a href="contacto_atendido.php">Atendidos</a></li>
                             <li><a></a></li>
                             <li><a></a></li>
                             <li><a></a></li>

@@ -177,6 +177,6 @@ if (isset($idcliente)) {
     $consulta_actualiza_cliente_transaccion = "UPDATE cliente_transaccion set idtransaccion = '" . $idtransaccion_max . "' WHERE idcliente = '" . $idcliente . "'";
     bd_ejecutar_sql($consulta_actualiza_cliente_transaccion);
 
-    header("Location: cliente_contacto.php");
+    header("Location: contacto_nuevo.php");
 }
 

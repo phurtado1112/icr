@@ -1099,6 +1099,7 @@ class crGestiF3n_CampaF1a_x_Programa_Open_ExEd_summary extends crGestiF3n_CampaF
 
 			// asesor
 			$this->asesor->GroupViewValue = $this->asesor->GroupOldValue();
+			$this->asesor->ViewAttrs["style"] = "font-weight:bold;";
 			$this->asesor->CellAttrs["class"] = ($this->RowGroupLevel == 3) ? "ewRptGrpSummary3" : "ewRptGrpField3";
 			$this->asesor->GroupViewValue = ewr_DisplayGroupValue($this->asesor, $this->asesor->GroupViewValue);
 			$this->asesor->GroupSummaryOldValue = $this->asesor->GroupSummaryValue;
@@ -1161,6 +1162,7 @@ class crGestiF3n_CampaF1a_x_Programa_Open_ExEd_summary extends crGestiF3n_CampaF
 
 			// asesor
 			$this->asesor->GroupViewValue = $this->asesor->GroupValue();
+			$this->asesor->ViewAttrs["style"] = "font-weight:bold;";
 			$this->asesor->CellAttrs["class"] = "ewRptGrpField3";
 			$this->asesor->GroupViewValue = ewr_DisplayGroupValue($this->asesor, $this->asesor->GroupViewValue);
 			if ($this->asesor->GroupValue() == $this->asesor->GroupOldValue() && !$this->ChkLvlBreak(3))

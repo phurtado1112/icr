@@ -59,7 +59,7 @@ define("EWR_ROOT_RELATIVE_PATH", ".", TRUE); // Relative path of app root
 define("EWR_DEFAULT_DATE_FORMAT", "dd/mm/yyyy", TRUE); // Default date format
 define("EWR_DATE_SEPARATOR", "/", TRUE); // Date separator
 define("EWR_UNFORMAT_YEAR", 50, TRUE); // Unformat year
-define("EWR_RANDOM_KEY", 'wNMpP2vmisKqFXFB', TRUE); // Random key for encryption
+define("EWR_RANDOM_KEY", 'tK57JVI4SP8U3cQv', TRUE); // Random key for encryption
 define("EWR_PROJECT_STYLESHEET_FILENAME", "phprptcss/reportes_incae.css", TRUE); // Project stylesheet file name
 define("EWR_CHART_WIDTH", 550, TRUE);
 define("EWR_CHART_HEIGHT", 440, TRUE);

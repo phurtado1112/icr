@@ -20,25 +20,25 @@ error_reporting(0);
 if (isset($opcion)) {
     switch ($opcion) {
         case 0:
-            $busqueda = "SELECT * FROM transacciones_view WHERE idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE idasignar=" . $idasignar;
             break;
         case 2:
-            $busqueda = "SELECT * FROM transacciones_view WHERE nombre LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE nombre LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 3:
-            $busqueda = "SELECT * FROM transacciones_view WHERE cargo LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE cargo LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 4:
-            $busqueda = "SELECT * FROM transacciones_view WHERE empresa LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE empresa LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 5:
-            $busqueda = "SELECT * FROM transacciones_view WHERE email LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE email LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 6:
-            $busqueda = "SELECT * FROM transacciones_view WHERE pais LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE pais LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
         case 7:
-            $busqueda = "SELECT * FROM transacciones_view WHERE tipificacion LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
+            $busqueda = "SELECT * FROM transacciones_atendidos_view WHERE tipificacion LIKE '%" . $cadena . "%' and idasignar=" . $idasignar;
             break;
     }
 

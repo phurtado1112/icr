@@ -6,16 +6,17 @@ require './fpdf/fpdf.php';
 switch (filter_input(INPUT_POST, 'Submit')) {
     case "Cancelar":
 
-        header("Location: rep_gestion_de_campania_form.php");
+        header("Location: rep_gestion_de_campanias_form.php");
         exit(0);
 
         break;
 
     case "Presentar":
+        
         $idprograma = (filter_input(INPUT_POST, 'idprograma'));
         $fechainicio = (filter_input(INPUT_POST, 'fechainicio'));
         $fechafin = (filter_input(INPUT_POST, 'fechafin'));
-
+        echo $fechafin;
         class PDF extends FPDF {
 
 // Cabecera de página
@@ -102,13 +103,12 @@ switch (filter_input(INPUT_POST, 'Submit')) {
             $pdf->Cell(95, 6, utf8_decode('Tipificación'), 1, 0, 'L', true);
             $pdf->Cell(40, 6, utf8_decode('No. Contactos'), 1, 1, 'C', true);
 
-            $consulta2 = "SELECT count(tra.idtipificacion) as cantidad, tip.tipificacion as tipo
-                    FROM transacciones_view as tra 
-                    left join tipificacion tip on (tra.idtipificacion=tip.idtipificacion)
+            $consulta2 = "SELECT count(idtipificacion) as cantidad, tipificacion as tipo
+                    FROM transacciones_tipos_view as
                     where idprograma=" . $idprograma . " and idcampania=". $fila00['idcampania'] .
-                    " and tra.idtipificacion <> 5 and tra.idtipificacion <> 14
+                    " and idtipificacion <> 6 and ultimo=1
                      and (fecha >='" . $fechainicio . "' and fecha <= '" . $fechafin .
-                    "') group by tra.idtipificacion order by tip.tipificacion;";
+                    "') group by idtipificacion order by tipificacion;";
             $res2 = bd_ejecutar_sql($consulta2);
             $pdf->SetFont('Arial', 'b', 10);
             while ($fila2 = bd_obtener_fila($res2)) {
@@ -117,10 +117,10 @@ switch (filter_input(INPUT_POST, 'Submit')) {
                 $pdf->Ln();
             }
 
-            $consulta1 = "SELECT count(idcliente) FROM transacciones_view where idprograma=" . $idprograma . 
+            $consulta1 = "SELECT count(idcliente) FROM transacciones_tipos_view where idprograma=" . $idprograma . 
                     " and idcampania=". $fila00['idcampania'] . " "
-                    . "and (idtipificacion <> 5 and idtipificacion <> 14) and (fecha >='" . $fechainicio . "' "
-                    . "and fecha <= '" . $fechafin . "')";
+                    . "and idtipificaciontipo <> 6 and (fecha >='" . $fechainicio . "' "
+                    . "and fecha <= '" . $fechafin . "') and ultimo=1";
             $res1 = bd_ejecutar_sql($consulta1);
             $pdf->SetFont('Arial', '', 12);
             while ($fila1 = bd_obtener_fila($res1)) {

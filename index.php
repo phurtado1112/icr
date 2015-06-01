@@ -27,7 +27,7 @@
 
                 </div>
                 <div class="block_content">
-                    <form accept-charset="UTF-8" action="acceso_usuario.php" class="new_user" id="new_user" method="post">
+                    <form accept-charset="UTF-8" action="usuario_acceso_procesar.php" class="new_user" id="new_user" method="post">
                         <input type="text" id="username" class="span4" name="usuario" placeholder="Usuario" size="30" autofocus>
                         <input type="password" id="password" class="span4" name="contrasena" placeholder="Contraseña" size="30">
                         <br><br><input class="btn btn-primary btn-large" name="commit" type="submit" value="Acceder">

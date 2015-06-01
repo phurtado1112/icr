@@ -76,12 +76,12 @@ $lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
                                                         <select id="tipo" name="tipo">
                                                             <?php
                                                             while ($fila_usuario_tipo = bd_obtener_fila($lista_usuario_tipo)) {
-                                                               
-                                                                echo '<option value="'.$fila_usuario_tipo['idusuariotipo'].'"';
-                                                                if($fila_usuario_tipo['idusuariotipo']==$tipo){
+
+                                                                echo '<option value="' . $fila_usuario_tipo['idusuariotipo'] . '"';
+                                                                if ($fila_usuario_tipo['idusuariotipo'] == $tipo) {
                                                                     echo 'selected';
                                                                 }
-                                                                echo '>'.$fila_usuario_tipo['usuariotipo'].'</option>';
+                                                                echo '>' . $fila_usuario_tipo['usuariotipo'] . '</option>';
                                                             }
                                                             ?>
                                                         </select>
@@ -106,26 +106,22 @@ $lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
             include './pie.php';
             ?>
         </div>
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <!--<script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/assets/scripts.js"></script>
+        <!--<script src="Admin/assets/scripts.js"></script>-->
         <script>
-                                                    function validar() {
-                                                        if (document.getElementById('nombre').value === '') {
-                                                            alert('FALTA NOMBRE');
-                                                        } else {
-                                                            if (document.getElementById('usuario').value === '') {
-                                                                alert('FALTA USUARIO');
+                                                        function validar() {
+                                                            if (document.getElementById('nombre').value === '') {
+                                                                alert('FALTA NOMBRE');
                                                             } else {
-                                                                if (document.getElementById('contrasenia').value === '') {
-                                                                    alert('FALTA CONTRASEÑA');
+                                                                if (document.getElementById('usuario').value === '') {
+                                                                    alert('FALTA USUARIO');
                                                                 } else {
                                                                     document.formusuario.submit();
                                                                 }
                                                             }
                                                         }
-                                                    }
         </script>
     </body>
 </html>

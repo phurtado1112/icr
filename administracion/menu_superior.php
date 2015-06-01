@@ -71,20 +71,22 @@
                             
                         </ul>
                     </li>
-                    <li class="dropdown">
+<!--                    <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Gestión<b class="caret"></b></a>
                         <ul class="dropdown-menu" id="menu4">
+                            
+                        </ul>
+                    </li>-->
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes<b class="caret"></b></a>
+                        <ul class="dropdown-menu" id="menu3">
                             <li>
                                 <a href="./reportes/index.php" target="_blank">Gestión de Contactos</a>
                             </li>
                             <li>
                                 <a href="campania_avances.php" target="_blank">Avances de Campaña</a>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Reportes<b class="caret"></b></a>
-                        <ul class="dropdown-menu" id="menu3">
+                            <li class="divider"></li>
                             <li>
                                 <a href="rep_gestion_campania_form.php">Gestión de Asesor por Campaña</a>
                             </li>
@@ -98,7 +100,7 @@
                                 <a href="rep_gestion_de_campania_detallado_asesor_form.php">Gestión Detallada de Programa por Asesor</a>
                             </li>
                             <li class="divider"></li>
-                            <li>
+<!--                            <li>
                                 <a href="rep_actualizacion_program_form.php">Actualización de Contactos Total de Programa</a>
                             </li>
                             <li>
@@ -107,7 +109,7 @@
                             <li>
                                 <a href="rep_actualizacion_detallado_asesor_form.php">Actualización de Contactos Detallada de Programa por Asesor</a>
                             </li>
-                            <li class="divider"></li>
+                            <li class="divider"></li>-->
                             <li>
                                 <a href="rep_campanias_x_asesor_form.php">Campañas asignadas a Asesor</a>
                             </li>

@@ -76,9 +76,9 @@ $lista_programas = bd_ejecutar_sql($consulta_programas);
                 </div>
             </div>
         </div>
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
+        <!--<script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>-->
         <script>
             $(function() {
                 $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });

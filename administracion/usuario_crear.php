@@ -7,6 +7,9 @@ if (!$_SESSION) {
 	self.location = "index.php"
 	</script>';
 }
+
+$consulta_usuario_tipo = "SELECT idusuariotipo, usuariotipo from usuario_tipo";
+$lista_usuario_tipo = bd_ejecutar_sql($consulta_usuario_tipo);
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,11 +64,16 @@ if (!$_SESSION) {
                                                 <label class="control-label">Tipo Usuario</label>
                                                 <div class="controls">
                                                     <select id="tipo" name="tipo">
-                                                        <option value="0">Seminarios</option>
-                                                        <option value="1">Maestría</option>
-                                                        <option value="2">Administración</option>
-                                                        <option value="3">Global EMBA</option>
-                                                        <option value="4">Actualizadores</option>
+                                                        <?php
+                                                            while ($fila_usuario_tipo = bd_obtener_fila($lista_usuario_tipo)) {
+                                                               
+                                                                echo '<option value="'.$fila_usuario_tipo['idusuariotipo'].'"';
+                                                                if($fila_usuario_tipo['idusuariotipo']==$tipo){
+                                                                    echo 'selected';
+                                                                }
+                                                                echo '>'.$fila_usuario_tipo['usuariotipo'].'</option>';
+                                                            }
+                                                            ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -87,11 +95,8 @@ if (!$_SESSION) {
             include './pie.php';
             ?>
         </div>
-        <script src="Admin/vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <script src="Admin/vendors/jquery-1.9.1.min.js"></script>
         <script src="Admin/bootstrap/js/bootstrap.min.js"></script>
-        <script src="Admin/vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-        <script src="Admin/assets/scripts.js"></script>
         <script>
             function validar() {
                 if (document.getElementById('nombre').value === '') {

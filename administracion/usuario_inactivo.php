@@ -62,7 +62,7 @@ $consulta_usuarios = "SELECT * FROM usuarios_view where activo=1";
                                                     <td>" . $u['nombre'] . "</td>
                                                     <td>" . $u['usuario'] . "</td>
                                                     <td>" . $u['tipo'] . "</td>
-                                                    <td>" . '<a href="usuario_activar.php?idusuario=' . $ids . '">Activar</a> -- <a href="eliminar.php?idusuario=' . $ids . '">Eliminar</a>' . "</td>
+                                                    <td>" . '<a href="usuario_activar.php?idusuario=' . $ids . '">Activar</a> -- <a href="usuario_eliminar.php?idusuario=' . $ids . '">Eliminar</a>' . "</td>
                                                     </tr>";
                                             }
                                         }

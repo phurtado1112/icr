@@ -3,7 +3,7 @@ include_once './funciones.general.php';
 
 $consulta_campanias = "SELECT nombre, campania, programa, fechafin, activo, terminada, atraso 
     FROM incaecrm.campania_x_asesor_view 
-    where activo='Si' and terminada='No' and (date_add(curdate(), interval 7 day)) < fechafin;;";
+    WHERE activo='Si' AND terminada='No' AND (date_add(curdate(), interval 7 day)) < fechafin;;";
 $lista_campanias = bd_ejecutar_sql($consulta_campanias);
 while ($fila_campanias = bd_obtener_fila($lista_campanias)) {
     $campaniasfinal[] = $fila_campanias;

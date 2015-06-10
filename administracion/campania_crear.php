@@ -106,8 +106,8 @@ if (!$_SESSION) {
         </script>
         <script>
             $(function() {
-                $("#datepicker").datepicker({ dateFormat: "yy-mm-dd" });
-                $("#datepicker1").datepicker({ dateFormat: "yy-mm-dd" });
+                $("#datepicker").datepicker({ dateFormat: "dd-mm-yy" });
+                $("#datepicker1").datepicker({ dateFormat: "dd-mm-yy" });
             });
         </script>
     </body>

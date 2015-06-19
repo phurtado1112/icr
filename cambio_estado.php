@@ -115,7 +115,6 @@ $nombre_asesor = $fila_asesor['nombre'];
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/obj_ajax.js"></script>
-        <!--<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>-->
         <script type="text/javascript" src="js/cronos.js"></script>  
     </body>
 </html>
